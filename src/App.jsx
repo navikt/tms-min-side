@@ -1,25 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import { useQuery } from "react-query";
+import { createNanoEvents } from "nanoevents";
 import useStore, { selectIsError } from "./store/store";
-import { minSideToppUrl, minSideBunnUrl } from "./urls";
+import { fetcher } from "./api/api";
+import { minSideProxyUrl } from "./urls";
 import Layout from "./components/layout/Layout";
-import renderMinSide from "./microfrontend/renderMinSide";
-import renderMicrofrontend from "./microfrontend/renderMicrofrontend";
-
-const MinSideTopp = React.lazy(() => import(minSideToppUrl));
-const MinSideBunn = React.lazy(() => import(minSideBunnUrl));
+import MinSide from "./microfrontend/MinSide";
 
 const App = () => {
+  const { data: status, isSuccess } = useQuery(`${minSideProxyUrl}/login/status`, fetcher);
   const isError = useStore(selectIsError);
+  const emitter = createNanoEvents();
+
+  if (isSuccess) {
+    emitter.on("loaded", () => {
+      emitter.emit("level", status.level);
+    });
+  }
 
   return (
     <Router>
       <Layout isError={isError}>
         <Routes>
-          <Route path="/minside" exact element={renderMinSide(MinSideTopp, MinSideBunn)} />
-          <Route path="/minside/topp" element={renderMicrofrontend(MinSideTopp)} />
-          <Route path="/minside/bunn" element={renderMicrofrontend(MinSideBunn)} />
+          <Route path="/minside" exact element={<MinSide emitter={emitter} />} />
         </Routes>
       </Layout>
     </Router>
