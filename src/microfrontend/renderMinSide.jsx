@@ -7,10 +7,10 @@ import { minSideProxyUrl } from "../urls";
 import { fetcher } from "../api/api";
 
 export const renderMinSide = (MinSideTopp, MinSideBunn) => {
-  const { data: status, isLoading } = useQuery(`${minSideProxyUrl}/login/status`, fetcher);
+  const { data: status, isSuccess } = useQuery(`${minSideProxyUrl}/login/status`, fetcher);
   const emitter = createNanoEvents();
 
-  if (!isLoading) {
+  if (isSuccess) {
     emitter.on("loaded", () => {
       emitter.emit("level", status.level);
     });
