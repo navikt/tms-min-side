@@ -13,15 +13,7 @@ const MinSide = () => {
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
-      <ErrorBoundary>
-        <MinSideOversikt />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <ArbeidsflateForInnlogetArbeidssoker />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <MinSideTjenester />
-      </ErrorBoundary>
+      <h1>Test</h1>
     </React.Suspense>
   );
 };

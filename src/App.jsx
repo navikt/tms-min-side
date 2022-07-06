@@ -14,7 +14,6 @@ const App = () => {
       <Layout isError={isError}>
         <Routes>
           <Route path="/minside" exact element={<MinSide />} />
-          <Route path="/minside/varslinger" element={<MinSideVarslinger />} />
         </Routes>
       </Layout>
     </Router>
