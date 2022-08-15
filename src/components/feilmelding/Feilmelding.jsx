@@ -2,7 +2,7 @@ import React from "react";
 import { Alert } from "@navikt/ds-react";
 import useStore, { selectLanguage } from "../../store/store";
 import { text } from "../../language/text";
-import "./Feilmelding.css";
+import "./Feilmelding.module.css";
 
 const FeilMelding = () => {
   const language = useStore(selectLanguage);
