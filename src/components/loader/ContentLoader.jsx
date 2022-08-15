@@ -1,6 +1,6 @@
 import React from "react";
 import { Loader } from "@navikt/ds-react";
-import "./ContentLoader.css";
+import "./ContentLoader.module.css";
 
 const ContentLoader = () => {
   return (
