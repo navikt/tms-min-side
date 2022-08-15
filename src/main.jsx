@@ -8,7 +8,7 @@ import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "./api/query";
 import { getEnvironment } from "./api/environment";
-import "./main.module.css";
+import "./main.css";
 
 if (process.env.NODE_ENV === "development") {
   await injectDecoratorClientSide({
