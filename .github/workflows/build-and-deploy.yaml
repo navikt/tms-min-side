@@ -22,7 +22,26 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: "Build application"
-        run: "npm run build"
+        run: "npm run build:dev"
+
+      - name: dev-upload
+        uses: nais/frontend-plattform-cdn-upload-action@main
+        with:
+          cdn-environment: cdn.dev.nav.no
+          cdn-team-name: min-side
+          cache-invalidation: true
+          source: ./dist/assets
+          destination: 'tms-min-side'
+
+      - name: prod-upload
+        if: github.ref == 'refs/heads/main'
+        uses: nais/frontend-plattform-cdn-upload-action@main
+        with:
+          cdn-environment: cdn.nav.no
+          cdn-team-name: min-side
+          cache-invalidation: true
+          source: ./dist/assets
+          destination: 'tms-min-side'
       - name: "Build and publish Docker image"
         run:
           "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
