@@ -34,7 +34,6 @@ jobs:
         with:
           cdn-environment: cdn.nav.no
           cdn-team-name: min-side
-          cache-invalidation: true
           source: ./dist/assets
           destination: 'tms-min-side'
 
