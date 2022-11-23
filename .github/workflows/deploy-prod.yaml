@@ -1,0 +1,58 @@
+name: "Build and deploy to prod"
+on:
+  push:
+    branches:
+      - "main"
+env:
+  "IMAGE": "ghcr.io/${{ github.repository }}/tms-min-side:${{ github.sha }}"
+jobs:
+  build:
+    name: "build"
+    runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      packages: 'write'
+
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-node@v3"
+        with:
+          node-version: 16
+          registry-url: "https://npm.pkg.github.com"
+          cache: 'npm'
+      - name: "Install dependencies"
+        run: "npm ci"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: "Build application"
+        run: "npm run build:prod"
+
+      - name: prod-upload
+        uses: nais/frontend-plattform-cdn-upload-action@main
+        with:
+          cdn-environment: cdn.nav.no
+          cdn-team-name: min-side
+          cache-invalidation: true
+          source: ./dist/assets
+          destination: 'tms-min-side'
+
+      - name: "Build and publish Docker image"
+        run:
+          "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
+          \ --username $GITHUB_REPOSITORY --password-stdin https://ghcr.io\
+          \ && docker push ${IMAGE}"
+        env:
+          "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+  deploy:
+    runs-on: "ubuntu-latest"
+    needs: "build"
+    steps:
+      - uses: "actions/checkout@v3"
+      - name: "Deploy to prod"
+        uses: "nais/deploy/actions/deploy@v1"
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: nais/prod-gcp/nais.yaml
