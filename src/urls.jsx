@@ -42,7 +42,19 @@ const MIN_SIDE_TJENESTER = {
   production: "https://www.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
 };
 
+const MIN_SIDE_TJENESTER_BASE_URL = {
+  local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
+  development: "https://person.dev.nav.no/tms-min-side-tjenester",
+  production: "https://www.nav.no/tms-min-side-tjenester",
+};
+
 const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL = {
+  local: "http://localhost:3000/aia/bundle.js",
+  development: `https://veientilarbeid.dev.nav.no/esm/bundle.js?ts=${Date.now()}`,
+  production: `https://veientilarbeid.nav.no/esm/bundle.js?ts=${Date.now()}`,
+};
+
+const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL = {
   local: "http://localhost:3000/aia/bundle.js",
   development: `https://veientilarbeid.dev.nav.no/esm/bundle.js?ts=${Date.now()}`,
   production: `https://veientilarbeid.nav.no/esm/bundle.js?ts=${Date.now()}`,
@@ -74,14 +86,20 @@ const MELDEKORT_MIKROFRONTEND_URL = {
 
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideOversiktUrl = MIN_SIDE_OVERSIKT[getEnvironment()];
-export const arbeidsflateForInnlogetArbeidssokerUrl = ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL[getEnvironment()];
 export const minSideTjenesterUrl = MIN_SIDE_TJENESTER[getEnvironment()];
+export const minSideTjenesterBaseUrl = MIN_SIDE_TJENESTER_BASE_URL[getEnvironment()];
 export const minSideVarslingerUrl = MIN_SIDE_VARSLINGER[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const authenticationUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/login/status`;
 export const legacyAuthenticationUrl = LEGACY_AUTHENTICATION_URL[getEnvironment()];
 export const loginserviceUrl = LOGINSERVICE_URL[getEnvironment()];
-export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const utkastUrl = UTKAST_URL[getEnvironment()];
 export const baseUrl = BASE_URL[getEnvironment()];
 export const meldekortMikrofrontendUrl = MELDEKORT_MIKROFRONTEND_URL[getEnvironment()];
+export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
+export const arbeidsflateForInnlogetArbeidssokerUrl = ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL[getEnvironment()];
+export const arbeidsflateForInnloggetArbeidssokerBaseUrl =
+  ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL[getEnvironment()];
+export const arbeidsflateForInnloggetArbeidssokerManifestUrl = `${
+  arbeidsflateForInnloggetArbeidssokerBaseUrl[getEnvironment()]
+}/manifest.json`;
