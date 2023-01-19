@@ -29,7 +29,7 @@ const MinSide = () => {
     return <ContentLoader />;
   }
 
-  const ArbeidsflateForInnlogetArbeidssoker = React.lazy(() =>
+  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${arbeidsflateForInnloggetArbeidssokerBaseUrl}/${aiaManifest["src/main.tsx"]["file"]}`)
   );
   const MinSideOversikt = React.lazy(() => import(minSideOversiktUrl));
@@ -47,7 +47,7 @@ const MinSide = () => {
         </ErrorBoundary>
         {data?.erArbeidssoker ? (
           <ErrorBoundary>
-            <ArbeidsflateForInnlogetArbeidssoker />
+            <ArbeidsflateForInnloggetArbeidssoker />
           </ErrorBoundary>
         ) : null}
         <ErrorBoundary>
