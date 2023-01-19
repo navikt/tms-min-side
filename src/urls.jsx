@@ -62,8 +62,8 @@ const TJENESTER_BASE_URL = {
 
 const VARSLINGER_BASE_URL = {
   local: "http://localhost:3000/tms-min-side-varslinger/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
-  production: "https://www.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
+  development: "https://person.dev.nav.no/tms-min-side-varslinger",
+  production: "https://www.nav.no/tms-min-side-varslinger",
 };
 
 const UTKAST_BASE_URL = {
