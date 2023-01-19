@@ -4,10 +4,12 @@ import ContentLoader from "../components/loader/ContentLoader";
 import { meldekortUrl, oversiktManifestUrl, oversiktBaseUrl, tjenesterBaseUrl, tjenesterManifestUrl } from "../urls";
 import { arbeidssokerUrl } from "../urls";
 import { aiaBaseUrl, aiaManifestUrl } from "../urls";
+import { aiaEntry, bundle, oversiktEntry, tjenesterEntry } from "./entrypoints";
 import useStore, { selectIsError, selectSetIsError } from "../store/store";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import { useQuery } from "react-query";
-import { fetcher, manifestFetcher } from "../api/api";
+import { useManifest } from "../hooks/useManifest";
+import { fetcher } from "../api/api";
 import { updateUserProperties } from "../amplitude/amplitude";
 import Layout from "../components/layout/Layout";
 
@@ -17,25 +19,9 @@ const MinSide = () => {
     onSuccess: (data) => updateUserProperties(data.erArbeidssoker),
   });
 
-  const { data: aiaManifest, isLoading: isLoadingAiaManifest } = useQuery(aiaManifestUrl, manifestFetcher, {
-    onError: useStore(selectSetIsError),
-  });
-
-  const { data: oversiktManifest, isLoading: isLoadingOversiktManifest } = useQuery(
-    oversiktManifestUrl,
-    manifestFetcher,
-    {
-      onError: useStore(selectSetIsError),
-    }
-  );
-
-  const { data: tjenesterManifest, isLoading: isLoadingTjenesterManifest } = useQuery(
-    tjenesterManifestUrl,
-    manifestFetcher,
-    {
-      onError: useStore(selectSetIsError),
-    }
-  );
+  const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
+  const [oversiktManifest, isLoadingOversiktManifest] = useManifest(oversiktManifestUrl);
+  const [tjenesterManifest, isLoadingTjenesterManifest] = useManifest(oversiktManifestUrl);
 
   const isError = useStore(selectIsError);
   useBreadcrumbs();
@@ -45,14 +31,12 @@ const MinSide = () => {
   }
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
-    import(`${aiaBaseUrl}/${aiaManifest["src/main.tsx"]["file"]}`)
+    import(`${aiaBaseUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
-  const Oversikt = React.lazy(() => import(`${oversiktBaseUrl}/${oversiktManifest["src/Mikrofrontend.jsx"]["file"]}`));
+  const Oversikt = React.lazy(() => import(`${oversiktBaseUrl}/${oversiktManifest[oversiktEntry][bundle]}`));
 
-  const Tjenester = React.lazy(() =>
-    import(`${tjenesterBaseUrl}/${tjenesterManifest["src/Mikrofrontend.jsx"]["file"]}`)
-  );
+  const Tjenester = React.lazy(() => import(`${tjenesterBaseUrl}/${tjenesterManifest[tjenesterEntry][bundle]}`));
 
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
