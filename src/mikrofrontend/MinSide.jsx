@@ -38,6 +38,10 @@ const MinSide = () => {
   const MinSideOversikt = React.lazy(() => import(minSideOversiktUrl));
   const Meldekort = React.lazy(() => import(meldekortMikrofrontendUrl));
   const MinSideTjenester = React.lazy(() => import(minSideTjenesterUrl));
+
+  console.log("Manifest:" + aiaManifest);
+  console.log("Manifest url:" + arbeidsflateForInnloggetArbeidssokerManifestUrl);
+
   return (
     <Layout isError={isError}>
       <React.Suspense fallback={<ContentLoader />}>
