@@ -10,7 +10,7 @@ import {
 import useStore, { selectIsError, selectSetIsError } from "../store/store";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import { useQuery } from "react-query";
-import { fetcher } from "../api/api";
+import { fetcher, manifestFetcher } from "../api/api";
 import { updateUserProperties } from "../amplitude/amplitude";
 import Layout from "../components/layout/Layout";
 
@@ -22,7 +22,7 @@ const MinSide = () => {
 
   const { data: aiaManifest, isLoading: isLoadingTjenesterManifest } = useQuery(
     arbeidsflateForInnloggetArbeidssokerManifestUrl,
-    fetcher
+    manifestFetcher
   );
 
   const isError = useStore(selectIsError);

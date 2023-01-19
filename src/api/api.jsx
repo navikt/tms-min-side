@@ -20,3 +20,10 @@ export const fetcher = async ({ queryKey }) => {
 
   return response.json();
 };
+
+export const manifestFetcher = async ({ queryKey }) => {
+  const response = await fetch(queryKey, { method: "GET" });
+  checkResponse(response);
+
+  return response.json();
+};
