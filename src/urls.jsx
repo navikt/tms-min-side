@@ -56,8 +56,8 @@ const OVERSIKT_BASE_URL = {
 
 const TJENESTER_BASE_URL = {
   local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
-  production: "https://www.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
+  development: "https://person.dev.nav.no/tms-min-side-tjenester",
+  production: "https://www.nav.no/tms-min-side-tjenester",
 };
 
 const VARSLINGER_BASE_URL = {
