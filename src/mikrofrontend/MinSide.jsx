@@ -21,7 +21,7 @@ const MinSide = () => {
 
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
   const [oversiktManifest, isLoadingOversiktManifest] = useManifest(oversiktManifestUrl);
-  const [tjenesterManifest, isLoadingTjenesterManifest] = useManifest(oversiktManifestUrl);
+  const [tjenesterManifest, isLoadingTjenesterManifest] = useManifest(tjenesterManifestUrl);
 
   const isError = useStore(selectIsError);
   useBreadcrumbs();
@@ -35,9 +35,7 @@ const MinSide = () => {
   );
 
   const Oversikt = React.lazy(() => import(`${oversiktBaseUrl}/${oversiktManifest[oversiktEntry][bundle]}`));
-
   const Tjenester = React.lazy(() => import(`${tjenesterBaseUrl}/${tjenesterManifest[tjenesterEntry][bundle]}`));
-
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
   return (
