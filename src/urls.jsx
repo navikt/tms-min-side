@@ -38,8 +38,8 @@ const ARBEIDSSOKER_URL = {
 
 const AIA_BASE_URL = {
   local: "http://localhost:3000/aia/bundle.js",
-  development: `https://veientilarbeid.dev.nav.no/esm`,
-  production: `https://veientilarbeid.nav.no/esm`,
+  development: "https://veientilarbeid.dev.nav.no/esm",
+  production: "https://veientilarbeid.nav.no/esm",
 };
 
 const MELDEKORT_URL = {
