@@ -24,42 +24,6 @@ const LEGACY_AUTHENTICATION_URL = {
   production: "https://www.nav.no/dittnav-api/authPing",
 };
 
-const MIN_SIDE_VARSLINGER = {
-  local: "http://localhost:3000/tms-min-side-varslinger/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
-  production: "https://www.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
-};
-
-const MIN_SIDE_OVERSIKT = {
-  local: "http://localhost:3000/tms-min-side-oversikt/bundle.js",
-  development: "https://person.dev.nav.no/tms-oversikt-mikrofrontend/bundle.js",
-  production: "https://www.nav.no/tms-oversikt-mikrofrontend/bundle.js",
-};
-
-const MIN_SIDE_TJENESTER = {
-  local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
-  production: "https://www.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
-};
-
-const MIN_SIDE_TJENESTER_BASE_URL = {
-  local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-tjenester",
-  production: "https://www.nav.no/tms-min-side-tjenester",
-};
-
-const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL = {
-  local: "http://localhost:3000/aia/bundle.js",
-  development: `https://veientilarbeid.dev.nav.no/esm/bundle.js?ts=${Date.now()}`,
-  production: `https://veientilarbeid.nav.no/esm/bundle.js?ts=${Date.now()}`,
-};
-
-const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL = {
-  local: "http://localhost:3000/aia/bundle.js",
-  development: `https://veientilarbeid.dev.nav.no/esm`,
-  production: `https://veientilarbeid.nav.no/esm`,
-};
-
 const LOGINSERVICE_URL = {
   local: "http://localhost:3000/loginservice",
   development: "https://loginservice.dev.nav.no/login?level=Level3",
@@ -72,34 +36,57 @@ const ARBEIDSSOKER_URL = {
   production: "https://www.nav.no/aia-backend/er-arbeidssoker",
 };
 
-const UTKAST_URL = {
-  local: "http://localhost:3000/tms-utkast-mikrofrontend/bundle.js",
-  development: "https://www.dev.nav.no/tms-utkast-mikrofrontend/tms-utkast-mikrofrontend.js",
-  production: "https://www.nav.no/tms-utkast-mikrofrontend/tms-utkast-mikrofrontend.js",
+const AIA_BASE_URL = {
+  local: "http://localhost:3000/aia/bundle.js",
+  development: `https://veientilarbeid.dev.nav.no/esm`,
+  production: `https://veientilarbeid.nav.no/esm`,
 };
 
-const MELDEKORT_MIKROFRONTEND_URL = {
+const MELDEKORT_URL = {
   local: "http://localhost:3000/meldekort/bundle.js",
   development: "https://www.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
   production: "https://www.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
 };
 
+const OVERSIKT_BASE_URL = {
+  local: "http://localhost:3000/tms-min-side-oversikt/bundle.js",
+  development: "https://person.dev.nav.no/tms-oversikt-mikrofrontend",
+  production: "https://www.nav.no/tms-oversikt-mikrofrontend",
+};
+
+const TJENESTER_BASE_URL = {
+  local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
+  development: "https://person.dev.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
+  production: "https://www.nav.no/tms-min-side-tjenester/tms-min-side-tjenester.js",
+};
+
+const VARSLINGER_BASE_URL = {
+  local: "http://localhost:3000/tms-min-side-varslinger/bundle.js",
+  development: "https://person.dev.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
+  production: "https://www.nav.no/tms-min-side-varslinger/tms-min-side-varslinger.js",
+};
+
+const UTKAST_BASE_URL = {
+  local: "http://localhost:3000/tms-utkast-mikrofrontend/bundle.js",
+  development: "https://www.dev.nav.no/tms-utkast-mikrofrontend",
+  production: "https://www.nav.no/tms-utkast-mikrofrontend",
+};
+
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
-export const minSideOversiktUrl = MIN_SIDE_OVERSIKT[getEnvironment()];
-export const minSideTjenesterUrl = MIN_SIDE_TJENESTER[getEnvironment()];
-export const minSideTjenesterBaseUrl = MIN_SIDE_TJENESTER_BASE_URL[getEnvironment()];
-export const minSideVarslingerUrl = MIN_SIDE_VARSLINGER[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const authenticationUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/login/status`;
 export const legacyAuthenticationUrl = LEGACY_AUTHENTICATION_URL[getEnvironment()];
 export const loginserviceUrl = LOGINSERVICE_URL[getEnvironment()];
-export const utkastUrl = UTKAST_URL[getEnvironment()];
 export const baseUrl = BASE_URL[getEnvironment()];
-export const meldekortMikrofrontendUrl = MELDEKORT_MIKROFRONTEND_URL[getEnvironment()];
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
-export const arbeidsflateForInnlogetArbeidssokerUrl = ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL[getEnvironment()];
-export const arbeidsflateForInnloggetArbeidssokerBaseUrl =
-  ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL[getEnvironment()];
-export const arbeidsflateForInnloggetArbeidssokerManifestUrl = `${
-  ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL[getEnvironment()]
-}/manifest.json`;
+export const aiaBaseUrl = AIA_BASE_URL[getEnvironment()];
+export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
+export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
+export const oversiktBaseUrl = OVERSIKT_BASE_URL[getEnvironment()];
+export const oversiktManifestUrl = `${OVERSIKT_BASE_URL[getEnvironment()]}/manifest.json`;
+export const tjenesterBaseUrl = TJENESTER_BASE_URL[getEnvironment()];
+export const tjenesterManifestUrl = `${TJENESTER_BASE_URL[getEnvironment()]}/manifest.json`;
+export const utkastBaseUrl = UTKAST_BASE_URL[getEnvironment()];
+export const utkastManifestUrl = `${UTKAST_BASE_URL[getEnvironment()]}/manifest.json`;
+export const varslingerBaseUrl = VARSLINGER_BASE_URL[getEnvironment()];
+export const varslingerManifestUrl = `${VARSLINGER_BASE_URL[getEnvironment()]}/manifest.json`;

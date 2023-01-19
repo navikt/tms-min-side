@@ -1,7 +1,7 @@
 import React from "react";
 import ErrorBoundary from "../components/error-boundary/ErrorBoundary";
 import ContentLoader from "../components/loader/ContentLoader";
-import { arbeidsflateForInnloggetArbeidssokerBaseUrl, arbeidsflateForInnloggetArbeidssokerManifestUrl } from "../urls";
+import { aiaBaseUrl, aiaManifestUrl } from "../urls";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import useStore, { selectIsError, selectLanguage } from "../store/store";
 import { text } from "../language/text";
@@ -10,10 +10,7 @@ import { useQuery } from "react-query";
 import { manifestFetcher } from "../api/api";
 
 const Arbeidssoker = () => {
-  const { data: aiaManifest, isLoading: isLoadingAiaManifest } = useQuery(
-    arbeidsflateForInnloggetArbeidssokerManifestUrl,
-    manifestFetcher
-  );
+  const { data: manifest, isLoading: isLoadingManifest } = useQuery(aiaManifestUrl, manifestFetcher);
 
   const language = useStore(selectLanguage);
   const isError = useStore(selectIsError);
@@ -26,12 +23,12 @@ const Arbeidssoker = () => {
     },
   ]);
 
-  if (isLoadingAiaManifest) {
+  if (isLoadingManifest) {
     return <ContentLoader />;
   }
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
-    import(`${arbeidsflateForInnloggetArbeidssokerBaseUrl}/${aiaManifest["src/main.tsx"]["file"]}`)
+    import(`${aiaBaseUrl}/${manifest["src/main.tsx"]["file"]}`)
   );
 
   return (

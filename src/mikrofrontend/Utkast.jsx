@@ -1,16 +1,16 @@
 import React from "react";
 import ErrorBoundary from "../components/error-boundary/ErrorBoundary";
 import ContentLoader from "../components/loader/ContentLoader";
-import { utkastUrl } from "../urls";
+import { utkastBaseUrl, utkastManifestUrl } from "../urls";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import useStore, { selectLanguage } from "../store/store";
 import { text } from "../language/text";
-import { getEnvironment } from "../api/environment";
 import { setParams } from "@navikt/nav-dekoratoren-moduler";
-
-const UtkastMikrofrontend = React.lazy(() => import(utkastUrl));
+import { useQuery } from "react-query";
+import { manifestFetcher } from "../api/api";
 
 const Utkast = () => {
+  const { data: manifest, isLoading: isLoadingManifest } = useQuery(utkastManifestUrl, manifestFetcher);
   const language = useStore(selectLanguage);
 
   useBreadcrumbs([
@@ -24,6 +24,12 @@ const Utkast = () => {
   setParams({
     utilsBackground: "white",
   });
+
+  if (isLoadingManifest) {
+    return <ContentLoader />;
+  }
+
+  const UtkastMikrofrontend = React.lazy(() => import(`${utkastBaseUrl}/${manifest["src/Mikrofrontend.tsx"]["file"]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
