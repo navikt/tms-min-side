@@ -17,7 +17,7 @@ const MinSide = () => {
     onSuccess: (data) => updateUserProperties(data.erArbeidssoker),
   });
 
-  const { data: aiaManifest, isLoading: isLoadingTjenesterManifest } = useQuery(
+  const { data: aiaManifest, isLoading: isLoadingAiaManifest } = useQuery(
     arbeidsflateForInnloggetArbeidssokerManifestUrl,
     manifestFetcher
   );
@@ -25,7 +25,7 @@ const MinSide = () => {
   const isError = useStore(selectIsError);
   useBreadcrumbs();
 
-  if (isLoadingTjenesterManifest) {
+  if (isLoadingAiaManifest) {
     return <ContentLoader />;
   }
 
