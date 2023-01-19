@@ -56,8 +56,8 @@ const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_URL = {
 
 const ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL = {
   local: "http://localhost:3000/aia/bundle.js",
-  development: `https://veientilarbeid.dev.nav.no/esm/bundle.js?ts=${Date.now()}`,
-  production: `https://veientilarbeid.nav.no/esm/bundle.js?ts=${Date.now()}`,
+  development: `https://veientilarbeid.dev.nav.no/esm`,
+  production: `https://veientilarbeid.nav.no/esm`,
 };
 
 const LOGINSERVICE_URL = {
@@ -101,5 +101,5 @@ export const arbeidsflateForInnlogetArbeidssokerUrl = ARBEIDSFLATE_FOR_INNLOGGET
 export const arbeidsflateForInnloggetArbeidssokerBaseUrl =
   ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL[getEnvironment()];
 export const arbeidsflateForInnloggetArbeidssokerManifestUrl = `${
-  arbeidsflateForInnloggetArbeidssokerBaseUrl[getEnvironment()]
+  ARBEIDSFLATE_FOR_INNLOGGET_ARBERDSSOKER_BASE_URL[getEnvironment()]
 }/manifest.json`;
