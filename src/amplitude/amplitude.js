@@ -16,9 +16,3 @@ export function logEvent(name, metric) {
     label: metric,
   });
 }
-
-export function updateUserProperties(hasAia) {
-  amplitude.getInstance().setUserProperties({
-    getsAia: hasAia,
-  });
-}

@@ -3,12 +3,14 @@ import { onBreadcrumbClick, setBreadcrumbs } from "@navikt/nav-dekoratoren-modul
 import useStore, { selectLanguage } from "../store/store";
 import { useNavigate } from "react-router";
 import { text } from "../language/text";
+import { logEvent } from "../amplitude/amplitude";
 
 export const useBreadcrumbs = (breadcrumb = []) => {
   const language = useStore(selectLanguage);
   const navigate = useNavigate();
 
   onBreadcrumbClick((breadcrumb) => {
+    logEvent("navigere", breadcrumb.title);
     navigate(breadcrumb.url);
   });
 
