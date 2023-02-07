@@ -12,7 +12,7 @@ import {
 } from "../urls";
 import { tjenesterManifestUrl } from "../urls";
 import { aiaManifestUrl, arbeidssokerUrl } from "../urls";
-import { aiaEntry, bundle, oversiktEntry, tjenesterEntry } from "./entrypoints";
+import { aapEntry, aiaEntry, bundle, oversiktEntry, tjenesterEntry } from "./entrypoints";
 import useStore, { selectIsError, selectSetIsError } from "../store/store";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import { useQuery } from "react-query";
@@ -47,7 +47,7 @@ const MinSide = () => {
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
-  const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[oversiktEntry][bundle]}`));
+  const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const Oversikt = React.lazy(() => import(`${oversiktBaseCdnUrl}/${oversiktManifest[oversiktEntry][bundle]}`));
   const Tjenester = React.lazy(() => import(`${tjenesterBaseCdnUrl}/${tjenesterManifest[tjenesterEntry][bundle]}`));
   const Meldekort = React.lazy(() => import(meldekortUrl));
