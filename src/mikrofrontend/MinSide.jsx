@@ -52,6 +52,7 @@ const MinSide = () => {
     return <ContentLoader />;
   }
 
+  console.log(mikrofrontendOversikt);
   const showAap = mikrofrontendOversikt?.includes("aap");
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
