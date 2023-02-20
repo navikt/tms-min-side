@@ -28,7 +28,7 @@ const MinSide = () => {
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
 
-  const { mikrofrontendOversikt, isLoadingOversikt } = useQuery(selectorMikrofrontendsUrl, fetcher);
+  const { data: mikrofrontendOversikt, isLoading: isLoadingOversikt } = useQuery(selectorMikrofrontendsUrl, fetcher);
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
