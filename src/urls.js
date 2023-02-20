@@ -108,6 +108,12 @@ const VARSLER_URL = {
   production: "https://www.nav.no/tms-varsler/tms-varsler.js",
 };
 
+const SELECTOR_MIKROFRONTENDS_URL = {
+  local: "http://localhost:3000/tms-min-side-proxy/selector/mikrofrontends",
+  development: "https://www.dev.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+  production: "https://www.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+};
+
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const authenticationUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/login/status`;
@@ -129,3 +135,4 @@ export const tjenesterManifestUrl = `${TJENESTER_BASE_URL[getEnvironment()]}/man
 export const utkastBaseUrl = UTKAST_BASE_URL[getEnvironment()];
 export const utkastManifestUrl = `${UTKAST_BASE_URL[getEnvironment()]}/manifest.json`;
 export const varslerUrl = VARSLER_URL[getEnvironment()];
+export const selectorMikrofrontendsUrl = SELECTOR_MIKROFRONTENDS_URL[getEnvironment()];

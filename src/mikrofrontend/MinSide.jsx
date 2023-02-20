@@ -9,6 +9,7 @@ import {
   oversiktBaseCdnUrl,
   aapBaseCdnUrl,
   aapManifestUrl,
+  selectorMikrofrontendsUrl,
 } from "../urls";
 import { tjenesterManifestUrl } from "../urls";
 import { aiaManifestUrl, arbeidssokerUrl } from "../urls";
@@ -27,6 +28,8 @@ const MinSide = () => {
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
 
+  const { mikrofrontendOversikt, isLoadingOversikt } = useQuery(selectorMikrofrontendsUrl, fetcher);
+
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
   const [oversiktManifest, isLoadingOversiktManifest] = useManifest(oversiktManifestUrl);
@@ -39,9 +42,17 @@ const MinSide = () => {
   const isError = useStore(selectIsError);
   useBreadcrumbs();
 
-  if (isLoadingAiaManifest || isLoadingOversiktManifest || isLoadingTjenesterManifest || isLoadingAapManifest) {
+  if (
+    isLoadingAiaManifest ||
+    isLoadingOversiktManifest ||
+    isLoadingTjenesterManifest ||
+    isLoadingAapManifest ||
+    isLoadingOversikt
+  ) {
     return <ContentLoader />;
   }
+
+  const showAap = mikrofrontendOversikt?.includes("aap");
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
@@ -61,9 +72,11 @@ const MinSide = () => {
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
-        <ErrorBoundary>
-          <Arbeidsavklaringspenger />
-        </ErrorBoundary>
+        {showAap ? (
+          <ErrorBoundary>
+            <Arbeidsavklaringspenger />
+          </ErrorBoundary>
+        ) : null}
         {data?.erArbeidssoker ? (
           <ErrorBoundary>
             <ArbeidsflateForInnloggetArbeidssoker />

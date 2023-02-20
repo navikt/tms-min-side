@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import amplitude from "amplitude-js";
 
 export const initializeAmplitude = () => {
@@ -21,4 +22,12 @@ export function updateUserProperties(hasAia) {
   amplitude.getInstance().setUserProperties({
     getsAia: hasAia,
   });
+}
+
+export function logAmplitudeEventWhenComponentMounted(komponent) {
+  useEffect(() => {
+    amplitude.getInstance().logEvent("komponent vist", {
+      komponent,
+    });
+  }, []);
 }
