@@ -52,8 +52,7 @@ const MinSide = () => {
     return <ContentLoader />;
   }
 
-  console.log(mikrofrontendOversikt);
-  const showAap = mikrofrontendOversikt?.includes("aap");
+  const showAap = mikrofrontendOversikt?.microfrontends.includes("aap");
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
