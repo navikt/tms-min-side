@@ -7,7 +7,7 @@ import {
   aiaBaseCdnUrl,
   tjenesterBaseCdnUrl,
   oversiktBaseCdnUrl,
-  statistikkUrl,
+  innloggingsstatistikkUrl,
 } from "../urls";
 import { aapBaseCdnUrl, aapManifestUrl, selectorUrl } from "../urls";
 import { tjenesterManifestUrl } from "../urls";
@@ -17,7 +17,7 @@ import useStore, { selectIsError, selectSetIsError } from "../store/store";
 import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import { useQuery } from "react-query";
 import { useManifest } from "../hooks/useManifest";
-import { fetcher } from "../api/api";
+import { fetcher, post } from "../api/api";
 import { logEvent } from "../amplitude/amplitude";
 import Layout from "../components/layout/Layout";
 
@@ -39,7 +39,7 @@ const MinSide = () => {
 
   useEffect(() => {
     logEvent("build", import.meta.env.VITE_BUILD_TIMESTAMP);
-    post(statistikkUrl);
+    post(innloggingsstatistikkUrl);
   }, []);
 
   const isError = useStore(selectIsError);
