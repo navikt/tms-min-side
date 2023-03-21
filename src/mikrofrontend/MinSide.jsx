@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
 import ErrorBoundary from "../components/error-boundary/ErrorBoundary";
 import ContentLoader from "../components/loader/ContentLoader";
-import { meldekortUrl, oversiktManifestUrl, aiaBaseCdnUrl, tjenesterBaseCdnUrl, oversiktBaseCdnUrl } from "../urls";
+import {
+  meldekortUrl,
+  oversiktManifestUrl,
+  aiaBaseCdnUrl,
+  tjenesterBaseCdnUrl,
+  oversiktBaseCdnUrl,
+  statistikkUrl,
+} from "../urls";
 import { aapBaseCdnUrl, aapManifestUrl, selectorUrl } from "../urls";
 import { tjenesterManifestUrl } from "../urls";
 import { aiaManifestUrl, arbeidssokerUrl } from "../urls";
@@ -32,6 +39,7 @@ const MinSide = () => {
 
   useEffect(() => {
     logEvent("build", import.meta.env.VITE_BUILD_TIMESTAMP);
+    post(statistikkUrl);
   }, []);
 
   const isError = useStore(selectIsError);

@@ -129,3 +129,4 @@ export const utkastBaseUrl = UTKAST_BASE_URL[getEnvironment()];
 export const utkastManifestUrl = `${UTKAST_BASE_URL[getEnvironment()]}/manifest.json`;
 export const varslerUrl = VARSLER_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
+export const statistikkUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/statistikk/innlogging`;

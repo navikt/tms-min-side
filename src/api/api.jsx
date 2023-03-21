@@ -27,3 +27,16 @@ export const manifestFetcher = async ({ queryKey }) => {
 
   return response.json();
 };
+
+export async function post(url) {
+  const response = await fetch(url, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({}),
+  });
+  return response.json();
+}
