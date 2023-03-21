@@ -36,7 +36,6 @@ export async function post(url) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({}),
   });
   return response.json();
 }
