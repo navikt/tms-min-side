@@ -62,7 +62,7 @@ const MELDEKORT_URL = {
 
 const OVERSIKT_BASE_URL = {
   local: "http://localhost:3000/tms-min-side-oversikt/bundle.js",
-  development: "https://person.dev.nav.no/tms-oversikt-mikrofrontend",
+  development: "https://www.intern.dev.nav.no/tms-oversikt-mikrofrontend",
   production: "https://www.nav.no/tms-oversikt-mikrofrontend",
 };
 
@@ -74,13 +74,13 @@ const OVERSIKT_BASE_CDN_URL = {
 
 const TIDLIGERE_VARSLER_BASE_URL = {
   local: "http://localhost:3000/tms-min-side-varslinger/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-varslinger",
+  development: "https://www.intern.dev.nav.no/tms-min-side-varslinger",
   production: "https://www.nav.no/tms-min-side-varslinger",
 };
 
 const TJENESTER_BASE_URL = {
   local: "http://localhost:3000/tms-min-side-tjenester/bundle.js",
-  development: "https://person.dev.nav.no/tms-min-side-tjenester",
+  development: "https://www.intern.dev.nav.no/tms-min-side-tjenester",
   production: "https://www.nav.no/tms-min-side-tjenester",
 };
 
@@ -92,13 +92,13 @@ const TJENESTER_BASE_CDN_URL = {
 
 const UTKAST_BASE_URL = {
   local: "http://localhost:3000/tms-utkast-mikrofrontend/bundle.js",
-  development: "https://www.dev.nav.no/tms-utkast-mikrofrontend",
+  development: "https://www.intern.dev.nav.no/tms-utkast-mikrofrontend",
   production: "https://www.nav.no/tms-utkast-mikrofrontend",
 };
 
 const VARSLER_URL = {
   local: "http://localhost:3000/tms-varsler/bundle.js",
-  development: "https://www.dev.nav.no/tms-varsler/tms-varsler.js",
+  development: "https://www.intern.dev.nav.no/tms-varsler/tms-varsler.js",
   production: "https://www.nav.no/tms-varsler/tms-varsler.js",
 };
 
