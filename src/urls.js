@@ -8,7 +8,7 @@ const MIN_SIDE_PROXY_URL = {
 
 const BASE_URL = {
   local: "http://localhost:3000",
-  development: "https://www.dev.nav.no",
+  development: "https://www.intern.dev.nav.no",
   production: "https://www.nav.no",
 };
 
