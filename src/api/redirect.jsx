@@ -5,7 +5,7 @@ const redirectToIdPorten = (redirectUrl) => {
 };
 
 export const redirectToLoginService = () => {
-  const redirectUrl = baseUrl + window.location.pathname;
+  const redirectUrl = baseUrl + window.location.pathname.replace(/\/$/, "");
   window.location.assign(`${loginserviceUrl}&redirect=${redirectUrl}${window.location.search}`);
 };
 
