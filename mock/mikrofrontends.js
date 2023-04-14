@@ -6,7 +6,7 @@ import utkast from "./bundle/utkast";
 
 export default [
   {
-    url: "/tms-min-side-oversikt/bundle.js",
+    url: "/oversikt/bundle.js",
     method: "get",
     rawResponse: async (req, res) => {
       res.setHeader("Content-Type", "text/javascript");
@@ -24,7 +24,7 @@ export default [
     },
   },
   {
-    url: "/tms-min-side-tjenester/bundle.js",
+    url: "/tjenester/bundle.js",
     method: "get",
     rawResponse: async (req, res) => {
       res.setHeader("Content-Type", "text/javascript");
