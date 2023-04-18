@@ -30,5 +30,5 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
     })
 );
 
-const port = 7100;
+const port = 8080;
 server.listen(port, () => console.info(`Listening on port ${port}`));

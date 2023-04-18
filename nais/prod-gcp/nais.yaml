@@ -12,7 +12,7 @@ spec:
   envFrom:
     - secret: tms-min-side-secrets
   image: {{image}}
-  port: 7100
+  port: 8080
   liveness:
     path: /minside/internal/isAlive
     initialDelay: 10
