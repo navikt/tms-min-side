@@ -17,7 +17,7 @@ const MinSide = () => {
   }, []);
 
   const isError = useStore(selectIsError);
-  useBreadcrumbs();
+  useBreadcrumbs([]);
 
   if (isLoadingOversiktManifest) {
     return <ContentLoader />;

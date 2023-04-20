@@ -6,11 +6,11 @@ import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 import useStore, { selectIsError, selectLanguage } from "../store/store";
 import { text } from "../language/text";
 import Layout from "../components/layout/Layout";
-import { useQuery } from "react-query";
-import { manifestFetcher } from "../api/api";
+import { useManifest } from "../hooks/useManifest";
+import { Locale } from "../hooks/useLanguage";
 
 const TidligereVarsler = () => {
-  const { data: manifest, isLoading: isLoadingManifest } = useQuery(tidligereVarslerManifestUrl, manifestFetcher);
+  const [manifest, isLoadingManifest] = useManifest(tidligereVarslerManifestUrl);
 
   const language = useStore(selectLanguage);
   const isError = useStore(selectIsError);
@@ -18,7 +18,7 @@ const TidligereVarsler = () => {
   useBreadcrumbs([
     {
       url: `/minside/tidligere-varsler`,
-      title: text.tidligereVarslinger[language],
+      title: text.tidligereVarslinger[language as Locale],
       handleInApp: true,
     },
   ]);
@@ -27,8 +27,8 @@ const TidligereVarsler = () => {
     return <ContentLoader />;
   }
 
-  const TidligereVarslerMikrofrotend = React.lazy(() =>
-    import(`${tidligereVarslerBaseUrl}/${manifest["src/Mikrofrontend.jsx"]["file"]}`)
+  const TidligereVarslerMikrofrotend = React.lazy(
+    () => import(`${tidligereVarslerBaseUrl}/${manifest["src/Mikrofrontend.jsx"]["file"]}`)
   );
 
   return (

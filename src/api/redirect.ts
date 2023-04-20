@@ -1,6 +1,6 @@
 import { baseUrl, loginserviceUrl, minSideProxyUrl } from "../urls";
 
-const redirectToIdPorten = (redirectUrl) => {
+const redirectToIdPorten = (redirectUrl: string) => {
   window.location.assign(`${minSideProxyUrl}/login?redirect_uri=${redirectUrl}${window.location.search}`);
 };
 

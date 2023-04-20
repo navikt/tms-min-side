@@ -2,10 +2,14 @@ import React from "react";
 import { useQuery } from "react-query";
 import redirectToIdPorten, { redirectToLoginService } from "../../api/redirect";
 import { legacyAuthenticationUrl, authenticationUrl, baseUrl } from "../../urls";
-import { fetcher } from "../../api/api";
+import { FetchError, fetcher } from "../../api/api";
 import ContentLoader from "../loader/ContentLoader";
 
-const Authentication = ({ children }) => {
+type Props = {
+  children?: React.ReactNode;
+};
+
+const Authentication = ({ children }: Props) => {
   const { data: status, isLoading: isLoadingStatus, isError } = useQuery(authenticationUrl, fetcher);
   const {
     data: legacyStatus,
@@ -13,7 +17,7 @@ const Authentication = ({ children }) => {
     error: isLoadingLegacyStatusError,
   } = useQuery(legacyAuthenticationUrl, fetcher, {
     enabled: !isLoadingStatus,
-    onError: (error) => {
+    onError: (error: FetchError) => {
       if (error.response.status === 401) {
         redirectToLoginService();
       }
@@ -23,7 +27,7 @@ const Authentication = ({ children }) => {
   const redirectUrl = baseUrl + window.location.pathname;
 
   if (isLoadingStatus || isLoadingLegacyStatus || isLoadingLegacyStatusError) {
-    return <ContentLoader size="2xlarge">...</ContentLoader>;
+    return <ContentLoader />;
   }
 
   if (!status?.authenticated || isError) {

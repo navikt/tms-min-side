@@ -2,7 +2,12 @@ import React from "react";
 import FeilMelding from "../feilmelding/Feilmelding";
 import styles from "./Layout.module.css";
 
-const Layout = ({ children, isError }) => {
+type Props = {
+  children?: React.ReactNode;
+  isError: boolean;
+};
+
+const Layout = ({ children, isError }: Props) => {
   return (
     <div className={styles["layout"]}>
       <main className={styles["main"]}>

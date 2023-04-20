@@ -9,11 +9,12 @@ import Layout from "../components/layout/Layout";
 import { useQuery } from "react-query";
 import { manifestFetcher } from "../api/api";
 import { aiaEntry, bundle } from "./entrypoints";
+import { Locale } from "../hooks/useLanguage";
 
 const Arbeidssoker = () => {
   const { data: manifest, isLoading: isLoadingManifest } = useQuery(aiaManifestUrl, manifestFetcher);
 
-  const language = useStore(selectLanguage);
+  const language: Locale = useStore(selectLanguage);
   const isError = useStore(selectIsError);
 
   useBreadcrumbs([
@@ -28,8 +29,8 @@ const Arbeidssoker = () => {
     return <ContentLoader />;
   }
 
-  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
-    import(`${aiaBaseCdnUrl}/${manifest[aiaEntry][bundle]}`)
+  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(
+    () => import(`${aiaBaseCdnUrl}/${manifest[aiaEntry][bundle]}`)
   );
 
   return (
