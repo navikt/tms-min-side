@@ -7,7 +7,6 @@ import useStore, { selectIsError, selectLanguage } from "../store/store";
 import { text } from "../language/text";
 import Layout from "../components/layout/Layout";
 import { useManifest } from "../hooks/useManifest";
-import { Locale } from "../hooks/useLanguage";
 
 const TidligereVarsler = () => {
   const [manifest, isLoadingManifest] = useManifest(tidligereVarslerManifestUrl);
@@ -18,7 +17,7 @@ const TidligereVarsler = () => {
   useBreadcrumbs([
     {
       url: `/minside/tidligere-varsler`,
-      title: text.tidligereVarslinger[language as Locale],
+      title: text.tidligereVarslinger[language],
       handleInApp: true,
     },
   ]);

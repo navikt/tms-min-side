@@ -9,12 +9,11 @@ import Layout from "../components/layout/Layout";
 import { useQuery } from "react-query";
 import { manifestFetcher } from "../api/api";
 import { aiaEntry, bundle } from "./entrypoints";
-import { Locale } from "../hooks/useLanguage";
 
 const Arbeidssoker = () => {
   const { data: manifest, isLoading: isLoadingManifest } = useQuery(aiaManifestUrl, manifestFetcher);
 
-  const language: Locale = useStore(selectLanguage);
+  const language = useStore(selectLanguage);
   const isError = useStore(selectIsError);
 
   useBreadcrumbs([
