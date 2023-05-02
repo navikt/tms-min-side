@@ -12,18 +12,6 @@ const BASE_URL = {
   production: "https://www.nav.no",
 };
 
-const LEGACY_AUTHENTICATION_URL = {
-  local: "http://localhost:3000/dittnav-api/authPing",
-  development: "https://www.intern.dev.nav.no/dittnav-api/authPing",
-  production: "https://www.nav.no/dittnav-api/authPing",
-};
-
-const LOGINSERVICE_URL = {
-  local: "http://localhost:3000/loginservice",
-  development: "https://loginservice.dev.nav.no/login?level=Level3",
-  production: "https://loginservice.nav.no/login?level=Level3",
-};
-
 const AIA_BASE_URL = {
   local: "http://localhost:3000/aia/bundle.js",
   development: "https://veientilarbeid.intern.dev.nav.no/esm",
@@ -68,8 +56,6 @@ const VARSLER_URL = {
 
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const authenticationUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/login/status`;
-export const legacyAuthenticationUrl = LEGACY_AUTHENTICATION_URL[getEnvironment()];
-export const loginserviceUrl = LOGINSERVICE_URL[getEnvironment()];
 export const baseUrl = BASE_URL[getEnvironment()];
 export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
