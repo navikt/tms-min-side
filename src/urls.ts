@@ -50,8 +50,8 @@ const UTKAST_BASE_URL = {
 
 const VARSLER_URL = {
   local: "http://localhost:3000/tms-varsler/bundle.js",
-  development: "https://www.intern.dev.nav.no/tms-varsler/tms-varsler.js",
-  production: "https://www.nav.no/tms-varsler/tms-varsler.js",
+  development: "https://www.intern.dev.nav.no/tms-varsler/tms-varsler-mikrofrontend.js",
+  production: "https://www.nav.no/tms-varsler/tms-varsler-mikrofrontend.js",
 };
 
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
