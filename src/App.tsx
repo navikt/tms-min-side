@@ -20,7 +20,6 @@ const App = () => {
             <>
               <Route path={basePath} element={<MinSide />} />
               <Route path={`${basePath}/varslinger`} element={<TidligereVarsler />} />
-              <Route path={`${basePath}/tidligere-varsler`} element={<TidligereVarsler />} />
               <Route path={`${basePath}/varsler`} element={<Varsler />} />
               <Route path={`${basePath}/arbeidssoker`} element={<Arbeidssoker />} />
               <Route path={`${basePath}/utkast`} element={<Utkast />} />
