@@ -2,6 +2,6 @@
   "imports": {
     "react": "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js",
     "react-dom": "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js",
-    "swr": "https://cdn.nav.no/min-side/shared/swr/2.1.5/immutable.js"
+    "swr": "https://cdn.nav.no/min-side/shared/swr/immutable/2.1.5/swr.js"
   }
 }
