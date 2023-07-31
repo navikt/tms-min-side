@@ -1,5 +1,8 @@
 name: "Deploy dev"
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - "dev-*"
 
 jobs:
   build:
@@ -39,7 +42,7 @@ jobs:
         with:
           cdn-team-name: min-side
           source: ./dist/client/_astro
-          destination: 'tms-shell'
+          destination: 'tms-min-side'
 
       - name: "Build and push"
         uses: nais/docker-build-push@v0
