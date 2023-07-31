@@ -6,27 +6,35 @@ metadata:
   labels:
     team: min-side
 spec:
+  idporten:
+    enabled: true
+    postLogoutRedirectURIs:
+      - "https://www.intern.dev.nav.no"
+    sidecar:
+      enabled: true
+      level: Level3
+  tokenx:
+    enabled: true
   envFrom:
     - secret: tms-min-side-secrets
   image: {{image}}
-  port: 8080
+  port: 3000
   liveness:
-    path: /minside/internal/isAlive
+    path: /minside/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /minside/internal/isReady
+    path: /minside/api/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
     max: 4
-  ingresses:
-    - "https://www.intern.dev.nav.no/minside"
   accessPolicy:
     outbound:
-      external:
-        - host: "www.intern.dev.no"
-        - host: "dekoratoren.dev.nav.no"
-        - host: "dekoratoren.ekstern.dev.nav.no"
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
+  ingresses:
+    - "https://www.intern.dev.nav.no/minside"
   resources:
     limits:
       cpu: "3"

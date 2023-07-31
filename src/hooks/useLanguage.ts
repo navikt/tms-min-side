@@ -1,37 +1,18 @@
-import { onLanguageSelect, setAvailableLanguages, setParams } from "@navikt/nav-dekoratoren-moduler";
 import { useEffect } from "react";
-import { useStore } from "@nanostores/react";
-import { baseUrlWithLanguage } from "../urls";
-import { languageAtom, setLanguage } from "../store/store";
+import { onLanguageSelect, setAvailableLanguages, setParams } from "@navikt/nav-dekoratoren-moduler";
+import type { Language } from "../language/language";
 
-export type Locale = "nb" | "nn" | "en";
-
-const setDocumentLanguage = (language: Locale) => {
-  window.sessionStorage.setItem("language", language);
-  window.dispatchEvent(new Event("language"));
-  document.documentElement.lang = language;
-};
-
-const updateState = (newLanguage: Locale, currentLanguage: Locale) => {
-  const replacementUrl = window.location.href.replace(
-    baseUrlWithLanguage[currentLanguage],
-    baseUrlWithLanguage[newLanguage]
-  );
-  window.history.replaceState(window.history.state, "", replacementUrl);
-};
-
-export const useLanguage = () => {
-  const currentLanguage = useStore(languageAtom);
+export const useLanguage = (language: Language) => {
+  const [_leadingSlash, _basePath, _oldLocale, ...rest] = window.location.pathname.split("/");
+  const slug = rest.join("/");
 
   onLanguageSelect((language) => {
-    updateState(language.locale as Locale, currentLanguage);
-    setLanguage(language.locale as Locale);
-    setDocumentLanguage(language.locale as Locale);
+    window.sessionStorage.setItem("language", language.locale);
+    window.location.pathname = `/minside/${language.locale}/${slug}`;
   });
 
   useEffect(() => {
-    setParams({ language: currentLanguage });
-    setDocumentLanguage(currentLanguage);
+    setParams({ language: language });
     setAvailableLanguages([
       {
         locale: "nb",

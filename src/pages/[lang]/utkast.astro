@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Utkast from "../../mikrofrontends/utkast/Utkast";
+import { getLanguage } from "../../language/language";
+
+const language = getLanguage(Astro.url);
+---
+
+<Layout title="Min side">
+  <Utkast language={language} client:only="react" />
+</Layout>

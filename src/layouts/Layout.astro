@@ -1,0 +1,40 @@
+---
+import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { getEnvironment } from "../utils/environment";
+import { getLanguage } from "../language/language";
+import "./Layout.css";
+
+export interface Props {
+  title: string;
+}
+
+const Decorator = await fetchDecoratorReact({
+  env: getEnvironment(),
+  params: {
+    context: "privatperson",
+  },
+});
+
+const language = getLanguage(Astro.url);
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/4.1.7/index.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/4.1.7/index.min.css" />
+    <Decorator.Styles />
+  </head>
+  <body>
+    <Decorator.Header />
+      <slot />
+    <Decorator.Footer />
+    <Decorator.Scripts />
+  </body>
+</html>

@@ -1,65 +1,35 @@
 {
-  "name": "tms-min-side",
-  "version": "1.0.0",
-  "description": "min-side",
+  "name": "tms-shell",
   "type": "module",
-  "main": "index.js",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite --port 3000",
-    "build": "tsc && vite build --base=https://cdn.nav.no/min-side/tms-min-side/ --outDir dist",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "lint": "eslint --ext .ts,.tsx ."
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "mock": "deno run --allow-net ./mock/server.ts",
+    "base": "deno run --allow-read --allow-write ./base.ts",
+    "preview": "node ./dist/server/entry.mjs",
+    "astro": "astro",
+    "prettier": "prettier --write ."
   },
-  "author": "navikt",
-  "license": "MIT",
   "dependencies": {
-    "@nanostores/react": "0.5.0",
+    "@astrojs/node": "5.3.0",
+    "@astrojs/react": "2.2.1",
     "@navikt/ds-react": "4.1.7",
-    "@navikt/ds-tokens": "4.1.7",
-    "@navikt/nav-dekoratoren-moduler": "1.9.0",
-    "@sentry/react": "7.51.2",
-    "react-router": "6.11.0",
-    "react-router-dom": "6.11.0",
+    "@navikt/nav-dekoratoren-moduler": "2.1.1",
+    "@sentry/react": "7.60.1",
+    "astro": "2.9.3",
+    "openid-client": "5.4.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "swr": "2.1.5"
   },
   "devDependencies": {
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
-    "@types/react-modal": "3.16.0",
-    "@typescript-eslint/eslint-plugin": "5.59.5",
-    "@vitejs/plugin-react": "4.0.0",
-    "eslint": "8.22.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-react": "7.32.2",
-    "husky": "8.0.3",
-    "lint-staged": "13.2.2",
+    "@types/node": "20.2.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
     "prettier": "2.8.8",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rollup-plugin-import-map": "3.0.0",
-    "rollup-plugin-terser": "7.0.2",
-    "typescript": "5.0.4",
-    "vite": "4.3.4",
-    "vite-plugin-mock": "2.9.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:jsx-a11y/recommended",
-      "plugin:@typescript-eslint/recommended"
-    ]
-  },
-  "prettier": {
-    "printWidth": 120
-  },
-  "lint-staged": {
-    "*.{ts,tsx,css,md,html,json}": [
-      "prettier --cache --write",
-      "git add"
-    ]
-  },
-  "engines": {
-    "node": ">=18.15.0"
+    "prettier-plugin-astro": "0.9.1",
+    "rollup-plugin-import-map": "3.0.0"
   }
 }

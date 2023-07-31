@@ -1,5 +1,4 @@
 import React from "react";
-import { setIsError } from "../../store/store";
 
 type Props = {
   children?: React.ReactNode;
@@ -20,7 +19,7 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 
   componentDidCatch() {
-    setIsError();
+    // setIsError();
   }
 
   render() {

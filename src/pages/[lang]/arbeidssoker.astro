@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Arbeidssoker from "../../mikrofrontends/arbeidssoker/Arbeidssoker";
+import Content from "../../components/content/Content";
+import { getLanguage } from "../../language/language";
+
+const language = getLanguage(Astro.url);
+---
+
+<Layout title="Min side">
+  <Content>
+    <Arbeidssoker language={language} client:only="react" />
+  </Content>
+</Layout>

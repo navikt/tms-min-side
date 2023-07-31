@@ -9,27 +9,36 @@ metadata:
     config.linkerd.io/proxy-memory-limit: "512Mi"
     config.linkerd.io/proxy-memory-request: "128Mi"
 spec:
+  idporten:
+    enabled: true
+    postLogoutRedirectURIs:
+      - "https://www.nav.no"
+    sidecar:
+      enabled: true
+      level: Level3
+  tokenx:
+    enabled: true
   envFrom:
     - secret: tms-min-side-secrets
   image: {{image}}
-  port: 8080
+  port: 3000
   liveness:
-    path: /minside/internal/isAlive
+    path: /minside/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /minside/internal/isReady
+    path: /minside/api/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
     max: 6
+  accessPolicy:
+    outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
-  accessPolicy:
-    outbound:
-      external:
-        - host: "appres.nav.no"
-        - host: "www.nav.no"
   resources:
     limits:
       cpu: "3"
