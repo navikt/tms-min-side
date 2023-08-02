@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../utils/environment";
+import { getEnvironment } from "../utils/environment";
 
 const REDIRECT_URI = {
   dev: "https://www.intern.dev.nav.no/minside",

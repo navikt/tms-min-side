@@ -1,6 +1,6 @@
 import { validateIdportenToken } from "./auth/validate";
 import { defineMiddleware } from "astro/middleware";
-import { redirectUri } from "./auth/urls";
+import { redirectUri } from "./urls";
 import { isInternal, isLocal } from "./utils";
 
 export const onRequest = defineMiddleware(async (context, next) => {
