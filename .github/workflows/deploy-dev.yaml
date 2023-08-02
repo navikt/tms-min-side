@@ -1,8 +1,5 @@
 name: "Deploy dev"
-on:
-  push:
-    branches:
-      - "feilside"
+on: workflow_dispatch
 
 jobs:
   build:
