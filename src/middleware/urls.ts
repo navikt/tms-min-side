@@ -6,3 +6,4 @@ const REDIRECT_URI = {
 };
 
 export const redirectUri = REDIRECT_URI[getEnvironment()];
+export const loginUrl = `/minside/oauth2/login?redirect=${redirectUri}`;
