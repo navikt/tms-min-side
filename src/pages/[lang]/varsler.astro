@@ -8,7 +8,7 @@ const language = getLanguage(Astro.url);
 ---
 
 <Layout title="Min side">
-  <Content>
+  <Content cls="varsler">
     <Varsler language={language} client:only="react" />
   </Content>
 </Layout>

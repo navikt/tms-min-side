@@ -3,6 +3,16 @@
   min-height: 70%;
 }
 
+.min-side {
+  height: auto;
+  min-height: 100%;
+}
+
+.varsler {
+  height: auto;
+  min-height: 32%;
+}
+
 .layout {
   display: flex;
   justify-content: center;

@@ -1,8 +1,15 @@
 ---
 import styles from "./Content.module.css";
+
+export interface Props {
+  cls: string;
+}
+
+const { cls } = Astro.props;
+
 ---
 
-<div class={styles.content}>
+<div class={styles[cls]}>
   <div class={styles.layout}>
     <main>
       <slot />
