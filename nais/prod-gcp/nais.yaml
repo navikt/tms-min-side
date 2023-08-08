@@ -24,10 +24,10 @@ spec:
   port: 3000
   liveness:
     path: /minside/api/internal/isAlive
-    initialDelay: 10
+    initialDelay: 15
   readiness:
     path: /minside/api/internal/isReady
-    initialDelay: 10
+    initialDelay: 15
   replicas:
     min: 2
     max: 6
