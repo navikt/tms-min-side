@@ -1,4 +1,4 @@
-import { isRoute, MANIFEST, MIKROFRONTEND, STATISTIKK } from "./routes.ts";
+import { isRoute, MANIFEST, MIKROFRONTEND, STATISTIKK, TELEMTRY } from "./routes.ts";
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };
 
@@ -24,6 +24,16 @@ export const handler = (request: Request): Response => {
   }
 
   if (isRoute(STATISTIKK, request)) {
+    return new Response("", {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
+  }
+
+  if (isRoute(TELEMTRY, request)) {
     return new Response("", {
       status: 200,
       headers: {

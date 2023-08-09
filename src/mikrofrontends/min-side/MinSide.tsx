@@ -6,15 +6,17 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { useManifest } from "../../hooks/useManifest";
 import { bundle, oversiktEntry } from "../entrypoints";
 import { oversiktCdnUrl, oversiktManifestUrl } from "./urls";
-import type { Props } from "../types";
 import { useSentry } from "../../hooks/useSentry";
+import { useFaro } from "../../hooks/useFaro";
 import { useStatistikk } from "../../hooks/useStatistikk";
+import type { Props } from "../types";
 
 const MinSide = ({ language }: Props) => {
   const [oversiktManifest, isLoadingOversiktManifest] = useManifest(oversiktManifestUrl);
   useLanguage(language);
   useBreadcrumbs([], language);
   useSentry();
+  useFaro();
   useStatistikk();
 
   if (isLoadingOversiktManifest) {
