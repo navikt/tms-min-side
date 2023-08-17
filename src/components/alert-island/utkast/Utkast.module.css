@@ -1,0 +1,19 @@
+.utkast {
+  color: white;
+  display: flex;
+  width: 28.5rem;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background: var(--surface-transparent, rgba(255, 255, 255, 0.00));
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  margin: 0;
+}

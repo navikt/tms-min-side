@@ -1,0 +1,17 @@
+---
+import VarslerIkon from "./VarlerIkon";
+import { getLanguage } from "../../../language/language";
+import style from "./Varsler.module.css";
+
+const language = getLanguage(Astro.url);
+---
+
+<div class={style.varsler}>
+  <VarslerIkon />
+  <div class={style.container}>
+    <h3 class="navds-heading navds-heading--small">Varsler</h3>
+    <p class="navds-body-long">Ingen nye varsler</p>
+  </div>
+</div>
+
+

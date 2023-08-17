@@ -4,6 +4,7 @@ import MinSide from "../mikrofrontends/min-side/MinSide";
 import Content from "../layouts/content/Content.astro";
 import Personalia from "../components/personalia/Personalia.astro";
 import { getLanguage } from "../language/language";
+import AlertIsland from "../components/alert-island/AlertIsland.astro";
 
 
 const language = getLanguage(Astro.url);
@@ -12,6 +13,7 @@ const language = getLanguage(Astro.url);
 <Layout title="Min side">
   <Content cls="min-side">
     <Personalia />
+    <AlertIsland />
     <MinSide language={language} client:only="react" />
   </Content>
 </Layout>
