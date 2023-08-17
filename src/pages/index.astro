@@ -2,13 +2,16 @@
 import Layout from "../layouts/base/Layout.astro";
 import MinSide from "../mikrofrontends/min-side/MinSide";
 import Content from "../layouts/content/Content.astro";
+import Personalia from "../components/personalia/Personalia.astro";
 import { getLanguage } from "../language/language";
+
 
 const language = getLanguage(Astro.url);
 ---
 
 <Layout title="Min side">
   <Content cls="min-side">
+    <Personalia />
     <MinSide language={language} client:only="react" />
   </Content>
 </Layout>

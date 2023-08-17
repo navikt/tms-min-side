@@ -1,0 +1,19 @@
+.tekst {
+  margin: 0 !important;
+}
+
+.navn {
+  text-transform: capitalize;
+}
+
+@media (min-width: 0px) {
+  .container {
+    margin: 1rem 0 2rem 0;
+  }
+}
+
+@media (min-width: 648px) {
+  .container {
+    margin: 1rem 0 2rem 0;
+  }
+}
