@@ -10,7 +10,7 @@ export const handler = (request: Request): Response => {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "personaliaText/javascript",
+        "Content-Type": "application/json",
       },
     });
   }
@@ -20,7 +20,7 @@ export const handler = (request: Request): Response => {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "personaliaText/javascript",
+        "Content-Type": "application/json",
       },
     });
   }
@@ -30,7 +30,7 @@ export const handler = (request: Request): Response => {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "personaliaText/javascript",
+        "Content-Type": "text/javascript",
       },
     });
   }
