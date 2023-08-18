@@ -1,8 +1,9 @@
-import { IDENT, isRoute, MANIFEST, MIKROFRONTEND, NAVN, STATISTIKK, TELEMTRY } from "./routes.ts";
+import { IDENT, isRoute, MANIFEST, MIKROFRONTEND, NAVN, STATISTIKK, TELEMTRY, VARSLER } from "./routes.ts";
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
 import ident from "./data/ident.json" assert { type: "json" };
+import varsler from "./data/varsler.json" assert { type: "json" };
 
 export const handler = (request: Request): Response => {
   if (isRoute(NAVN, request)) {
@@ -17,6 +18,16 @@ export const handler = (request: Request): Response => {
 
   if (isRoute(IDENT, request)) {
     return new Response(JSON.stringify(ident), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  if (isRoute(VARSLER, request)) {
+    return new Response(JSON.stringify(varsler), {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",

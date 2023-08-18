@@ -1,5 +1,6 @@
 ---
 import VarslerIkon from "./VarlerIkon";
+import VarslerData from "./VarslerData";
 import { getLanguage } from "../../../language/language";
 import style from "./Varsler.module.css";
 
@@ -10,6 +11,8 @@ const language = getLanguage(Astro.url);
   <VarslerIkon />
   <div class={style.container}>
     <h3 class="navds-heading navds-heading--small">Varsler</h3>
-    <p class="navds-body-long">2 nye meldinger</p>
+    <p class="navds-body-long">
+      <VarslerData client:only="react" />
+    </p>
   </div>
 </a>
