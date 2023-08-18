@@ -1,7 +1,7 @@
 .varsler {
   color: white;
   display: flex;
-  width: 28.5rem;
+  width: 100%;
   padding: 1rem;
   align-items: center;
   gap: 1rem;
@@ -33,5 +33,11 @@
 
 .varsler:hover p {
   color: #FFFFFF;
+}
+
+@media (min-width: 480px) {
+  .varsler {
+    width: 50%;
+  }
 }
 
