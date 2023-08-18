@@ -6,12 +6,10 @@ import style from "./Varsler.module.css";
 const language = getLanguage(Astro.url);
 ---
 
-<div class={style.varsler}>
+<a href="http://www.nav.no" class={style.varsler}>
   <VarslerIkon />
   <div class={style.container}>
     <h3 class="navds-heading navds-heading--small">Varsler</h3>
-    <p class="navds-body-long">Ingen nye varsler</p>
+    <p class="navds-body-long">2 nye meldinger</p>
   </div>
-</div>
-
-
+</a>
