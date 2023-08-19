@@ -44,6 +44,3 @@ const Utkast = ({ language }: Props) => {
 }
 
 export default Utkast;
-
-
-

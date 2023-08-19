@@ -24,7 +24,7 @@ const VarslerData = ({ language }: Props) => {
   const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
   const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
 
-  if (!hasVarsler) {
+  if (!hasVarsler(varsler)) {
     return <>{"Ingen nye varsler"}</>;
   }
 
