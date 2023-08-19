@@ -1,17 +1,17 @@
 export const text = {
   utkast: {
     nb: "Utkast",
-    nn: "Hei,",
-    en: "Hi,",
+    nn: "Utkast",
+    en: "Drafts",
   },
   soknad: {
     nb: "påbegynt søknad",
-    nn: "Hei,",
-    en: "Hi,",
+    nn: "søknad du har starta på",
+    en: "started application",
   },
   soknader: {
     nb: "påbegynte søknader",
-    nn: "Hei,",
-    en: "Hi,",
+    nn: "søknadar du har starta på",
+    en: "started applications",
   },
 };

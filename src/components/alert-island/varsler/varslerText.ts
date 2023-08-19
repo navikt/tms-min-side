@@ -1,28 +1,28 @@
 export const text = {
   oppgave: {
     nb: "oppgave",
-    nn: "oppgave",
-    en: "oppgave",
+    nn: "oppgåve",
+    en: "task",
   },
   oppgaver: {
     nb: "oppgaver",
-    nn: "oppgaver",
-    en: "oppgaver",
+    nn: "oppgåver",
+    en: "tasks",
   },
   beskjed: {
     nb: "beskjed",
     nn: "beskjed",
-    en: "beskjed",
+    en: "message",
   },
   beskjeder: {
     nb: "beskjeder",
     nn: "beskjeder",
-    en: "beskjeder",
+    en: "messages",
   },
   ingenVarsler: {
     nb: "Ingen nye varsler",
-    nn: "Ingen nye varsler",
-    en: "Ingen nye varsler",
+    nn: "Ingen nye varsel",
+    en: "No notifications",
   },
   og: {
     nb: " og ",
