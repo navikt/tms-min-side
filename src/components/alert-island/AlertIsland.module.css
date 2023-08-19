@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   flex: 1 0 0;
+  gap: 0.25rem;
   border-radius: 1rem;
   background: var(--surface-alt-3-strong, #003453);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15), 0px 0px 1px 0px rgba(0, 0, 0, 0.20);
