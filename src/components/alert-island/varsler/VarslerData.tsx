@@ -1,26 +1,34 @@
 import useSWRImmutable from "swr/immutable";
-import { antallVarslerUrl } from "./varslerUrls";
+import { antallVarslerUrl } from "./varslerUrlsClientSide";
 import { fetcher } from "../../../utils/api.client";
-import { Skeleton } from "@navikt/ds-react";
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtlis";
+import { text } from "./varslerText"
+import type { Language } from "../../../language/language";
 
-const VarslerData = () => {
-  const { data , isLoading } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
+interface Props {
+  language: Language;
+}
 
-  const antallOppgaver = data?.oppgaver;
-  const antallBeskjeder = data?.beskjeder + data?.innbokser;
-  const antallVarsler = antallOppgaver + antallBeskjeder;
+const VarslerData = ({ language }: Props) => {
+  const { data, isLoading } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
 
-  const hasOppgaver = antallOppgaver > 0;
-  const hasBeskjeder = antallBeskjeder > 0;
-  const hasVarsler = hasOppgaver || hasBeskjeder;
+  if (isLoading) {
+    return null;
+  }
+
+  const oppgaver = data.oppgaver;
+  const beskjeder = data.beskjeder + data.innbokser;
+  const varsler = beskjeder + oppgaver;
+
+  const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[language] : text.oppgaver[language];
+  const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
+  const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
 
   if (!hasVarsler) {
     return <>{"Ingen nye varsler"}</>;
   }
 
-  return <>{antallVarsler + " nye varsler"}</>;
+  return <>{`${varsler} ${varselText}`}</>;
 };
-
-
 
 export default VarslerData;
