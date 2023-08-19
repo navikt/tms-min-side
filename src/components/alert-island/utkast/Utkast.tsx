@@ -37,7 +37,7 @@ const Utkast = ({ language }: Props) => {
       <UtkastIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{tittel}</h3>
-        <p className="navds-body-long">
+        <p className="navds-body-long navds-body-long--small">
           {`${antall} ${ingress}`}
         </p>
       </div>

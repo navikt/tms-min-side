@@ -12,7 +12,7 @@ const language = getLanguage(Astro.url);
   <VarslerIkon />
   <div class={style.container}>
     <h3 class="navds-heading navds-heading--small">Varsler</h3>
-    <p class="navds-body-long">
+    <p class="navds-body-long navds-body-long--small">
       <VarslerData language={language} client:only="react" />
     </p>
   </div>
