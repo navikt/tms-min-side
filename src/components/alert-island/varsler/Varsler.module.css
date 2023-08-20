@@ -19,8 +19,20 @@
   background: var(--a-deepblue-700, #003453);
 }
 
+/* remove me */
+.varsler rect {
+  transition: fill .25s ease-out;
+  fill: #003453;
+}
+
 .varsler:hover rect {
-  fill: #FFAA33;
+  fill: #FFFFFF;
+  /* fill: #FFAA33; warning */
+  transition: fill .25s ease-in;
+}
+
+.varsler:hover path {
+  fill: #003453;
 }
 
 .varsler:hover h3 {
