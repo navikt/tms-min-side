@@ -12,15 +12,15 @@ export const beskjedSingular = (beskjeder: number) => beskjeder === 1;
 
 export const buildText = (beskjeder: number, oppgaver: number, beskjedText:string, oppgaveText: string, ogText: string) => {
   if (hasOppgaverAndBeskjeder(oppgaver, beskjeder)) {
-    return oppgaveText.concat(ogText).concat(beskjedText);
+    return `${oppgaver} ${oppgaveText} ${ogText} ${beskjeder} ${beskjedText}`;
   }
 
   if (hasOppgaver(oppgaver)) {
-    return oppgaveText;
+    return `${oppgaver} ${oppgaveText}`;
   }
 
   if (hasBeskjeder(beskjeder)) {
-    return beskjedText;
+    return `${beskjeder} ${beskjedText}`;
   }
 }
 

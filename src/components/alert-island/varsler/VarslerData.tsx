@@ -48,7 +48,7 @@ const VarslerData = ({ language }: Props) => {
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">Varsler</h3>
         <p className="navds-body-long navds-body-long--small">
-          {`${varsler} ${varselText}`}
+          {varselText}
         </p>
       </div>
     </>
