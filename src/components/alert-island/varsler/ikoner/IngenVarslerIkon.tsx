@@ -1,4 +1,4 @@
-import style from "./VarslerIkon.module.css";
+import style from "../Varsler.module.css";
 
 const IngenVarlserIkon = () => (
   <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
