@@ -4,6 +4,9 @@ import { fetcher } from "../../../utils/api.client";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtlis";
 import { text } from "./varslerText"
 import type { Language } from "../../../language/language";
+import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
+import VarlserIkon from "./ikoner/VarslerIkon";
+import style from "./Varsler.module.css";
 
 interface Props {
   language: Language;
@@ -26,10 +29,30 @@ const VarslerData = ({ language }: Props) => {
   const ingenVarslerText = text.ingenVarsler[language];
 
   if (!hasVarsler(varsler)) {
-    return <>{ingenVarslerText}</>;
+    return (
+      <>
+        <IngenVarslerIkon />
+        <div className={style.container}>
+          <h3 className="navds-heading navds-heading--small">Varsler</h3>
+          <p className="navds-body-long navds-body-long--small">
+            {ingenVarslerText}
+          </p>
+        </div>
+      </>
+    );
   }
 
-  return <>{`${varsler} ${varselText}`}</>;
+  return (
+    <>
+      <VarlserIkon />
+      <div className={style.container}>
+        <h3 className="navds-heading navds-heading--small">Varsler</h3>
+        <p className="navds-body-long navds-body-long--small">
+          {`${varsler} ${varselText}`}
+        </p>
+      </div>
+    </>
+  );
 };
 
 export default VarslerData;

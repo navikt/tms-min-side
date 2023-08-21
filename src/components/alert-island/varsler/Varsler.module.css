@@ -8,6 +8,7 @@
   border-radius: 0.5rem;
   background: var(--surface-transparent, rgba(255, 255, 255, 0.00));
   text-decoration-line: none;
+  min-height: 5rem;
 }
 
 .container {
@@ -17,22 +18,6 @@
 
 .varsler:hover {
   background: var(--a-deepblue-700, #003453);
-}
-
-/* remove me */
-.varsler rect {
-  transition: fill .25s ease-out;
-  fill: #003453;
-}
-
-.varsler:hover rect {
-  fill: #FFFFFF;
-  /* fill: #FFAA33; warning */
-  transition: fill .25s ease-in;
-}
-
-.varsler:hover path {
-  fill: #003453;
 }
 
 .varsler:hover h3 {

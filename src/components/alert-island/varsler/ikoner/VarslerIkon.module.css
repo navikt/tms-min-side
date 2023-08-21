@@ -1,0 +1,11 @@
+.varsler:hover .varsler-ikon-rect {
+  fill: #FFAA33;
+}
+
+.varsler:hover .ingen-ikon-rect {
+  fill: #FFFFFF;
+}
+
+.varsler:hover .ingen-ikon-path {
+  fill: #003453;
+}

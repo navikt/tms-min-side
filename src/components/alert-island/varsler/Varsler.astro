@@ -1,6 +1,4 @@
 ---
-import VarslerIkon from "./VarslerIkon";
-import IngenVarslerIkon from "./IngenVarslerIkon";
 import VarslerData from "./VarslerData";
 import { getLanguage } from "../../../language/language";
 import { varslerUrl } from "./varslerUrls";
@@ -10,11 +8,5 @@ const language = getLanguage(Astro.url);
 ---
 
 <a href={varslerUrl} class={style.varsler}>
-  <IngenVarslerIkon />
-  <div class={style.container}>
-    <h3 class="navds-heading navds-heading--small">Varsler</h3>
-    <p class="navds-body-long navds-body-long--small">
-      <VarslerData language={language} client:only="react" />
-    </p>
-  </div>
+  <VarslerData language={language} client:only="react" />
 </a>
