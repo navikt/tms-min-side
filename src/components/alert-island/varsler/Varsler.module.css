@@ -35,6 +35,7 @@
 
 .varsler:hover h3 {
   text-decoration-line: underline;
+  text-decoration-thickness: 0.06rem;
 }
 
 .varsler p {
