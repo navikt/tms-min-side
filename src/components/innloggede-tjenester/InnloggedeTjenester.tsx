@@ -1,5 +1,6 @@
 import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
-import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";import InnloggedeTjensterSection from "./InnloggedeTjensterSection";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import InnloggedeTjensterSection from "./InnloggedeTjensterSection";
 import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./innloggedeTjenesterUrls";
 import type { Language } from "../../language/language";
 import { text } from "./innloggedeTjenesterText";
