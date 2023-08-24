@@ -1,5 +1,6 @@
 import React from "react";
-import DS from "@navikt/ds-react";
+import { Detail } from "@navikt/ds-react/cjs/typography/Detail.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import type { Language } from "../../language/language";
 import style from "./InnloggedeTjensterSection.module.css";
 
@@ -7,15 +8,15 @@ const InnloggedeTjensterSection = ({ liste, tittel, language }: { liste: Array<{
   return(
     <>
       <div className={style.listeContainer}>
-        <DS.Detail className={style.listeTittel}>{tittel}</DS.Detail>
+        <Detail className={style.listeTittel}>{tittel}</Detail>
         <ul className={style.liste}>
           {liste.map((link) => (
             <li className={style.lenke}>
-              <DS.BodyShort>
+              <BodyShort>
                 <a href={link.url[language]} className={style.color}>
                   {link[language]}
                 </a>
-              </DS.BodyShort>
+              </BodyShort>
             </li>
           ))}
         </ul>
