@@ -25,8 +25,8 @@ export const text = {
     en: "No notifications",
   },
   og: {
-    nb: " og ",
-    nn: " og ",
-    en: " and ",
+    nb: "og",
+    nn: "og",
+    en: "and",
   },
 };
