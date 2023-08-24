@@ -15,16 +15,16 @@ const InnloggedeTjenester = ({ language }: Props) => {
 
   return (
     <div className={styles.container}>
-      <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenesterTittel[language]}</Heading>
+      <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenester[language]}</Heading>
       {isEnglish ? <BodyShort size="medium" className={styles.disclaimer}>{text.alleTjenesterDisclaimer[language]}</BodyShort> : null}
       <nav className={styles.contentContainer}>
         <div className={styles.listColumn}>
-          <InnloggedeTjensterSection tittel={text.jobbOgOppfolgingTittel[language]} liste={jobbLenker} language={language} />
-          <InnloggedeTjensterSection tittel={text.DinOversikt[language]} liste={hjelpemidlerLenker} language={language} />
+          <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} liste={jobbLenker} language={language} />
+          <InnloggedeTjensterSection tittel={text.dinOversikt[language]} liste={hjelpemidlerLenker} language={language} />
         </div>
         <div className={styles.listColumn}>
-          <InnloggedeTjensterSection tittel={text.personopplysningTittel[language]} liste={personopplysningLenker} language={language} />
-          <InnloggedeTjensterSection tittel={text.annetTittel[language]} liste={annetLenker} language={language} />
+          <InnloggedeTjensterSection tittel={text.personopplysning[language]} liste={personopplysningLenker} language={language} />
+          <InnloggedeTjensterSection tittel={text.annet[language]} liste={annetLenker} language={language} />
         </div>
       </nav>
     </div>
