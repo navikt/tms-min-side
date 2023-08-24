@@ -12,10 +12,20 @@ interface Props {
   language: Language;
 }
 
+interface VarslerResponse {
+  oppgaver: number;
+  beskjeder: number;
+  innbokser: number;
+}
+
 const VarslerData = ({ language }: Props) => {
-  const { data, isLoading } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
+  const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: antallVarslerUrl }, fetcher);
 
   if (isLoading) {
+    return null;
+  }
+
+  if (error) {
     return null;
   }
 
