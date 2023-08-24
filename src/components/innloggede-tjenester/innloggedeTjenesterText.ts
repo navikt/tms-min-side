@@ -119,7 +119,7 @@ export const text = {
     nn: "JOBB OG OPPFØLGING",
     en: "JOB AND WORK RELATED SERVICES",
   },
-  pengeStøtteOgHjelpemidlerTittel: {
+  DinOversikt: {
     nb: "DIN OVERSIKT",
     nn: "DI OVERSIKT",
     en: "YOUR OVERVIEW",
