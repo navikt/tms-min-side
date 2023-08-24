@@ -1,6 +1,6 @@
 import style from "./Personalia.module.css";
 import useSWRImmutable from "swr/immutable";
-import { identUrl, navnUrl } from "./PersonaliaUrls";
+import { identUrl, navnUrl } from "./personaliaUrls";
 import { fetcher } from "../../utils/api.client";
 
 const PersonaliaData = () => {
