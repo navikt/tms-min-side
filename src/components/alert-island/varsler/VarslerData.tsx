@@ -33,7 +33,7 @@ const VarslerData = ({ language }: Props) => {
     return null;
   }
 
-  const oppgaver = data.oppgaver;
+  const oppgaver = data.oppgaver || 0;
   const beskjeder = data.beskjeder + data.innbokser;
   const varsler = beskjeder + oppgaver;
 
