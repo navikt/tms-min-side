@@ -22,7 +22,7 @@
 
 main {
   width: 100%;
-  max-width: 912px;
+  max-width: 960px;
 }
 
 @media (min-width: 0px) {
