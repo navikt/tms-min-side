@@ -23,16 +23,14 @@
 main {
   width: 100%;
   max-width: 960px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@media (min-width: 0px) {
-  .layout {
-    margin: 0 1rem;
-  }
-}
-
-@media (min-width: 960px) {
-  .layout {
-    margin: 0;
+@media (min-width: 768px) {
+  main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
