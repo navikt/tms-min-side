@@ -1,12 +1,10 @@
 .utkast {
-  color: white;
   display: flex;
-  width: 100%;
-  padding: 0.5rem;
-  align-items: center;
   gap: 1rem;
+  width: 100%;
+  color: var(--a-white);
+  padding: 0.5rem;
   border-radius: 0.5rem;
-  background: var(--surface-transparent, rgba(255, 255, 255, 0.00));
   text-decoration-line: none;
 }
 
@@ -15,13 +13,16 @@
   flex-direction: column;
 }
 
+.ikon {
+  flex-shrink: 0;
+}
+
 .utkast:hover {
-  margin: 0;
-  background: var(--a-deepblue-700, #003453);
+  background: var(--a-deepblue-700);
 }
 
 .utkast:hover rect {
-  fill: #3386E0;
+  fill: var(--a-blue-400);
 }
 
 .utkast:hover h3 {
@@ -30,11 +31,11 @@
 }
 
 .utkast p {
-  color: #CCE2F0;
+  color: var(--a-deepblue-100);
 }
 
 .utkast:hover p {
-  color: #FFFFFF;
+  color: var(--a-white);
 }
 
 @media (min-width: 480px) {
