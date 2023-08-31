@@ -16,8 +16,6 @@ const Utkast = ({ language }: Props) => {
 
   const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);
   const hasUtkast = antall > 0;
-
-  const tittel = text.utkast[language];
   const ingress = antall === 1 ? text.soknad[language] : text.soknader[language];
 
   if (utkastLoading) {
@@ -36,7 +34,7 @@ const Utkast = ({ language }: Props) => {
     <a href={utkastUrl} className={style.utkast}>
       <UtkastIkon />
       <div className={style.container}>
-        <h3 className="navds-heading navds-heading--small">{tittel}</h3>
+        <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
         <p className="navds-body-long navds-body-long--small">
           {`${antall} ${ingress}`}
         </p>
