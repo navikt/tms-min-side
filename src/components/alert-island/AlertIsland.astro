@@ -1,5 +1,5 @@
 ---
-import Varsler from "./varsler/Varsler";
+import Varsler from "./varsler/Varsler.astro";
 import Utkast from "./utkast/Utkast";
 import { getLanguage } from "../../language/language";
 import style from "./AlertIsland.module.css";
@@ -8,6 +8,6 @@ const language = getLanguage(Astro.url);
 ---
 
 <div class={style.container}>
-  <Varsler language={language} client:only="react" />
+  <Varsler />
   <Utkast language={language} client:only="react" />
 </div>

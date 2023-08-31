@@ -19,6 +19,11 @@ export const text = {
     nn: "beskjeder",
     en: "messages",
   },
+  varsler: {
+    nb: "Varsler",
+    nn: "Varsler",
+    en: "Notification",
+  },
   ingenVarsler: {
     nb: "Ingen nye varsler",
     nn: "Ingen nye varsel",

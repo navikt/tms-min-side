@@ -13,6 +13,8 @@ import type { Props } from "../types";
 
 const MinSide = ({ language }: Props) => {
   const [oversiktManifest, isLoadingOversiktManifest] = useManifest(oversiktManifestUrl);
+  useLanguage(language);
+  useBreadcrumbs([], language);
   useSentry();
   useFaro();
   useStatistikk();
