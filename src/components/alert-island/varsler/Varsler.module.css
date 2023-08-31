@@ -8,12 +8,15 @@
   border-radius: 0.5rem;
   background: var(--surface-transparent, rgba(255, 255, 255, 0.00));
   text-decoration-line: none;
-  min-height: 5rem;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+}
+
+.varsler-ikon {
+  flex-shrink: 0;
 }
 
 .varsler:hover .varsler-ikon-rect {
@@ -27,7 +30,6 @@
 .varsler:hover .ingen-ikon-path {
   fill: #003453;
 }
-
 
 .varsler:hover {
   background: var(--a-deepblue-700, #003453);
