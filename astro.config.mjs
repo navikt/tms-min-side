@@ -26,7 +26,6 @@ export default defineConfig({
       },
     },
   ],
-  compressHTML: true,
   output: "server",
   adapter: node({
     mode: "standalone",
