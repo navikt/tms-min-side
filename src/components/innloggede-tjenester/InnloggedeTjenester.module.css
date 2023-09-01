@@ -9,13 +9,13 @@
   color: var(--a-deepblue-700);
 }
 
-.contentContainer {
+.sectionContainer {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-.listColumn {
+.column {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -27,13 +27,13 @@
 }
 
 @media (min-width: 648px) {
-  .contentContainer {
+  .sectionContainer {
     flex-direction: row;
     justify-content: space-between;
     gap: 64px;
   }
 
-  .listColumn {
+  .column {
     width: 50%;
   }
 }

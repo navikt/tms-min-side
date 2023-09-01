@@ -4,7 +4,7 @@ import MinSide from "../mikrofrontends/min-side/MinSide";
 import Content from "../layouts/content/Content.astro";
 import Personalia from "../components/personalia/Personalia.astro";
 import AlertIsland from "../components/alert-island/AlertIsland.astro";
-import InnloggedeTjenester from "../components/innloggede-tjenester/InnloggedeTjenester";
+import InnloggedeTjenester from "../components/innloggede-tjenester/InnloggedeTjenester.astro";
 import { getLanguage } from "../language/language";
 import style from "./_index.module.css";
 
@@ -18,6 +18,6 @@ const language = getLanguage(Astro.url);
     <div class={style.container}>
       <MinSide language={language} client:only="react" />
     </div>
-    <InnloggedeTjenester language={language} />
+    <InnloggedeTjenester />
   </Content>
 </Layout>

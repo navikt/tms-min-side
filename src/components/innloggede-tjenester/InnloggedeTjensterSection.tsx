@@ -4,24 +4,26 @@ import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import type { Language } from "../../language/language";
 import style from "./InnloggedeTjensterSection.module.css";
 
-const InnloggedeTjensterSection = ({ liste, tittel, language }: { liste: Array<{ nb: string, nn: string, en: string, url: {nb: string, nn: string, en: string} }>, tittel: string, language: Language }) => {
+interface Props  {
+  liste: Array<{ nb: string, nn: string, en: string, url: { nb: string, nn: string, en: string } }>, tittel: string, language: Language
+}
+
+const InnloggedeTjensterSection = ({ liste, tittel, language }: Props) => {
   return(
-    <>
-      <div className={style.listeContainer}>
-        <Detail className={style.listeTittel}>{tittel}</Detail>
-        <ul className={style.liste}>
-          {liste.map((link) => (
-            <li className={style.lenke}>
-              <BodyShort>
-                <a href={link.url[language]} className={style.color}>
-                  {link[language]}
-                </a>
-              </BodyShort>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <div className={style.listeContainer}>
+      <Detail className={style.listeTittel}>{tittel}</Detail>
+      <ul className={style.liste}>
+        {liste.map((link) => (
+          <li className={style.lenke}>
+            <BodyShort>
+              <a href={link.url[language]} className={style.color}>
+                {link[language]}
+              </a>
+            </BodyShort>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
