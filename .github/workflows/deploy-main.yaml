@@ -22,10 +22,6 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           cache: "npm"
 
-      - uses: "denoland/setup-deno@v1"
-        with:
-          deno-version: v1.x
-
       - name: "Install dependencies"
         run: "npm ci"
         env:
@@ -33,9 +29,6 @@ jobs:
 
       - name: "Build application"
         run: "npm run build"
-
-      - name: "Fix basepath"
-        run: "npm run base"
 
       - name: "Upload to cdn"
         uses: navikt/frontend/actions/cdn-upload/v1@main
