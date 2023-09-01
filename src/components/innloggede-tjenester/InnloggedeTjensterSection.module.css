@@ -8,8 +8,21 @@
   margin: 0.75rem 0;
 }
 
+.lenke {
+  display: flex;
+}
+
+.chevron {
+  padding-right: 0.25rem;
+}
+
 .lenke:first-of-type {
   border-top: 1px solid var(--a-deepblue-200);
+}
+
+.lenke:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
 }
 
 .listeTittel {
@@ -28,6 +41,7 @@
 
 .color {
   color: var(--a-deepblue-700) !important;
+  text-decoration: none;
 }
 
 .color:hover {

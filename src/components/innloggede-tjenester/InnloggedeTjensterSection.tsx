@@ -2,6 +2,7 @@ import React from "react";
 import { Detail } from "@navikt/ds-react/cjs/typography/Detail.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import type { Language } from "../../language/language";
+import ChevronRight from "./ChevronRight";
 import style from "./InnloggedeTjensterSection.module.css";
 
 interface Props  {
@@ -15,6 +16,7 @@ const InnloggedeTjensterSection = ({ liste, tittel, language }: Props) => {
       <ul className={style.liste}>
         {liste.map((link) => (
           <li className={style.lenke}>
+            <ChevronRight />
             <BodyShort>
               <a href={link.url[language]} className={style.color}>
                 {link[language]}
