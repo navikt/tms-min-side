@@ -8,9 +8,28 @@
   margin: 0.75rem 0;
 }
 
-.lenke:first-of-type {
+.link {
+  display: flex;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.chevron {
+  padding-right: 0.25rem;
+}
+
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.link:first-of-type {
   border-top: 1px solid var(--a-deepblue-200);
 }
+
+
 
 .listeTittel {
   color: var(--a-deepblue-600);
@@ -21,13 +40,14 @@
   padding: 0;
 }
 
-.lenke {
+.link {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--a-deepblue-200);
 }
 
 .color {
   color: var(--a-deepblue-700) !important;
+  text-decoration: none;
 }
 
 .color:hover {

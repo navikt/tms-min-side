@@ -24,7 +24,7 @@ export const text = {
     nn: "ANNA",
     en: "OTHER",
   },
-  alleTjenesterDisclaimer: {
+  disclaimer: {
     nb: "",
     nn: "",
     en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
