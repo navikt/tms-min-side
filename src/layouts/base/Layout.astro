@@ -2,6 +2,7 @@
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getEnvironment } from "../../utils/environment";
 import { getLanguage } from "../../language/language";
+import { ViewTransitions } from 'astro:transitions';
 import "./Layout.css";
 
 export interface Props {
@@ -29,6 +30,7 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.2.1/index.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.2.1/index.min.css" />
+    <ViewTransitions />
     <Decorator.Styles />
   </head>
   <body>
