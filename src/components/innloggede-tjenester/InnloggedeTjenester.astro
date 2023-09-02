@@ -1,7 +1,7 @@
 ---
 import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import InnloggedeTjensterSection from "./section/InnloggedeTjensterSection";
+import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./section/innloggedeTjenesterUrls";
 import { text } from "./innloggedeTjenesterText";
 import { getLanguage } from "../../language/language";
@@ -23,24 +23,20 @@ const isEnglish = language === "en";
       <InnloggedeTjensterSection
         tittel={text.jobbOgOppfolging[language]}
         liste={jobbLenker}
-        language={language}
       />
       <InnloggedeTjensterSection
         tittel={text.dinOversikt[language]}
         liste={hjelpemidlerLenker}
-        language={language}
       />
     </div>
     <div class={styles.column}>
       <InnloggedeTjensterSection
         tittel={text.personopplysning[language]}
         liste={personopplysningLenker}
-        language={language}
       />
       <InnloggedeTjensterSection
         tittel={text.annet[language]}
         liste={annetLenker}
-        language={language} />
     </div>
   </nav>
 </div>
