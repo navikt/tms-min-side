@@ -5,7 +5,7 @@ import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import importmap from "./importmap.json";
 
 export default defineConfig({
-  base: "/minside",
+  base: import.meta.env.DEV ? "" : "/minside",
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
   },
