@@ -6,5 +6,11 @@ const VARSLER_URL = {
   prod: "https://www.nav.no/tms-varsler-mikrofrontend",
 };
 
-export const varslerUrl = VARSLER_URL[getEnvironmentClientSide()];
-export const varslerManifestUrl = `${varslerUrl}/manifest.json`;
+const VARSLER_CDN_URL = {
+  local: "http://localhost:4000",
+  dev: "https://cdn.nav.no/min-side/tms-varsler-mikrofrontend/dist",
+  prod: "https://cdn.nav.no/min-side/tms-varsler-mikrofrontend/dist",
+};
+
+export const varslerCdnUrl = VARSLER_CDN_URL[getEnvironmentClientSide()];
+export const varslerManifestUrl = `${VARSLER_URL}/manifest.json`;

@@ -5,14 +5,14 @@ import ContentLoader from "../../components/loader/ContentLoader";
 import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
 import { useLanguage } from "../../hooks/useLanguage";
 import { text } from "../../language/text";
-import { varslerManifestUrl, varslerUrl } from "./urls";
+import { varslerCdnUrl, varslerManifestUrl } from "./urls";
 import type { Props } from "../types";
 import { useManifest } from "../../hooks/useManifest.ts";
 import { bundle, entry } from "../entrypoints.ts";
 
 const Varlser = ({ language }: Props) => {
   const [manifest, isLoadingManifest] = useManifest(varslerManifestUrl);
-  const VarslerMikrofrontend = React.lazy(() => import(`${varslerUrl}/${manifest[entry][bundle]}`));
+  const VarslerMikrofrontend = React.lazy(() => import(`${varslerCdnUrl}/${manifest[entry][bundle]}`));
 
   useLanguage(language);
   useBreadcrumbs(
