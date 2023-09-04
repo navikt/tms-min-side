@@ -12,7 +12,6 @@ import { bundle, entry } from "../entrypoints.ts";
 
 const Varlser = ({ language }: Props) => {
   const [manifest, isLoadingManifest] = useManifest(varslerManifestUrl);
-  const VarslerMikrofrontend = React.lazy(() => import(`${varslerCdnUrl}/${manifest[entry][bundle]}`));
 
   useLanguage(language);
   useBreadcrumbs(
@@ -29,6 +28,8 @@ const Varlser = ({ language }: Props) => {
   setParams({
     utilsBackground: "white",
   });
+
+  const VarslerMikrofrontend = React.lazy(() => import(`${varslerCdnUrl}/${manifest[entry][bundle]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
