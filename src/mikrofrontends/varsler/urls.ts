@@ -13,4 +13,4 @@ const VARSLER_CDN_URL = {
 };
 
 export const varslerCdnUrl = VARSLER_CDN_URL[getEnvironmentClientSide()];
-export const varslerManifestUrl = `${VARSLER_URL}/manifest.json`;
+export const varslerManifestUrl = `${VARSLER_URL[getEnvironmentClientSide()]}/manifest.json`;
