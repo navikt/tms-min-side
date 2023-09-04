@@ -7,4 +7,4 @@ const VARSLER_URL = {
 };
 
 export const varslerUrl = VARSLER_URL[getEnvironmentClientSide()];
-
+export const varslerManifestUrl = `${varslerUrl}/manifest.json`;
