@@ -6,6 +6,7 @@
   color: var(--a-white);
   border-radius: 0.5rem;
   text-decoration-line: none;
+  min-height: 5rem;
 }
 
 .container {
