@@ -29,6 +29,10 @@ const Varlser = ({ language }: Props) => {
     utilsBackground: "white",
   });
 
+  if (isLoadingManifest){
+    return <ContentLoader />;
+  }
+
   const VarslerMikrofrontend = React.lazy(() => import(`${varslerCdnUrl}/${manifest[entry][bundle]}`));
 
   return (
