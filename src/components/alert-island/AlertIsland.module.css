@@ -7,12 +7,13 @@
   margin-bottom: 1rem;
   background: var(--a-deepblue-800);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.20);
-  min-height: 7rem;
+  min-height: 5rem;
 }
 
 @media (min-width: 480px) {
  .container {
    flex-direction: row;
    margin-bottom: 2rem;
+   min-height: 7rem;
  }
 }
