@@ -8,6 +8,6 @@ import style from "./Varsler.module.css";
 const language = getLanguage(Astro.url);
 ---
 
-<a href={varslerUrl} class={style.varsler} onclick={() => logEvent("navigere", { komponent: "varsler" })}>
+<a href={varslerUrl} class={style.varsler} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
   <VarslerData language={language} client:only="react" />
 </a>
