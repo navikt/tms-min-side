@@ -58,7 +58,7 @@ const Varsler = ({ language }: Props) => {
   }
 
   return (
-    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
+    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("navigere", { komponent: "utkast" })}>
       <VarlserIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
