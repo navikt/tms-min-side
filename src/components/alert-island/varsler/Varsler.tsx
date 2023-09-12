@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { antallVarslerUrl } from "./varslerUrlsClientSide";
+import { antallVarslerUrl } from "./varslerUrls.ts";
 import { fetcher } from "../../../utils/api.client";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtlis";
 import { text } from "./varslerText"
