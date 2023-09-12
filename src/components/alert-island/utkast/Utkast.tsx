@@ -4,6 +4,7 @@ import { fetcher } from "../../../utils/api.client";
 import { antallUtkastDigisosUrl, antallUtkastUrl, utkastUrl } from "./utkastUrls";
 import type { Language } from "../../../language/language";
 import { text } from "./utkastText";
+import { logEvent } from "../../../utils/amplitude.ts";
 import style from "./Utkast.module.css";
 
 interface Props {
@@ -31,7 +32,7 @@ const Utkast = ({ language }: Props) => {
   }
 
   return (
-    <a href={utkastUrl} className={style.utkast}>
+    <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
       <UtkastIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>

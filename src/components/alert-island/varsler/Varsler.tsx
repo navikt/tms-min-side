@@ -6,8 +6,9 @@ import { text } from "./varslerText"
 import type { Language } from "../../../language/language";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
-import style from "./Varsler.module.css";
 import { logEvent } from "../../../utils/amplitude.ts";
+import { varslerUrl } from "./varslerUrls.ts";
+import style from "./Varsler.module.css";
 
 interface Props {
   language: Language;
@@ -19,7 +20,7 @@ interface VarslerResponse {
   innbokser: number;
 }
 
-const VarslerData = ({ language }: Props) => {
+const Varsler = ({ language }: Props) => {
   const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: antallVarslerUrl }, fetcher);
 
   if (isLoading) {
@@ -44,7 +45,7 @@ const VarslerData = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <a onClick={() => logEvent("navigere", { komponent: "varsler" })}>
+      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
         <IngenVarslerIkon />
         <div className={style.container}>
           <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -57,7 +58,7 @@ const VarslerData = ({ language }: Props) => {
   }
 
   return (
-    <a onClick={() => logEvent("navigere", { komponent: "varsler" })}>
+    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
       <VarlserIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -69,4 +70,4 @@ const VarslerData = ({ language }: Props) => {
   );
 };
 
-export default VarslerData;
+export default Varsler;
