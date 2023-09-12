@@ -7,6 +7,7 @@ import type { Language } from "../../../language/language";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
 import style from "./Varsler.module.css";
+import { logEvent } from "../../../utils/amplitude.ts";
 
 interface Props {
   language: Language;
@@ -43,7 +44,7 @@ const VarslerData = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <>
+      <a onClick={() => logEvent("navigere", { komponent: "varsler" })}>
         <IngenVarslerIkon />
         <div className={style.container}>
           <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -51,12 +52,12 @@ const VarslerData = ({ language }: Props) => {
             {text.ingenVarsler[language]}
           </p>
         </div>
-      </>
+      </a>
     );
   }
 
   return (
-    <>
+    <a onClick={() => logEvent("navigere", { komponent: "varsler" })}>
       <VarlserIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -64,7 +65,7 @@ const VarslerData = ({ language }: Props) => {
           {varselText}
         </p>
       </div>
-    </>
+    </a>
   );
 };
 

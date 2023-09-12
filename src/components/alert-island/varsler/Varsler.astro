@@ -2,12 +2,11 @@
 import VarslerData from "./VarslerData";
 import { getLanguage } from "../../../language/language";
 import { varslerUrl } from "./varslerUrls";
-import { logEvent } from "../../../utils/amplitude";
 import style from "./Varsler.module.css";
 
 const language = getLanguage(Astro.url);
 ---
 
-<a href={varslerUrl} class={style.varsler} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
+<a href={varslerUrl} class={style.varsler}>
   <VarslerData language={language} client:only="react" />
 </a>
