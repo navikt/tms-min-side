@@ -1,9 +1,11 @@
 import { logAmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
 
-export const logEvent = (event: string, data?: Record<string, string>) => {
+export const logEvent = (data: string) => {
   logAmplitudeEvent({
     origin: "tms-min-side",
-    eventName: event,
-    eventData: data,
+    eventName: "navigere",
+    eventData: {
+      komponent: data
+    },
   });
 };

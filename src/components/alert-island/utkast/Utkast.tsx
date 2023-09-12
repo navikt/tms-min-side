@@ -32,7 +32,7 @@ const Utkast = ({ language }: Props) => {
   }
 
   return (
-    <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("navigere", { komponent: "varsler" })}>
+    <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("utkast")}>
       <UtkastIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
