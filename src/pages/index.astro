@@ -19,7 +19,7 @@ const language = getLanguage(Astro.url);
     <div class={style.container}>
       <MinSide language={language} client:only="react" />
     </div>
-    <Arbeidssoker language={language} client:visible />
+    <Arbeidssoker language={language} client:only="react" />
     <InnloggedeTjenester />
   </Content>
 </Layout>
