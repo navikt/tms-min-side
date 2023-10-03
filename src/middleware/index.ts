@@ -26,7 +26,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (validationResult !== "valid") {
     const error = new Error(`Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.message}, redirecting to login.`);
     console.error(error);
-    return context.redirect(`${loginUrl}${params});
+    return context.redirect(`${loginUrl}${params}`);
   }
 
   return next();
