@@ -6,7 +6,7 @@ import { isLocal } from "../utils/environment";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined = context.request.headers.get("authorization");
-  const params = context.url.search;
+  const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
     return next();
