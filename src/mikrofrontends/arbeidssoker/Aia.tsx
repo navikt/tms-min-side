@@ -8,8 +8,8 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
 
 const Aia = () => {
-  const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
+  const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
     return null;
@@ -20,7 +20,7 @@ const Aia = () => {
   }
 
   if (isLoadingManifest) {
-    return <ContentLoader />;
+    return null;
   }
 
 
