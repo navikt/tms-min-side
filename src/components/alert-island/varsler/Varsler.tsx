@@ -1,11 +1,13 @@
 import useSWRImmutable from "swr/immutable";
-import { antallVarslerUrl } from "./varslerUrlsClientSide";
+import { antallVarslerUrl } from "./varslerUrls.ts";
 import { fetcher } from "../../../utils/api.client";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtlis";
 import { text } from "./varslerText"
 import type { Language } from "../../../language/language";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
+import { logEvent } from "../../../utils/amplitude.ts";
+import { varslerUrl } from "./varslerUrls.ts";
 import style from "./Varsler.module.css";
 
 interface Props {
@@ -18,7 +20,7 @@ interface VarslerResponse {
   innbokser: number;
 }
 
-const VarslerData = ({ language }: Props) => {
+const Varsler = ({ language }: Props) => {
   const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: antallVarslerUrl }, fetcher);
 
   if (isLoading) {
@@ -43,7 +45,7 @@ const VarslerData = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <>
+      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler")}>
         <IngenVarslerIkon />
         <div className={style.container}>
           <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -51,12 +53,12 @@ const VarslerData = ({ language }: Props) => {
             {text.ingenVarsler[language]}
           </p>
         </div>
-      </>
+      </a>
     );
   }
 
   return (
-    <>
+    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler")}>
       <VarlserIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -64,8 +66,8 @@ const VarslerData = ({ language }: Props) => {
           {varselText}
         </p>
       </div>
-    </>
+    </a>
   );
 };
 
-export default VarslerData;
+export default Varsler;
