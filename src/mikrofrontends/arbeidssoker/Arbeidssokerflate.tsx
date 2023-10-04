@@ -5,7 +5,7 @@ import { aiaEntry, bundle } from "../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 
-const ArbeidssokerFlate = () => {
+const Arbeidssokerflate = () => {
   const [manifest, isLoading] = useManifest(aiaManifestUrl);
 
   if (isLoading) {
@@ -23,4 +23,4 @@ const ArbeidssokerFlate = () => {
   );
 };
 
-export default ArbeidssokerFlate;
+export default Arbeidssokerflate;
