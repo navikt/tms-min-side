@@ -7,7 +7,7 @@ import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
 
-const Arbeidssokerflate = () => {
+const Aia = () => {
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
 
@@ -35,4 +35,4 @@ const Arbeidssokerflate = () => {
   );
 };
 
-export default Arbeidssokerflate;
+export default Aia;
