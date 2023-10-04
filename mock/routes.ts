@@ -9,5 +9,6 @@ export const UTKAST = new URLPattern({ pathname: "/utkast" });
 export const UTKAST_DIGISOS = new URLPattern({ pathname: "/utkast-digisos" });
 export const MANIFEST = new URLPattern({ pathname: "/manifest.json" });
 export const MIKROFRONTEND = new URLPattern({ pathname: "/bundle.js" });
+export const SISTE_SAKER = new URLPattern({ pathname: "/siste-saker" });
 export const STATISTIKK = new URLPattern({ pathname: "/statistikk" });
 export const TELEMTRY = new URLPattern({ pathname: "/collect" });

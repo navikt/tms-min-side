@@ -1,9 +1,10 @@
-import { IDENT, isRoute, MANIFEST, MIKROFRONTEND, NAVN, } from "./routes.ts";
+import { IDENT, isRoute, MANIFEST, MIKROFRONTEND, NAVN, SISTE_SAKER } from "./routes.ts";
 import { STATISTIKK, TELEMTRY, UTKAST, UTKAST_DIGISOS, VARSLER } from "./routes.ts";
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
 import ident from "./data/ident.json" assert { type: "json" };
+import sisteSaker from "./data/siste-saker.json" assert { type: "json" };
 import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
 import utkastDigisos from "./data/utkast-digisos.json" assert { type: "json" };
@@ -75,6 +76,16 @@ export const handler = (request: Request): Response => {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "content-type": "application/json;",
+      },
+    });
+  }
+
+  if (isRoute(SISTE_SAKER, request)) {
+    return new Response(JSON.stringify(sisteSaker), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
       },
     });
   }

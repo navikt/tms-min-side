@@ -6,7 +6,10 @@ import Personalia from "../components/personalia/Personalia.astro";
 import AlertIsland from "../components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "../components/innloggede-tjenester/InnloggedeTjenester.astro";
 import Aia from "../mikrofrontends/arbeidssoker/Aia";
+import Dokumentarkiv from "../components/dokumentarkiv/Dokumentarkiv.astro";
+import Container from "../components/container/Container.astro";
 import { getLanguage } from "../language/language";
+
 import style from "./_index.module.css";
 
 const language = getLanguage(Astro.url);
@@ -19,6 +22,9 @@ const language = getLanguage(Astro.url);
     <div class={style.container}>
       <MinSide language={language} client:only="react" />
     </div>
+    <Container>
+      <Dokumentarkiv />
+    </Container>
     <Aia client:only="react" />
     <InnloggedeTjenester />
   </Content>

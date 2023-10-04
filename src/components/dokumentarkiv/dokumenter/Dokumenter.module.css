@@ -1,0 +1,79 @@
+.dokumentContainer {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.ingenDokumenterContainer {
+  width: 100%;
+}
+
+.skeletonContainer {
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.dokumentSkeleton {
+  border-top: 1px solid lightgray;
+  margin-bottom: 0.58rem;
+}
+
+.linkContainer {
+  display: flex;
+  border-top: 1px solid lightgray;
+  padding: 1rem 0;
+}
+
+.link {
+  color: #272727;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ingenDokumenterTextWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--a-bg-subtle);
+  color: var(--a-text-default);
+}
+
+.ingenDokumenterTextWrapper:hover {
+  background: var(--a-surface-neutral-subtle-hover);
+  text-decoration: underline;
+}
+
+.ingenDokumenterTextWrapper:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.container {
+  padding: 1rem 1rem 1.25rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-divider, rgba(7, 26, 54, 0.21));
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-subtle, rgba(1, 11, 24, 0.68));
+}
+
+@media (min-width: 648px) {
+  .dokumentContainer {
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  .ingenDokumenterContainer {
+    width: 37rem;
+  }
+
+  .container {
+    padding: 2.25rem 1.25rem 2.56rem 1.25rem;
+  }
+}
+

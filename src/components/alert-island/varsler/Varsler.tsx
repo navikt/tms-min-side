@@ -45,7 +45,7 @@ const Varsler = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler")}>
+      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
         <IngenVarslerIkon />
         <div className={style.container}>
           <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -58,7 +58,7 @@ const Varsler = ({ language }: Props) => {
   }
 
   return (
-    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler")}>
+    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
       <VarlserIkon />
       <div className={style.container}>
         <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
