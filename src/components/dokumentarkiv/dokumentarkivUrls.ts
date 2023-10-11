@@ -7,9 +7,9 @@ const SISTE_SAKER_URL = {
 };
 
 const DOKUMENTARKIV_URL = {
-  local: "http://localhost:4000/utkast",
-  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/utkast/utkast/antall",
-  prod: "https://www.nav.no/tms-min-side-proxy/utkast/utkast/antall",
+  local: "http://localhost:4000/mine-saker",
+  dev: "https://www.intern.dev.nav.no/mine-saker",
+  prod: "https://www.nav.no/mine-saker",
 };
 
 export const dokumentarkivUrl = DOKUMENTARKIV_URL[getEnvironmentClientSide()];

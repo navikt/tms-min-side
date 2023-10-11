@@ -7,7 +7,7 @@ import { mineSakerApiSisteUrl, dokumentarkivUrl } from "../dokumentarkivUrls.ts"
 import { FileTextIcon } from '@navikt/aksel-icons';
 import { fetcher } from "../../../utils/api.client.ts";
 import type { Language } from "../../../language/language.ts";
-import { text } from "./dokumenterText"
+import { text } from "./dokumenterText";
 import { logEvent } from "../../../utils/amplitude.ts";
 import styles from "./Dokumenter.module.css";
 
