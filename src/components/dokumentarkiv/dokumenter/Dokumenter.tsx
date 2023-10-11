@@ -82,15 +82,13 @@ const Dokumenter = ({ language }: Props) => {
           <BodyShort as="h2" spacing={true}>
             {text.heading[language]}
           </BodyShort>
-          <div className={styles.ingenDokumenterContainer}>
-            <div className={styles.container}>
-              <FileTextIcon aria-hidden fontSize="32px" />
-              <BodyLong>{text.ingen[language]}</BodyLong>
-            </div>
-            <a className={styles.link} href={dokumentarkivUrl} >
-              {text.dokumentarkiv[language]}
-            </a>
+          <div className={styles.ingenContainer}>
+            <FileTextIcon aria-hidden fontSize="32px" />
+            <BodyLong>{text.ingen[language]}</BodyLong>
           </div>
+          <a className={styles.link} href={dokumentarkivUrl} >
+            {text.dokumentarkiv[language]}
+          </a>
         </>
       )}
     </>

@@ -7,12 +7,12 @@ import type { Language } from "../../../language/language.ts";
 import styles from "./Dokument.module.css";
 import { logEvent } from "../../../utils/amplitude.ts";
 
-type Props = {
+interface Props {
   href: string;
   sakstema: string;
   sistEndret: string;
   language: Language;
-};
+}
 
 const Dokument = ({ href, sakstema, sistEndret, language }: Props) => {
   return (
