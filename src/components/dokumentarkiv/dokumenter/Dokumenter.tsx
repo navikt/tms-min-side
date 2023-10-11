@@ -5,7 +5,7 @@ import useSWRImmutable from "swr/immutable";
 import Dokument from "../dokument/Dokument.tsx";
 import { mineSakerApiSisteUrl, dokumentarkivUrl } from "../dokumentarkivUrls.ts";
 import { FileTextIcon } from '@navikt/aksel-icons';
-import { fetcher } from "../../../utils/api.client.ts";
+import { fetcher, include } from "../../../utils/api.client.ts";
 import type { Language } from "../../../language/language.ts";
 import { text } from "./dokumenterText";
 import { logEvent } from "../../../utils/amplitude.ts";
@@ -27,7 +27,7 @@ interface Props {
 }
 
 const Dokumenter = ({ language }: Props) => {
-  const { data: saker, isLoading } = useSWRImmutable<Dokumenter>({ path: mineSakerApiSisteUrl }, fetcher);
+  const { data: saker, isLoading } = useSWRImmutable<Dokumenter>({ path: mineSakerApiSisteUrl, include }, fetcher);
   const hasDokumenter = saker && saker.sakstemaer.length > 0;
 
   if (isLoading) {
