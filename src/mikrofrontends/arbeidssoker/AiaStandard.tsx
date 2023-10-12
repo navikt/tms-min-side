@@ -8,14 +8,14 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
 
 const AiaStandard = () => {
-  const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: standardUrl }, fetcher);
+  const { data: standard, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: standardUrl }, fetcher);
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
     return null;
   }
 
-  if (!arbeidssoker?.erArbeidssoker) {
+  if (!standard) {
     return null;
   }
 
