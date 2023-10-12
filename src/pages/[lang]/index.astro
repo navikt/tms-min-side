@@ -10,7 +10,6 @@ import Aia from "../../mikrofrontends/arbeidssoker/Aia";
 import Dokumentarkiv from "../../components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "../../components/container/Container.astro";
 import style from "../_index.module.css";
-import Innboks from "../../components/innboks/Innboks.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -23,7 +22,6 @@ const language = getLanguage(Astro.url);
       <MinSide language={language} client:only="react" />
     </div>
     <Container>
-      <Innboks />
       <Dokumentarkiv />
     </Container>
     <Aia client:only="react" />
