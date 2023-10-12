@@ -1,4 +1,4 @@
-import { IDENT, isRoute, MANIFEST, MIKROFRONTEND, NAVN, SISTE_SAKER } from "./routes.ts";
+import { IDENT, INNBOKS, isRoute, MANIFEST, MIKROFRONTEND, NAVN, SISTE_SAKER } from "./routes.ts";
 import { STATISTIKK, TELEMTRY, UTKAST, UTKAST_DIGISOS, VARSLER } from "./routes.ts";
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };
@@ -8,6 +8,7 @@ import sisteSaker from "./data/siste-saker.json" assert { type: "json" };
 import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
 import utkastDigisos from "./data/utkast-digisos.json" assert { type: "json" };
+import innboks from "./data/innboks.json" assert { type: "json" };
 
 export const handler = (request: Request): Response => {
   if (isRoute(NAVN, request)) {
@@ -52,6 +53,16 @@ export const handler = (request: Request): Response => {
 
   if (isRoute(UTKAST_DIGISOS, request)) {
     return new Response(JSON.stringify(utkastDigisos), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  if (isRoute(INNBOKS, request)) {
+    return new Response(JSON.stringify(innboks), {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",

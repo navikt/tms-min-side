@@ -1,0 +1,14 @@
+---
+import InnboksContent from "./InnboksContent";
+import { getLanguage } from "../../language/language";
+import styles from "./Innboks.module.css";
+
+const language = getLanguage(Astro.url);
+const type = "IngenNyMelding";
+---
+
+<div class={styles.container}>
+  <div class={styles.content}>
+    <InnboksContent language={language} client:only="react" />
+  </div>
+</div>
