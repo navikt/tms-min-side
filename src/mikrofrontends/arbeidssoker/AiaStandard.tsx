@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "../../components/loader/ContentLoader";
 import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl, standardUrl } from "./urls";
-import { aiaEntry, bundle } from "../entrypoints";
+import { aiaStandardEntry, bundle } from "../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
@@ -23,8 +23,7 @@ const AiaStandard = () => {
     return null;
   }
 
-
-  const AiaStandard = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaEntry][bundle]}`));
+  const AiaStandard = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaStandardEntry][bundle]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
