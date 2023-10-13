@@ -8,6 +8,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined = context.request.headers.get("authorization");
   const params = encodeURIComponent(context.url.search);
 
+  return next();
+
   if (isLocal) {
     return next();
   }
