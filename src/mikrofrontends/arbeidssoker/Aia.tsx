@@ -19,6 +19,10 @@ const Aia = () => {
     return null;
   }
 
+  if (!arbeidssoker?.erStandard) {
+    return null;
+  }
+
   if (isLoadingManifest) {
     return null;
   }
