@@ -19,7 +19,7 @@ const Aia = () => {
     return null;
   }
 
-  if (!arbeidssoker?.erStandard) {
+  if (arbeidssoker?.erStandard) {
     return null;
   }
 
