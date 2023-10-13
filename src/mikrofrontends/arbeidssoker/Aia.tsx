@@ -11,15 +11,15 @@ const Aia = () => {
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
-    return null;
+    return <h1>Loading...</h1>;
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
-    return null;
+    return <h1>Ikke arbeidssøker...</h1>;
   }
 
   if (isLoadingManifest) {
-    return null;
+    return <h1>Loading...</h1>;
   }
 
 
