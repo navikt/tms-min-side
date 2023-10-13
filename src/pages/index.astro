@@ -27,7 +27,7 @@ const language = getLanguage(Astro.url);
       <Innboks />
       <Dokumentarkiv />
     </Container>
-    <Aia client:only="react" />
+    <Aia client:visible />
     <InnloggedeTjenester />
   </Content>
 </Layout>

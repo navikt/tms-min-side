@@ -1,4 +1,4 @@
-import { innloggingsstatistikkUrl } from "../mikrofrontends/min-side/urls";
+// import { innloggingsstatistikkUrl } from "../mikrofrontends/min-side/urls";
 
 interface Props {
   path: string;
@@ -22,6 +22,7 @@ export const fetcher = async ({ path, options }: Props) => {
   return await response.json();
 };
 
+/*
 export async function postInnloggingsstatistikk() {
   try {
     await fetch(innloggingsstatistikkUrl, {
@@ -35,3 +36,4 @@ export async function postInnloggingsstatistikk() {
     console.warn("Klarte ikke å sende innloggingsstatistikk");
   }
 }
+ */

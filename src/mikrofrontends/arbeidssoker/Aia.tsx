@@ -1,11 +1,12 @@
 import React from "react";
 import ContentLoader from "../../components/loader/ContentLoader";
-import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls";
+// import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls.client.ts";
 import { aiaEntry, bundle } from "../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
+import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls.ts";
 
 const Aia = () => {
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
