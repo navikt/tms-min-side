@@ -11,25 +11,25 @@ const Aia = () => {
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
-    console.log(aiaCdnUrl);
-    return <h1>Ikke arbeidssøker...</h1>;
+    return null;
   }
 
   if (isLoadingManifest) {
-    return <h1>Loading...</h1>;
+    return null;
   }
-
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaEntry][bundle]}`));
 
   return (
-    <ErrorBoundary>
-      <ArbeidsflateForInnloggetArbeidssoker />
-    </ErrorBoundary>
+    <React.Suspense fallback={"Loading..."}>
+      <ErrorBoundary>
+        <ArbeidsflateForInnloggetArbeidssoker />
+      </ErrorBoundary>
+    </React.Suspense>
   );
 };
 
