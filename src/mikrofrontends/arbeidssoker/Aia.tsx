@@ -15,6 +15,7 @@ const Aia = () => {
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
+    console.log(aiaCdnUrl);
     return <h1>Ikke arbeidssøker...</h1>;
   }
 
