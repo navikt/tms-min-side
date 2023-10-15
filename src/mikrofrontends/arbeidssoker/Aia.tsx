@@ -25,11 +25,9 @@ const Aia = () => {
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaEntry][bundle]}`));
 
   return (
-    <React.Suspense fallback={"Loading..."}>
       <ErrorBoundary>
         <ArbeidsflateForInnloggetArbeidssoker />
       </ErrorBoundary>
-    </React.Suspense>
   );
 };
 
