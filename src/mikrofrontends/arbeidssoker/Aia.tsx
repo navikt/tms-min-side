@@ -5,6 +5,7 @@ import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
 import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls.ts";
+import { getEnvironment } from "../../utils/environment.ts";
 
 const Aia = () => {
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
@@ -15,6 +16,7 @@ const Aia = () => {
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
+    console.log("Env:" + getEnvironment());
     return <h1>Ikke arbeidssøker...</h1>;
   }
 
