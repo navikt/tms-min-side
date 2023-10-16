@@ -3,7 +3,6 @@ import { STATISTIKK, TELEMTRY, UTKAST, UTKAST_DIGISOS, VARSLER } from "./routes.
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
-import ident from "./data/ident.json" assert { type: "json" };
 import sisteSaker from "./data/siste-saker.json" assert { type: "json" };
 import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
@@ -13,16 +12,6 @@ import innboks from "./data/innboks.json" assert { type: "json" };
 export const handler = (request: Request): Response => {
   if (isRoute(NAVN, request)) {
     return new Response(JSON.stringify(navn), {
-      status: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    });
-  }
-
-  if (isRoute(IDENT, request)) {
-    return new Response(JSON.stringify(ident), {
       status: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",

@@ -1,20 +1,22 @@
-import style from "./Personalia.module.css";
 import useSWRImmutable from "swr/immutable";
-import { identUrl, navnUrl } from "./personaliaUrls";
+import { navnUrl } from "./personaliaUrls";
 import { fetcher } from "../../utils/api.client";
+import style from "./Personalia.module.css";
+
+interface Personalia {
+  navn: string;
+  ident: string;
+}
 
 const PersonaliaData = () => {
-  const { data: navn, error: navnError } = useSWRImmutable({ path: navnUrl }, fetcher);
-  const { data: ident, error: identError } = useSWRImmutable({ path: identUrl }, fetcher);
+  const { data: personalia, isLoading, error } = useSWRImmutable({ path: navnUrl }, fetcher);
 
-  if ((!navn && !ident) || navnError) {
+  if ((isLoading) || error) {
     return null;
   }
 
-  const navnOrIdent = navnError ? ident?.ident : navn?.navn.toLowerCase();
-
   return (
-    <span className={style.navn}>{navnOrIdent}</span>
+    <span className={style.navn}>{personalia.navn ? personalia.navn.toLowerCase() : personalia.ident}</span>
   );
 };
 
