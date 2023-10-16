@@ -1,4 +1,4 @@
-import { IDENT, INNBOKS, isRoute, MANIFEST, MIKROFRONTEND, NAVN, SISTE_SAKER } from "./routes.ts";
+import { INNBOKS, isRoute, MANIFEST, MIKROFRONTEND, NAVN, SISTE_SAKER } from "./routes.ts";
 import { STATISTIKK, TELEMTRY, UTKAST, UTKAST_DIGISOS, VARSLER } from "./routes.ts";
 import mikrofrontend from "./data/mikrofrontend.ts";
 import manifest from "./data/manifest.json" assert { type: "json" };

@@ -3,7 +3,6 @@ export const isRoute = (route: URLPattern, request: Request) => {
 }
 
 export const NAVN = new URLPattern({ pathname: "/navn" });
-export const IDENT = new URLPattern({ pathname: "/ident" });
 export const VARSLER = new URLPattern({ pathname: "/varsler" });
 export const UTKAST = new URLPattern({ pathname: "/utkast" });
 export const UTKAST_DIGISOS = new URLPattern({ pathname: "/utkast-digisos" });
