@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "mock": "deno run --allow-net ./mock/server.ts",
+    "mock": "tsx mock/server.ts",
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
     "prettier": "prettier --write ."
@@ -26,11 +26,14 @@
     "swr": "2.1.5"
   },
   "devDependencies": {
+    "@hono/node-server": "1.2.0",
     "@types/node": "20.2.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "hono": "3.7.6",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.9.1",
-    "rollup-plugin-import-map": "3.0.0"
+    "rollup-plugin-import-map": "3.0.0",
+    "tsx": "3.13.0"
   }
 }
