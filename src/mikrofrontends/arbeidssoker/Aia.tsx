@@ -5,32 +5,32 @@ import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../utils/api.client.ts";
 import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls.ts";
-import { getEnvironment } from "../../utils/environment.ts";
+import ContentLoader from "../../components/loader/ContentLoader.tsx";
 
 const Aia = () => {
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
-    console.log("Env:" + getEnvironment());
-    return <h1>Ikke arbeidssøker...</h1>;
+    return null;
   }
 
   if (isLoadingManifest) {
-    return <h1>Loading...</h1>;
+    return null;
   }
-
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaEntry][bundle]}`));
 
   return (
-    <ErrorBoundary>
-      <ArbeidsflateForInnloggetArbeidssoker />
-    </ErrorBoundary>
+    <React.Suspense fallback={<ContentLoader />}>
+      <ErrorBoundary>
+        <ArbeidsflateForInnloggetArbeidssoker />
+      </ErrorBoundary>
+    </React.Suspense>
   );
 };
 

@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../utils/environment.ts";
+import { getEnvironmentClientSide } from "../../utils/environment.client";
 
 const AIA_URL = {
   local: "http://localhost:3000",
@@ -18,6 +18,6 @@ const ARBEIDSSOKER_URL = {
   prod: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
 };
 
-export const aiaCdnUrl = AIA_CDN_URL[getEnvironment()];
-export const aiaManifestUrl = `${AIA_URL[getEnvironment()]}/manifest.json`;
-export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
+export const aiaCdnUrl = AIA_CDN_URL[getEnvironmentClientSide()];
+export const aiaManifestUrl = `${AIA_URL[getEnvironmentClientSide()]}/manifest.json`;
+export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironmentClientSide()];

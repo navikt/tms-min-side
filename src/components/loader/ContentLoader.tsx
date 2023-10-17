@@ -1,4 +1,4 @@
-import { Loader } from "@navikt/ds-react";
+import { Loader } from "@navikt/ds-react/cjs/loader/Loader.js";
 import styles from "./ContentLoader.module.css";
 
 const ContentLoader = () => {

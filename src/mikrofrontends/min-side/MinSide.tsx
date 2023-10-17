@@ -8,7 +8,7 @@ import { bundle, oversiktEntry } from "../entrypoints";
 import { oversiktCdnUrl, oversiktManifestUrl } from "./urls";
 import { useSentry } from "../../hooks/useSentry";
 import { useFaro } from "../../hooks/useFaro";
-// import { useStatistikk } from "../../hooks/useStatistikk";
+import { useStatistikk } from "../../hooks/useStatistikk";
 import type { Props } from "../types";
 
 const MinSide = ({ language }: Props) => {
@@ -17,7 +17,7 @@ const MinSide = ({ language }: Props) => {
   useBreadcrumbs([], language);
   useSentry();
   useFaro();
-  // useStatistikk();
+  useStatistikk();
 
   if (isLoadingOversiktManifest) {
     return <ContentLoader />;

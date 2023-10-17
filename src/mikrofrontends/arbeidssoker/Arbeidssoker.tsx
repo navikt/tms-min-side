@@ -1,6 +1,6 @@
 import React from "react";
 import ContentLoader from "../../components/loader/ContentLoader";
-import { aiaCdnUrl, aiaManifestUrl } from "./urls.client.ts";
+import { aiaCdnUrl, aiaManifestUrl } from "./urls.ts";
 import { aiaEntry, bundle } from "../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
