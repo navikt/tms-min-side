@@ -1,6 +1,10 @@
-.content-loader {
+.contentLoader {
   width: 100%;
   text-align: center;
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.contentLoaderHide {
+  display: none;
 }
