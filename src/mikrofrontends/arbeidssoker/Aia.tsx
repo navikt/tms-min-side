@@ -11,11 +11,11 @@ const Aia = () => {
   const { data: arbeidssoker, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: arbeidssokerUrl }, fetcher);
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
-  if (isLoadingArbeidssoker) {
-    return <ContentLoader />;
+  if (!import.meta.env.SSR && isLoadingArbeidssoker) {
+    return null;
   }
 
-  if (!arbeidssoker?.erArbeidssoker) {
+  if (!import.meta.env.SSR && !arbeidssoker?.erArbeidssoker) {
     return null;
   }
 
