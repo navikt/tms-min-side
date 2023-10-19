@@ -8,11 +8,11 @@ import { text } from "../../language/text";
 import { bundle, entry } from "../entrypoints";
 import { utkastManifestUrl, utkastUrl } from "./urls";
 import type { Props } from "../types";
-import { useManifest } from "../../hooks/useManifest";
+import useSWRImmutable from "swr/immutable";
+import { fetcher } from "../../utils/api.client.ts";
 
 const Utkast = ({ language }: Props) => {
-  const [manifest, isLoadingManifest] = useManifest(utkastManifestUrl);
-  const UtkastMikrofrontend = React.lazy(() => import(`${utkastUrl}/${manifest[entry][bundle]}`));
+  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: utkastManifestUrl }, fetcher);
 
   useLanguage(language);
   useBreadcrumbs(
@@ -33,6 +33,8 @@ const Utkast = ({ language }: Props) => {
   setParams({
     utilsBackground: "white",
   });
+
+  const UtkastMikrofrontend = React.lazy(() => import(`${utkastUrl}/${manifest[entry][bundle]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
