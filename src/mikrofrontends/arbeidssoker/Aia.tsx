@@ -12,7 +12,7 @@ const Aia = () => {
   const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
 
   if (isLoadingArbeidssoker) {
-    return <ContentLoader hide={true} />;
+    return <div />;
   }
 
   if (!arbeidssoker?.erArbeidssoker) {
@@ -20,7 +20,7 @@ const Aia = () => {
   }
 
   if (isLoadingManifest) {
-    return <ContentLoader hide={true} />;
+    return <div />;
   }
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaEntry][bundle]}`));
