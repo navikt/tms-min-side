@@ -7,11 +7,12 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { text } from "../../language/text";
 import { varslerCdnUrl, varslerManifestUrl } from "./urls";
 import type { Props } from "../types";
-import { useManifest } from "../../hooks/useManifest.ts";
 import { bundle, entry } from "../entrypoints.ts";
+import useSWRImmutable from "swr/immutable";
+import { fetcher } from "../../utils/api.client.ts";
 
 const Varlser = ({ language }: Props) => {
-  const [manifest, isLoadingManifest] = useManifest(varslerManifestUrl);
+  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: varslerManifestUrl }, fetcher);
 
   useLanguage(language);
   useBreadcrumbs(
