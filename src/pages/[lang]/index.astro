@@ -9,8 +9,9 @@ import InnloggedeTjenester from "../../components/innloggede-tjenester/Innlogged
 import Aia from "../../mikrofrontends/arbeidssoker/Aia";
 import Dokumentarkiv from "../../components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "../../components/container/Container.astro";
-import style from "../_index.module.css";
 import Innboks from "../../components/innboks/Innboks.astro";
+import Utbetaling from "../../components/utbetaling/Utbetaling.astro";
+import style from "../_index.module.css";
 
 const language = getLanguage(Astro.url);
 ---
@@ -23,6 +24,7 @@ const language = getLanguage(Astro.url);
       <MinSide language={language} client:only="react" />
     </div>
     <Container>
+      <Utbetaling language={language} />
       <Innboks />
       <Dokumentarkiv />
     </Container>

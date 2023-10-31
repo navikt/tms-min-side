@@ -1,0 +1,49 @@
+.ingen {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--a-bg-subtle);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  color: var(--a-text-default);
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: var(--a-surface-neutral-subtle-hover);
+  border: none;
+  text-decoration: underline;
+}
+
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.chevron {
+  flex-shrink: 0;
+}
+
+.detaljer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.15rem;
+}
+
+.detaljerContainer {
+  background: var(--a-bg-subtle);
+  width: 100%;
+  padding: 1rem 1rem 0.75rem;
+  border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+}
+
+.kommendeUtbetaling {
+  background: var(--a-surface-success-subtle);
+}

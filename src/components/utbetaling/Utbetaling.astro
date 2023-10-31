@@ -1,0 +1,11 @@
+---
+import UtbetalingContent from "./content/UtbetalingContent";
+import { getLanguage } from "../../language/language";
+import styles from "./Utbetaling.module.css";
+
+const language = getLanguage(Astro.url);
+---
+
+<div class={styles.container}>
+  <UtbetalingContent language={language} client:only="react" />
+</div>
