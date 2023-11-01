@@ -1,15 +1,14 @@
 import React from "react";
 import ContentLoader from "../../components/loader/ContentLoader";
-import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl, standardUrl } from "./urls";
+import { aiaCdnUrl, aiaManifestUrl, standardUrl } from "./urls";
 import { aiaStandardEntry, bundle } from "../entrypoints";
-import { useManifest } from "../../hooks/useManifest";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 
 const AiaStandard = () => {
   const { data: standard, isLoading: isLoadingArbeidssoker } = useSWRImmutable({ path: standardUrl }, fetcher);
-  const [manifest, isLoadingManifest] = useManifest(aiaManifestUrl);
+  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: aiaManifestUrl }, fetcher);
 
   if (isLoadingArbeidssoker) {
     return null;

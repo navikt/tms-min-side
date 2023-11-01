@@ -8,7 +8,7 @@ import { text } from "../../language/text";
 import { useLanguage } from "../../hooks/useLanguage";
 import type { Props } from "../types";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 
 const Arbeidssoker = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: aiaManifestUrl }, fetcher);

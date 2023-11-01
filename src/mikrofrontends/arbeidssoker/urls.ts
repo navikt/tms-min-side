@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "../../utils/environment.client";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const AIA_URL = {
   local: "http://localhost:3000",

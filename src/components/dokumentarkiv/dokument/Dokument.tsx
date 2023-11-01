@@ -5,7 +5,7 @@ import { formatDateMonth } from "./dokumentUtils.ts";
 import { text } from "./dokumentText"
 import type { Language } from "../../../language/language.ts";
 import styles from "./Dokument.module.css";
-import { logEvent } from "../../../utils/amplitude.ts";
+import { logEvent } from "@utils/amplitude.ts";
 
 interface Props {
   href: string;

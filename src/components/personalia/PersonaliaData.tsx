@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import { navnUrl } from "./personaliaUrls";
-import { fetcher } from "../../utils/api.client";
+import { fetcher } from "@utils/api.client.ts";
 import style from "./Personalia.module.css";
 
 interface Personalia {

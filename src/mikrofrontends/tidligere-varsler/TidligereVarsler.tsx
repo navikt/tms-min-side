@@ -8,7 +8,7 @@ import { bundle, tidligereVarslerEntry } from "../entrypoints";
 import { tidligereVarslerManifestUrl, tidligereVarslerUrl } from "./urls";
 import type { Props } from "../types";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 
 const TidligereVarsler = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: tidligereVarslerManifestUrl }, fetcher);

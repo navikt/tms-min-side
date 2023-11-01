@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { BodyShort } from "@navikt/ds-react";
 import { text } from "../utbetalingText";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";

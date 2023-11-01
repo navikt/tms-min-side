@@ -1,10 +1,10 @@
 import useSWRImmutable from "swr/immutable";
 import UtkastIkon from "./UtkastIkon";
-import { fetcher } from "../../../utils/api.client";
+import { fetcher } from "@utils/api.client.ts";
 import { antallUtkastDigisosUrl, antallUtkastUrl, utkastUrl } from "./utkastUrls";
 import type { Language } from "../../../language/language";
 import { text } from "./utkastText";
-import { logEvent } from "../../../utils/amplitude.ts";
+import { logEvent } from "@utils/amplitude.ts";
 import style from "./Utkast.module.css";
 
 interface Props {

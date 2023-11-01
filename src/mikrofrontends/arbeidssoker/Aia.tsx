@@ -2,7 +2,7 @@ import React from "react";
 import { aiaEntry, bundle } from "../entrypoints";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 import { aiaCdnUrl, aiaManifestUrl, arbeidssokerUrl } from "./urls.ts";
 import ContentLoader from "../../components/loader/ContentLoader.tsx";
 

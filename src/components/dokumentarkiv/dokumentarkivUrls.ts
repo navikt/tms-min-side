@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "../../utils/environment.client.ts";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const SISTE_SAKER_URL = {
   local: "http://localhost:3000/siste-saker",

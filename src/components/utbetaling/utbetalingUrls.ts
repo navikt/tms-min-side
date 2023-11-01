@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { getEnvironmentClientSide } from "../../utils/environment.client.ts";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const toDate = dayjs().format("YYYYMMDD");
 const fromDate = dayjs().subtract(3, "month").format("YYYYMMDD");

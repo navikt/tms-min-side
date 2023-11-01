@@ -9,7 +9,7 @@ import { bundle, entry } from "../entrypoints";
 import { utkastManifestUrl, utkastUrl } from "./urls";
 import type { Props } from "../types";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 
 const Utkast = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: utkastManifestUrl }, fetcher);

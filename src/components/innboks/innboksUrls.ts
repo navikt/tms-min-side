@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "../../utils/environment.client.ts";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const VARSEL_API_URL = {
   local: "http://localhost:3000/innboks",

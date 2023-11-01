@@ -9,7 +9,7 @@ import { varslerCdnUrl, varslerManifestUrl } from "./urls";
 import type { Props } from "../types";
 import { bundle, entry } from "../entrypoints.ts";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "../../utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 
 const Varlser = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: varslerManifestUrl }, fetcher);
