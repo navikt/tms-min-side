@@ -4,12 +4,12 @@ import { utbetalingsoversiktUrl } from "../utbetalingUrls.ts";
 import { logEvent } from "../../../utils/amplitude.ts";
 import type { Language } from "../../../language/language.ts";
 import { text } from "../utbetalingText.ts";
-import styles from "./IngenUtbetalinger.module.css";
+import styles from "./IngenUtbetaling.module.css";
 
 interface Props {
   language: Language;
 }
-const IngenUtbetalinger = ({ language }: Props) => {
+const IngenUtbetaling = ({ language }: Props) => {
   return (
     <div className={styles.ingenUtbetalinger}>
       <a
@@ -29,4 +29,4 @@ const IngenUtbetalinger = ({ language }: Props) => {
   );
 }
 
-export default IngenUtbetalinger;
+export default IngenUtbetaling;

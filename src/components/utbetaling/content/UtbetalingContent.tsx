@@ -9,7 +9,7 @@ import { text } from "../utbetalingText.ts";
 import type { Language } from "../../../language/language.ts";
 import { fetcher } from "../../../utils/api.client.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
-import IngenUtbetalinger from "../ingen/IngenUtbetalinger.tsx";
+import IngenUtbetaling from "../ingen/IngenUtbetaling.tsx";
 import style from "./UtbetalingContent.module.css";
 
 interface Props {
@@ -42,7 +42,7 @@ const UtbetalingContent = ({ language }: Props) => {
   const hasUtbetaltUtbetaling = data.utbetalteUtbetalinger.length > 0;
 
   if (!hasKommendeUtbetaling && !hasUtbetaltUtbetaling) {
-    return <IngenUtbetalinger language={language} />
+    return <IngenUtbetaling language={language} />
   }
 
   const utbetalingToShow = hasKommendeUtbetaling ? data.kommendeUtbetalinger[0] : data.utbetalteUtbetalinger[0];
