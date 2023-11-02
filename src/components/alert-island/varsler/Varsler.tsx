@@ -1,13 +1,13 @@
 import useSWRImmutable from "swr/immutable";
 import { antallVarslerUrl } from "./varslerUrls.ts";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/varsler.ts";
-import type { Language } from "../../../language/language";
+import type { Language } from "@language/language.ts";
+import { text } from "@language/varsler.ts"
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
 import { fetcher } from "@utils/api.client.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
-import { text } from "./varslerText"
 import style from "./Varsler.module.css";
 
 interface Props {

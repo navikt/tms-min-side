@@ -1,6 +1,6 @@
-import type { Language } from "../../language/language.ts";
 import { Tag } from "@navikt/ds-react";
-import { text } from "./innboksText.ts";
+import type { Language } from "@language/language.ts";
+import { text } from "@language/innboks.ts";
 
 const InnboksTag = ({ innbokser, language }: { innbokser: number; language: Language }) => {
   if (innbokser > 0) {

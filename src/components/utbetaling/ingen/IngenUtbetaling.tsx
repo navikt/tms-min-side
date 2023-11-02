@@ -2,8 +2,8 @@ import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls.ts";
 import { logEvent } from "@utils/amplitude.ts";
-import type { Language } from "../../../language/language.ts";
-import { text } from "../utbetalingText.ts";
+import type { Language } from "@language/language.ts";
+import { text } from "@language/utbetaling.ts";
 import styles from "./IngenUtbetaling.module.css";
 
 interface Props {

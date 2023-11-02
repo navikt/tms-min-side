@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
-import { text } from "../language/text";
-import type { Language } from "../language/language";
+import { text } from "@language/text";
+import type { Language } from "@language/language";
 
 type Breadcrumb = {
   url: string;

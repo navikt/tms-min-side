@@ -3,7 +3,7 @@ import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import ContentLoader from "../../components/loader/ContentLoader";
 import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
 import { useLanguage } from "../../hooks/useLanguage";
-import { text } from "../../language/text";
+import { text } from "@language/text.ts";
 import { bundle, tidligereVarslerEntry } from "../entrypoints";
 import { tidligereVarslerManifestUrl, tidligereVarslerUrl } from "./urls";
 import type { Props } from "../types";

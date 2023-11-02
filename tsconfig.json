@@ -5,6 +5,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
+      "@language/*": ["src/language/*"],
       "@utils/*": ["src/utils/*"],
     }
   }

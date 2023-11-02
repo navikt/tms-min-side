@@ -1,7 +1,7 @@
 ---
 import PersonaliaData from "./PersonaliaData";
 import { getLanguage } from "../../language/language";
-import { personaliaText } from "./personaliaText";
+import { personalia } from "../../language/personalia";
 import style from "./Personalia.module.css";
 
 const language = getLanguage(Astro.url);
@@ -9,7 +9,7 @@ const language = getLanguage(Astro.url);
 
 <div class={style.container}>
   <h2 class={`${style.tekst} navds-heading navds-heading--large`}>
-    <span>{personaliaText.hilsen[language]}</span> <PersonaliaData client:only="react" />
+    <span>{personalia.hilsen[language]}</span> <PersonaliaData client:only="react" />
   </h2>
 </div>
 

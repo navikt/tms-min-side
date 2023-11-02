@@ -14,4 +14,9 @@ export const text = {
     nn: "Gå til dokumentarkivet",
     en: "Go to the document archive",
   },
+  detail: {
+    nb: "Sist endret: ",
+    nn: "Sist endret: ",
+    en: "Last updated: ",
+  },
 };

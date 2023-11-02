@@ -1,7 +1,7 @@
 import { BodyShort } from "@navikt/ds-react";
-import { text } from "../utbetalingText";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
-import type { Language } from "../../../language/language.ts";
+import { text } from "@language/utbetaling.ts";
+import type { Language } from "@language/language.ts";
 import styles from "./UtbetalingHeading.module.css";
 
 interface Props {

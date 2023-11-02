@@ -1,4 +1,4 @@
-export const personaliaText = {
+export const personalia = {
   hilsen: {
     nb: "Hei, ",
     nn: "Hei, ",

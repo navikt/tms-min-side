@@ -2,10 +2,10 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { formatDateMonth } from "@utils/dokument.ts";
-import { text } from "./dokumentText"
-import type { Language } from "../../../language/language.ts";
-import styles from "./Dokument.module.css";
+import { text } from "@language/dokumentarkiv.ts"
+import type { Language } from "@language/language.ts";
 import { logEvent } from "@utils/amplitude.ts";
+import styles from "./Dokument.module.css";
 
 interface Props {
   href: string;
