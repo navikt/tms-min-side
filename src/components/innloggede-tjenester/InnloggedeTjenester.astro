@@ -4,7 +4,7 @@ import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./section/innloggedeTjenesterUrls";
 import { text } from "@language/innloggedeTjenester";
-import { getLanguage } from "../../language/language";
+import { getLanguage } from "@language/language";
 import styles from "./InnloggedeTjenester.module.css";
 
 const language = getLanguage(Astro.url);

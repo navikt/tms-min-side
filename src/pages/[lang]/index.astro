@@ -2,15 +2,15 @@
 import Layout from "../../layouts/base/Layout.astro";
 import MinSide from "../../mikrofrontends/min-side/MinSide";
 import Content from "../../layouts/content/Content.astro";
-import { getLanguage } from "@language/language";
-import Personalia from "../../components/personalia/Personalia.astro";
-import AlertIsland from "../../components/alert-island/AlertIsland.astro";
-import InnloggedeTjenester from "../../components/innloggede-tjenester/InnloggedeTjenester.astro";
 import Aia from "../../mikrofrontends/arbeidssoker/Aia";
-import Dokumentarkiv from "../../components/dokumentarkiv/Dokumentarkiv.astro";
-import Container from "../../components/container/Container.astro";
-import Innboks from "../../components/innboks/Innboks.astro";
-import Utbetaling from "../../components/utbetaling/Utbetaling.astro";
+import Personalia from "@components/personalia/Personalia.astro";
+import AlertIsland from "@components/alert-island/AlertIsland.astro";
+import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
+import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
+import Container from "@components/container/Container.astro";
+import Innboks from "@components/innboks/Innboks.astro";
+import Utbetaling from "@components/utbetaling/Utbetaling.astro";
+import { getLanguage } from "@language/language";
 
 const language = getLanguage(Astro.url);
 ---

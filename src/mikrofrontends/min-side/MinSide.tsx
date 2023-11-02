@@ -1,6 +1,6 @@
 import React from "react";
-import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
-import ContentLoader from "../../components/loader/ContentLoader";
+import ErrorBoundary from "@components/error-boundary/ErrorBoundary";
+import ContentLoader from "@components/loader/ContentLoader";
 import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
 import { useLanguage } from "../../hooks/useLanguage";
 import { bundle, oversiktEntry } from "../entrypoints";

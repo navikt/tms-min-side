@@ -1,8 +1,8 @@
 import React from "react";
-import ContentLoader from "../../components/loader/ContentLoader";
+import ContentLoader from "@components/loader/ContentLoader";
+import ErrorBoundary from "@components/error-boundary/ErrorBoundary";
 import { aiaCdnUrl, aiaManifestUrl } from "./urls.ts";
 import { aiaEntry, bundle } from "../entrypoints";
-import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
 import { text } from "@language/text.ts";
 import { fetcher } from "@utils/api.client.ts";

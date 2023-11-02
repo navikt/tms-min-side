@@ -1,8 +1,8 @@
 import React from "react";
-import ContentLoader from "../../components/loader/ContentLoader";
+import ContentLoader from "@components/loader/ContentLoader";
+import ErrorBoundary from "@components/error-boundary/ErrorBoundary";
 import { aiaCdnUrl, aiaManifestUrl, standardUrl } from "./urls";
 import { aiaStandardEntry, bundle } from "../entrypoints";
-import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "@utils/api.client.ts";
 
