@@ -1,7 +1,7 @@
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { utbetalingsoversiktApiUrl } from "../utbetalingUrls.ts";
-import { formatToReadableDate, summerYtelser } from "../utbetalingUtils.ts";
+import { formatToReadableDate, summerYtelser } from "@utils/utbetaling.ts";
 import UtbetalingYtelser from "../ytelser/UtbetalingYtelser.tsx";
 import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
 import type { UtbetalingResponse } from "../utbetalingTypes.ts";

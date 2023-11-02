@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
-import type { Trekk, UnderYtelse } from "./utbetalingTypes";
+import type { Trekk, UnderYtelse } from "../components/utbetaling/utbetalingTypes.ts";
 
 function sum(numbers: number[]): number {
   return numbers.reduce((a, b) => a + b, 0);

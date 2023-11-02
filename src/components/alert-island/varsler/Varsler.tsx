@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import { antallVarslerUrl } from "./varslerUrls.ts";
-import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtlis";
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/varsler.ts";
 import type { Language } from "../../../language/language";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
