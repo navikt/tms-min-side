@@ -42,7 +42,7 @@ const UtbetalingContent = ({ language }: Props) => {
   const hasUtbetaltUtbetaling = data.utbetalteUtbetalinger.length > 0;
 
   if (!hasKommendeUtbetaling && !hasUtbetaltUtbetaling) {
-    return <IngenUtbetaling language={language} />
+    return <IngenUtbetaling language={language} />;
   }
 
   const utbetalingToShow = hasKommendeUtbetaling ? data.kommendeUtbetalinger[0] : data.utbetalteUtbetalinger[0];

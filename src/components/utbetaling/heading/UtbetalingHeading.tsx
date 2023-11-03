@@ -2,6 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { text } from "@language/utbetaling.ts";
 import type { Language } from "@language/language.ts";
+import { logEvent } from "@utils/amplitude.ts";
 import styles from "./UtbetalingHeading.module.css";
 
 interface Props {
@@ -10,7 +11,6 @@ interface Props {
 }
 
 const UtbetalingHeading = ({ type, language }: Props) => {
-
   if (type === "ingen") {
     return (
       <div className={styles.heading}>
@@ -29,7 +29,7 @@ const UtbetalingHeading = ({ type, language }: Props) => {
       <a
         className={styles.link}
         href={utbetalingsoversiktUrl}
-        onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Se alle")}
+        onClick={() => logEvent("utbetaling-widget", "generell", "Se alle")}
       >
         <BodyShort>{text.alle[language]}</BodyShort>
       </a>

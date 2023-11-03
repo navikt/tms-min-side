@@ -24,4 +24,10 @@ export const text = {
     nn: "Du har ingen nye utbetalingar dei siste tre månadene",
     en: "You have no new payments in the last three months",
   },
+  tidligere: {
+
+    nb: "Se tidligere utbetalinger",
+    nn: "Se tidlegare utbetalingar",
+    en: "See previous payments",
+  }
 };

@@ -1,5 +1,4 @@
-import { BodyLong, BodyShort } from "@navikt/ds-react";
-import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, BodyShort, Label } from "@navikt/ds-react";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import type { Language } from "@language/language.ts";
@@ -12,19 +11,24 @@ interface Props {
 
 const IngenUtbetaling = ({ language }: Props) => {
   return (
-    <div className={styles.ingenUtbetalinger}>
-      <a
-        className={`${styles.headerContainer}`}
-        href={utbetalingsoversiktUrl}
+    <div className={styles.ingen}>
+      <div
+        className={styles.header}
         onClick={() => logEvent("utbetaling-widget", "generell", "Du har ingen...")}
       >
-        <BodyShort as="h2">Siste utbetaling</BodyShort>
-        <div className={styles.tagChevron}>
-          <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
-        </div>
-      </a>
-      <div className={styles.bodyContainer}>
-        <BodyLong>{text.ingen[language]}</BodyLong>
+        <BodyShort as="h2">
+          {text.tittel[language]}
+        </BodyShort>
+      </div>
+      <div className={styles.content}>
+        <BodyLong className={styles.text}>
+          {text.ingen[language]}
+        </BodyLong>
+        <Label size="small">
+          <a className="navds-button navds-button--primary-neutral navds-button--small" href={utbetalingsoversiktUrl}>
+            {text.tidligere[language]}
+          </a>
+        </Label>
       </div>
     </div>
   );
