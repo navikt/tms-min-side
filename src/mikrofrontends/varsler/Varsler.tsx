@@ -2,14 +2,14 @@ import { setParams } from "@navikt/nav-dekoratoren-moduler";
 import React from "react";
 import ErrorBoundary from "../../components/error-boundary/ErrorBoundary";
 import ContentLoader from "../../components/loader/ContentLoader";
-import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
-import { useLanguage } from "../../hooks/useLanguage";
+import { useBreadcrumbs } from "@hooks/useBreadcrumbs.ts";
+import { useLanguage } from "@hooks/useLanguage.ts";
 import { text } from "@language/text.ts";
 import { varslerCdnUrl, varslerManifestUrl } from "./urls";
-import type { Props } from "../types";
 import { bundle, entry } from "../entrypoints.ts";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "@utils/api.client.ts";
+import type { Props } from "../types";
 
 const Varlser = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: varslerManifestUrl }, fetcher);

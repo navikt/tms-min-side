@@ -1,15 +1,15 @@
 import React from "react";
 import ErrorBoundary from "@components/error-boundary/ErrorBoundary";
 import ContentLoader from "@components/loader/ContentLoader";
-import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
-import { useLanguage } from "../../hooks/useLanguage";
+import { useBreadcrumbs } from "@hooks/useBreadcrumbs.ts";
+import { useLanguage } from "@hooks/useLanguage.ts";
+import { useFaro } from "@hooks/useFaro.ts";
+import { useStatistikk } from "@hooks/useStatistikk.ts";
 import { bundle, oversiktEntry } from "../entrypoints";
 import { oversiktCdnUrl, oversiktManifestUrl } from "./urls";
-import { useFaro } from "../../hooks/useFaro";
-import { useStatistikk } from "../../hooks/useStatistikk";
-import type { Props } from "../types";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "@utils/api.client.ts";
+import type { Props } from "../types";
 
 const MinSide = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: oversiktManifestUrl }, fetcher);

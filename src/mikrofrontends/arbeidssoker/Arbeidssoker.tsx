@@ -3,10 +3,10 @@ import ContentLoader from "@components/loader/ContentLoader";
 import ErrorBoundary from "@components/error-boundary/ErrorBoundary";
 import { aiaCdnUrl, aiaManifestUrl } from "./urls.ts";
 import { aiaEntry, bundle } from "../entrypoints";
-import { useBreadcrumbs } from "../../hooks/useBreadcrumbs";
+import { useBreadcrumbs } from "@hooks/useBreadcrumbs.ts";
+import { useLanguage } from "@hooks/useLanguage.ts";
 import { text } from "@language/text.ts";
 import { fetcher } from "@utils/api.client.ts";
-import { useLanguage } from "../../hooks/useLanguage";
 import type { Props } from "../types";
 import useSWRImmutable from "swr/immutable";
 

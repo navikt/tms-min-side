@@ -6,6 +6,7 @@
     "jsxImportSource": "react",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@language/*": ["src/language/*"],
       "@utils/*": ["src/utils/*"],
     }
