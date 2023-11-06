@@ -16,7 +16,24 @@ const Decorator = await fetchDecoratorReact({
   env: getEnvironment(),
   params: {
     context: "privatperson",
-    breadcrumbs: [{ title: text.minSide[language], url: "/minside" }]
+    breadcrumbs: [{ title: text.minSide[language], url: "/minside" }],
+    availableLanguages : [
+      {
+        locale: "nb",
+        url: "https://www.nav.no/minside/nb",
+        handleInApp: true,
+      },
+      {
+        locale: "en",
+        url: "https://www.nav.no/minside/en",
+        handleInApp: true,
+      },
+      {
+        locale: "nn",
+        url: "https://www.nav.no/minside/nn",
+        handleInApp: true,
+      }
+    ]
   },
 });
 ---
