@@ -6,8 +6,8 @@ export const text = {
   },
   ingenHeading: {
     nb: "Du har ingen dokumenter å vise",
-    nn: "Du har førebels ingen journalførte dokument å vise",
-    en: "You have currently no journalized documents to show",
+    nn: "Du har ingen dokument å vise",
+    en: "You have documents to show",
   },
   ingenText: {
     nb: "Du har foreløpig ingen journalførte dokumenter å vise",
