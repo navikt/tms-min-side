@@ -4,13 +4,12 @@ import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import useSWRImmutable from "swr/immutable";
 import Dokument from "../dokument/Dokument.tsx";
 import { mineSakerApiSisteUrl, dokumentarkivUrl } from "../dokumentarkivUrls.ts";
-import { FileTextIcon } from '@navikt/aksel-icons';
 import { fetcher, include } from "@utils/api.client.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/dokumentarkiv.ts";
 import { logEvent } from "@utils/amplitude.ts";
-import styles from "./Dokumenter.module.css";
 import { Heading } from "@navikt/ds-react";
+import styles from "./Dokumenter.module.css";
 
 interface Dokument {
   navn: string;
