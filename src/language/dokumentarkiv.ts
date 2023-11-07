@@ -4,10 +4,15 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Document archive",
   },
-  ingen: {
-    nb: "Du har foreløpig ingen dokumenter å vise",
-    nn: "Du har førebels ingen dokument å vise",
-    en: "You have currently no documents to show",
+  ingenHeading: {
+    nb: "Du har ingen dokumenter å vise",
+    nn: "Du har førebels ingen journalførte dokument å vise",
+    en: "You have currently no journalized documents to show",
+  },
+  ingenText: {
+    nb: "Du har foreløpig ingen journalførte dokumenter å vise",
+    nn: "Du har førebels ingen journalførte dokument å vise",
+    en: "You have currently no journalized documents to show",
   },
   dokumentarkiv: {
     nb: "Gå til dokumentarkivet",

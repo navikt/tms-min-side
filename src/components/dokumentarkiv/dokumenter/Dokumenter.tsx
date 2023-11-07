@@ -10,6 +10,7 @@ import type { Language } from "@language/language.ts";
 import { text } from "@language/dokumentarkiv.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import styles from "./Dokumenter.module.css";
+import { Heading } from "@navikt/ds-react";
 
 interface Dokument {
   navn: string;
@@ -78,18 +79,23 @@ const Dokumenter = ({ language }: Props) => {
           </BodyShort>
         </div>
       ) : (
-        <>
+        <div className={styles.dokumentContainer}>
           <BodyShort as="h2" spacing={true}>
             {text.heading[language]}
           </BodyShort>
-          <div className={styles.ingenContainer}>
-            <FileTextIcon aria-hidden fontSize="32px" />
-            <BodyLong>{text.ingen[language]}</BodyLong>
+          <div className={styles.skeletonContainer}>
+            <Heading size="small" as="h3">
+              {text.ingenHeading[language]}
+            </Heading>
+            <BodyLong className={styles.ingenText}>
+              {text.ingenText[language]}
+            </BodyLong>
           </div>
-          <a className={styles.link} href={dokumentarkivUrl} >
-            {text.dokumentarkiv[language]}
-          </a>
-        </>
+          <div className={styles.skeletonContainer} />
+            <a className={styles.link} href={dokumentarkivUrl} >
+              {text.dokumentarkiv[language]}
+            </a>
+          </div>
       )}
     </>
   );
