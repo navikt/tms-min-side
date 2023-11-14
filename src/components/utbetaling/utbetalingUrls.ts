@@ -11,7 +11,7 @@ const UTBETALINGSOVERSIKT_URL = {
 };
 
 const UTBETALINGSOVERSIKT_API_URL = {
-  local: "http://localhost:3000/utbetalinger",
+  local: "http://localhost:3000/siste",
   dev: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/siste",
   prod: "https://person.nav.no/tms-utbetalingsoversikt-api/siste",
 };

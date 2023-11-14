@@ -7,7 +7,6 @@ import sisteSaker from "./data/siste-saker.json" assert { type: "json" };
 import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
 import utkastDigisos from "./data/utkast-digisos.json" assert { type: "json" };
-import utbetaling from "./data/utbetaling.json" assert { type: "json" };
 import utbetalinger from "./data/utbetalinger.json" assert { type: "json" };
 import innboks from "./data/innboks.json" assert { type: "json" };
 import erArbeidssoker from "./data/er-arbeidssoker.json" assert { type: "json" };
@@ -36,7 +35,7 @@ api.get('/utkast-digisos', (c) => {
   return c.json(utkastDigisos);
 });
 
-api.get('/utbetalinger', (c) => {
+api.get('/siste', (c) => {
   return c.json(utbetalinger);
 });
 
