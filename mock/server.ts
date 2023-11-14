@@ -8,6 +8,7 @@ import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
 import utkastDigisos from "./data/utkast-digisos.json" assert { type: "json" };
 import utbetaling from "./data/utbetaling.json" assert { type: "json" };
+import utbetalinger from "./data/utbetalinger.json" assert { type: "json" };
 import innboks from "./data/innboks.json" assert { type: "json" };
 import erArbeidssoker from "./data/er-arbeidssoker.json" assert { type: "json" };
 import mikrofrontend from "./data/mikrofrontend.js";
@@ -35,8 +36,8 @@ api.get('/utkast-digisos', (c) => {
   return c.json(utkastDigisos);
 });
 
-api.get('/utbetaling', (c) => {
-  return c.json(utbetaling);
+api.get('/utbetalinger', (c) => {
+  return c.json(utbetalinger);
 });
 
 api.get('/innboks', (c) => {

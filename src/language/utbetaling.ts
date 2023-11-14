@@ -20,12 +20,12 @@ export const text = {
     en: "to account number",
   },
   ingen: {
-    nb: "Du har ingen nye utbetalinger de siste tre månedene",
+    nb: "Du har ingen nye utbetalinger.json de siste tre månedene",
     nn: "Du har ingen nye utbetalingar dei siste tre månadene",
     en: "You have no new payments in the last three months",
   },
   tidligere: {
-    nb: "Se tidligere utbetalinger",
+    nb: "Se tidligere utbetalinger.json",
     nn: "Se tidlegare utbetalingar",
     en: "See previous payments",
   }

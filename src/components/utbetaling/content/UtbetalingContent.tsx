@@ -1,8 +1,8 @@
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { utbetalingsoversiktApiUrl } from "../utbetalingUrls.ts";
-import { formatToReadableDate, summerYtelser } from "@utils/utbetaling.ts";
-import UtbetalingYtelser from "../ytelser/UtbetalingYtelser.tsx";
+import { formatToReadableDate } from "@utils/utbetaling.ts";
+import Ytelser from "../ytelser/UtbetalingYtelser.tsx";
 import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
 import type { UtbetalingResponse } from "../utbetalingTypes.ts";
 import { text } from "@language/utbetaling.ts";
@@ -29,7 +29,7 @@ const UtbetalingContent = ({ language }: Props) => {
             <Skeleton width={225} height={24} />
           </div>
         </div>
-        <UtbetalingYtelser isSkeleton={true} />
+        <Ytelser isSkeleton={true} />
       </>
     );
   }
@@ -38,34 +38,35 @@ const UtbetalingContent = ({ language }: Props) => {
     return null;
   }
 
-  const hasKommendeUtbetaling = data.kommendeUtbetalinger.length > 0;
-  const hasUtbetaltUtbetaling = data.utbetalteUtbetalinger.length > 0;
+  const hasKommendeUtbetaling = data.kommende.hasKommende;
+  const hasSisteUtbetaling = data.sisteUtbetaling.hasUtbetaling;
 
-  if (!hasKommendeUtbetaling && !hasUtbetaltUtbetaling) {
+  if (!hasKommendeUtbetaling && !hasSisteUtbetaling) {
     return <IngenUtbetaling language={language} />;
   }
 
-  const utbetalingToShow = hasKommendeUtbetaling ? data.kommendeUtbetalinger[0] : data.utbetalteUtbetalinger[0];
-  const sum = summerYtelser(utbetalingToShow.underytelser, utbetalingToShow.trekk);
-  const dato = formatToReadableDate(utbetalingToShow.ytelse_dato);
-  const konto = utbetalingToShow.kontonummer;
+  const utbetaling = hasKommendeUtbetaling ? data.kommende.utbetaling : data.sisteUtbetaling.utbetaling;
+  const dato = hasKommendeUtbetaling ? data.kommende.dato : data.sisteUtbetaling.dato;
+  const konto = hasKommendeUtbetaling ? data.kommende.kontonummer : data.sisteUtbetaling.kontonummer;
+  const ytelse = hasKommendeUtbetaling ? data.kommende.ytelse : data.sisteUtbetaling.ytelse;
+  const id = hasKommendeUtbetaling ? data.kommende.id : data.sisteUtbetaling.id;
 
   return (
     <>
       <div className={style.detaljer}>
         <div className={`${style.detaljerContainer} ${hasKommendeUtbetaling && style.kommendeUtbetaling}`}>
           <UtbetalingHeading type={hasKommendeUtbetaling ? "neste" : "siste"} language={language} />
-          <Heading size="large">{sum.toLocaleString("no-nb") + " kr"}</Heading>
+          <Heading size="large">{utbetaling.toLocaleString("no-nb") + " kr"}</Heading>
           <BodyLong>
-            {dato} {text.konto[language]} {konto}
+            {formatToReadableDate(dato)} {text.konto[language]} {konto}
           </BodyLong>
         </div>
       </div>
-      <UtbetalingYtelser
+      <Ytelser
         isKommende={hasKommendeUtbetaling}
-        ytelse={utbetalingToShow.ytelse}
-        utbetaling={sum}
-        id={utbetalingToShow.id}
+        ytelse={ytelse}
+        utbetaling={utbetaling}
+        id={id}
       />
     </>
   );

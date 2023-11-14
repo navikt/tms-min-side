@@ -560,7 +560,7 @@ const annetLenkerProd = [
     }
   },
   {
-    nb: "Siste utbetalinger",
+    nb: "Siste utbetalinger.json",
     nn: "Siste utbetalingar",
     en: "Recent payments",
     url: {
@@ -613,7 +613,7 @@ const annetLenkerDev = [
     }
   },
   {
-    nb: "Siste utbetalinger",
+    nb: "Siste utbetalinger.json",
     nn: "Siste utbetalingar",
     en: "Recent payments",
     url: {

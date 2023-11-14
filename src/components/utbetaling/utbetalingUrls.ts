@@ -11,9 +11,9 @@ const UTBETALINGSOVERSIKT_URL = {
 };
 
 const UTBETALINGSOVERSIKT_API_URL = {
-  local: "http://localhost:3000/utbetaling",
-  dev: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/utbetalinger",
-  prod: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger",
+  local: "http://localhost:3000/utbetalinger",
+  dev: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/siste",
+  prod: "https://person.nav.no/tms-utbetalingsoversikt-api/siste",
 };
 
 export const utbetalingsoversiktApiUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironmentClientSide()]}?&fom=${fromDate}&tom=${toDate}`;
