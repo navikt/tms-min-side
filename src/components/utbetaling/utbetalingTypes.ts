@@ -1,5 +1,4 @@
 export interface SisteUtbetaling {
-  hasUtbetaling: string;
   utbetaling: number;
   dato: string;
   ytelse: string,
@@ -8,7 +7,6 @@ export interface SisteUtbetaling {
 }
 
 export interface Kommende {
-  hasKommende: boolean;
   utbetaling: number;
   dato: string;
   ytelse: string;
@@ -17,6 +15,8 @@ export interface Kommende {
 }
 
 export interface UtbetalingResponse {
+  hasUtbetaling: string;
+  hasKommende: boolean;
   sisteUtbetaling: SisteUtbetaling;
   kommende: Kommende;
 }

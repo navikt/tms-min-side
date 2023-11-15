@@ -38,8 +38,8 @@ const UtbetalingContent = ({ language }: Props) => {
     return null;
   }
 
-  const hasKommendeUtbetaling = data.kommende.hasKommende;
-  const hasSisteUtbetaling = data.sisteUtbetaling.hasUtbetaling;
+  const hasKommendeUtbetaling = data.hasKommende;
+  const hasSisteUtbetaling = data.hasUtbetaling;
 
   if (!hasKommendeUtbetaling && !hasSisteUtbetaling) {
     return <IngenUtbetaling language={language} />;
