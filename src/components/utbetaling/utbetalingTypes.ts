@@ -17,8 +17,8 @@ export interface Kommende {
 export interface UtbetalingResponse {
   hasUtbetaling: string;
   hasKommende: boolean;
-  sisteUtbetaling: SisteUtbetaling;
-  kommende: Kommende;
+  sisteUtbetaling: SisteUtbetaling | null;
+  kommende: Kommende | null;
 }
 
 

@@ -45,20 +45,20 @@ const UtbetalingContent = ({ language }: Props) => {
     return <IngenUtbetaling language={language} />;
   }
 
-  const utbetaling = hasKommendeUtbetaling ? data.kommende.utbetaling : data.sisteUtbetaling.utbetaling;
-  const dato = hasKommendeUtbetaling ? data.kommende.dato : data.sisteUtbetaling.dato;
-  const konto = hasKommendeUtbetaling ? data.kommende.kontonummer : data.sisteUtbetaling.kontonummer;
-  const ytelse = hasKommendeUtbetaling ? data.kommende.ytelse : data.sisteUtbetaling.ytelse;
-  const id = hasKommendeUtbetaling ? data.kommende.id : data.sisteUtbetaling.id;
+  const utbetaling = hasKommendeUtbetaling ? data.kommende?.utbetaling : data.sisteUtbetaling?.utbetaling;
+  const dato = hasKommendeUtbetaling ? data.kommende?.dato : data.sisteUtbetaling?.dato;
+  const konto = hasKommendeUtbetaling ? data.kommende?.kontonummer : data.sisteUtbetaling?.kontonummer;
+  const ytelse = hasKommendeUtbetaling ? data.kommende?.ytelse : data.sisteUtbetaling?.ytelse;
+  const id = hasKommendeUtbetaling ? data.kommende?.id : data.sisteUtbetaling?.id;
 
   return (
     <>
       <div className={style.detaljer}>
         <div className={`${style.detaljerContainer} ${hasKommendeUtbetaling && style.kommendeUtbetaling}`}>
           <UtbetalingHeading type={hasKommendeUtbetaling ? "neste" : "siste"} language={language} />
-          <Heading size="large">{utbetaling.toLocaleString("no-nb") + " kr"}</Heading>
+          <Heading size="large">{utbetaling?.toLocaleString("no-nb") + " kr"}</Heading>
           <BodyLong>
-            {formatToReadableDate(dato)} {text.konto[language]} {konto}
+            {formatToReadableDate(typeof dato === "string" ? dato : "")} {text.konto[language]} {konto}
           </BodyLong>
         </div>
       </div>
