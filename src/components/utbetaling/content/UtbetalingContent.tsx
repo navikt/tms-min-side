@@ -38,38 +38,55 @@ const UtbetalingContent = ({ language }: Props) => {
     return null;
   }
 
-  const hasKommendeUtbetaling = data.hasKommende;
-  const hasSisteUtbetaling = data.hasUtbetaling;
-
-  if (!hasKommendeUtbetaling && !hasSisteUtbetaling) {
-    return <IngenUtbetaling language={language} />;
+  if (data.hasKommende) {
+    return (
+      <>
+        <div className={style.detaljer}>
+          <div className={`${style.detaljerContainer} ${style.kommendeUtbetaling}`}>
+            <UtbetalingHeading type="neste" language={language} />
+            <Heading size="large">
+              {data.kommende?.utbetaling?.toLocaleString("no-nb") + " kr"}
+            </Heading>
+            <BodyLong>
+              {formatToReadableDate(typeof data.kommende?.dato === "string" ? data.kommende?.dato : "")} {text.konto[language]} {data.kommende?.kontonummer}
+            </BodyLong>
+          </div>
+        </div>
+        <Ytelser
+          isKommende={true}
+          ytelse={data.kommende?.ytelse}
+          utbetaling={data.kommende?.utbetaling}
+          id={data.kommende?.id}
+        />
+      </>
+    );
   }
 
-  const utbetaling = hasKommendeUtbetaling ? data.kommende?.utbetaling : data.sisteUtbetaling?.utbetaling;
-  const dato = hasKommendeUtbetaling ? data.kommende?.dato : data.sisteUtbetaling?.dato;
-  const konto = hasKommendeUtbetaling ? data.kommende?.kontonummer : data.sisteUtbetaling?.kontonummer;
-  const ytelse = hasKommendeUtbetaling ? data.kommende?.ytelse : data.sisteUtbetaling?.ytelse;
-  const id = hasKommendeUtbetaling ? data.kommende?.id : data.sisteUtbetaling?.id;
-
-  return (
-    <>
-      <div className={style.detaljer}>
-        <div className={`${style.detaljerContainer} ${hasKommendeUtbetaling && style.kommendeUtbetaling}`}>
-          <UtbetalingHeading type={hasKommendeUtbetaling ? "neste" : "siste"} language={language} />
-          <Heading size="large">{utbetaling?.toLocaleString("no-nb") + " kr"}</Heading>
-          <BodyLong>
-            {formatToReadableDate(typeof dato === "string" ? dato : "")} {text.konto[language]} {konto}
-          </BodyLong>
+  if (data.hasUtbetaling) {
+    return (
+      <>
+        <div className={style.detaljer}>
+          <div className={style.detaljerContainer}>
+            <UtbetalingHeading type="siste" language={language} />
+            <Heading size="large">
+              {data.sisteUtbetaling?.utbetaling?.toLocaleString("no-nb") + " kr"}
+            </Heading>
+            <BodyLong>
+              {formatToReadableDate(typeof data.sisteUtbetaling?.dato === "string" ? data.sisteUtbetaling?.dato : "")} {text.konto[language]} {data.sisteUtbetaling?.kontonummer}
+            </BodyLong>
+          </div>
         </div>
-      </div>
-      <Ytelser
-        isKommende={hasKommendeUtbetaling}
-        ytelse={ytelse}
-        utbetaling={utbetaling}
-        id={id}
-      />
-    </>
-  );
-};
+        <Ytelser
+          isKommende={false}
+          ytelse={data.sisteUtbetaling?.ytelse}
+          utbetaling={data.sisteUtbetaling?.utbetaling}
+          id={data.sisteUtbetaling?.id}
+        />
+      </>
+    );
+  }
+
+  return <IngenUtbetaling language={language} />;
+}
 
 export default UtbetalingContent;
