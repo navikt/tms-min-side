@@ -2,7 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
-import styles from "./UtbetalingYtelser.module.css";
+import styles from "./Ytelse.module.css";
 
 interface Props {
   ytelse?: string;
@@ -12,7 +12,7 @@ interface Props {
   isSkeleton?: boolean;
 }
 
-const UtbetalingYtelser = ({ ytelse, utbetaling, isKommende, id, isSkeleton }: Props) => {
+const Ytelse = ({ ytelse, utbetaling, isKommende, id, isSkeleton }: Props) => {
   if (isSkeleton) {
     return (
       <div className={styles.wrapper}>
@@ -48,4 +48,4 @@ const UtbetalingYtelser = ({ ytelse, utbetaling, isKommende, id, isSkeleton }: P
   );
 };
 
-export default UtbetalingYtelser;
+export default Ytelse;
