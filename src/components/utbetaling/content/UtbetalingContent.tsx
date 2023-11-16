@@ -2,7 +2,7 @@ import useSWRImmutable from "swr/immutable";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { utbetalingsoversiktApiUrl } from "../utbetalingUrls.ts";
 import { formatToReadableDate } from "@utils/utbetaling.ts";
-import Ytelser from "@components/utbetaling/ytelse/Ytelse.tsx";
+import Ytelse from "@components/utbetaling/ytelse/Ytelse.tsx";
 import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
 import type { UtbetalingResponse } from "../utbetalingTypes.ts";
 import { text } from "@language/utbetaling.ts";
@@ -29,7 +29,7 @@ const UtbetalingContent = ({ language }: Props) => {
             <Skeleton width={225} height={24} />
           </div>
         </div>
-        <Ytelser isSkeleton={true} />
+        <Ytelse isSkeleton={true} />
       </>
     );
   }
@@ -52,7 +52,7 @@ const UtbetalingContent = ({ language }: Props) => {
             </BodyLong>
           </div>
         </div>
-        <Ytelser
+        <Ytelse
           isKommende={true}
           ytelse={data.kommende?.ytelse}
           utbetaling={data.kommende?.utbetaling}
@@ -76,7 +76,7 @@ const UtbetalingContent = ({ language }: Props) => {
             </BodyLong>
           </div>
         </div>
-        <Ytelser
+        <Ytelse
           isKommende={false}
           ytelse={data.sisteUtbetaling?.ytelse}
           utbetaling={data.sisteUtbetaling?.utbetaling}
