@@ -35,7 +35,7 @@ api.get('/utkast-digisos', (c) => {
   return c.json(utkastDigisos);
 });
 
-api.get('/siste', (c) => {
+api.get('/utbetalinger/siste', (c) => {
   return c.json(utbetalinger);
 });
 
