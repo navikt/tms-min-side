@@ -12,16 +12,12 @@ interface Personalia {
 const PersonaliaData = () => {
   const { data: personalia, error } = useSWRImmutable<Personalia>({ path: navnUrl }, fetcher);
 
-  if (!personalia) {
-    return null;
-  }
-
   if (error) {
     setIsError();
   }
 
   return (
-    <span className={style.navn}>{personalia.navn ? personalia.navn.toLowerCase() : personalia.ident}</span>
+    <span className={style.navn}>{personalia?.navn ? personalia.navn.toLowerCase() : personalia?.ident}</span>
   );
 };
 
