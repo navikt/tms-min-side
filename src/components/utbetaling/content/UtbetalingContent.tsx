@@ -11,13 +11,14 @@ import { fetcher, include } from "@utils/api.client.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import IngenUtbetaling from "../ingen/IngenUtbetaling.tsx";
 import style from "./UtbetalingContent.module.css";
+import { setIsError } from "../../../store/store.ts";
 
 interface Props {
   language: Language;
 }
 
 const UtbetalingContent = ({ language }: Props) => {
-  const { data, isLoading } = useSWRImmutable<UtbetalingResponse>({ path: utbetalingsoversiktApiUrl, options: include }, fetcher);
+  const { data, isLoading, error } = useSWRImmutable<UtbetalingResponse>({ path: utbetalingsoversiktApiUrl, options: include }, fetcher);
 
   if (isLoading) {
     return (
@@ -32,6 +33,10 @@ const UtbetalingContent = ({ language }: Props) => {
         <Ytelse isSkeleton={true} />
       </>
     );
+  }
+
+  if (error) {
+    setIsError();
   }
 
   if (!data) {

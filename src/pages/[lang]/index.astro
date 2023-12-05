@@ -10,13 +10,14 @@ import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "@components/container/Container.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
+import Feilmelding from "../../components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
-
 const language = getLanguage(Astro.url);
 ---
 
 <Layout title="Min side">
   <Content cls="min-side">
+    <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
     <MinSide language={language} client:only="react" />

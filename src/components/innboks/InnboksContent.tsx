@@ -9,16 +9,21 @@ import type { Language } from "@language/language.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import InnboksTag from "./InnboksTag.tsx";
 import styles from "./Innboks.module.css";
+import { setIsError } from "../../store/store.ts";
 
 interface Props {
   language: Language;
 }
 
 const InnboksContent = ({ language }: Props) => {
-  const { data: varsler, isLoading } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
+  const { data: varsler, isLoading, error } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
 
   const innbokser = varsler?.innbokser;
   const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
+
+  if (error) {
+    setIsError();
+  }
 
   return (
       <>

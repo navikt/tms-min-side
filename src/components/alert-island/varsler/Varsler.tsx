@@ -8,6 +8,7 @@ import VarlserIkon from "./ikoner/VarslerIkon";
 import { fetcher } from "@utils/api.client.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
+import { setIsError } from "../../../store/store.ts";
 import style from "./Varsler.module.css";
 
 interface Props {
@@ -28,7 +29,7 @@ const Varsler = ({ language }: Props) => {
   }
 
   if (error) {
-    return null;
+    setIsError();
   }
 
   if (!data) {

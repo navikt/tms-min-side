@@ -10,6 +10,7 @@ import { text } from "@language/dokumentarkiv.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { Heading } from "@navikt/ds-react";
 import styles from "./Dokumenter.module.css";
+import { setIsError } from "../../../store/store.ts";
 
 interface Dokument {
   navn: string;
@@ -27,7 +28,7 @@ interface Props {
 }
 
 const Dokumenter = ({ language }: Props) => {
-  const { data: saker, isLoading } = useSWRImmutable<Dokumenter>({ path: mineSakerApiSisteUrl, options: include }, fetcher);
+  const { data: saker, isLoading, error } = useSWRImmutable<Dokumenter>({ path: mineSakerApiSisteUrl, options: include }, fetcher);
   const hasDokumenter = saker && saker.sakstemaer.length > 0;
 
   if (isLoading) {
@@ -49,6 +50,10 @@ const Dokumenter = ({ language }: Props) => {
         </div>
       </div>
     );
+  }
+
+  if (error) {
+    setIsError();
   }
 
   return (
