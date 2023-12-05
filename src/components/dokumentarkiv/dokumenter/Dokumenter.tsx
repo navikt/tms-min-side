@@ -9,8 +9,8 @@ import type { Language } from "@language/language.ts";
 import { text } from "@language/dokumentarkiv.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { Heading } from "@navikt/ds-react";
-import styles from "./Dokumenter.module.css";
 import { setIsError } from "../../../store/store.ts";
+import styles from "./Dokumenter.module.css";
 
 interface Dokument {
   navn: string;

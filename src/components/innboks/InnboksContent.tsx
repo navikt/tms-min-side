@@ -8,8 +8,8 @@ import { text } from "@language/innboks.ts";
 import type { Language } from "@language/language.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import InnboksTag from "./InnboksTag.tsx";
-import styles from "./Innboks.module.css";
 import { setIsError } from "../../store/store.ts";
+import styles from "./Innboks.module.css";
 
 interface Props {
   language: Language;
