@@ -3,6 +3,7 @@ import { Detail } from "@navikt/ds-react/cjs/typography/Detail.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import ChevronRight from "./ChevronRight";
 import { getLanguage } from "../../../language/language";
+import LinkWithAmplitude from "../link/LinkWithAmplitude";
 import style from "./InnloggedeTjensterSection.module.css";
 
 const language = getLanguage(Astro.url);
@@ -16,9 +17,12 @@ const { liste, tittel } = Astro.props;
       <li class={style.link}>
         <ChevronRight />
         <BodyShort>
-          <a href={link.url[language]} class={style.color}>
-            {link[language]}
-          </a>
+          <LinkWithAmplitude
+            link={link}
+            url={link.url[language]}
+            language={language}
+            client:only="react"
+          />
         </BodyShort>
       </li>
     ))}
