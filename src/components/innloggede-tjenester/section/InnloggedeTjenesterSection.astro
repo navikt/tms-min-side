@@ -17,12 +17,7 @@ const { liste, tittel } = Astro.props;
       <li class={style.link}>
         <ChevronRight />
         <BodyShort>
-          <LinkWithAmplitude
-            link={link}
-            url={link.url[language]}
-            language={language}
-            client:only="react"
-          />
+          <LinkWithAmplitude link={link} language={language} client:only="react" />
         </BodyShort>
       </li>
     ))}
