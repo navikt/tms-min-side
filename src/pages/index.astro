@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/base/Layout.astro";
-import MinSide from "../mikrofrontends/min-side/MinSide";
+import Oversikt from "../mikrofrontends/oversikt/Oversikt";
 import Content from "../layouts/content/Content.astro";
 import Aia from "../mikrofrontends/arbeidssoker/Aia";
 import Personalia from "@components/personalia/Personalia.astro";
@@ -22,7 +22,7 @@ const language = getLanguage(Astro.url);
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
-    <MinSide language={language} client:only="react" />
+    <Oversikt language={language} client:only="react" />
     <Container>
       <Utbetaling />
       <Innboks />

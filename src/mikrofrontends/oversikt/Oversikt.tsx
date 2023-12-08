@@ -11,7 +11,7 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "@utils/api.client.ts";
 import type { Props } from "../types";
 
-const MinSide = ({ language }: Props) => {
+const Oversikt = ({ language }: Props) => {
   const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: oversiktManifestUrl }, fetcher);
 
   useLanguage(language);
@@ -34,4 +34,4 @@ const MinSide = ({ language }: Props) => {
   );
 };
 
-export default MinSide;
+export default Oversikt;

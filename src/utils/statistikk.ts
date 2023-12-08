@@ -1,4 +1,4 @@
-import { innloggingsstatistikkUrl } from "../mikrofrontends/min-side/urls";
+import { innloggingsstatistikkUrl } from "../mikrofrontends/oversikt/urls";
 
 export async function postInnloggingsstatistikk() {
   try {
