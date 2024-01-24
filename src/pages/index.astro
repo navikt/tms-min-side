@@ -10,7 +10,6 @@ import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "@components/container/Container.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
 import Innboks from "@components/innboks/Innboks.astro";
-import UXSignal from "@components/ux-signal/UXSignal.astro";
 import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 
@@ -29,7 +28,6 @@ const language = getLanguage(Astro.url);
       <Dokumentarkiv />
     </Container>
     <Aia client:visible />
-    <UXSignal />
     <InnloggedeTjenester />
   </Content>
 </Layout>
