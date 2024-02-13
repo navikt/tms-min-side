@@ -1,0 +1,48 @@
+.container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 468px;
+  border-radius: var(--a-border-radius-large);
+  background-color: var(--a-bg-default);
+  box-shadow: var(--a-shadow-xsmall);
+  width: 100%;
+  color: #272727;
+  text-decoration: none;
+}
+
+.container:hover {
+  cursor: pointer;
+  box-shadow: var(--a-shadow-small);
+}
+
+.container:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.container:hover h2 {
+  text-decoration: underline;
+}
+
+.container:focus {
+  box-shadow: var(--a-shadow-focus);
+  outline: none;
+}
+
+.chevron {
+  flex-shrink: 0;
+}
+
+.ikonOgTekstContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 648px) {
+  .container {
+    padding: 1.25rem;
+  }
+}

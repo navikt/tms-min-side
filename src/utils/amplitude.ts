@@ -11,3 +11,13 @@ export const logEvent = (data: string, kategori: string, lenketekst: string) => 
     },
   });
 };
+
+export function logMfEvent(name: string, metric: boolean) {
+  logAmplitudeEvent({
+    origin: "tms-min-side",
+    eventName: name,
+    eventData: {
+      komponent: metric,
+    },
+  });
+}

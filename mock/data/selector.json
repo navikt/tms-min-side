@@ -1,0 +1,13 @@
+{
+  "microfrontends": [
+    {
+      "microfrontend_id": "aap",
+      "url": "http://localhost:3000/aap/bundle.js"
+    },
+    {
+      "microfrontend_id": "syfo-dialog",
+      "url": "http://localhost:3000/syfo-dialog/bundle.js"
+    }
+  ],
+  "offerStepup": false
+}
