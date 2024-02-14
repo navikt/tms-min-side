@@ -39,7 +39,6 @@ spec:
     - "https://www.nav.no/minside"
   resources:
     limits:
-      cpu: "1"
       memory: 768Mi
     requests:
       cpu: "50m"
