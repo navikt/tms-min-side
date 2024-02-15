@@ -1,4 +1,12 @@
-import { innloggingsstatistikkUrl } from "../mikrofrontends/oversikt/urls";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+
+const INNLOGGINGSSTATISTIKK_URL = {
+  local: "http://localhost:3000/statistikk",
+  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/statistikk/innlogging",
+  prod: "https://www.nav.no/tms-min-side-proxy/statistikk/innlogging",
+};
+
+const innloggingsstatistikkUrl = `${INNLOGGINGSSTATISTIKK_URL[getEnvironmentClientSide()]}`;
 
 export async function postInnloggingsstatistikk() {
   try {
