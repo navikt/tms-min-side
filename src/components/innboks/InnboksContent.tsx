@@ -9,6 +9,9 @@ import type { Language } from "@language/language.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import InnboksTag from "./InnboksTag.tsx";
 import { setIsError } from "../../store/store.ts";
+import { useLanguage } from "@hooks/useLanguage.ts";
+import { useFaro } from "@hooks/useFaro.ts";
+import { useStatistikk } from "@hooks/useStatistikk.ts";
 import styles from "./Innboks.module.css";
 
 interface Props {
@@ -17,6 +20,10 @@ interface Props {
 
 const InnboksContent = ({ language }: Props) => {
   const { data: varsler, isLoading, error } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
+
+  useLanguage(language);
+  useFaro();
+  useStatistikk();
 
   const innbokser = varsler?.innbokser;
   const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";

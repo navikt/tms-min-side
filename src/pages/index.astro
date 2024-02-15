@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/base/Layout.astro";
-import Oversikt from "../mikrofrontends/oversikt/Oversikt";
 import DinOversikt from "@components/oversikt/din-oversikt/DinOversikt";
 import Content from "../layouts/content/Content.astro";
 import Aia from "../mikrofrontends/arbeidssoker/Aia";
@@ -23,7 +22,6 @@ const language = getLanguage(Astro.url);
     <Personalia />
     <AlertIsland />
     <DinOversikt language={language} client:only="react" />
-    <Oversikt language={language} client:only="react" />
     <Container>
       <Utbetaling />
       <Innboks />
