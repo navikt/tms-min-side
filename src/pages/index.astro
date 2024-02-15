@@ -22,8 +22,8 @@ const language = getLanguage(Astro.url);
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
-    <Oversikt language={language} client:only="react" />
     <DinOversikt language={language} client:only="react" />
+    <Oversikt language={language} client:only="react" />
     <Container>
       <Utbetaling />
       <Innboks />
