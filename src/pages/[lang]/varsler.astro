@@ -6,9 +6,16 @@ import { getLanguage } from "@language/language";
 import { text } from "@language/text";
 
 const language = getLanguage(Astro.url);
-const breadcrumbs = [{
-  title: text.minSide[language], url: "/minside"
-}];
+const breadcrumbs = [
+  {
+    title: text.minSide[language], url: "/minside"
+  },
+  {
+    url: `/minside/varsler`,
+    title: text.varsler[language],
+    handleInApp: true,
+  }
+];
 ---
 
 <Layout title="Min side" breadcrumbs={breadcrumbs}>
