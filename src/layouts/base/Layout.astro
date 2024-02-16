@@ -2,21 +2,24 @@
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getEnvironment } from "@utils/environment";
 import { getLanguage } from "@language/language";
-import { text } from "../../language/text";
 import "./Layout.css";
 
 export interface Props {
   title: string;
+  breadcrumbs: [{
+    title: string,
+    url: string,
+  }];
 }
 
 const language = getLanguage(Astro.url);
-const { title } = Astro.props;
+const { title, breadcrumbs } = Astro.props;
 
 const Decorator = await fetchDecoratorReact({
   env: getEnvironment(),
   params: {
     context: "privatperson",
-    breadcrumbs: [{ title: text.minSide[language], url: "/minside" }],
+    breadcrumbs: breadcrumbs,
     availableLanguages : [
       {
         locale: "nb",

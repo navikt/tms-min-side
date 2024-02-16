@@ -2,10 +2,15 @@
 import Layout from "../../layouts/base/Layout.astro";
 import Utkast from "../../mikrofrontends/utkast/Utkast";
 import { getLanguage } from "@language/language";
+import { text } from "@language/text";
 
 const language = getLanguage(Astro.url);
+const breadcrumbs = [{
+  title: text.minSide[language],
+  url: "/minside"
+}];
 ---
 
-<Layout title="Min side">
+<Layout title="Min side" breadcrumbs={breadcrumbs}>
   <Utkast language={language} client:only="react" />
 </Layout>

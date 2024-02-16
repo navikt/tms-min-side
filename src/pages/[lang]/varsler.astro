@@ -3,11 +3,15 @@ import Layout from "../../layouts/base/Layout.astro";
 import Varsler from "../../mikrofrontends/varsler/Varsler";
 import Content from "../../layouts/content/Content.astro";
 import { getLanguage } from "@language/language";
+import { text } from "@language/text";
 
 const language = getLanguage(Astro.url);
+const breadcrumbs = [{
+  title: text.minSide[language], url: "/minside"
+}];
 ---
 
-<Layout title="Min side">
+<Layout title="Min side" breadcrumbs={breadcrumbs}>
   <Content cls="varsler">
     <Varsler language={language} client:only="react" />
   </Content>

@@ -16,7 +16,7 @@ import { getLanguage } from "@language/language";
 const language = getLanguage(Astro.url);
 ---
 
-<Layout title="Min side">
+<Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
     <Feilmelding language={language} client:only="react" />
     <Personalia />

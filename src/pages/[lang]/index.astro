@@ -12,10 +12,11 @@ import Innboks from "@components/innboks/Innboks.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
 import Feilmelding from "../../components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
+
 const language = getLanguage(Astro.url);
 ---
 
-<Layout title="Min side">
+<Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
     <Feilmelding language={language} client:only="react" />
     <Personalia />
