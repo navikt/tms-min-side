@@ -22,7 +22,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error) {
     setIsError();
-    faro.api.pushLog([`Feil i en mikrofrontend: ${error}`]);
+    faro.api.pushLog([`Feil i en microfrontend: ${error}`]);
   }
 
   render() {
