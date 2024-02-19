@@ -1,4 +1,5 @@
 import React from "react";
+import { faro } from "@grafana/faro-web-sdk";
 import { setIsError } from "../../store/store.ts";
 
 type Props = {
@@ -19,8 +20,9 @@ class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true };
   }
 
-  componentDidCatch() {
+  componentDidCatch(error: Error) {
     setIsError();
+    faro.api.pushLog([`Feil i en mikrofrontend: ${error}`]);
   }
 
   render() {
