@@ -1,9 +1,9 @@
-.content {
-  min-height: 9.25rem;
+.container {
+  margin-top: var(--tms-space-between-sections);
 }
 
-.container {
-  margin-bottom: 2rem;
+.content {
+  min-height: 9.25rem;
 }
 
 .headerContainer {
@@ -70,9 +70,5 @@
 
   .bodyContainer {
     padding: 1rem 1.25rem 1.25rem 1.25rem;
-  }
-
-  .container {
-    margin-bottom: 2.5rem;
   }
 }

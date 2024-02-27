@@ -1,4 +1,4 @@
 .container {
-  margin-top: var(--tms-avstand-til-alertIsland);
+  margin-top: var(--tms-space-between-sections);
   min-height: 9.75rem;
 }

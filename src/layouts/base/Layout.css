@@ -6,3 +6,13 @@ body {
 body {
   background-color: white;
 }
+
+:root {
+  --tms-space-between-sections: 2rem;
+}
+
+@media (min-width: 648px) {
+  :root {
+    --tms-space-between-sections: 2.5rem;
+  }
+}

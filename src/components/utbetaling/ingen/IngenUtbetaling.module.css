@@ -1,6 +1,3 @@
-.ingen {
-  margin-bottom: 2rem;
-}
 
 .header {
   color: var(--a-text-default);
@@ -22,9 +19,6 @@
 }
 
 @media (min-width: 648px) {
-  .ingen {
-    margin-bottom: 2.5rem;
-  }
 
   .header {
     padding: 1rem 1.25rem 0.75rem 1.25rem;

@@ -1,5 +1,5 @@
 .dokumentContainer {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
 }
 
 .skeletonContainer {
@@ -11,16 +11,6 @@
 .dokumentSkeleton {
   border-top: 1px solid lightgray;
   margin-bottom: 0.58rem;
-}
-
-.ingenContainer {
-  padding: 1rem 1rem 1.25rem 1rem;
-  background: white;
-  border-radius: 0.5rem;
-  border: 1px solid var(--a-border-divider);
-  color: var(--a-text-subtle);
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
 .ingenText {
@@ -40,15 +30,5 @@
 .link:hover {
   cursor: pointer;
   text-decoration: none;
-}
-
-@media (min-width: 648px) {
-  .dokumentContainer {
-    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-  }
-
-  .ingenContainer {
-    padding: 2.25rem 1.25rem 2.56rem 1.25rem;
-  }
 }
 
