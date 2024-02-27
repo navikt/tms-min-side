@@ -32,3 +32,8 @@
   text-decoration: none;
 }
 
+@media (min-width: 648px) {
+  .dokumentContainer {
+    padding: 0rem 1.25rem 0rem 1.25rem;
+  }
+}
