@@ -3,5 +3,7 @@ import style from "./Container.module.css";
 ---
 
 <div class={style.container}>
-  <slot />
+  <div class={style.content}>
+    <slot />
+  </div>
 </div>

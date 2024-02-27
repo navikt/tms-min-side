@@ -1,5 +1,9 @@
 .container {
-  max-width: 37rem;
-  margin: 0 auto 2rem auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
 }
 
+.content {
+  width: 37rem;
+}
