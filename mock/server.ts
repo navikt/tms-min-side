@@ -15,6 +15,7 @@ import utkastDigisos from "./data/utkast-digisos.json" assert { type: "json" };
 import utbetalinger from "./data/utbetalinger.json" assert { type: "json" };
 import innboks from "./data/innboks.json" assert { type: "json" };
 import erArbeidssoker from "./data/er-arbeidssoker.json" assert { type: "json" };
+import status from "./data/status.json" assert { type: "json" };
 import mikrofrontend from "./data/mikrofrontend.js";
 import { mikrofrontendBundle } from "./data/microfrontend-oversikt.ts";
 
@@ -119,6 +120,10 @@ api.get('/sakstemaer/egne', (c) => {
 
 api.get('/er-arbeidssoker', (c) => {
   return c.json(erArbeidssoker);
+});
+
+api.get('/login/status', (c) => {
+  return c.json(status);
 });
 
 api.post('/statistikk', (c) => {
