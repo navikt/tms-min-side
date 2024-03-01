@@ -13,4 +13,4 @@ const LOGIN_URL = {
 };
 
 export const statusUrl = `${LOGIN_URL[getEnvironmentClientSide()]}/status`;
-export const redirectUrl = `${LOGIN_URL[getEnvironmentClientSide()]}/?redirect_uri=${MINSIDE_URL[getEnvironmentClientSide()]}`;
+export const redirectUrl = `${LOGIN_URL[getEnvironmentClientSide()]}?redirect_uri=${MINSIDE_URL[getEnvironmentClientSide()]}`;
