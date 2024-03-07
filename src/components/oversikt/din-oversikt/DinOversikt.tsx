@@ -43,19 +43,13 @@ const getUniqueProdukter = (language: Language) => {
 
 const DinOversikt = ({ language }: Props) => {
   const { data: sakstemaer, isLoading: isLoadingSakstemaer } = useSWRImmutable<Sakstemaer>({ path: mineSakerSakstemaerUrl, options: include }, fetcher);
-  const { data: enabledMicrofrontends, isLoading: isLoadingMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(
-    microfrontendsUrl,
-    fetcher,
-    {
+  const { data: enabledMicrofrontends, isLoading: isLoadingMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>({path: microfrontendsUrl, options: include }, fetcher, {
       onError: () => setIsError(),
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),
     }
   );
 
-  const { data: meldekortFraApi, isLoading: isLoadingMeldekort } = useSWRImmutable<MeldekortDataFraApi>(
-    meldekortApiUrl,
-    fetcher,
-    {
+  const { data: meldekortFraApi, isLoading: isLoadingMeldekort } = useSWRImmutable<MeldekortDataFraApi>({ path: meldekortApiUrl, options: include }, fetcher, {
       onError: () => setIsError(),
     }
   );
