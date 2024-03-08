@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import IkonDagpenger from "../assets/IkonDagpenger";
 import IkonForeldrepenger from "../assets/IkonForeldrepenger";
 import IkonHjelpemidler from "../assets/IkonHjelpemidler";
