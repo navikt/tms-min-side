@@ -3,10 +3,11 @@ import { aiaCdnUrl, aiaManifestUrl } from "../urls";
 import ErrorBoundary from "@components/error-boundary/ErrorBoundary.tsx";
 import ContentLoader from "@components/oversikt/loader/ContentLoader.tsx";
 import { aiaStandardEntry, bundle } from "@components/oversikt/entrypoints.ts";
-import { useManifest } from "@components/oversikt/hooks/useManifest.ts";
+import useSWRImmutable from "swr/immutable";
+import { fetcher } from "@utils/api.client.ts";
 
 const AiaStandardWrapper = () => {
-  const [manifest, isLoading] = useManifest(aiaManifestUrl);
+  const { data: manifest, isLoading } = useSWRImmutable({ path: aiaManifestUrl }, fetcher);
 
   if (isLoading) {
     return null;
