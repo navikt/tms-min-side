@@ -1,4 +1,4 @@
-import { getEnvironment } from "../utils/getEnvironment";
+import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const produktlinkerDev = {
   dagpenger: {
@@ -77,8 +77,8 @@ const produktlinkerProd = {
 };
 const produktlinkConfig = {
   local: produktlinkerDev,
-  development: produktlinkerDev,
-  production: produktlinkerProd,
+  dev: produktlinkerDev,
+  prod: produktlinkerProd,
 };
 
-export const produktlinker = produktlinkConfig[getEnvironment()];
+export const produktlinker = produktlinkConfig[getEnvironmentClientSide()];
