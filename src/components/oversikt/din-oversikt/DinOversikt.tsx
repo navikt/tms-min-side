@@ -5,7 +5,7 @@ import { arbeidssokerUrl, meldekortApiUrl, microfrontendsUrl, oppfolgingUrl } fr
 import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
 import DialogVeileder from "../dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "../meldekort/MeldekortWrapper";
-import { type MeldekortDataFraApi, isMeldekortbruker } from "../meldekort/meldekortTypes";
+import { isMeldekortbruker, type MeldekortDataFraApi } from "../meldekort/meldekortTypes";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
@@ -13,7 +13,7 @@ import MicrofrontendWrapper from "./MicrofrontendWrapper";
 import Aktivitetsplan from "../aktivitetsplan/Aktivitetsplan";
 import { setIsError } from "../../../store/store.ts";
 import { logGroupedEvent, logMfEvent } from "@utils/amplitude.ts";
-import type { PersonalizedContent, Sakstemaer } from "./microfrontendTypes";
+import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
 import { fetcher, include } from "@utils/api.client.ts";
 import styles from "./DinOversikt.module.css";
@@ -23,18 +23,12 @@ interface Props {
 }
 
 const getUniqueProdukter = (language: Language, personalizedContent?: PersonalizedContent) => {
+  if (personalizedContent === undefined) return undefined;
 
   const produktConfigMap = getProduktConfigMap(language);
-
-  const produktConfigs = personalizedContent?.produktkort
-    ?.sort((a, b) => a.kode.localeCompare(b.kode))
-    .map((sakstema) => produktConfigMap[sakstema.kode])
-
-  const uniqueProduktConfigs = produktConfigs?.filter(
-    (produktConfig, index) => produktConfigs.findIndex((element) => element.tittel == produktConfig.tittel) === index
-  );
-
-  return uniqueProduktConfigs;
+  return personalizedContent?.produktkort
+    ?.sort((a, b) => a.localeCompare(b))
+    .map((sakstema) => produktConfigMap[sakstema]);
 };
 
 const DinOversikt = ({ language }: Props) => {
@@ -71,7 +65,7 @@ const DinOversikt = ({ language }: Props) => {
     <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
   ));
 
-  const uniqueProduktConfigs = getUniqueProdukter(language,  personalizedContent);
+  const uniqueProduktConfigs = getUniqueProdukter(language, personalizedContent);
 
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
@@ -126,7 +120,7 @@ const DinOversikt = ({ language }: Props) => {
               <Aktivitetsplan language={language} />
             </>
           )}
-          {uniqueProduktConfigs?.map((produktConfig) => (
+          {uniqueProduktConfigs && uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
         </div>

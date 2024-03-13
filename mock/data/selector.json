@@ -9,5 +9,6 @@
       "url": "http://localhost:3000/syfo-dialog/bundle.js"
     }
   ],
+  "produktkort": ["DAG"],
   "offerStepup": false
 }
