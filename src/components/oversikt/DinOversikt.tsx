@@ -1,17 +1,17 @@
 import { BodyShort } from "@navikt/ds-react";
 import { useEffect } from "react";
 import useSWRImmutable from "swr/immutable";
-import { arbeidssokerUrl, meldekortApiUrl, microfrontendsUrl, oppfolgingUrl } from "../urls";
-import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
-import DialogVeileder from "../dialog-veileder/DialogVeileder";
-import MeldekortWrapper from "../meldekort/MeldekortWrapper";
-import { isMeldekortbruker, type MeldekortDataFraApi } from "../meldekort/meldekortTypes";
-import { getProduktConfigMap } from "../produktkort/ProduktConfig";
-import { produktText } from "../produktkort/ProduktText";
-import Produktkort from "../produktkort/Produktkort";
+import { arbeidssokerUrl, meldekortApiUrl, microfrontendsUrl, oppfolgingUrl } from "./urls";
+import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
+import DialogVeileder from "./dialog-veileder/DialogVeileder";
+import MeldekortWrapper from "./meldekort/MeldekortWrapper";
+import { isMeldekortbruker, type MeldekortDataFraApi } from "./meldekort/meldekortTypes";
+import { getProduktConfigMap } from "./produktkort/ProduktConfig";
+import { produktText } from "./produktkort/ProduktText";
+import Produktkort from "./produktkort/Produktkort";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
-import Aktivitetsplan from "../aktivitetsplan/Aktivitetsplan";
-import { setIsError } from "../../../store/store.ts";
+import Aktivitetsplan from "./aktivitetsplan/Aktivitetsplan";
+import { setIsError } from "./../../store/store.ts";
 import { logGroupedEvent, logMfEvent } from "@utils/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
@@ -26,6 +26,7 @@ const getUniqueProdukter = (language: Language, personalizedContent?: Personaliz
   if (personalizedContent === undefined) return undefined;
 
   const produktConfigMap = getProduktConfigMap(language);
+
   return personalizedContent?.produktkort
     ?.sort((a, b) => a.localeCompare(b))
     .map((sakstema) => produktConfigMap[sakstema]);

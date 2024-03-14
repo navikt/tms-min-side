@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/base/Layout.astro";
-import DinOversikt from "../../components/oversikt/din-oversikt/DinOversikt";
 import Content from "../../layouts/content/Content.astro";
 import Aia from "../../mikrofrontends/arbeidssoker/Aia";
+import DinOversikt from "@components/oversikt/DinOversikt";
 import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
@@ -10,7 +10,7 @@ import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "@components/container/Container.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
-import Feilmelding from "../../components/feilmelding/Feilmelding";
+import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Authentication from "../../components/authentication/Authentication";
 
