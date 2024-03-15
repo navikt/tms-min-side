@@ -5,8 +5,9 @@ import { arbeidssokerUrl, meldekortApiUrl, microfrontendsUrl, oppfolgingUrl } fr
 import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
 import DialogVeileder from "./dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
-import { isMeldekortbruker, type MeldekortDataFraApi } from "./meldekort/meldekortTypes";
-import { getProduktConfigMap } from "./produktkort/ProduktConfig";
+import { type MeldekortDataFraApi } from "./meldekort/meldekortTypes";
+import { getProduktProperties, hasMeldekort, hasMicrofrontends, } from "@utils/oversikt.ts";
+import { hasProduktkort, isStandardInnsats, isUnderOppfolging } from "@utils/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import Produktkort from "./produktkort/Produktkort";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
@@ -21,16 +22,6 @@ import styles from "./DinOversikt.module.css";
 interface Props {
   language: Language;
 }
-
-const getUniqueProdukter = (language: Language, personalizedContent?: PersonalizedContent) => {
-  if (personalizedContent === undefined) return undefined;
-
-  const produktConfigMap = getProduktConfigMap(language);
-
-  return personalizedContent?.produktkort
-    ?.sort((a, b) => a.localeCompare(b))
-    .map((sakstema) => produktConfigMap[sakstema]);
-};
 
 const DinOversikt = ({ language }: Props) => {
   const {
@@ -54,42 +45,32 @@ const DinOversikt = ({ language }: Props) => {
     path: arbeidssokerUrl,
     options: include
   }, fetcher);
+
   const { data: oppfolging, isLoading: isLoadingOppfolging } = useSWRImmutable({
     path: oppfolgingUrl,
     options: include
   }, fetcher);
 
-  const isUnderOppfolging = oppfolging?.underOppfolging;
-  const isStandardInnsats = arbeidssoker?.erArbeidssoker && arbeidssoker?.erStandard;
-
-  const microfrontends = personalizedContent?.microfrontends.map((mf) => (
-    <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
-  ));
-
-  const uniqueProduktConfigs = getUniqueProdukter(language, personalizedContent);
-
-  const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
-  const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
-  const hasMeldekort = isMeldekortbruker(meldekortFraApi);
+  const produktProperties = getProduktProperties(language, personalizedContent);
   const shouldLogComposition = !isLoadingMicrofrontends && !isLoadingMeldekort && !isLoadingStandardAiA && !isLoadingOppfolging;
 
   useEffect(() => {
     if (shouldLogComposition) {
       let liste = [];
 
-      if (hasMicrofrontends) {
+      if (hasMicrofrontends(personalizedContent)) {
         personalizedContent?.microfrontends?.map((mf) => liste.push(mf.microfrontend_id));
       }
 
-      uniqueProduktConfigs?.map((produktkort) => liste.push("Produktkort - " + produktkort.tittel));
+      produktProperties?.map((produktkort) => liste.push("Produktkort - " + produktkort.tittel));
 
-      if (hasMeldekort) {
+      if (hasMeldekort(meldekortFraApi)) {
         liste.push("meldekort");
       }
-      if (isStandardInnsats) {
+      if (isStandardInnsats(arbeidssoker)) {
         liste.push("AiA-standard");
       }
-      if (isUnderOppfolging) {
+      if (isUnderOppfolging(oppfolging)) {
         liste.push("Aktivitetsplan");
         liste.push("Dialog med veileder");
       }
@@ -99,7 +80,7 @@ const DinOversikt = ({ language }: Props) => {
     }
   }, [shouldLogComposition]);
 
-  if (!hasMicrofrontends && !hasProduktkort && !isUnderOppfolging && !isStandardInnsats && !hasMeldekort) {
+  if (!hasMicrofrontends(personalizedContent) && !hasProduktkort(produktProperties) && !isUnderOppfolging(oppfolging) && !isStandardInnsats(arbeidssoker) && !hasMeldekort(meldekortFraApi)) {
     return null;
   } else {
     return (
@@ -107,21 +88,23 @@ const DinOversikt = ({ language }: Props) => {
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
-        {isStandardInnsats && <AiaStandardWrapper />}
-        {hasMeldekort && (
+        {isStandardInnsats(arbeidssoker) && <AiaStandardWrapper />}
+        {hasMeldekort(meldekortFraApi) && (
           <div className={styles.meldekort}>
             <MeldekortWrapper />
           </div>
         )}
         <div className={styles.listeContainer}>
-          {microfrontends}
-          {isUnderOppfolging && (
+          {personalizedContent?.microfrontends.map((mf) => (
+            <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+          ))}
+          {isUnderOppfolging(oppfolging) && (
             <>
               <DialogVeileder language={language} />
               <Aktivitetsplan language={language} />
             </>
           )}
-          {uniqueProduktConfigs && uniqueProduktConfigs?.map((produktConfig) => (
+          {produktProperties?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
         </div>

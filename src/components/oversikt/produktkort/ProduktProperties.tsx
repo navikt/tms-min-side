@@ -9,11 +9,11 @@ import { produktlinker as produktUrls } from "./ProduktUrls";
 import { produktText } from "./ProduktText";
 import type { Language } from "@language/language.ts";
 
-type ProduktConfig = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
+type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
 
-export function getProduktConfigMap(language: Language): Record<string, ProduktConfig> {
+export function getProduktPropertiesMap(language: Language): Record<string, ProduktProperties> {
 
-  const sykefraværConfig: ProduktConfig = {
+  const sykefraværConfig: ProduktProperties = {
     produktnavn: "sykefravær",
     url: produktUrls.sykefravær[language],
     tittel: produktText.sykefravær[language],
@@ -69,4 +69,4 @@ export function getProduktConfigMap(language: Language): Record<string, ProduktC
   };
 }
 
-export default ProduktConfig;
+export default ProduktProperties;

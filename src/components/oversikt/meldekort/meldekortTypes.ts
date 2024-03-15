@@ -13,7 +13,7 @@ export interface MeldekortDataFraApi {
   nesteInnsendingAvMeldekort: string | null;
 }
 
-export const isMeldekortbruker = (meldekort: MeldekortDataFraApi | undefined) => {
+export const isMeldekortbruker = (meldekort?: MeldekortDataFraApi) => {
   if (!meldekort) {
     return null;
   }

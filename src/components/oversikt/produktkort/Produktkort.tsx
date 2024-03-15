@@ -1,10 +1,10 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import ProduktConfig from "./ProduktConfig";
+import ProduktProperties from "./ProduktProperties.tsx";
 import { logEvent } from "@utils/amplitude.ts";
 import styles from "./Produktkort.module.css";
 
-const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
+const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) => {
   return (
     <a
       className={styles.container}
