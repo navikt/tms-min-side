@@ -38,8 +38,8 @@ const MINE_SAKER_SAKSTEMAER_URL = {
 
 const AIA_URL = {
   local: "http://localhost:3000/aia",
-  dev: "https://veientilarbeid.intern.dev.nav.no/esm",
-  prod: "https://veientilarbeid.nav.no/esm",
+  dev: "https://aia-min-side.intern.dev.nav.no/esm",
+  prod: "https://aia-min-side.nav.no/esm",
 };
 
 const AIA_CDN_URL = {

@@ -2,7 +2,7 @@ import React from "react";
 import { aiaCdnUrl, aiaManifestUrl } from "../urls";
 import ErrorBoundary from "@components/error-boundary/ErrorBoundary.tsx";
 import ContentLoader from "@components/oversikt/loader/ContentLoader.tsx";
-import { aiaStandardEntry, bundle } from "@components/oversikt/entrypoints.ts";
+import { bundle, entry } from "@components/oversikt/entrypoints.ts";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "@utils/api.client.ts";
 
@@ -13,7 +13,7 @@ const AiaStandardWrapper = () => {
     return null;
   }
 
-  const AiaStandard = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaStandardEntry][bundle]}`));
+  const AiaStandard = React.lazy(() => import(`${aiaCdnUrl}/${manifest[entry][bundle]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
