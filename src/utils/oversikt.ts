@@ -17,4 +17,4 @@ export const hasProduktkort = (produktConfig?: ProduktProperties[]) => produktCo
 export const hasMicrofrontends = (microfrontends: any) => microfrontends !== undefined && microfrontends.length > 0;
 export const hasMeldekort = (meldekortFraApi?: MeldekortDataFraApi) => isMeldekortbruker(meldekortFraApi);
 export const isUnderOppfolging = (oppfolging: any) => oppfolging?.underOppfolging;
-export const isStandardInnsats = (arbeidssoker: any) => arbeidssoker?.brukNyAiA && arbeidssoker?.brukNyAiA;
+export const isStandardInnsats = (arbeidssoker: any) => arbeidssoker?.brukNyAiA;
