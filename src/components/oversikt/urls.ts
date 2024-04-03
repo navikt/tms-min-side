@@ -30,6 +30,12 @@ const AIA_URL = {
   prod: "https://veientilarbeid.nav.no/esm",
 };
 
+const NY_AIA_URL = {
+  local: "http://localhost:3000/aia",
+  dev: "https://aia-min-side.intern.dev.nav.no/esm",
+  prod: "https://aia-min-side.nav.no/esm",
+};
+
 const AIA_CDN_URL = {
   local: "http://localhost:3000/aia",
   dev: "https://cdn.nav.no/paw/aia",
@@ -47,5 +53,6 @@ export const microfrontendsUrl = `${SELECTOR_URL[getEnvironmentClientSide()]}/mi
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironmentClientSide()]}/featuretoggles`;
 export const dialogMedVeilederUrl = DIALOG_MED_VEILEDER_URL[getEnvironmentClientSide()];
 export const aiaManifestUrl = `${AIA_URL[getEnvironmentClientSide()]}/manifest.json`;
+export const nyAiaManifestUrl = `${NY_AIA_URL[getEnvironmentClientSide()]}/manifest.json`;
 export const aiaCdnUrl = AIA_CDN_URL[getEnvironmentClientSide()];
 export const aktivitetsplanUrl = AKTIVITETSPLAN_URL[getEnvironmentClientSide()];

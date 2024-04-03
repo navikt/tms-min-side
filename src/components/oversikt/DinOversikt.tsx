@@ -2,6 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
 import { microfrontendsUrl } from "./urls";
 import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
+import NyAiaStandardWrapper from "./arbeidssoker/NyAiaStandardWrapper.tsx";
 import DialogVeileder from "./dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
 import { getProduktProperties } from "@utils/oversikt.ts";
@@ -14,9 +15,9 @@ import { logMfEvent } from "@utils/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
 import { fetcher, include } from "@utils/api.client.ts";
-import styles from "./DinOversikt.module.css";
 import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
+import styles from "./DinOversikt.module.css";
 
 interface Props {
   language: Language;
@@ -46,6 +47,7 @@ const DinOversikt = ({ language }: Props) => {
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
+        {personalizedContent?.brukNyAia && <NyAiaStandardWrapper />}
         {personalizedContent?.aiaStandard && <AiaStandardWrapper />}
         {personalizedContent?.meldekort && (
           <div className={styles.meldekort}>
