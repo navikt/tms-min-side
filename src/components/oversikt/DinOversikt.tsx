@@ -1,6 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
-import { microfrontendsUrl } from "./urls";
+import { dinOversiktUrl } from "./urls";
 import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
 import NyAiaStandardWrapper from "./arbeidssoker/NyAiaStandardWrapper.tsx";
 import DialogVeileder from "./dialog-veileder/DialogVeileder";
@@ -26,7 +26,7 @@ interface Props {
 const DinOversikt = ({ language }: Props) => {
   const {
     data: personalizedContent
-  } = useSWRImmutable<PersonalizedContent>({ path: microfrontendsUrl, options: include }, fetcher, {
+  } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
       onError: () => setIsError(),
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true))
     }

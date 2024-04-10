@@ -38,7 +38,7 @@ api.get('/oppfolging', (c) => {
   return c.json(oppfolging);
 });
 
-api.get('/selector/microfrontends', (c) => {
+api.get('/selector/din-oversikt', (c) => {
   return c.json(selector);
 });
 

@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import { PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
-import { microfrontendsUrl } from "@components/oversikt/urls.ts";
+import { dinOversiktUrl } from "@components/oversikt/urls.ts";
 import { fetcher, include } from "@utils/api.client.ts";
 import { setIsError } from "../store/store.ts";
 import { logMfEvent } from "@utils/amplitude.ts";
@@ -10,7 +10,7 @@ import { hasMicrofrontends } from "@utils/oversikt.ts";
 export const useOversikt = (produktProperties?: ProduktProperties[]) => {
   const {
     data: personalizedContent,
-  } = useSWRImmutable<PersonalizedContent>({ path: microfrontendsUrl, options: include }, fetcher, {
+  } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
       onError: () => setIsError(),
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true))
     }
