@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
-import aiaManifest from "./data/aia-manifest.json" assert { type: "json" };
+import aiaManifest from "./data/microfrontend/aia-manifest.json" assert { type: "json" };
 import manifest from "./data/microfrontend/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
 import selector from "./data/selector.json" assert { type: "json" };
@@ -47,9 +47,7 @@ api.get('/innboks', (c) => {
   return c.json(innboks);
 });
 
-api.get('/manifest.json', (c) => {
-  return c.json(manifest);
-});
+
 
 api.get('/siste-saker', (c) => {
   return c.json(sisteSaker);
@@ -73,6 +71,14 @@ api.post('/statistikk', (c) => {
 
 api.post('/collect', (c) => {
   return c.text("Done")
+});
+
+api.get('/aia/manifest.json', (c) => {
+  return c.json(aiaManifest)
+});
+
+api.get('/manifest.json', (c) => {
+  return c.json(manifest);
 });
 
 api.get('/bundle.js', (c) => {
@@ -113,10 +119,6 @@ api.get('/aia/bundle.js', (c) => {
       "Content-Type": "text/javascript",
     },
   });
-});
-
-api.get('/aia/manifest.json', (c) => {
-  return c.json(aiaManifest)
 });
 
 api.get('/meldekort/bundle.js', (c) => {
