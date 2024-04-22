@@ -17,8 +17,12 @@ export const useOversikt = (produktProperties?: ProduktProperties[]) => {
   );
   const hasProduktkort = (produktConfig?: ProduktProperties[]) => produktConfig !== undefined && produktConfig.length > 0;
 
+  if (!personalizedContent) {
+    return false;
+  }
+
   return (
-    hasMicrofrontends(personalizedContent)
+    hasMicrofrontends(personalizedContent.microfrontends)
     || hasProduktkort(produktProperties)
     || personalizedContent?.oppfolgingContent
     || personalizedContent?.aiaStandard

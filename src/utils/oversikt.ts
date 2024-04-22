@@ -1,5 +1,5 @@
 import { Language } from "@language/language.ts";
-import { PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
+import { EnabledMicrofrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
 import { getProduktPropertiesMap } from "@components/oversikt/produktkort/ProduktProperties.tsx";
 
 
