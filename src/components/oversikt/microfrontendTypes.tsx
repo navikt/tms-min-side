@@ -1,7 +1,3 @@
-export interface Sakstemaer {
-  kode: string;
-}
-
 export interface EnabledMicrofrontend {
   microfrontend_id: string;
   url: string;
@@ -14,6 +10,6 @@ export interface PersonalizedContent {
   brukNyAia: boolean;
   oppfolgingContent: boolean;
   meldekort: boolean;
-  aktuelt: EnabledMicrofrontend[]; 
+  aktuelt: EnabledMicrofrontend[];
   offerStepup: boolean;
 }
