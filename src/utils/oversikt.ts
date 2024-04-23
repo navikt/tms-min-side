@@ -1,5 +1,5 @@
 import { Language } from "@language/language.ts";
-import { EnabledMicrofrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
+import { Microfrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
 import { getProduktPropertiesMap } from "@components/oversikt/produktkort/ProduktProperties.tsx";
 
 
@@ -15,7 +15,7 @@ export const getProduktProperties = (language: Language, personalizedContent?: P
     .map(toProduktProperties);
 };
 
-export const hasMicrofrontends = (microfrontends: EnabledMicrofrontend[]) => microfrontends !== undefined && microfrontends.length > 0;
+export const hasMicrofrontends = (microfrontends: Microfrontend[]) => microfrontends !== undefined && microfrontends.length > 0;
 
-export const hasAktueltMicrofrontends = (microfrontends: EnabledMicrofrontend[]) => microfrontends !== undefined && microfrontends.length > 0;
+export const hasAktueltMicrofrontends = (microfrontends: Microfrontend[]) => microfrontends !== undefined && microfrontends.length > 0;
 
