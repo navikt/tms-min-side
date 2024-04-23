@@ -18,6 +18,10 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
     }
   );
 
+  if (!personalizedContent) {
+    return null;
+  }
+
   useEffect(() => {
     if (!isLoadingMicrofrontends) {
       let liste = [];
@@ -35,9 +39,11 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
       if (personalizedContent?.meldekort) {
         liste.push("meldekort");
       }
+
       if (personalizedContent?.aiaStandard) {
         liste.push("AiA-standard");
       }
+
       if (personalizedContent?.oppfolgingContent) {
         liste.push("Aktivitetsplan");
         liste.push("Dialog med veileder");
