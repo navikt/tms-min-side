@@ -3,7 +3,7 @@ import { fetcher, include } from "@utils/api.client.ts";
 import { dinOversiktUrl } from "@components/oversikt/urls.ts";
 import { BodyShort } from "@navikt/ds-react";
 import MicrofrontendWrapper from "@components/oversikt/MicrofrontendWrapper.tsx";
-import { EnabledMicrofrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
+import { Microfrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/aktuelt.ts"
 import style from "./Aktuelt.module.css"
@@ -26,7 +26,7 @@ const Aktuelt = ({ language }: Props) => {
   return (
     <div className={style.container}>
       <BodyShort as="h2" className={style["aktuelt"]} spacing>{text.aktuelt[language]}</BodyShort>
-      {aktuelt?.map((microfrontend : EnabledMicrofrontend) => <MicrofrontendWrapper key={microfrontend.microfrontend_id} manifestUrl={microfrontend.url}/>)}
+      {aktuelt?.map((microfrontend : Microfrontend) => <MicrofrontendWrapper key={microfrontend.microfrontend_id} manifestUrl={microfrontend.url}/>)}
     </div>
   );
 };
