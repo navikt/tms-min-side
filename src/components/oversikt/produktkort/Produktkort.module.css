@@ -11,6 +11,7 @@
   color: #272727;
   text-decoration: none;
   min-width: 0;
+  word-break: break-word;
 }
 
 .container:hover {
