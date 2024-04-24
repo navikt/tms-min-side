@@ -18,12 +18,8 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
     }
   );
 
-  if (!personalizedContent) {
-    return null;
-  }
-
   useEffect(() => {
-    if (!isLoadingMicrofrontends) {
+    if (personalizedContent && !isLoadingMicrofrontends) {
       let liste = [];
 
       if (hasMicrofrontends(personalizedContent?.microfrontends)) {
