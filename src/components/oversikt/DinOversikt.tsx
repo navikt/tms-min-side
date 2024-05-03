@@ -18,6 +18,7 @@ import { fetcher, include } from "@utils/api.client.ts";
 import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
 import styles from "./DinOversikt.module.css";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 interface Props {
   language: Language;
@@ -35,10 +36,10 @@ const DinOversikt = ({ language }: Props) => {
   const produktProperties = getProduktProperties(language, personalizedContent);
   const shouldShowOversikt = useOversikt(produktProperties);
 
-  useLogComposition(produktProperties)
+  useLogComposition(produktProperties);
 
   if (!shouldShowOversikt) {
-    return null
+    return null;
   }
 
   if (shouldShowOversikt) {
@@ -54,20 +55,18 @@ const DinOversikt = ({ language }: Props) => {
             <MeldekortWrapper />
           </div>
         )}
-        <div className={styles.listeContainer}>
-          {personalizedContent?.microfrontends.map((mf) => (
-            <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
-          ))}
-          {personalizedContent?.oppfolgingContent && (
-            <>
-              <DialogVeileder language={language} />
-              <Aktivitetsplan language={language} />
-            </>
-          )}
-          {produktProperties?.map((produktConfig) => (
-            <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
-          ))}
-        </div>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 480: 1, 768: 2 }}>
+          <Masonry columnsCount={2} gutter="1rem">
+            {personalizedContent?.microfrontends.map((mf) => (
+              <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+            ))}
+            {personalizedContent?.oppfolgingContent && <DialogVeileder language={language} />}
+            {personalizedContent?.oppfolgingContent && <Aktivitetsplan language={language} />}
+            {produktProperties?.map((produktConfig) => (
+              <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </div>
     );
   }
