@@ -22,8 +22,6 @@ const InnboksContent = ({ language }: Props) => {
   const { data: varsler, isLoading, error } = useSWRImmutable({ path: antallVarslerUrl }, fetcher);
 
   useLanguage(language);
-  useFaro();
-  useStatistikk();
 
   const innbokser = varsler?.innbokser;
   const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";

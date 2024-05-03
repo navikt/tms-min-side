@@ -13,6 +13,7 @@ import Innboks from "@components/innboks/Innboks.astro";
 import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Authentication from "@components/authentication/Authentication";
+import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
 
 const language = getLanguage(Astro.url);
@@ -33,5 +34,6 @@ const language = getLanguage(Astro.url);
     <Aia client:visible />
     <InnloggedeTjenester />
   </Content>
+  <Observability client:only="react" />
   <Authentication client:only="react" />
 </Layout>
