@@ -1,4 +1,3 @@
-import useSWRImmutable from "swr/immutable"
 import { redirectUrl, statusUrl } from "./urls";
 import { fetcher } from "@utils/api.client";
 import useSWR from "swr";

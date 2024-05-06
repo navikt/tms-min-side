@@ -3,6 +3,7 @@ import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getEnvironment } from "@utils/environment";
 import { getLanguage } from "@language/language";
 import "./Layout.css";
+import Authentication from "../../components/authentication/Authentication";
 
 export interface Props {
   title: string;
@@ -57,5 +58,6 @@ const Decorator = await fetchDecoratorReact({
       <slot />
     <Decorator.Footer />
     <Decorator.Scripts />
+    <Authentication client:only="react" />
   </body>
 </html>
