@@ -55,6 +55,7 @@ const Decorator = await fetchDecoratorReact({
   <body>
     <Decorator.Header />
       <slot />
+    <Authentication client:only="react" />
     <Decorator.Footer />
     <Decorator.Scripts />
   </body>
