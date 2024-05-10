@@ -44,15 +44,14 @@ const DinOversikt = ({ language }: Props) => {
   if (shouldShowOversikt) {
     return (
       <div className={styles.oversiktContainer}>
-        <BodyShort as="h2" spacing>
+          {personalizedContent?.brukNyAia && personalizedContent?.microfrontends.map((mf) => {
+            if (mf.microfrontend_id === "aia-min-side") {
+              return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+            }
+          })}
+          <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
-        </BodyShort>
-        {personalizedContent?.brukNyAia && personalizedContent?.microfrontends.map((mf) => {
-          if (mf.microfrontend_id === "aia-min-side") {
-            return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
-          }
-        })}
-        {personalizedContent?.brukNyAia && <div className={styles.nyAia}><NyAiaStandardWrapper /></div>}
+          </BodyShort>
         {personalizedContent?.aiaStandard && <AiaStandardWrapper />}
         {personalizedContent?.meldekort && (
           <div className={styles.meldekort}>
@@ -74,7 +73,7 @@ const DinOversikt = ({ language }: Props) => {
           ))}
         </div>
       </div>
-    );
+    )
   }
 };
 

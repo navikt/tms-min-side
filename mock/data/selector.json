@@ -7,6 +7,11 @@
     {
       "microfrontend_id": "syfo-dialog",
       "url": "http://localhost:3000/syfo-dialog/bundle.js"
+    },
+    {
+      "microfrontend_id": "aia-min-side",
+      "url": "http://localhost:3000/syfo-dialog/bundle.js"
+
     }
   ],
   "aktuelt": [
@@ -17,7 +22,7 @@
   ],
   "produktkort": ["DAG", "FOR", "HJE", "KOM", "PEN", "UFO", "SYK"],
   "aiaStandard": true,
-  "brukNyAia": false,
+  "brukNyAia": true,
   "oppfolgingContent": true,
   "meldekort": true,
   "offerStepup": false
