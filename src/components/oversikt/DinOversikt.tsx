@@ -44,7 +44,7 @@ const DinOversikt = ({ language }: Props) => {
   if (shouldShowOversikt) {
     return (
       <div className={styles.oversiktContainer}>
-          {personalizedContent?.brukNyAia && personalizedContent?.microfrontends.map((mf) => {
+          {personalizedContent?.microfrontends.map((mf) => {
             if (mf.microfrontend_id === "aia-min-side") {
               return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
             }
