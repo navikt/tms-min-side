@@ -48,7 +48,7 @@ const DinOversikt = ({ language }: Props) => {
           {produktText.oversiktTittel[language]}
         </BodyShort>
         {personalizedContent?.brukNyAia && personalizedContent?.microfrontends.map((mf) => {
-          if (mf.microfrontend_id === "ny-aia") {
+          if (mf.microfrontend_id === "aia-min-side") {
             return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
           }
         })}
