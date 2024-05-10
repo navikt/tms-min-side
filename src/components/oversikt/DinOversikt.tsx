@@ -47,6 +47,11 @@ const DinOversikt = ({ language }: Props) => {
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
+        {personalizedContent?.brukNyAia && personalizedContent?.microfrontends.map((mf) => {
+          if (mf.microfrontend_id === "ny-aia") {
+            return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+          }
+        })}
         {personalizedContent?.brukNyAia && <div className={styles.nyAia}><NyAiaStandardWrapper /></div>}
         {personalizedContent?.aiaStandard && <AiaStandardWrapper />}
         {personalizedContent?.meldekort && (
