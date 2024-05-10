@@ -59,9 +59,12 @@ const DinOversikt = ({ language }: Props) => {
           </div>
         )}
         <div className={styles.listeContainer}>
-          {personalizedContent?.microfrontends.map((mf) => (
-            <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
-          ))}
+          {personalizedContent?.microfrontends.map((mf) => {
+            if (mf.microfrontend_id === "aia-min-side") {
+              return null;
+            }
+           return <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+          })}
           {personalizedContent?.oppfolgingContent && (
             <>
               <DialogVeileder language={language} />
