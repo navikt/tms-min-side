@@ -541,7 +541,7 @@ className: "personalia"
 }, /*#__PURE__*/React.createElement("h2", null, "${title}"));
 };
 
-var css_248z = ".main-topp-${cssIdentifier} {\\n  height: auto;\\n  min-height: 100%;\\n background-color: white;\\n}\\n .app-${cssIdentifier} {\\n  flex-direction: column;\\n  display: flex;\\n  justify-content: center;\\n  border: 6px solid white;\\n align-items: center;\\n  min-height: ${minHeight};\\n}\\n";
+var css_248z = ".main-topp-${cssIdentifier} {height: auto; min-height:200px; max-height: 230px; background-color: white;\\n}\\n .app-${cssIdentifier} {\\n  flex-direction: column;\\n  display: flex;\\n  justify-content: center;\\n  border: 6px solid white;\\n align-items: center;\\n  min-height: ${minHeight};\\n}\\n";
 styleInject(css_248z);
 
 const App = () => {
