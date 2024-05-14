@@ -55,7 +55,7 @@ const DinOversikt = ({ language }: Props) => {
             <MeldekortWrapper />
           </div>
         )}
-        <ResponsiveMasonry columnsCountBreakPoints={{ 480: 1, 768: 2 }}>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 480: 1, 767: 2 }}>
           <Masonry columnsCount={2} gutter="1rem">
             {personalizedContent?.microfrontends.map((mf) => (
               <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
