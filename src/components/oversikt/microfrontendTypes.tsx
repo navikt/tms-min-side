@@ -7,6 +7,7 @@ export interface PersonalizedContent {
   microfrontends: Microfrontend[];
   produktkort: string[];
   aiaStandard: boolean;
+  aiaLegacy: boolean;
   brukNyAia: boolean;
   oppfolgingContent: boolean;
   meldekort: boolean;
