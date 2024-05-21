@@ -40,6 +40,10 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
         liste.push("AiA-standard");
       }
 
+      if (personalizedContent?.aiaLegacy) {
+        liste.push("AiA-legacy");
+      }
+
       if (personalizedContent?.oppfolgingContent) {
         liste.push("Aktivitetsplan");
         liste.push("Dialog med veileder");
