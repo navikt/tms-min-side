@@ -24,7 +24,15 @@ const STANDARD_URL = {
   prod: "https://www.nav.no/aia-backend/standard-innsats",
 };
 
+const AIA_MELDEKORT_URL = {
+  //local: "http://localhost:3000",
+  local: "https://cdn.nav.no/paw/aia-meldekort",
+  dev: "https://cdn.nav.no/paw/aia-meldekort",
+  prod: "https://cdn.nav.no/paw/aia-meldekort",
+};
+
 export const aiaCdnUrl = AIA_CDN_URL[getEnvironmentClientSide()];
+export const aiaMeldekortUrl = AIA_MELDEKORT_URL[getEnvironmentClientSide()];
 export const aiaManifestUrl = `${AIA_URL[getEnvironmentClientSide()]}/manifest.json`;
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironmentClientSide()];
 export const standardUrl = STANDARD_URL[getEnvironmentClientSide()];

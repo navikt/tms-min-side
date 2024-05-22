@@ -1,9 +1,9 @@
 ---
-import Layout from "../../layouts/base/Layout.astro";
-import Arbeidssoker from "../../mikrofrontends/arbeidssoker/Arbeidssoker";
-import Content from "../../layouts/content/Content.astro";
+import Layout from "../../../layouts/base/Layout.astro";
+import Content from "../../../layouts/content/Content.astro";
 import { getLanguage } from "@language/language";
 import { text } from "@language/text";
+import Bekreftelse from "../../../mikrofrontends/arbeidssoker/Bekreftelse";
 
 const language = getLanguage(Astro.url);
 const breadcrumbs = [
@@ -12,7 +12,7 @@ const breadcrumbs = [
     url: "/minside"
   },
   {
-    url: `/minside/arbeidssoker`,
+    url: `/minside/arbeidssoker/bekreftelse`,
     title: text.arbeidssoker[language],
     handleInApp: true,
   },
@@ -21,6 +21,6 @@ const breadcrumbs = [
 
 <Layout title="Min side" breadcrumbs={breadcrumbs}>
   <Content cls="content">
-    <Arbeidssoker language={language} client:only="react" />
+    <Bekreftelse language={language} client:only="react" />
   </Content>
 </Layout>
