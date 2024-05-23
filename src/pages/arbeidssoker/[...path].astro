@@ -1,0 +1,6 @@
+---
+const { path } = Astro.params;
+const redirectPath = path ? `/${path}` : '';
+
+return Astro.redirect(`/minside/nb/arbeidssoker${redirectPath}`);
+---
