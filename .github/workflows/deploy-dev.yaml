@@ -12,8 +12,8 @@ jobs:
       packages: "write"
 
     steps:
-      - uses: "actions/checkout@v3"
-      - uses: "actions/setup-node@v3"
+      - uses: "actions/checkout@v4"
+      - uses: "actions/setup-node@v4"
         with:
           node-version: 20
           registry-url: "https://npm.pkg.github.com"
@@ -54,7 +54,7 @@ jobs:
       matrix:
         cluster: [ dev-gcp ]
     steps:
-      - uses: "actions/checkout@v3"
+      - uses: "actions/checkout@v4"
       - name: "Deploy to dev"
         uses: "nais/deploy/actions/deploy@v1"
         env:
