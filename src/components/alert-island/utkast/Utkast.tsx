@@ -32,15 +32,17 @@ const Utkast = ({ language }: Props) => {
   }
 
   return (
-    <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("utkast", "generell", "Utkast")}>
-      <UtkastIkon />
-      <div className={style.container}>
-        <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
-        <p className="navds-body-long navds-body-long--small">
-          {ingress}
-        </p>
-      </div>
-    </a>
+    <div className={style.wrapper}>
+      <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("utkast", "generell", "Utkast")}>
+        <UtkastIkon />
+        <div className={style.container}>
+          <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
+          <p className="navds-body-long navds-body-long--small">
+            {ingress}
+          </p>
+        </div>
+      </a>
+    </div>
   );
 }
 

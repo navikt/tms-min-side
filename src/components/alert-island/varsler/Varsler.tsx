@@ -46,28 +46,32 @@ const Varsler = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
-        <IngenVarslerIkon />
-        <div className={style.container}>
-          <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
-          <p className="navds-body-long navds-body-long--small">
-            {text.ingenVarsler[language]}
-          </p>
-        </div>
-      </a>
+      <div className={style.wrapper}>
+        <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
+          <IngenVarslerIkon />
+          <div className={style.container}>
+            <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+            <p className="navds-body-long navds-body-long--small">
+              {text.ingenVarsler[language]}
+            </p>
+          </div>
+        </a>
+      </div>
     );
   }
 
   return (
-    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
-      <VarlserIkon />
-      <div className={style.container}>
-        <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
-        <p className="navds-body-long navds-body-long--small">
-          {varselText}
-        </p>
-      </div>
-    </a>
+    <div className={style.wrapper}>
+      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
+        <VarlserIkon />
+        <div className={style.container}>
+          <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+          <p className="navds-body-long navds-body-long--small">
+            {varselText}
+          </p>
+        </div>
+      </a>
+    </div>
   );
 };
 
