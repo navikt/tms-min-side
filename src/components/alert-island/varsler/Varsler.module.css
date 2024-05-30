@@ -1,7 +1,7 @@
 .wrapper {
   padding: 0.5rem;
   border-radius: 1rem;
-  background: var(--a-deepblue-800);
+  background: var(--a-blue-900);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.20);
   min-height: 5rem;
   width: 100%;
@@ -26,8 +26,34 @@
   flex-shrink: 0;
 }
 
-.varsler:hover .varsler-ikon-rect {
-  fill: var(--a-orange-400);
+.ikonRektangel {
+  position: relative;
+  max-width: 100%;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: var(--a-surface-warning);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.varsler:hover .ikonRektangel {
+  background-color: var(--a-orange-400);
+}
+
+.bjelleIkonHover {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
+}
+
+.varsler:hover .bjelleIkonHover {
+  opacity: 1;
+}
+
+.varsler:hover .bjelleIkon {
+  opacity: 0;
 }
 
 .varsler:hover .ingen-ikon-rect {
@@ -35,11 +61,7 @@
 }
 
 .varsler:hover .ingen-ikon-path {
-  fill: var(--a-deepblue-800);
-}
-
-.varsler:hover {
-  background: var(--a-deepblue-700);
+  fill: var(--a-blue-900);
 }
 
 .varsler:hover h3 {

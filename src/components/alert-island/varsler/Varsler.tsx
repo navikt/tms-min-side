@@ -10,6 +10,8 @@ import { logEvent } from "@utils/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
 import { setIsError } from "../../../store/store.ts";
 import style from "./Varsler.module.css";
+import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll.tsx";
+import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll.tsx";
 
 interface Props {
   language: Language;
@@ -63,7 +65,10 @@ const Varsler = ({ language }: Props) => {
   return (
     <div className={style.wrapper}>
       <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
-        <VarlserIkon />
+        <div className={style.ikonRektangel}>
+          <VarselBjelleDotMedFyll />
+          <VarselBjelleDotUtenFyll />
+        </div>
         <div className={style.container}>
           <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
           <p className="navds-body-long navds-body-long--small">
