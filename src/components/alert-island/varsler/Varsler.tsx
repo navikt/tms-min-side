@@ -10,6 +10,8 @@ import { logEvent } from "@utils/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
 import { setIsError } from "../../../store/store.ts";
 import style from "./Varsler.module.css";
+import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll.tsx";
+import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll.tsx";
 
 interface Props {
   language: Language;
@@ -46,28 +48,35 @@ const Varsler = ({ language }: Props) => {
 
   if (!hasVarsler(varsler)) {
     return (
-      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
-        <IngenVarslerIkon />
-        <div className={style.container}>
-          <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
-          <p className="navds-body-long navds-body-long--small">
-            {text.ingenVarsler[language]}
-          </p>
-        </div>
-      </a>
+      <div className={style.wrapper}>
+        <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
+          <IngenVarslerIkon />
+          <div className={style.container}>
+            <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+            <p className="navds-body-long navds-body-long--small">
+              {text.ingenVarsler[language]}
+            </p>
+          </div>
+        </a>
+      </div>
     );
   }
 
   return (
-    <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
-      <VarlserIkon />
-      <div className={style.container}>
-        <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
-        <p className="navds-body-long navds-body-long--small">
-          {varselText}
-        </p>
-      </div>
-    </a>
+    <div className={style.wrapper}>
+      <a href={varslerUrl} className={style.varsler} onClick={() => logEvent("varsler", "generell", "Varsler")}>
+        <div className={style.ikonRektangel}>
+          <VarselBjelleDotMedFyll />
+          <VarselBjelleDotUtenFyll />
+        </div>
+        <div className={style.container}>
+          <h3 className="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+          <p className="navds-body-long navds-body-long--small">
+            {varselText}
+          </p>
+        </div>
+      </a>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import UtkastIkon from "./UtkastIkon";
+import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import { fetcher } from "@utils/api.client.ts";
 import { antallUtkastUrl, utkastUrl } from "./utkastUrls";
 import type { Language } from "@language/language.ts";
@@ -7,6 +7,7 @@ import { text } from "@language/utkast.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { setIsError } from "../../../store/store.ts";
 import style from "./Utkast.module.css";
+import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
 
 interface Props {
   language: Language;
@@ -32,15 +33,20 @@ const Utkast = ({ language }: Props) => {
   }
 
   return (
-    <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("utkast", "generell", "Utkast")}>
-      <UtkastIkon />
-      <div className={style.container}>
-        <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
-        <p className="navds-body-long navds-body-long--small">
-          {ingress}
-        </p>
-      </div>
-    </a>
+    <div className={style.wrapper}>
+      <a href={utkastUrl} className={style.utkast} onClick={() => logEvent("utkast", "generell", "Utkast")}>
+        <div className={style.ikonRektangel}>
+          <UtkastIkon />
+          <UtkastIkonHover />
+        </div>
+        <div className={style.container}>
+          <h3 className="navds-heading navds-heading--small">{text.utkast[language]}</h3>
+          <p className="navds-body-long navds-body-long--small">
+            {ingress}
+          </p>
+        </div>
+      </a>
+    </div>
   );
 }
 

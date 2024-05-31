@@ -1,3 +1,12 @@
+.wrapper {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--a-blue-900);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.20);
+  min-height: 5rem;
+  width: 100%;
+}
+
 .utkast {
   display: flex;
   gap: 1rem;
@@ -13,16 +22,39 @@
   flex-direction: column;
 }
 
+.ikonRektangel {
+  position: relative;
+  max-width: 100%;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: var(--a-surface-action);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.utkast:hover .ikonRektangel {
+  background-color: var(--a-blue-400);
+
+}
+
 .ikon {
   flex-shrink: 0;
 }
 
-.utkast:hover {
-  background: var(--a-deepblue-700);
+.ikonHover {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
 }
 
-.utkast:hover rect {
-  fill: var(--a-blue-400);
+.utkast:hover .ikonHover {
+  opacity: 1;
+}
+
+.utkast:hover .ikon {
+  opacity: 0;
 }
 
 .utkast:hover h3 {
@@ -31,7 +63,7 @@
 }
 
 .utkast p {
-  color: var(--a-deepblue-100);
+  color: var(--a-white);
 }
 
 .utkast:hover p {
@@ -41,6 +73,5 @@
 @media (min-width: 480px) {
   .utkast {
     padding: 0.75rem;
-    width: 50%;
   }
 }
