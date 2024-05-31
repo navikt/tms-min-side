@@ -188,9 +188,9 @@ const hjelpemidlerLenkerProd = [
     }
   },
   {
-    nb: "Pleiepenger",
-    nn: "Pleiepengar",
-    en: "Attendance allowance",
+    nb: "Pleiepenger for sykt barn",
+    nn: "Pleiepengar for sjukt barn",
+    en: "Attendance allowance for sickly children",
     url: {
       nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
@@ -291,9 +291,9 @@ const hjelpemidlerLenkerDev = [
     }
   },
   {
-    nb: "Pleiepenger",
-    nn: "Pleiepengar",
-    en: "Attendance allowance",
+    nb: "Pleiepenger for sykt barn",
+    nn: "Pleiepengar for sjukt barn",
+    en: "Attendance allowance for sickly children",
     url: {
       nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
