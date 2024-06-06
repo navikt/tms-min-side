@@ -1,8 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
 import { dinOversiktUrl } from "./urls";
-import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
-import NyAiaStandardWrapper from "./arbeidssoker/NyAiaStandardWrapper.tsx";
 import DialogVeileder from "./dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
 import { getProduktProperties } from "@utils/oversikt.ts";
@@ -48,8 +46,6 @@ const DinOversikt = ({ language }: Props) => {
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
-        {personalizedContent?.brukNyAia && <div className={styles.nyAia}><NyAiaStandardWrapper /></div>}
-        {personalizedContent?.aiaStandard && <AiaStandardWrapper />}
         {personalizedContent?.meldekort && (
           <div className={styles.meldekort}>
             <MeldekortWrapper />
