@@ -1,8 +1,8 @@
-let isDevelopmentClientSide:boolean = false;
-let isLocalClientSide:boolean = false;
+let isDevelopmentClientSide: boolean = false;
+let isLocalClientSide: boolean = false;
 
 if (!import.meta.env.SSR) {
-  isDevelopmentClientSide = window.location.href.includes("dev.nav.no") ;
+  isDevelopmentClientSide = window.location.href.includes("dev.nav.no");
   isLocalClientSide = process.env.NODE_ENV === "development";
 }
 
@@ -18,9 +18,8 @@ export const getEnvironmentClientSide = () => {
   return "prod";
 };
 
-export const getDevBaseUrl = () => {
-  if(window.location.href.includes("intern.dev.nav.no")){
-    return "https://www.intern.dev.nav.no"
-  }
-  return "https://www.ansatt.dev.nav.no"
-}
+const devInternUrl: string = "https://www.intern.dev.nav.no"
+const devAnsattUrl: string = "https://www.ansatt.dev.nav.no"
+export const getDevBaseUrl =
+  window.location.href.includes("intern.dev.nav.no") ? devInternUrl: devAnsattUrl;
+
