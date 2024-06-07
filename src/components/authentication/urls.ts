@@ -2,7 +2,7 @@ import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const MINSIDE_URL = {
   local: "http://localhost:4321/minside",
-  dev: "https://www.intern.dev.nav.no/minside",
+  dev: "https://www.ansatt.dev.nav.no/minside",
   prod: "https://www.nav.no/minside",
 };
 
