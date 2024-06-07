@@ -8,7 +8,7 @@ const UTKAST_URL = {
 
 const ANTALL_UTKAST_URL = {
   local: "http://localhost:3000/utkast",
-  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/utkast/v2/utkast/antall",
+  dev: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/utkast/v2/utkast/antall",
   prod: "https://www.nav.no/tms-min-side-proxy/utkast/v2/utkast/antall",
 };
 

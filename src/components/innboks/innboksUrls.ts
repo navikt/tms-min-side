@@ -2,7 +2,7 @@ import { getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const VARSEL_API_URL = {
   local: "http://localhost:3000/innboks",
-  dev: "https://www.intern.dev.nav.no/tms-varsel-api/antall/aktive",
+  dev: "https://www.ansatt.dev.nav.no/tms-varsel-api/antall/aktive",
   prod: "https://www.nav.no/tms-varsel-api/antall/aktive",
 };
 
