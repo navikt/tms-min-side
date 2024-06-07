@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const AIA_URL = {
   local: "http://localhost:3000",
@@ -14,7 +14,7 @@ const AIA_CDN_URL = {
 
 const ARBEIDSSOKER_URL = {
   local: "http://localhost:3000/er-arbeidssoker",
-  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
+  dev:`${getDevBaseUrl}/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker`,
   prod: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
 };
 
