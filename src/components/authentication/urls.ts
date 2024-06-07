@@ -8,7 +8,7 @@ const MINSIDE_URL = {
 
 const LOGIN_URL = {
   local: "http://localhost:3000/login",
-  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/login",
+  dev: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/login",
   prod: "https://www.nav.no/tms-min-side-proxy/login",
 };
 
