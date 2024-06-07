@@ -1,9 +1,13 @@
 let isDevelopmentClientSide: boolean = false;
 let isLocalClientSide: boolean = false;
+let devBaseUrl: string = "https://www.ansatt.dev.nav.no";
 
 if (!import.meta.env.SSR) {
   isDevelopmentClientSide = window.location.href.includes("dev.nav.no");
   isLocalClientSide = process.env.NODE_ENV === "development";
+  if(window.location.href.includes("intern.dev.nav.no")){
+    devBaseUrl = "https://www.intern.dev.nav.no";
+  }
 }
 
 export const getEnvironmentClientSide = () => {
@@ -18,8 +22,4 @@ export const getEnvironmentClientSide = () => {
   return "prod";
 };
 
-const devInternUrl: string = "https://www.intern.dev.nav.no";
-const devAnsattUrl: string = "https://www.ansatt.dev.nav.no";
-export const getDevBaseUrl =
-  window.location.href.includes("intern.dev.nav.no") ? devInternUrl : devAnsattUrl;
-
+export const getDevBaseUrl = devBaseUrl;
