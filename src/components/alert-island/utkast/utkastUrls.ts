@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const UTKAST_URL = {
   local: "http://localhost:3000/minside/utkast",
@@ -8,7 +8,7 @@ const UTKAST_URL = {
 
 const ANTALL_UTKAST_URL = {
   local: "http://localhost:3000/utkast",
-  dev: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/utkast/v2/utkast/antall",
+  dev: `${getDevBaseUrl}/tms-min-side-proxy/utkast/v2/utkast/antall`,
   prod: "https://www.nav.no/tms-min-side-proxy/utkast/v2/utkast/antall",
 };
 

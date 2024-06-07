@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const UTBETALINGSOVERSIKT_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
@@ -8,7 +8,7 @@ const UTBETALINGSOVERSIKT_URL = {
 
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/utbetalinger/siste",
-  dev: "https://www.ansatt.dev.nav.no/tms-utbetalingsoversikt-api/utbetalinger/siste",
+  dev:  `${getDevBaseUrl}/tms-utbetalingsoversikt-api/utbetalinger/siste`,
   prod: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger/siste",
 };
 

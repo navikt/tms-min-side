@@ -1,8 +1,8 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000/tms-min-side-proxy",
-  dev: "https://www.ansatt.dev.nav.no/tms-min-side-proxy",
+  dev: `${getDevBaseUrl}/tms-min-side-proxy`,
   prod: "https://www.nav.no/tms-min-side-proxy",
 };
 
@@ -14,7 +14,7 @@ const MELDEKORT_URL = {
 
 const SELECTOR_URL = {
   local: "http://localhost:3000/selector",
-  dev: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/selector",
+  dev: `${getDevBaseUrl}/tms-min-side-proxy/selector`,
   prod: "https://www.nav.no/tms-min-side-proxy/selector",
 };
 

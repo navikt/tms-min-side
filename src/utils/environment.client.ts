@@ -17,3 +17,10 @@ export const getEnvironmentClientSide = () => {
 
   return "prod";
 };
+
+export const getDevBaseUrl = () => {
+  if(window.location.href.includes("intern.dev.nav.no")){
+    return "https://www.intern.dev.nav.no"
+  }
+  return "https://www.ansatt.dev.nav.no"
+}

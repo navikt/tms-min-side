@@ -1,8 +1,8 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const SISTE_SAKER_URL = {
   local: "http://localhost:3000/siste-saker",
-  dev: "https://www.ansatt.dev.nav.no/mine-saker-api/siste",
+  dev: `${getDevBaseUrl}/mine-saker-api/siste`,
   prod: "https://person.nav.no/mine-saker-api/siste",
 };
 

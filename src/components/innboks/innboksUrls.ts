@@ -1,8 +1,8 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const VARSEL_API_URL = {
   local: "http://localhost:3000/innboks",
-  dev: "https://www.ansatt.dev.nav.no/tms-varsel-api/antall/aktive",
+  dev: `${getDevBaseUrl}/tms-varsel-api/antall/aktive`,
   prod: "https://www.nav.no/tms-varsel-api/antall/aktive",
 };
 
