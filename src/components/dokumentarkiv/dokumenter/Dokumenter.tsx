@@ -1,26 +1,21 @@
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
-import useSWRImmutable from "swr/immutable";
 import Dokument from "../dokument/Dokument.tsx";
-import { mineSakerApiSisteUrl, dokumentarkivUrl } from "../dokumentarkivUrls.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { dokumentarkivUrl } from "../dokumentarkivUrls.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/dokumentarkiv.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { Heading } from "@navikt/ds-react";
-import { setIsError } from "../../../store/store.ts";
+import { dokumenterAtom, dokumenterError, dokumenterLoading, isErrorAtom, setIsError } from "../../../store/store.ts";
 import styles from "./Dokumenter.module.css";
+import { useStore } from "@nanostores/react";
 
 interface Dokument {
   navn: string;
   kode: string;
   sistEndret: string;
-  detaljvisningUrl: string;
-}
-
-interface Dokumenter {
-  sakstemaer: Dokument[];
+  url: string;
 }
 
 interface Props {
@@ -28,8 +23,10 @@ interface Props {
 }
 
 const Dokumenter = ({ language }: Props) => {
-  const { data: saker, isLoading, error } = useSWRImmutable<Dokumenter>({ path: mineSakerApiSisteUrl, options: include }, fetcher);
-  const hasDokumenter = saker && saker.sakstemaer.length > 0;
+  const dokumenter = useStore(dokumenterAtom);
+  const isLoading = useStore(dokumenterLoading);
+  const isError = useStore(dokumenterError);
+  const hasDokumenter = dokumenter.length > 0;
   
   const spraakTilpassetDokumentarkivUrl = (language: Language) => {
     if(language === "en") {
@@ -62,7 +59,7 @@ const Dokumenter = ({ language }: Props) => {
     );
   }
 
-  if (error) {
+  if (isError) {
     setIsError();
   }
 
@@ -73,11 +70,11 @@ const Dokumenter = ({ language }: Props) => {
           <BodyShort as="h2" spacing={true}>
             {text.heading[language]}
           </BodyShort>
-          {saker?.sakstemaer.slice(0, 2).map((dokument: Dokument) => (
+          {dokumenter.map((dokument: Dokument) => (
             <Dokument
               key={dokument.kode}
               kode={dokument.kode}
-              href={dokument.detaljvisningUrl}
+              href={dokument.url}
               sakstema={dokument.navn}
               sistEndret={dokument.sistEndret}
               language={language}
