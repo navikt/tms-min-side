@@ -17,7 +17,6 @@ const Bekreftelse = ({ language }: Props) => {
   }
 
   const AiaMeldekort = React.lazy(() => import(`${aiaMeldekortUrl}/dist/${manifest[entry][bundle]}`));
-  console.log("AiaMeldekort?", AiaMeldekort);
 
   return (
     <React.Suspense fallback={<ContentLoader />}>

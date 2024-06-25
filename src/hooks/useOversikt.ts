@@ -25,7 +25,6 @@ export const useOversikt = (produktProperties?: ProduktProperties[]) => {
     hasMicrofrontends(personalizedContent.microfrontends)
     || hasProduktkort(produktProperties)
     || personalizedContent?.oppfolgingContent
-    || personalizedContent?.aiaStandard
     || personalizedContent?.meldekort
   );
 };

@@ -1,8 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
 import { dinOversiktUrl } from "./urls";
-import AiaStandardWrapper from "./arbeidssoker/AiaStandardWrapper";
-import NyAiaStandardWrapper from "./arbeidssoker/NyAiaStandardWrapper.tsx";
 import DialogVeileder from "./dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
 import { getProduktProperties } from "@utils/oversikt.ts";
@@ -10,15 +8,15 @@ import { produktText } from "./produktkort/ProduktText";
 import Produktkort from "./produktkort/Produktkort";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
 import Aktivitetsplan from "./aktivitetsplan/Aktivitetsplan";
-import { setIsError } from "./../../store/store.ts";
+import { setDokumenter, setDokumenterError, setDokumenterLoading, setIsError } from "./../../store/store.ts";
 import { logMfEvent } from "@utils/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
 import { fetcher, include } from "@utils/api.client.ts";
 import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
-import styles from "./DinOversikt.module.css";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import styles from "./DinOversikt.module.css";
 
 interface Props {
   language: Language;
@@ -26,17 +24,28 @@ interface Props {
 
 const DinOversikt = ({ language }: Props) => {
   const {
-    data: personalizedContent
+    data: personalizedContent, isLoading, error
   } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
-      onError: () => setIsError(),
-      onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true))
+      onError: () => {
+        setIsError();
+        setDokumenterError();
+      },
+      onSuccess: (data) => {
+        data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
+      }
     }
   );
+
+  setDokumenterLoading(isLoading);
 
   const produktProperties = getProduktProperties(language, personalizedContent);
   const shouldShowOversikt = useOversikt(produktProperties);
 
   useLogComposition(produktProperties);
+
+  if (personalizedContent) {
+    setDokumenter(personalizedContent.dokumenter);
+  }
 
   if (!shouldShowOversikt) {
     return null;
@@ -48,8 +57,6 @@ const DinOversikt = ({ language }: Props) => {
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
-        {personalizedContent?.brukNyAia && <div className={styles.nyAia}><NyAiaStandardWrapper /></div>}
-        {personalizedContent?.aiaStandard && <AiaStandardWrapper />}
         {personalizedContent?.meldekort && (
           <div className={styles.meldekort}>
             <MeldekortWrapper />

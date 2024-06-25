@@ -3,12 +3,17 @@ export interface Microfrontend {
   url: string;
 }
 
+export interface Dokument {
+  navn: string;
+  kode: string;
+  sistEndret: string;
+  url: string;
+}
+
 export interface PersonalizedContent {
   microfrontends: Microfrontend[];
   produktkort: string[];
-  aiaStandard: boolean;
-  aiaLegacy: boolean;
-  brukNyAia: boolean;
+  dokumenter: Dokument[];
   oppfolgingContent: boolean;
   meldekort: boolean;
   aktuelt: Microfrontend[];

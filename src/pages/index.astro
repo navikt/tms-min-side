@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/base/Layout.astro";
 import Content from "../layouts/content/Content.astro";
-import Aia from "../mikrofrontends/arbeidssoker/Aia";
 import DinOversikt from "@components/oversikt/DinOversikt";
 import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
@@ -30,7 +29,6 @@ const language = getLanguage(Astro.url);
       <Dokumentarkiv />
       <Aktuelt language={language} client:only="react" />
     </Container>
-    <Aia client:visible />
     <InnloggedeTjenester />
   </Content>
   <Observability client:only="react" />
