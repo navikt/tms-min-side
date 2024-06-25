@@ -33,6 +33,7 @@ spec:
           namespace: personbruker
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
+    - "https://www.ansatt.dev.nav.no/minside"
   resources:
     limits:
       cpu: "1"

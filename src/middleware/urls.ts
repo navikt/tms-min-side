@@ -1,7 +1,8 @@
 import { getEnvironment } from "../utils/environment";
+import { getDevBaseUrl } from "../utils/environment.client";
 
 const REDIRECT_URI = {
-  dev: "https://www.intern.dev.nav.no/minside",
+  dev:`${getDevBaseUrl}/minside`,
   prod: "https://www.nav.no/minside",
 };
 

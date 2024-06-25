@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
 
 const AIA_MELDEKORT_URL = {
   //local: "http://localhost:3000",
