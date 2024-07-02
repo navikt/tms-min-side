@@ -11,7 +11,7 @@ export const reloadOnPageshow = () => {
 };
 
 const Authentication = () => {
-  const { data } = useSWRImmutable({ path : statusUrl }, fetcher);
+  const { data } = useSWRImmutable(statusUrl, fetcher);
 
   reloadOnPageshow()
   if (data?.authenticated === false) {

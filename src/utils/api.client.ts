@@ -1,16 +1,7 @@
-interface Props {
-  path: string;
-  options?: object;
-}
-
-export const include = {
-  credentials: "include",
-};
-
-export const fetcher = async ({ path, options }: Props) => {
-  const response = await fetch(path, {
+export const fetcher = async (url: string) => {
+  const response = await fetch(url, {
     method: "GET",
-    ...options,
+    credentials: "include",
   });
 
   if (!response.ok) {

@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 import { dinOversiktUrl } from "@components/oversikt/urls.ts";
 import { BodyShort } from "@navikt/ds-react";
 import MicrofrontendWrapper from "@components/oversikt/MicrofrontendWrapper.tsx";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Aktuelt = ({ language }: Props) => {
-  const { data, isLoading } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
+  const { data, isLoading } = useSWRImmutable<PersonalizedContent>(dinOversiktUrl, fetcher, {
     onError: () => setIsError()
   });
 

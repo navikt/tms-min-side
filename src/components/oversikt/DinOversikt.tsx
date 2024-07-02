@@ -12,7 +12,7 @@ import { setDokumenter, setDokumenterError, setDokumenterLoading, setIsError } f
 import { logMfEvent } from "@utils/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
@@ -25,7 +25,7 @@ interface Props {
 const DinOversikt = ({ language }: Props) => {
   const {
     data: personalizedContent, isLoading, error
-  } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
+  } = useSWRImmutable<PersonalizedContent>(dinOversiktUrl, fetcher, {
       onError: () => {
         setIsError();
         setDokumenterError();

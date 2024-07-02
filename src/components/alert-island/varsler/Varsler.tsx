@@ -4,7 +4,6 @@ import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/
 import type { Language } from "@language/language.ts";
 import { text } from "@language/varsler.ts"
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
-import VarlserIkon from "./ikoner/VarslerIkon";
 import { fetcher } from "@utils/api.client.ts";
 import { logEvent } from "@utils/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
@@ -24,7 +23,7 @@ interface VarslerResponse {
 }
 
 const Varsler = ({ language }: Props) => {
-  const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: antallVarslerUrl }, fetcher);
+  const { data, isLoading, error } = useSWRImmutable<VarslerResponse>(antallVarslerUrl, fetcher);
 
   if (isLoading) {
     return null;

@@ -7,7 +7,7 @@ import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
 import type { UtbetalingResponse } from "../utbetalingTypes.ts";
 import { text } from "@language/utbetaling.ts";
 import type { Language } from "@language/language.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher } from "@utils/api.client.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import IngenUtbetaling from "../ingen/IngenUtbetaling.tsx";
 import { setIsError } from "../../../store/store.ts";
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const UtbetalingContent = ({ language }: Props) => {
-  const { data, isLoading, error } = useSWRImmutable<UtbetalingResponse>({ path: utbetalingsoversiktApiUrl, options: include }, fetcher);
+  const { data, isLoading, error } = useSWRImmutable<UtbetalingResponse>(utbetalingsoversiktApiUrl, fetcher);
 
   if (isLoading) {
     return (

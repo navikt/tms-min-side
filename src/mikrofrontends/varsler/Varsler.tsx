@@ -10,7 +10,7 @@ import { fetcher } from "@utils/api.client.ts";
 import type { Props } from "../types";
 
 const Varlser = ({ language }: Props) => {
-  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: varslerManifestUrl }, fetcher);
+  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable(varslerManifestUrl, fetcher);
   useLanguage(language);
 
   setParams({

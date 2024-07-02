@@ -10,7 +10,7 @@ interface Personalia {
 }
 
 const PersonaliaData = () => {
-  const { data: personalia, error } = useSWRImmutable<Personalia>({ path: navnUrl }, fetcher);
+  const { data: personalia, error } = useSWRImmutable<Personalia>(navnUrl, fetcher);
 
   if (error) {
     setIsError();

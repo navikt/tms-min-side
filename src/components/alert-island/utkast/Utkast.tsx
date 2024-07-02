@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Utkast = ({ language }: Props) => {
-  const { data: utkastAntall, isLoading: utkastLoading, error: utkastError } = useSWRImmutable({ path : antallUtkastUrl }, fetcher);
+  const { data: utkastAntall, isLoading: utkastLoading, error: utkastError } = useSWRImmutable(antallUtkastUrl, fetcher);
 
   const antall = (utkastAntall ? utkastAntall?.antall : 0);
   const hasUtkast = antall > 0;
