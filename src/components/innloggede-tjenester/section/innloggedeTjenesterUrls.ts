@@ -554,9 +554,9 @@ const annetLenkerProd = [
     nn: "Dokumentarkiv",
     en: "Documents",
     url: {
-      nb: "https://person.nav.no/mine-saker",
-      nn: "https://person.nav.no/mine-saker",
-      en: "https://person.nav.no/mine-saker",
+      nb: "https://www.nav.no/dokumentarkiv",
+      nn: "https://www.nav.no/dokumentarkiv/nn",
+      en: "https://www.nav.no/dokumentarkiv/en",
     }
   },
   {
@@ -564,9 +564,9 @@ const annetLenkerProd = [
     nn: "Siste utbetalingar",
     en: "Recent payments",
     url: {
-      nb: "https://tjenester.nav.no/utbetalingsoversikt/",
-      nn: "https://tjenester.nav.no/utbetalingsoversikt/",
-      en: "https://tjenester.nav.no/utbetalingsoversikt/",
+      nb: "https://www.nav.no/utbetalingsoversikt",
+      nn: "https://www.nav.no/utbetalingsoversikt",
+      en: "https://www.nav.no/utbetalingsoversikt",
     }
   },
   {
@@ -607,9 +607,9 @@ const annetLenkerDev = [
     nn: "Dokumentarkiv",
     en: "Documents",
     url: {
-      nb: "https://person.nav.no/mine-saker",
-      nn: "https://person.nav.no/mine-saker",
-      en: "https://person.nav.no/mine-saker",
+      nb: "https://www.intern.dev.nav.no/dokumentarkiv",
+      nn: "https://www.intern.dev.nav.no/dokumentarkiv/nn",
+      en: "https://www.intern.dev.nav.no/dokumentarkiv/en",
     }
   },
   {
