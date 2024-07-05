@@ -617,9 +617,9 @@ const annetLenkerDev = [
     nn: "Siste utbetalingar",
     en: "Recent payments",
     url: {
-      nb: "https://tjenester.nav.no/utbetalingsoversikt/",
-      nn: "https://tjenester.nav.no/utbetalingsoversikt/",
-      en: "https://tjenester.nav.no/utbetalingsoversikt/",
+      nb: "https://www.intern.dev.nav.no/utbetalingsoversikt",
+      nn: "https://www.intern.dev.nav.no/utbetalingsoversikt",
+      en: "https://www.intern.dev.nav.no/utbetalingsoversikt",
     }
   },
   {
