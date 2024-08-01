@@ -19,9 +19,9 @@
     "@nanostores/react": "0.7.2",
     "@navikt/ds-react": "5.7.2",
     "@navikt/nav-dekoratoren-moduler": "2.1.6",
+    "@navikt/oasis": "^3.3.0",
     "astro": "4.8.7",
     "dayjs": "1.11.11",
-    "openid-client": "5.6.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive-masonry": "2.2.0",
@@ -40,11 +40,11 @@
     "msw": "2.3.0",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
+    "prop-types": "15.8.1",
     "rollup-plugin-import-map": "3.0.0",
     "tsx": "4.10.5",
     "vitest": "1.6.0",
-    "vitest-axe": "0.1.0",
-    "prop-types": "15.8.1"
+    "vitest-axe": "0.1.0"
   },
   "prettier": {
     "printWidth": 120
