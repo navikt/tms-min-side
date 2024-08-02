@@ -1,11 +1,11 @@
-import { validateIdportenToken } from "./auth/validate";
 import { defineMiddleware } from "astro/middleware";
+import { getToken, validateToken } from "@navikt/oasis";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
 import { isLocal } from "../utils/environment";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const bearerToken: string | null | undefined = context.request.headers.get("authorization");
+  const token = getToken(context.request.headers);
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
@@ -16,16 +16,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  if (!bearerToken) {
+  if (!token) {
     console.info("Could not find any bearer token on the request. Redirecting to login.");
     return context.redirect(`${loginUrl}${params}`);
   }
 
-  const validationResult = await validateIdportenToken(bearerToken);
+  const validation = await validateToken(token);
 
-  if (validationResult !== "valid") {
-    const error = new Error(`Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.message}, redirecting to login.`);
-    console.error(error);
+  if (!validation.ok) {
+    console.info("Validation of token failed. Redirecting to login");
     return context.redirect(`${loginUrl}${params}`);
   }
 
