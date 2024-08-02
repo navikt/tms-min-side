@@ -24,7 +24,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const validation = await validateToken(token);
 
   if (!validation.ok) {
-    console.log("Validation of token failed. Redirecting to login");
+    console.info("Validation of token failed. Redirecting to login");
     return context.redirect(`${loginUrl}${params}`);
   }
 
