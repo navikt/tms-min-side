@@ -1,12 +1,12 @@
 import useSWRImmutable from "swr/immutable";
 import { antallVarslerUrl } from "./varslerUrls.ts";
-import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/varsler.ts";
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/client/varsler.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/varsler.ts"
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarlserIkon from "./ikoner/VarslerIkon";
-import { fetcher } from "@utils/api.client.ts";
-import { logEvent } from "@utils/amplitude.ts";
+import { fetcher } from "@utils/client/api.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import { varslerUrl } from "./varslerUrls.ts";
 import { setIsError } from "../../../store/store.ts";
 import style from "./Varsler.module.css";

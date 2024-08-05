@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const produktlinkerDev = {
   dagpenger: {

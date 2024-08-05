@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher, include } from "@utils/client/api.ts";
 import { dinOversiktUrl } from "@components/oversikt/urls.ts";
 import { BodyShort } from "@navikt/ds-react";
 import MicrofrontendWrapper from "@components/oversikt/MicrofrontendWrapper.tsx";

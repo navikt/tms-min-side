@@ -1,10 +1,10 @@
 import useSWRImmutable from "swr/immutable";
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
-import { fetcher } from "@utils/api.client.ts";
+import { fetcher } from "@utils/client/api.ts";
 import { antallUtkastUrl, utkastUrl } from "./utkastUrls";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/utkast.ts";
-import { logEvent } from "@utils/amplitude.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import { setIsError } from "../../../store/store.ts";
 import style from "./Utkast.module.css";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";

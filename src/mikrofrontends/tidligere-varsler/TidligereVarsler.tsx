@@ -5,7 +5,7 @@ import { useLanguage } from "@hooks/useLanguage.ts";
 import { bundle, tidligereVarslerEntry } from "../entrypoints";
 import { tidligereVarslerManifestUrl, tidligereVarslerUrl } from "./urls";
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "@utils/api.client.ts";
+import { fetcher } from "@utils/client/api.ts";
 import type { Props } from "../types";
 
 const TidligereVarsler = ({ language }: Props) => {

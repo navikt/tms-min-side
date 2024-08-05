@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { aktivitetsplanUrl } from "../urls.ts";
 import { text } from "../language/text";
-import { logEvent } from "@utils/amplitude.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import type { Language } from "@language/language.ts";
 import styles from "./Aktivitetsplan.module.css";
 

@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../../utils/environment";
+import { getEnvironment } from "@utils/server/environment.ts";
 
 const jobbLenkerProd = [
   {

@@ -1,11 +1,11 @@
 import useSWRImmutable from "swr/immutable";
 import { PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
 import { dinOversiktUrl } from "@components/oversikt/urls.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher, include } from "@utils/client/api.ts";
 import { setIsError } from "../store/store.ts";
-import { logMfEvent } from "@utils/amplitude.ts";
+import { logMfEvent } from "@utils/client/amplitude.ts";
 import ProduktProperties from "@components/oversikt/produktkort/ProduktProperties.tsx";
-import { hasMicrofrontends } from "@utils/oversikt.ts";
+import { hasMicrofrontends } from "@utils/client/oversikt.ts";
 
 export const useOversikt = (produktProperties?: ProduktProperties[]) => {
   const {

@@ -1,5 +1,5 @@
 import React from "react";
-import { logEvent } from "@utils/amplitude.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import type { Language } from "@language/language.ts";
 import style from "../section/InnloggedeTjensterSection.module.css";
 

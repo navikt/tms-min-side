@@ -3,7 +3,7 @@ import { BodyLong, Heading } from "@navikt/ds-react";
 import { dialogMedVeilederUrl } from "../urls";
 import { text } from "../language/text";
 import type { Language } from "@language/language.ts";
-import { logEvent } from "@utils/amplitude.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import styles from "./DialogVeileder.module.css";
 
 interface Props {

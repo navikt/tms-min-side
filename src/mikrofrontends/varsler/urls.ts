@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const VARSLER_URL = {
   local: "http://localhost:3000",
