@@ -9,7 +9,6 @@
     "mock": "tsx mock/server.ts",
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
-    "test": "vitest",
     "prettier": "prettier --write ."
   },
   "dependencies": {
@@ -42,9 +41,7 @@
     "prettier-plugin-astro": "0.13.0",
     "prop-types": "15.8.1",
     "rollup-plugin-import-map": "3.0.0",
-    "tsx": "4.10.5",
-    "vitest": "1.6.0",
-    "vitest-axe": "0.1.0"
+    "tsx": "4.10.5"
   },
   "prettier": {
     "printWidth": 120
