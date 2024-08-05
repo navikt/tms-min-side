@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable"
 import { redirectUrl, statusUrl } from "./urls";
-import { fetcher } from "@utils/api.client";
+import { fetcher } from "@utils/client/api.ts";
 
 export const reloadOnPageshow = () => {
   window.addEventListener("pageshow", (event) => {

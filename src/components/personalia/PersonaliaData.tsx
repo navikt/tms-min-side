@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import { navnUrl } from "./personaliaUrls";
-import { fetcher } from "@utils/api.client.ts";
+import { fetcher } from "@utils/client/api.ts";
 import { setIsError } from "../../store/store.ts";
 import style from "./Personalia.module.css";
 

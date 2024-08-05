@@ -1,4 +1,4 @@
-import { telemetryUrl } from "./urls";
+import { telemetryUrl } from "./urls.ts";
 
 export const telemetryConfig = {
   telemetryCollectorURL: telemetryUrl,

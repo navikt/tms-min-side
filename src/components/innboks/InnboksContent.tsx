@@ -1,8 +1,8 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
-import { logEvent } from "@utils/amplitude.ts";
-import { fetcher } from "@utils/api.client.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
+import { fetcher } from "@utils/client/api.ts";
 import { antallVarslerUrl, innboksUrl } from "./innboksUrls.ts";
 import { text } from "@language/innboks.ts";
 import type { Language } from "@language/language.ts";
@@ -10,8 +10,6 @@ import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import InnboksTag from "./InnboksTag.tsx";
 import { setIsError } from "../../store/store.ts";
 import { useLanguage } from "@hooks/useLanguage.ts";
-import { useFaro } from "@hooks/useFaro.ts";
-import { useStatistikk } from "@hooks/useStatistikk.ts";
 import styles from "./Innboks.module.css";
 
 interface Props {

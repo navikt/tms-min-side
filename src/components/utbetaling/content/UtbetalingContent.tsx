@@ -1,13 +1,13 @@
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { utbetalingsoversiktApiUrl } from "../utbetalingUrls.ts";
-import { formatToReadableDate } from "@utils/utbetaling.ts";
+import { formatToReadableDate } from "@utils/client/utbetaling.ts";
 import Ytelse from "@components/utbetaling/ytelse/Ytelse.tsx";
 import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
 import type { UtbetalingResponse } from "../utbetalingTypes.ts";
 import { text } from "@language/utbetaling.ts";
 import type { Language } from "@language/language.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher, include } from "@utils/client/api.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import IngenUtbetaling from "../ingen/IngenUtbetaling.tsx";
 import { setIsError } from "../../../store/store.ts";

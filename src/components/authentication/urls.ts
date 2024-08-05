@@ -1,4 +1,4 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/environment.client.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const MINSIDE_URL = {
   local: "http://localhost:4321/minside",

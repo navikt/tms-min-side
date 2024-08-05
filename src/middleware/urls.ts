@@ -1,5 +1,5 @@
-import { getEnvironment } from "../utils/environment";
-import { getDevBaseUrl } from "../utils/environment.client";
+import { getEnvironment } from "@utils/server/environment.ts";
+import { getDevBaseUrl } from "@utils/client/environment.ts";
 
 const REDIRECT_URI = {
   dev:`${getDevBaseUrl}/minside`,

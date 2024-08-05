@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { hasMicrofrontends, hasAktueltMicrofrontends } from "@utils/oversikt.ts";
-import { logGroupedEvent, logMfEvent } from "@utils/amplitude.ts";
+import { hasMicrofrontends, hasAktueltMicrofrontends } from "@utils/client/oversikt.ts";
+import { logGroupedEvent, logMfEvent } from "@utils/client/amplitude.ts";
 import { PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
 import { dinOversiktUrl } from "@components/oversikt/urls.ts";
-import { fetcher, include } from "@utils/api.client.ts";
+import { fetcher, include } from "@utils/client/api.ts";
 import { setIsError } from "../store/store.ts";
 import ProduktProperties from "@components/oversikt/produktkort/ProduktProperties.tsx";
 

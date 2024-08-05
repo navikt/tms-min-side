@@ -4,7 +4,7 @@ import ErrorBoundary from "@components/error-boundary/ErrorBoundary.tsx";
 import type { Props } from "../types.ts";
 import useSWRImmutable from "swr/immutable";
 import { aiaMeldekortUrl } from "./urls.ts";
-import { fetcher } from "@utils/api.client.ts";
+import { fetcher } from "@utils/client/api.ts";
 import { useLanguage } from "@hooks/useLanguage.ts";
 import { bundle, entry } from "../entrypoints.ts";
 

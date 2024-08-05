@@ -5,7 +5,7 @@ import Dokument from "../dokument/Dokument.tsx";
 import { dokumentarkivUrl } from "../dokumentarkivUrls.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/dokumentarkiv.ts";
-import { logEvent } from "@utils/amplitude.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
 import { Heading } from "@navikt/ds-react";
 import { dokumenterAtom, dokumenterError, dokumenterLoading, isErrorAtom, setIsError } from "../../../store/store.ts";
 import styles from "./Dokumenter.module.css";
