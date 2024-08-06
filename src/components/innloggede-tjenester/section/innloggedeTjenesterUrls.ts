@@ -544,9 +544,9 @@ const annetLenkerProd = [
     nn: "Pensjonskalkulator",
     en: "Calculate pensions",
     url: {
-      nb: "https://www.nav.no/pselv/simulering.jsf",
-      nn: "https://www.nav.no/pselv/simulering.jsf",
-      en: "https://www.nav.no/pselv/simulering.jsf",
+      nb: "https://www.nav.no/pensjon/kalkulator/login",
+      nn: "https://www.nav.no/pensjon/kalkulator/login",
+      en: "https://www.nav.no/pensjon/kalkulator/login",
     }
   },
   {
@@ -597,9 +597,9 @@ const annetLenkerDev = [
     nn: "Pensjonskalkulator",
     en: "Calculate pensions",
     url: {
-      nb: "https://www.nav.no/pselv/simulering.jsf",
-      nn: "https://www.nav.no/pselv/simulering.jsf",
-      en: "https://www.nav.no/pselv/simulering.jsf",
+      nb: "https://www.nav.no/pensjon/kalkulator/login",
+      nn: "https://www.nav.no/pensjon/kalkulator/login",
+      en: "https://www.nav.no/pensjon/kalkulator/login",
     }
   },
   {
