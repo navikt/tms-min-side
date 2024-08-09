@@ -1,8 +1,8 @@
-import { getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const VARSLER_URL = {
   local: "http://localhost:3000",
-  dev: "https://www.intern.dev.nav.no/tms-varsler-mikrofrontend",
+  dev: `${getDevBaseUrl}/tms-varsler-mikrofrontend`,
   prod: "https://www.nav.no/tms-varsler-mikrofrontend",
 };
 
