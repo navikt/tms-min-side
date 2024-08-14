@@ -2,7 +2,12 @@ import { Tag } from "@navikt/ds-react";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/innboks.ts";
 
-const InnboksTag = ({ innbokser, language }: { innbokser: number; language: Language }) => {
+interface Props {
+  innbokser: number;
+  language: Language;
+}
+
+const InnboksTag = ({ innbokser, language }: Props) => {
   if (innbokser > 0) {
     return (
       <Tag variant="alt3-filled" size="small">
