@@ -1,15 +1,15 @@
 ---
-import PersonaliaData from "./PersonaliaData";
 import { getLanguage } from "@language/language";
 import { text } from "@language/personalia";
 import style from "./Personalia.module.css";
+import Navn from "./Navn.astro";
 
 const language = getLanguage(Astro.url);
 ---
 
 <div class={style.container}>
   <h2 class={`${style.tekst} navds-heading navds-heading--large`}>
-    <span>{text.hilsen[language]}</span> <PersonaliaData client:only="react" />
+    <span>{text.hilsen[language]} <Navn server:defer /></span>
   </h2>
 </div>
 

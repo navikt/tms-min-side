@@ -34,6 +34,7 @@ spec:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+        - application: tms-min-side-proxy
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"

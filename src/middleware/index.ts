@@ -28,5 +28,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return context.redirect(`${loginUrl}${params}`);
   }
 
+  context.locals.token = token;
+
   return next();
 });

@@ -1,0 +1,19 @@
+---
+import { getOboToken } from "@utils/server/token";
+const oboToken = await getOboToken(Astro.locals.token);
+import { navnUrl } from "./personaliaUrls";
+import style from "./Personalia.module.css";
+
+const response = await fetch(navnUrl, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${oboToken}`,
+  },
+});
+
+const data = await response.json();
+---
+
+<span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
