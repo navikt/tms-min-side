@@ -1,10 +1,11 @@
 ---
 import { getOboToken } from "@utils/server/token";
-const oboToken = await getOboToken(Astro.locals.token);
 import { navnUrl } from "./personaliaUrls";
 import style from "./Personalia.module.css";
 
 console.info("NavnUrl: " + navnUrl);
+
+const oboToken = await getOboToken(Astro.locals.token);
 
 const response = await fetch(navnUrl, {
   method: "GET",
