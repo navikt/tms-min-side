@@ -15,6 +15,7 @@ export const getOboToken = async (token: string): Promise<string> => {
 
   if (!oboResult.ok) {
     console.log("Fail on-behalf-of token for api");
+    console.log("Error: " + oboResult.error);
     throw new Error("Request oboToken for min-side-proxy backend failed");
   }
 
