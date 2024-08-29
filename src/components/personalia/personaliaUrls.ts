@@ -1,9 +1,9 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getEnvironment } from "@utils/server/environment.ts";
 
 const NAVN_URL = {
   local: "http://localhost:3000/navn",
-  dev: `${getDevBaseUrl}/tms-min-side-proxy/navn`,
-  prod: "https://www.nav.no/tms-min-side-proxy/navn",
+  dev: "http://tms-min-side-proxy/tms-min-side-proxy/personalia",
+  prod: "http://tms-min-side-proxy/tms-min-side-proxy/personalia",
 };
 
-export const navnUrl = NAVN_URL[getEnvironmentClientSide()];
+export const navnUrl = NAVN_URL[getEnvironment()];
