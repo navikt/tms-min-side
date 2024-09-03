@@ -2,7 +2,7 @@ import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environme
 
 const UTKAST_URL = {
   local: "http://localhost:3000/minside/utkast",
-  dev: "https://www.intern.dev.nav.no/minside/utkast",
+  dev: "https://www.ansatt.dev.nav.no/minside/utkast",
   prod: "https://www.nav.no/minside/utkast",
 };
 
