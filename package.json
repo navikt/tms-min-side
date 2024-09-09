@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "ASTRO_KEY=WyxIZnxKyRWADBuQwsCYXrYW41q+ue5C9AGrGRasqnc= astro build",
     "mock": "tsx mock/server.ts",
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
