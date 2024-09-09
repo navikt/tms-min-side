@@ -66,9 +66,9 @@ const jobbLenkerProd = [
     nn: "Registrer deg som arbeidssøkar",
     en: "Register as a job seeker",
     url: {
-      nb: "https://arbeidssokerregistrering.nav.no/",
-      nn: "https://arbeidssokerregistrering.nav.no/",
-      en: "https://arbeidssokerregistrering.nav.no/",
+      nb: "https://www.nav.no/arbeid/registrering/",
+      nn: "https://www.nav.no/arbeid/registrering/",
+      en: "https://www.nav.no/arbeid/registrering/",
     }
   },
 ];
