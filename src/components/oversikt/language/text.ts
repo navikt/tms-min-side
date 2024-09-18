@@ -110,9 +110,9 @@ export const text = {
     en: "Dialogue with your advisor",
   },
   kommunikasjonsFlisIngressDialog: {
-    nb: "Du må være registrert som arbeidssøker for å kontakte veilederen din. Da kan du ha dialog om arbeidsoppfølging, slik som avtalte møter, aktiviteter og tiltak.",
-    nn: "Du må vere registrert som arbeidssøkjer hos NAV for å kontakte rettleiaren din. Då kan du ha dialog om arbeid og oppfølging, slik som avtalte møte, aktivitetar og tiltak.",
-    en: "You must be registered as a job seeker to contact your advisor.",
+    nb: "Du som får arbeidsoppfølging kan kontakte veilederen din her om oppfølging, for eksempel avtalte møter, aktiviteter og tiltak.",
+    nn: "Du som får arbeidsoppfølging kan kontakta rettleiaren din her om oppfølging, til dømes avtalte møter, aktivitetar og tiltak.",
+    en: "Since you receive continued employment guidance, you can contact your advisor here for advice, for example regarding agreed meetings, activities and measures.",
   },
   kommunikasjonsFlisLenketekstBrevOgVedtak: {
     nb: "Brev og vedtak",
