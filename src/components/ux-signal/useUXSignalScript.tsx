@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useUXSignalScript = (ready) => {
+const useUXSignalScript = (ready: boolean) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
@@ -13,7 +13,6 @@ const useUXSignalScript = (ready) => {
       try {
         document.body.removeChild(script);
       } catch {
-        return;
       }
     };
   }, [ready]);
