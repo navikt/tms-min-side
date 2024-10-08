@@ -24,7 +24,7 @@ async function sjekkErAktivArbeidssoker() {
       }
       throw new Error(response.statusText);
     });
-    return perioder.filter((p: any) => !Boolean(p.avsluttet));
+    return perioder.filter((p: any) => !Boolean(p.avsluttet)).length > 0;
   } catch (err) {
     console.error(err);
     return false;
