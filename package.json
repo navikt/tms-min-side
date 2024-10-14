@@ -19,7 +19,7 @@
     "@navikt/ds-react": "5.7.2",
     "@navikt/nav-dekoratoren-moduler": "2.1.6",
     "@navikt/oasis": "^3.3.0",
-    "astro": "4.15.4",
+    "astro": "4.16.3",
     "dayjs": "1.11.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
