@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
+import { HTTPException } from 'hono/http-exception';
 import manifest from "./data/microfrontend/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
 import selector from "./data/selector.json" assert { type: "json" };
@@ -21,7 +22,7 @@ api.use("/*", cors({
 }));
 
 api.get('/navn', (c) => {
-  return c.json(navn);
+  throw new HTTPException(502, { message: 'Custom error message' });
 });
 
 api.get('/selector/din-oversikt', (c) => {

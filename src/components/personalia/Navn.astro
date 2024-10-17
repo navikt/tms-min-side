@@ -15,17 +15,19 @@ const response = await fetch(navnUrl, {
   },
 }).then((response) => {
   if (!response.ok) {
-    isError = true;
     console.error(`Error, fetch failed with status: ${response.status}`);
+    isError = true;
+    return;
   }
 
   return response.json();
 }).catch((error) => {
-  isError = true;
   console.error(`Error, fetch failed: ${error}`);
+  isError = true;
+  return;
 });
 
-const data = isError ? "" : await response.json();
+const data = isError ? { navn: "" } : response;
 ---
 
 <span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
