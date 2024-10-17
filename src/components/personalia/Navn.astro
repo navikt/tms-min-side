@@ -4,6 +4,7 @@ import { navnUrl } from "./personaliaUrls";
 import style from "./Personalia.module.css";
 
 const oboToken = await getOboToken(Astro.locals.token);
+let isError =  false;
 
 const response = await fetch(navnUrl, {
   method: "GET",
@@ -12,11 +13,19 @@ const response = await fetch(navnUrl, {
     Accept: "application/json",
     Authorization: `Bearer ${oboToken}`,
   },
-}).catch((error: Error) => {
-  console.error("Error:" + error)
+}).then((response) => {
+  if (!response.ok) {
+    isError = true;
+    console.error(`Error, fetch failed with status: ${response.status}`);
+  }
+
+  return response.json();
+}).catch((error) => {
+  isError = true;
+  console.error(`Error, fetch failed: ${error}`);
 });
 
-const data = await response.json();
+const data = isError ? "" : await response.json();
 ---
 
 <span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
