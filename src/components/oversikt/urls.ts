@@ -29,9 +29,15 @@ const AKTIVITETSPLAN_URL = {
   dev: "https://aktivitetsplan.ekstern.dev.nav.no/",
   prod: "https://aktivitetsplan.nav.no/",
 };
+const AIA_BACKEND_URL = {
+  local: "http://localhost:3000/aia-backend",
+  dev: "https://www.intern.dev.nav.no/aia-backend",
+  prod: "https://www.nav.no/aia-backend",
+};
 
 export const meldekortUrl = MELDEKORT_URL[getEnvironmentClientSide()];
 export const dinOversiktUrl = `${SELECTOR_URL[getEnvironmentClientSide()]}/din-oversikt`;
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironmentClientSide()]}/featuretoggles`;
 export const dialogMedVeilederUrl = DIALOG_MED_VEILEDER_URL[getEnvironmentClientSide()];
 export const aktivitetsplanUrl = AKTIVITETSPLAN_URL[getEnvironmentClientSide()];
+export const aiaBackendUrl = AIA_BACKEND_URL[getEnvironmentClientSide()];
