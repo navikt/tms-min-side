@@ -202,9 +202,9 @@ const hjelpemidlerLenkerProd = [
     nn: "Pensjon",
     en: "Pension",
     url: {
-      nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-      nn: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-      en: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
+      nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+      nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+      en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
     }
   },
   {
@@ -305,9 +305,9 @@ const hjelpemidlerLenkerDev = [
     nn: "Pensjon",
     en: "Pension",
     url: {
-      nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-      nn: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-      en: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
+      nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+      nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+      en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
     }
   },
   {

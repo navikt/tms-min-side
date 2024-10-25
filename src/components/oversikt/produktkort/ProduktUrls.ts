@@ -17,9 +17,9 @@ const produktlinkerDev = {
     en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
   },
   pensjon: {
-    nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-    nn: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-    en: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
+    nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+    nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+    en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
   },
   sykefravær: {
     nb: "https://www.nav.no/syk/sykefravaer",
@@ -55,9 +55,9 @@ const produktlinkerProd = {
     en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
   },
   pensjon: {
-    nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-    nn: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-    en: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
+    nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+    nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
+    en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
   },
   sykefravær: {
     nb: "https://www.nav.no/syk/sykefravaer",
