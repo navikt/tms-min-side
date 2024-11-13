@@ -1,4 +1,4 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getDevBaseUrl, getEnvironmentClientSide, isAnsattClientSide } from "@utils/client/environment.ts";
 
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000/tms-min-side-proxy",
@@ -30,7 +30,8 @@ const AKTIVITETSPLAN_URL = {
   prod: "https://aktivitetsplan.nav.no/",
 };
 
-export const meldekortUrl = MELDEKORT_URL[getEnvironmentClientSide()];
+const meldekortAnsattUrl = "https://arbeid.ansatt.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js";
+export const meldekortUrl = isAnsattClientSide ? meldekortAnsattUrl : MELDEKORT_URL[getEnvironmentClientSide()];
 export const dinOversiktUrl = `${SELECTOR_URL[getEnvironmentClientSide()]}/din-oversikt`;
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironmentClientSide()]}/featuretoggles`;
 export const dialogMedVeilederUrl = DIALOG_MED_VEILEDER_URL[getEnvironmentClientSide()];
