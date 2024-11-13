@@ -49,7 +49,7 @@ const language = getLanguage(Astro.url);
     <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} />
   )}
   {data.hasKommende && (
-    <KommendeUtbetaling data={data} />
+    <KommendeUtbetaling kommende={data.kommende} />
   )}
   {!data.hasKommende && !data.hasUtbetaling && (
     <IngenUtbetaling />

@@ -13,8 +13,8 @@ interface Props {
 
 const UtbetalingContent = ({ language }: Props) => {
   const data = {
-    "hasKommende": false,
-    "hasUtbetaling": true,
+    "hasKommende": true,
+    "hasUtbetaling": false,
     "sisteUtbetaling": {
       "utbetaling": 1234,
       "dato": "2023-11-14",
@@ -23,11 +23,11 @@ const UtbetalingContent = ({ language }: Props) => {
       "id": 1233
     },
     "kommende": {
-      "utbetaling": 1234,
-      "dato": "2023-11-14",
+      "utbetaling": 4321,
+      "dato": "2024-11-14",
       "ytelse": "Arbeidsavklaringspenger",
-      "kontonummer": 1234,
-      "id": 1233
+      "kontonummer": 4321,
+      "id": 3321
     }
   };
 
