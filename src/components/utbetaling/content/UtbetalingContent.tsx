@@ -1,16 +1,10 @@
-import useSWRImmutable from "swr/immutable";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { utbetalingsoversiktApiUrl } from "../utbetalingUrls.ts";
 import { formatToReadableDate } from "@utils/client/utbetaling.ts";
 import Ytelse from "@components/utbetaling/ytelse/Ytelse.tsx";
 import UtbetalingHeading from "../heading/UtbetalingHeading.tsx";
-import type { UtbetalingResponse } from "../utbetalingTypes.ts";
 import { text } from "@language/utbetaling.ts";
 import type { Language } from "@language/language.ts";
-import { fetcher, include } from "@utils/client/api.ts";
-import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import IngenUtbetaling from "../ingen/IngenUtbetaling.tsx";
-import { setIsError } from "../../../store/store.ts";
 import style from "./UtbetalingContent.module.css";
 
 interface Props {
@@ -18,32 +12,26 @@ interface Props {
 }
 
 const UtbetalingContent = ({ language }: Props) => {
-  const { data, isLoading, error } = useSWRImmutable<UtbetalingResponse>({ path: utbetalingsoversiktApiUrl, options: include }, fetcher);
+  const data = {
+    "hasKommende": false,
+    "hasUtbetaling": true,
+    "sisteUtbetaling": {
+      "utbetaling": 1234,
+      "dato": "2023-11-14",
+      "ytelse": "Arbeidsavklaringspenger",
+      "kontonummer": 1234,
+      "id": 1233
+    },
+    "kommende": {
+      "utbetaling": 1234,
+      "dato": "2023-11-14",
+      "ytelse": "Arbeidsavklaringspenger",
+      "kontonummer": 1234,
+      "id": 1233
+    }
+  };
 
-  if (isLoading) {
-    return (
-      <>
-        <div className={style.detaljer}>
-          <div className={`${style.detaljerContainer}`}>
-            <UtbetalingHeading type="ingen" language={language} />
-            <Skeleton width={116} height={28} />
-            <Skeleton width={225} height={24} />
-          </div>
-        </div>
-        <Ytelse isSkeleton={true} />
-      </>
-    );
-  }
-
-  if (error) {
-    setIsError();
-  }
-
-  if (!data) {
-    return null;
-  }
-
-  if (data.hasKommende) {
+  if (data?.hasKommende) {
     return (
       <>
         <div className={style.detaljer}>
@@ -67,7 +55,7 @@ const UtbetalingContent = ({ language }: Props) => {
     );
   }
 
-  if (data.hasUtbetaling) {
+  if (data?.hasUtbetaling) {
     return (
       <>
         <div className={style.detaljer}>

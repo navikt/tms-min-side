@@ -1,5 +1,4 @@
 import { BodyLong, BodyShort, Label } from "@navikt/ds-react";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls.ts";
 import { logEvent } from "@utils/client/amplitude.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/utbetaling.ts";
@@ -25,7 +24,7 @@ const IngenUtbetaling = ({ language }: Props) => {
           {text.ingen[language]}
         </BodyLong>
         <Label size="small">
-          <a className="navds-button navds-button--primary-neutral navds-button--small" href={utbetalingsoversiktUrl}>
+          <a className="navds-button navds-button--primary-neutral navds-button--small" href={"utbetalingsoversiktUrl"}>
             {text.tidligere[language]}
           </a>
         </Label>

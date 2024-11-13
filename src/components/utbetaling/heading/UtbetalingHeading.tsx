@@ -1,5 +1,4 @@
-import { BodyShort } from "@navikt/ds-react";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { text } from "@language/utbetaling.ts";
 import type { Language } from "@language/language.ts";
 import { logEvent } from "@utils/client/amplitude.ts";
@@ -28,7 +27,7 @@ const UtbetalingHeading = ({ type, language }: Props) => {
       </BodyShort>
       <a
         className={styles.link}
-        href={utbetalingsoversiktUrl}
+        href={"utbetalingsoversiktUrl"}
         onClick={() => logEvent("utbetaling-widget", "generell", "Se alle")}
       >
         <BodyShort>{text.alle[language]}</BodyShort>

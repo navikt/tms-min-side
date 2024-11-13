@@ -1,0 +1,54 @@
+---
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import type { SisteUtbetaling } from "../utbetalingTypes";
+import { getLanguage } from "../../../language/language";
+import { text } from "../../../language/utbetaling";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { formatToReadableDate } from "../../../utils/client/utbetaling";
+import styles from "./SisteUtbetaling.module.css";
+
+interface Props {
+  sisteUtbetaling: SisteUtbetaling;
+}
+
+const { sisteUtbetaling } = Astro.props;
+const language = getLanguage(Astro.url);
+---
+
+<div class={styles.container}>
+  <div class={styles.detaljer}>
+    <div class={styles.detaljerContainer}>
+      <div class={styles.heading}>
+        <BodyShort as="h2" spacing>
+          {text.tittel[language]}
+        </BodyShort>
+        <a class={styles.link} href={utbetalingsoversiktUrl}>
+          <BodyShort>{text.alle[language]}</BodyShort>
+        </a>
+      </div>
+      <Heading size="large">
+        {sisteUtbetaling?.utbetaling?.toLocaleString("no-nb") + " kr"}
+      </Heading>
+      <BodyLong>
+        {formatToReadableDate(typeof sisteUtbetaling?.dato === "string" ? sisteUtbetaling?.dato : "")} {text.konto[language]} {sisteUtbetaling?.kontonummer}
+      </BodyLong>
+    </div>
+  </div>
+  <div class={styles.wrapper}>
+    <a
+      href={`${utbetalingsoversiktUrl}/utbetaling/${sisteUtbetaling.id}`}
+      class={`${styles.containerYtelse} ${styles.utbetalt}`}
+    >
+      <div class={styles.ytelse}>
+        <BodyShort>
+          {sisteUtbetaling.ytelse}
+        </BodyShort>
+        <BodyShort weight="semibold">
+          {`${sisteUtbetaling.utbetaling?.toLocaleString("no-nb")} kr`}
+        </BodyShort>
+      </div>
+    </a>
+  </div>
+</div>

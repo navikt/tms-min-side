@@ -1,6 +1,5 @@
 import { BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import styles from "./Ytelse.module.css";
 
@@ -17,7 +16,7 @@ const Ytelse = ({ ytelse, utbetaling, isKommende, id, isSkeleton }: Props) => {
     return (
       <div className={styles.wrapper}>
         <a
-          href={`${utbetalingsoversiktUrl}/utbetaling/${id}`}
+          href={`${"utbetalingsoversiktUrl"}/utbetaling/${id}`}
           className={`${styles.container} ${isKommende ? styles.kommende : styles.utbetalt}`}
         >
           <div className={styles.ytelse}>
@@ -33,7 +32,7 @@ const Ytelse = ({ ytelse, utbetaling, isKommende, id, isSkeleton }: Props) => {
   return (
     <div className={styles.wrapper}>
       <a
-        href={`${utbetalingsoversiktUrl}/utbetaling/${id}`}
+        href={`${"utbetalingsoversiktUrl"}/utbetaling/${id}`}
         className={`${styles.container} ${isKommende ? styles.kommende : styles.utbetalt}`}
       >
         <div className={styles.ytelse}>

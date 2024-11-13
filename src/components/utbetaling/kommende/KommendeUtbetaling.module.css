@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.detaljer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.15rem;
+}
+
+.detaljerContainer {
+    background: var(--a-bg-subtle);
+    width: 100%;
+    padding: 1rem 1rem 0.75rem;
+    border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+}
+
+.kommendeUtbetaling {
+    background: var(--a-surface-success-subtle);
+}
+
+.chevron {
+    flex-shrink: 0;
+}
+
+.container:hover .chevron {
+    transition-duration: 0.2s;
+    transform: translate(3px, 0);
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerYtelse {
+    display: flex;
+    width: 100%;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link {
+    color: var(--a-text-default);
+}
+
+.link:hover {
+    text-decoration: none;
+}
+
+.ytelse {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.kommende {
+    background: var(--a-surface-success-subtle);
+}
+
+.kommende:hover {
+    background: var(--a-surface-success-subtle-hover);
+}

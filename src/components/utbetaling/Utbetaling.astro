@@ -1,11 +1,57 @@
 ---
-import UtbetalingContent from "./content/UtbetalingContent";
-import { getLanguage } from "@language/language";
+import { getOboToken } from "../../utils/server/token";
+import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
+import { getLanguage } from "../../language/language";
+import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
+import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
+import type { UtbetalingResponse } from "./utbetalingTypes";
 import styles from "./Utbetaling.module.css";
+import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
+
+const oboToken = await getOboToken(Astro.locals.token);
+let isError =  false;
+
+const response: UtbetalingResponse = await fetch(utbetalingsoversiktApiUrl, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${oboToken}`,
+  },
+}).then((response) => {
+  if (!response.ok) {
+    console.error(`Error, fetch failed with status: ${response.status}`);
+    isError = true;
+    return;
+  }
+
+  return response.json();
+}).catch((error) => {
+  console.error(`Error, fetch failed: ${error}`);
+  isError = true;
+  return;
+});
+
+const data = isError ?
+  {
+    hasKommende: false,
+    hasUtbetaling: false,
+    sisteUtbetaling: null,
+    kommende: null
+  } : response;
 
 const language = getLanguage(Astro.url);
 ---
 
+{isError && (<div>Error</div>)}
 <div class={styles.container}>
-  <UtbetalingContent language={language} client:only="react" />
+  {data.hasUtbetaling && (
+    <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} />
+  )}
+  {data.hasKommende && (
+    <KommendeUtbetaling data={data} />
+  )}
+  {!data.hasKommende && !data.hasUtbetaling && (
+    <IngenUtbetaling />
+  )}
 </div>

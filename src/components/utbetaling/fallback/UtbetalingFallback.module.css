@@ -1,0 +1,17 @@
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detaljer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.15rem;
+}
+
+.detaljerContainer {
+    background: var(--a-bg-subtle);
+    width: 100%;
+    padding: 1rem 1rem 0.75rem;
+    border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+}
