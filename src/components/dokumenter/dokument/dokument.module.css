@@ -1,0 +1,45 @@
+
+.dokument {
+    display: flex;
+    padding: 12px 16px 12px 20px;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+    border-radius: 12px 12px 4px 4px;
+    background: #F2F3F5;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: var(--a-text-default);
+    text-decoration: none;
+    background: var(--a-surface-subtle);
+    padding: 12px 16px 12px 20px;
+    margin-bottom: 0.2rem;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    margin: 0.2rem 0;
+    color: var(--a-text-action);
+    text-wrap: balance;
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.chevron {
+    flex-shrink: 0;
+}

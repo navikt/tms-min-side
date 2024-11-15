@@ -1,0 +1,25 @@
+.dokumenter {
+    margin: 0;
+    padding: 0;
+}
+
+.alle {
+    display: flex;
+    padding: 16px 16px 16px 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 0px 0px 8px 8px;
+    background: #F2F3F5;
+}
+
+.link {
+    color: var(--a-text-action);
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
