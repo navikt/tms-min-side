@@ -4,7 +4,7 @@ import { navnUrl } from "./personaliaUrls";
 import style from "./Personalia.module.css";
 
 const oboToken = await getOboToken(Astro.locals.token);
-let isError =  true;
+let isError =  false;
 
 const response = await fetch(navnUrl, {
   method: "GET",
