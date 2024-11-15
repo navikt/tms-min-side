@@ -8,8 +8,8 @@ const DOKUMENTARKIV_URL = {
 
 const MINE_SAKER_API = {
   local: "http://localhost:3000/journalposter",
-  dev: `${getDevBaseUrl}/dokumentarkiv/journalposter`,
-  prod: "https://www.nav.no/dokumentarkiv/journalposter",
+  dev: `${getDevBaseUrl}/mine-saker-api/journalposter`,
+  prod: "https://www.nav.no/mine-saker-api/journalposter",
 };
 
 export const dokumentarkivUrl = DOKUMENTARKIV_URL[getEnvironmentClientSide()];
