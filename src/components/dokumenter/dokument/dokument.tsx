@@ -13,6 +13,8 @@ export const setAvsenderMottaker = (journalpost: Journalpost) => {
   }
 }
 
+// dokumentarkivet/tema/{temakode}/{journalpostId}
+
 const Dokument = ({ tittel, opprettet, journalpost } : { tittel: string, opprettet: string, journalpost: Journalpost }) => {
   const dato = formatDateMonth(opprettet);
   const avsender = setAvsenderMottaker(journalpost);
@@ -21,7 +23,7 @@ const Dokument = ({ tittel, opprettet, journalpost } : { tittel: string, opprett
       <li className={styles.container}>
         <div className={styles.wrapper}>
           <div>
-            <a className={styles.link} href={`${mineSakerApiUrl}/dokument/${journalpost.journalpostId}/${journalpost.dokument.dokumentInfoId}`}>
+            <a className={styles.link} href={`${mineSakerApiUrl}/tema/${journalpost.temakode}/${journalpost.journalpostId}`}>
               <BodyShort size="medium">
                 {tittel}
               </BodyShort>
