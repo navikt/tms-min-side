@@ -16,6 +16,10 @@ interface Props {
 const Dokumenter = ({ language }: Props) => {
   const { data: journalposter, isLoading, error } = useSWRImmutable<Journalpost[]>({ path: journalposterUrl }, fetcher);
 
+  if (isLoading) {
+    return null;
+  }
+
   if (error) {
     setIsError();
   }
