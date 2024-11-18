@@ -3,6 +3,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { formatDateMonth } from "@utils/client/dokument.ts";
 import { Journalpost } from "@components/dokumenter/dokumenterTypes.ts";
+import { mineSakerApiUrl } from "@components/dokumenter/dokumenterUrls.ts";
 
 export const setAvsenderMottaker = (journalpost: Journalpost) => {
   if (!journalpost.avsender) {
@@ -12,7 +13,6 @@ export const setAvsenderMottaker = (journalpost: Journalpost) => {
   }
 }
 
-
 const Dokument = ({ tittel, opprettet, journalpost } : { tittel: string, opprettet: string, journalpost: Journalpost }) => {
   const dato = formatDateMonth(opprettet);
   const avsender = setAvsenderMottaker(journalpost);
@@ -21,7 +21,7 @@ const Dokument = ({ tittel, opprettet, journalpost } : { tittel: string, opprett
       <li className={styles.container}>
         <div className={styles.wrapper}>
           <div>
-            <a className={styles.link} href={"url"}>
+            <a className={styles.link} href={`${mineSakerApiUrl}/dokument/${journalpost.journalpostId}/${journalpost.dokument.dokumentInfoId}`}>
               <BodyShort size="medium">
                 {tittel}
               </BodyShort>
@@ -35,12 +35,3 @@ const Dokument = ({ tittel, opprettet, journalpost } : { tittel: string, opprett
 };
 
 export default Dokument;
-
-/*
-<BodyShort size="medium">
-        {tittel}
-      </BodyShort>
-      <Detail>
-        {opprettet}
-      </Detail>
- */

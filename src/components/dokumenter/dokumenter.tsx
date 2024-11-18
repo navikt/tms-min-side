@@ -7,7 +7,7 @@ import Dokument from "@components/dokumenter/dokument/dokument.tsx";
 import { BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import styles from "./dokumenter.module.css";
-import { journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
+import { dokumentarkivUrl, journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
 
 interface Props {
   language: Language;
@@ -20,8 +20,6 @@ const Dokumenter = ({ language }: Props) => {
     setIsError();
   }
 
-  // minesaker-api/dokument/journalpostId/dokumentinfoId
-
   return (
     <ul className={styles.dokumenter}>
       {journalposter?.slice(0, 3).map((jp) => (
@@ -33,7 +31,7 @@ const Dokumenter = ({ language }: Props) => {
         />
       ))}
       <div className={styles.alle}>
-        <a className={styles.link} href={"/test"}>
+        <a className={styles.link} href={dokumentarkivUrl}>
         <BodyShort size="medium">
           Se alle
         </BodyShort>

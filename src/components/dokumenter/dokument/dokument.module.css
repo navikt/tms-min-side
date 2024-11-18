@@ -43,3 +43,7 @@
 .chevron {
     flex-shrink: 0;
 }
+
+.top {
+    border-radius: 12px 12px 4px 4px;
+}
