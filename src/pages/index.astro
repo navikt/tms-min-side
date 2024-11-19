@@ -5,8 +5,7 @@ import DinOversikt from "@components/oversikt/DinOversikt";
 import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
-import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
-import Dokumenter from "@components/dokumenter/dokumenter";
+import Dokumenter from "@components/dokumenter/dokumenter.astro";
 import Container from "@components/container/Container.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
 import Innboks from "@components/innboks/Innboks.astro";
@@ -27,8 +26,7 @@ const language = getLanguage(Astro.url);
     <Container>
       <Utbetaling />
       <Innboks />
-      <Dokumenter client:only="react" />
-      <Dokumentarkiv />
+      <Dokumenter />
       <Aktuelt language={language} client:only="react" />
     </Container>
     <InnloggedeTjenester />

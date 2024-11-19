@@ -1,3 +1,9 @@
+.container {
+    width: 100%;
+    min-height: 16.6rem;
+    margin-top: var(--tms-space-between-sections);
+}
+
 .dokumenter {
     margin: 0;
     padding: 0;
@@ -5,10 +11,10 @@
 
 .alle {
     display: flex;
-    padding: 16px 16px 16px 20px;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    padding: 16px;
     align-self: stretch;
     border-radius: 0px 0px 8px 8px;
     background: #F2F3F5;
@@ -22,4 +28,12 @@
 .link:hover {
     text-decoration: none;
     cursor: pointer;
+}
+
+
+@media (min-width: 648px) {
+    .alle {
+        padding: 16px 16px 16px 20px;
+
+    }
 }

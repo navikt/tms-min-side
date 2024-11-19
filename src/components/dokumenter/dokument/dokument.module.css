@@ -1,12 +1,11 @@
-
 .dokument {
     display: flex;
-    padding: 12px 16px 12px 20px;
     align-items: center;
-    gap: 12px;
     align-self: stretch;
+    padding: 12px 16px 12px 20px;
     border-radius: 12px 12px 4px 4px;
     background: #F2F3F5;
+    gap: 12px;
 }
 
 .container {
@@ -16,8 +15,13 @@
     color: var(--a-text-default);
     text-decoration: none;
     background: var(--a-surface-subtle);
-    padding: 12px 16px 12px 20px;
     margin-bottom: 0.2rem;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.container:first-child {
+    border-radius: 12px 12px 4px 4px;
 }
 
 .wrapper {
@@ -25,25 +29,43 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    text-decoration: none;
+}
+
+.wrapper:hover .link {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .link {
     margin: 0.2rem 0;
-    color: var(--a-text-action);
     text-wrap: balance;
     text-decoration: underline;
 }
 
-.link:hover {
-    text-decoration: none;
-
-    cursor: pointer;
-}
-
 .chevron {
     flex-shrink: 0;
+    color: #23262A;
+}
+
+.wrapper:hover .chevron {
+    transition-duration: 0.2s;
+    transform: translate(3px, 0);
+    text-decoration: none;
 }
 
 .top {
     border-radius: 12px 12px 4px 4px;
+}
+
+.details {
+    color: var(--a-text-default, #23262A);
+    text-decoration: none;
+}
+
+@media (min-width: 648px) {
+    .container {
+        padding: 12px 16px 12px 20px;
+
+    }
 }

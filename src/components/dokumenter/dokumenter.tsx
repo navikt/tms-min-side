@@ -6,8 +6,8 @@ import { Journalpost } from "@components/dokumenter/dokumenterTypes.ts";
 import Dokument from "@components/dokumenter/dokument/dokument.tsx";
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
-import styles from "./dokumenter.module.css";
 import { dokumentarkivUrl, journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
+import styles from "./dokumenter.module.css";
 
 interface Props {
   language: Language;
@@ -26,15 +26,10 @@ const Dokumenter = ({ language }: Props) => {
 
   return (
     <>
-      <Heading size="xsmall" spacing>Dokumentarkiv</Heading>
+      <Heading size="xsmall" as="h2" spacing>Dokumentarkiv</Heading>
       <ul className={styles.dokumenter}>
         {journalposter?.slice(0, 3).map((jp) => (
-          <Dokument
-            tittel={jp.dokument.tittel}
-            opprettet={jp.opprettet}
-            journalpost={jp}
-            key={jp.dokument.dokumentInfoId}
-          />
+          <Dokument key={jp.dokument.dokumentInfoId} journalpost={jp} />
         ))}
         <div className={styles.alle}>
           <a className={styles.link} href={dokumentarkivUrl}>
