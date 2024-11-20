@@ -579,16 +579,6 @@ const annetLenkerProd = [
       en: "https://innboks.nav.no/",
     }
   },
-  {
-    nb: "Søknad og skjema",
-    nn: "Søknad og skjema",
-    en: "Applications and forms",
-    url: {
-      nb: "https://www.nav.no/soknader",
-      nn: "https://www.nav.no/soknader",
-      en: "https://www.nav.no/soknader/en/person",
-    }
-  },
 ];
 
 const annetLenkerDev = [
@@ -630,16 +620,6 @@ const annetLenkerDev = [
       nb: "https://innboks.nav.no/",
       nn: "https://innboks.nav.no/",
       en: "https://innboks.nav.no/",
-    }
-  },
-  {
-    nb: "Søknad og skjema",
-    nn: "Søknad og skjema",
-    en: "Applications and forms",
-    url: {
-      nb: "https://www.nav.no/soknader",
-      nn: "https://www.nav.no/soknader",
-      en: "https://www.nav.no/soknader/en/person",
     }
   },
 ];
