@@ -1,0 +1,39 @@
+.dokumentContainer {
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+.skeletonContainer {
+    border-top: 1px solid lightgray;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.dokumentSkeleton {
+    border-top: 1px solid lightgray;
+    margin-bottom: 0.58rem;
+}
+
+.ingenText {
+    color: var(--a-text-subtle);
+}
+
+.linkContainer {
+    display: flex;
+    border-top: 1px solid lightgray;
+    padding: 1rem 0;
+}
+
+.link {
+    color: #272727;
+}
+
+.link:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (min-width: 648px) {
+    .dokumentContainer {
+        padding: 0rem 1.25rem 0rem 1.25rem;
+    }
+}
