@@ -5,8 +5,8 @@ import { getLanguage } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
 import type { UtbetalingResponse } from "./utbetalingTypes";
-import styles from "./Utbetaling.module.css";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
+import styles from "./Utbetaling.module.css";
 
 const oboToken = await getOboToken(Astro.locals.token);
 let isError =  false;

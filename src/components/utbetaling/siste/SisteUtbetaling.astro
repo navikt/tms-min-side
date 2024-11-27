@@ -7,6 +7,7 @@ import { getLanguage } from "../../../language/language";
 import { text } from "../../../language/utbetaling";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { formatToReadableDate } from "../../../utils/client/utbetaling";
+import Chevron from "./Chevron.astro";
 import styles from "./SisteUtbetaling.module.css";
 
 interface Props {
@@ -32,7 +33,7 @@ const language = getLanguage(Astro.url);
         {sisteUtbetaling?.utbetaling?.toLocaleString("no-nb") + " kr"}
       </Heading>
       <BodyLong>
-        {formatToReadableDate(typeof sisteUtbetaling?.dato === "string" ? sisteUtbetaling?.dato : "")} {text.konto[language]} {sisteUtbetaling?.kontonummer}
+        {formatToReadableDate(typeof sisteUtbetaling?.dato === "string" ? sisteUtbetaling?.dato : "")} {text.konto[language]}&nbsp;{sisteUtbetaling?.kontonummer}
       </BodyLong>
     </div>
   </div>
@@ -49,6 +50,7 @@ const language = getLanguage(Astro.url);
           {`${sisteUtbetaling.utbetaling?.toLocaleString("no-nb")} kr`}
         </BodyShort>
       </div>
+      <Chevron />
     </a>
   </div>
 </div>
