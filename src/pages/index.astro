@@ -13,7 +13,6 @@ import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
-import UXSignal from "../components/ux-signal/UXSignal.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -30,7 +29,6 @@ const language = getLanguage(Astro.url);
       <Dokumentarkiv />
       <Aktuelt language={language} client:only="react" />
     </Container>
-    <UXSignal />
     <InnloggedeTjenester />
   </Content>
   <Observability client:only="react" />
