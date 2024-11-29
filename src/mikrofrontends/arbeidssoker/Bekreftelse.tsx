@@ -20,7 +20,7 @@ const Bekreftelse = ({ language }: Props) => {
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
-      <ErrorBoundary>
+      <ErrorBoundary url={aiaMeldekortUrl}>
         <AiaMeldekort />
       </ErrorBoundary>
     </React.Suspense>
