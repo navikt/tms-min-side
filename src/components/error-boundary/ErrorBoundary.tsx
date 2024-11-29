@@ -23,7 +23,6 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error) {
     setIsError();
-    console.error("Error from: " + this.props.url)
     faro.api.pushError(new Error(`Feil i en microfrontend: ${error}. Url: ${this.props?.url}`));
   }
 
