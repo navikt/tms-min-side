@@ -1,8 +1,8 @@
 export const text = {
   heading: {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Document archive",
+    nb: "Siste dokumenter",
+    nn: "Siste dokumenter",
+    en: "Last documents",
   },
   ingenHeading: {
     nb: "Du har ingen dokumenter å vise",
