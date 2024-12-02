@@ -8,6 +8,7 @@ import IngenDokumenter from "@components/dokumenter/ingen/IngenDokumenter.tsx";
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { dokumentarkivUrl, journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
+import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import styles from "./dokumenter.module.css";
 
 interface Props {
@@ -19,7 +20,13 @@ const Dokumenter = ({ language }: Props) => {
   const hasDokumenter = dokumenter && dokumenter.length > 0;
 
   if (isLoading) {
-    return null;
+    return (
+      <>
+        <Skeleton variant="text" height="50px" width="100%" />
+        <Skeleton variant="text" height="50px" width="100%" />
+        <Skeleton variant="text" height="50px" width="100%" />
+      </>
+    );
   }
 
   if (!hasDokumenter) {
