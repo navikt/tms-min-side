@@ -5,7 +5,6 @@ import DinOversikt from "@components/oversikt/DinOversikt";
 import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
-import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "@components/container/Container.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
@@ -13,6 +12,7 @@ import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "../../components/aktuelt/Aktuelt";
+import Dokumenter from "../../components/dokumenter/dokumenter.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -26,7 +26,7 @@ const language = getLanguage(Astro.url);
     <Container>
       <Utbetaling />
       <Innboks />
-      <Dokumentarkiv />
+      <Dokumenter />
       <Aktuelt language={language} client:only="react" />
     </Container>
     <InnloggedeTjenester />

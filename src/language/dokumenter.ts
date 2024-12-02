@@ -1,8 +1,8 @@
 export const text = {
   heading: {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Document archive",
+    nb: "Siste dokumenter",
+    nn: "Siste dokumenter",
+    en: "Last documents",
   },
   ingenHeading: {
     nb: "Du har ingen dokumenter å vise",
@@ -28,5 +28,10 @@ export const text = {
     nb: "Regnskap/utbetaling/årsoppgave",
     nn: "Regnskap/utbetaling/årsoppgave",
     en: "Regnskap/utbetaling/årsoppgave",
+  },
+  alle: {
+    nb: "Se alle",
+    nn: "Se alle",
+    en: "See all",
   },
 };

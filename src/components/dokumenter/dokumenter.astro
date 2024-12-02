@@ -1,11 +1,11 @@
 ---
-import Dokumenter from "./dokumenter/Dokumenter";
+import Dokumenter from "./dokumenter";
 import { getLanguage } from "../../language/language";
-import styles from "./Dokumentarkiv.module.css";
+import styles from "./dokumenter.module.css"
 
 const language = getLanguage(Astro.url);
 ---
 
-<div class={styles.dokumentarkiv}>
+<div class={styles.container}>
   <Dokumenter language={language} client:only="react" />
 </div>
