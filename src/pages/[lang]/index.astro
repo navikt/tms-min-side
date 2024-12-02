@@ -9,6 +9,7 @@ import Container from "@components/container/Container.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
 import Feilmelding from "@components/feilmelding/Feilmelding";
+import Infomelding from "@components/infomelding/Infomelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "../../components/aktuelt/Aktuelt";
@@ -19,6 +20,7 @@ const language = getLanguage(Astro.url);
 
 <Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
+    <Infomelding language={language} client:only="react"/>
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
