@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { fetcher } from "@utils/client/api.ts";
+import { fetcher, include } from "@utils/client/api.ts";
 import { setIsError } from "../../store/store.ts";
 import { Language } from "@language/language.ts";
 import type { DokumentType } from "@components/dokumenter/dokumenterTypes.ts";
@@ -11,13 +11,14 @@ import { dokumentarkivUrl, dokumenterUrl } from "@components/dokumenter/dokument
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import { text } from "@language/dokumenter.ts"
 import styles from "./dokumenter.module.css";
+import { options } from "../../../dist/server/entry.mjs";
 
 interface Props {
   language: Language;
 }
 
 const Dokumenter = ({ language }: Props) => {
-  const { data: dokumenter, isLoading, error } = useSWRImmutable<DokumentType[]>({ path: dokumenterUrl }, fetcher);
+  const { data: dokumenter, isLoading, error } = useSWRImmutable<DokumentType[]>({ path: dokumenterUrl, options: include }, fetcher);
   const hasDokumenter = dokumenter && dokumenter.length > 0;
 
   if (isLoading) {
