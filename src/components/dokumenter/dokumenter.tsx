@@ -7,7 +7,7 @@ import Dokument from "@components/dokumenter/dokument/dokument.tsx";
 import IngenDokumenter from "@components/dokumenter/ingen/IngenDokumenter.tsx";
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
-import { dokumentarkivUrl, journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
+import { dokumentarkivUrl, dokumenterUrl } from "@components/dokumenter/dokumenterUrls.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import { text } from "@language/dokumenter.ts"
 import styles from "./dokumenter.module.css";
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Dokumenter = ({ language }: Props) => {
-  const { data: dokumenter, isLoading, error } = useSWRImmutable<DokumentType[]>({ path: journalposterUrl }, fetcher);
+  const { data: dokumenter, isLoading, error } = useSWRImmutable<DokumentType[]>({ path: dokumenterUrl }, fetcher);
   const hasDokumenter = dokumenter && dokumenter.length > 0;
 
   if (isLoading) {
