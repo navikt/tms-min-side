@@ -14,7 +14,6 @@ import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
 import UtbetalingFallback from "../components/utbetaling/fallback/UtbetalingFallback.astro";
-import UtbetalingContent from "../components/utbetaling/content/UtbetalingContent.tsx";
 
 const language = getLanguage(Astro.url);
 ---
@@ -29,9 +28,6 @@ const language = getLanguage(Astro.url);
       <Utbetaling server:defer>
         <UtbetalingFallback slot="fallback" />
       </Utbetaling>
-      <div>
-        <UtbetalingContent language={language} client:only="react"/>
-      </div>
       <Innboks />
       <Dokumentarkiv />
       <Aktuelt language={language} client:only="react" />
