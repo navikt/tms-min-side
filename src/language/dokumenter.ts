@@ -29,4 +29,9 @@ export const text = {
     nn: "Regnskap/utbetaling/årsoppgave",
     en: "Regnskap/utbetaling/årsoppgave",
   },
+  alle: {
+    nb: "Se alle",
+    nn: "Se alle",
+    en: "See all",
+  },
 };

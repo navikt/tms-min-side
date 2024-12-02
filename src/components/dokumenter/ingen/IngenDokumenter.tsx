@@ -1,6 +1,6 @@
 import { Language } from "@language/language.ts";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
-import { text } from "@language/dokumentarkiv.ts";
+import { text } from "@language/dokumenter.ts";
 import { dokumentarkivUrl } from "@components/dokumenter/dokumenterUrls.ts";
 import styles from "./IngenDokumenter.module.css";
 
