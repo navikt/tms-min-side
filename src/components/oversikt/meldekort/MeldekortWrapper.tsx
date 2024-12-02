@@ -6,7 +6,7 @@ const MeldekortWrapper = () => {
   const Meldekort = React.lazy(() => import(meldekortUrl));
   return (
     <React.Suspense fallback={null}>
-      <ErrorBoundary>
+      <ErrorBoundary url={meldekortUrl}>
         <Meldekort />
       </ErrorBoundary>
     </React.Suspense>

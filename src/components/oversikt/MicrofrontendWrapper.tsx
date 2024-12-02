@@ -7,7 +7,7 @@ const MicrofrontendWrapper = ({ manifestUrl }: { manifestUrl: string }) => {
 
   return (
     <React.Suspense fallback={<Skeleton variant="rectangle" width={444} height={124} />}>
-      <ErrorBoundary>
+      <ErrorBoundary url={manifestUrl}>
         <Microfrontend />
       </ErrorBoundary>
     </React.Suspense>

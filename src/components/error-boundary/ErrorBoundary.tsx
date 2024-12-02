@@ -4,6 +4,7 @@ import { setIsError } from "../../store/store.ts";
 
 type Props = {
   children?: React.ReactNode;
+  url?: string;
 };
 
 interface State {
@@ -22,7 +23,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error) {
     setIsError();
-    faro.api.pushLog([`Feil i en microfrontend: ${error}`]);
+    faro.api.pushError(new Error(`Feil i en microfrontend: ${error}. Url: ${this.props?.url}`));
   }
 
   render() {
