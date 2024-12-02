@@ -9,7 +9,7 @@ import { BodyShort, Heading } from "@navikt/ds-react";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { dokumentarkivUrl, journalposterUrl } from "@components/dokumenter/dokumenterUrls.ts";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
-import text from "@language/dokumenter.ts"
+import { text } from "@language/dokumenter.ts"
 import styles from "./dokumenter.module.css";
 
 interface Props {
@@ -23,7 +23,7 @@ const Dokumenter = ({ language }: Props) => {
   if (isLoading) {
     return (
       <>
-        <Heading size="xsmall" as="h2" spacing>{text.heading}</Heading>
+        <Heading size="xsmall" as="h2" spacing>{text.heading[language]}</Heading>
         <Skeleton variant="text" height="50px" width="100%" />
         <Skeleton variant="text" height="50px" width="100%" />
         <Skeleton variant="text" height="50px" width="100%" />
@@ -41,7 +41,7 @@ const Dokumenter = ({ language }: Props) => {
 
   return (
     <>
-      <Heading size="xsmall" as="h2" spacing>{text.heading}</Heading>
+      <Heading size="xsmall" as="h2" spacing>{text.heading[language]}</Heading>
       <ul className={styles.dokumenter}>
         {dokumenter?.slice(0, 3).map((dokument) => (
           <Dokument key={dokument.dokumentInfoId} dokument={dokument} />
@@ -49,7 +49,7 @@ const Dokumenter = ({ language }: Props) => {
         <div className={styles.alle}>
           <a className={styles.link} href={dokumentarkivUrl}>
             <BodyShort size="medium">
-              {text.alle}
+              {text.alle[language]}
             </BodyShort>
           </a>
           <ChevronRightIcon fontSize="20px" />
