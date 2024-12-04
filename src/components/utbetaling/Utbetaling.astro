@@ -8,7 +8,8 @@ import type { UtbetalingResponse } from "./utbetalingTypes";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
 import styles from "./Utbetaling.module.css";
 
-const oboToken = await getOboToken(Astro.locals.token);
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utbetalingsoversikt-api`;
+const oboToken = await getOboToken(Astro.locals.token, audience);
 let isError =  false;
 
 const response: UtbetalingResponse = await fetch(utbetalingsoversiktApiUrl, {

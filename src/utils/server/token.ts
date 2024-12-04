@@ -1,9 +1,7 @@
 import { requestOboToken } from "@navikt/oasis";
 import { isLocal } from "@utils/server/environment.ts";
 
-const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
-
-export const getOboToken = async (token: string): Promise<string> => {
+export const getOboToken = async (token: string, audience: string): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
 
   if (isLocal) {
