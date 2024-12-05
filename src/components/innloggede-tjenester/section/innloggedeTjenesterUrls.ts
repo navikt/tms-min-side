@@ -550,9 +550,9 @@ const annetLenkerProd = [
     }
   },
   {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Documents",
+    nb: "Siste dokumenter",
+    nn: "Siste dokument",
+    en: "Recent documents",
     url: {
       nb: "https://www.nav.no/dokumentarkiv",
       nn: "https://www.nav.no/dokumentarkiv/nn",
@@ -593,9 +593,9 @@ const annetLenkerDev = [
     }
   },
   {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Documents",
+    nb: "Siste dokumenter",
+    nn: "Siste dokument",
+    en: "Recent documents",
     url: {
       nb: "https://www.intern.dev.nav.no/dokumentarkiv",
       nn: "https://www.intern.dev.nav.no/dokumentarkiv/nn",
