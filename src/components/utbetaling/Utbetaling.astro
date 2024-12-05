@@ -4,8 +4,9 @@ import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 import { getLanguage } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
-import type { UtbetalingResponse } from "./utbetalingTypes";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
+import UtbetalingError from "./error/UtbetalingError";
+import type { UtbetalingResponse } from "./utbetalingTypes";
 import styles from "./Utbetaling.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utbetalingsoversikt-api`;
@@ -41,10 +42,11 @@ const data = isError ?
     kommende: null
   } : response;
 
+console.log(isError)
 const language = getLanguage(Astro.url);
 ---
 
-{isError && (<div>Error</div>)}
+{isError && <UtbetalingError client:only="react" />}
 <div class={styles.container}>
   {data.hasUtbetaling && (
     <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} />
