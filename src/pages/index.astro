@@ -8,12 +8,12 @@ import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjen
 import Dokumentarkiv from "@components/dokumentarkiv/Dokumentarkiv.astro";
 import Container from "@components/container/Container.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
+import UtbetalingFallback from "../components/utbetaling/fallback/UtbetalingFallback.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
-import UtbetalingFallback from "../components/utbetaling/fallback/UtbetalingFallback.astro";
 
 const language = getLanguage(Astro.url);
 ---
