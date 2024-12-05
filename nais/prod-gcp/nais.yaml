@@ -35,6 +35,7 @@ spec:
         - application: nav-dekoratoren
           namespace: personbruker
         - application: tms-min-side-proxy
+        - application: tms-utbetalingsoversikt-api
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
