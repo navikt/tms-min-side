@@ -5,6 +5,7 @@
 
 .detaljer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-bottom: 0.15rem;
 }
@@ -16,7 +17,7 @@
     border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
 }
 
-/* --- */
+/* ---- */
 
 .wrapper {
     display: flex;
@@ -32,6 +33,7 @@
     padding: 1rem 1.25rem 1rem 1.25rem;
     text-decoration: none;
     color: inherit;
+    background: var(--a-bg-subtle);
 }
 
 .utbetalt {
