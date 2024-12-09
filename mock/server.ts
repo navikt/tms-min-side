@@ -4,7 +4,6 @@ import { cors } from "hono/cors";
 import manifest from "./data/microfrontend/manifest.json" assert { type: "json" };
 import navn from "./data/navn.json" assert { type: "json" };
 import selector from "./data/selector.json" assert { type: "json" };
-import sakstemaerEgne from "./data/sakstemaer-egne.json" assert { type: "json" };
 import varsler from "./data/varsler.json" assert { type: "json" };
 import utkast from "./data/utkast.json" assert { type: "json" };
 import utbetalinger from "./data/utbetalinger.json" assert { type: "json" };
@@ -37,7 +36,7 @@ api.get('/utkast', (c) => {
 });
 
 api.get('/utbetalinger/siste', (c) => {
-  return c.json(utbetalinger);
+   return c.json(utbetalinger);
 });
 
 api.get('/innboks', (c) => {
