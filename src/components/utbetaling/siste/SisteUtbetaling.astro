@@ -12,13 +12,14 @@ import styles from "./SisteUtbetaling.module.css";
 
 interface Props {
   sisteUtbetaling: SisteUtbetaling;
+  kommende: boolean;
 }
 
-const { sisteUtbetaling } = Astro.props;
+const { sisteUtbetaling, kommende } = Astro.props;
 const language = getLanguage(Astro.url);
 ---
 
-<div class={styles.container}>
+{kommende ? null : <div class={styles.container}>
   <div class={styles.detaljer}>
     <div class={styles.detaljerContainer}>
       <div class={styles.heading}>
@@ -53,4 +54,4 @@ const language = getLanguage(Astro.url);
       <Chevron />
     </a>
   </div>
-</div>
+</div>}
