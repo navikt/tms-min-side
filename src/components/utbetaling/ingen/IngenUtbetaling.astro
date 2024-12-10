@@ -1,0 +1,29 @@
+---
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { Label } from "@navikt/ds-react/cjs/typography/Label.js";
+import { getLanguage } from "../../../language/language";
+import { text } from "../../../language/utbetaling";
+import styles from "./IngenUtbetaling.module.css";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+
+const language = getLanguage(Astro.url);
+---
+
+<div>
+  <div class={styles.header}>
+    <BodyShort as="h2">
+      {text.tittel[language]}
+    </BodyShort>
+  </div>
+  <div class={styles.content}>
+    <BodyLong className={styles.text}>
+      {text.ingen[language]}
+    </BodyLong>
+    <Label size="small">
+      <a class="navds-button navds-button--primary-neutral navds-button--small" href={utbetalingsoversiktUrl}>
+        {text.tidligere[language]}
+      </a>
+    </Label>
+  </div>
+</div>

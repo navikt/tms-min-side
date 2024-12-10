@@ -1,6 +1,6 @@
 {
 	"hasKommende": false,
-	"hasUtbetaling": true,
+	"hasUtbetaling": false,
 	"sisteUtbetaling": {
   		"utbetaling": 1234,
   		"dato": "2023-11-14",

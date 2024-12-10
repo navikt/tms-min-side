@@ -1,0 +1,146 @@
+.container {
+    margin-top: var(--tms-space-between-sections);
+    min-height: 9.75rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.containerYtelse {
+    display: flex;
+    width: 100%;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.utbetalt {
+    background: var(--a-bg-subtle);
+}
+
+.utbetalt:hover {
+    background: var(--a-surface-neutral-subtle-hover);
+}
+
+.kommende {
+    background: var(--a-surface-success-subtle);
+}
+
+.kommende:hover {
+    background: var(--a-surface-success-subtle-hover);
+}
+
+.ytelse {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sum {
+    font-weight: 600;
+}
+
+.ingen {
+    /*
+    display: flex;
+    justify-content: center;
+     */
+}
+
+.linkAlle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--a-bg-subtle);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    color: var(--a-text-default);
+    text-decoration: none;
+}
+
+.linkAlle:hover {
+    background-color: var(--a-surface-neutral-subtle-hover);
+    border: none;
+    text-decoration: underline;
+}
+
+.linkAlle:hover .chevron {
+    transition-duration: 0.2s;
+    transform: translate(3px, 0);
+}
+
+.chevron {
+    flex-shrink: 0;
+}
+
+.detaljer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.15rem;
+}
+
+.detaljerContainer {
+    background: var(--a-bg-subtle);
+    width: 100%;
+    padding: 1rem 1rem 0.75rem;
+    border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+}
+
+.kommendeUtbetaling {
+    background: var(--a-surface-success-subtle);
+}
+
+.chevron {
+    flex-shrink: 0;
+}
+
+.container:hover .chevron {
+    transition-duration: 0.2s;
+    transform: translate(3px, 0);
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    color: var(--a-text-default);
+}
+
+.link:hover {
+    text-decoration: none;
+}
+
+/* Ingen */
+
+.ingenHeader {
+    color: var(--a-text-default);
+    background: var(--a-bg-subtle);
+    padding: 1rem 1rem 0.75rem 1rem;
+    border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+    margin-bottom: 0.125rem;
+}
+
+.ingenContent {
+    color: var(--a-text-subtle);
+    background: var(--a-bg-subtle);
+    padding: 1.25rem 1rem 1.25rem 1.25rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.ingenText {
+    padding-bottom: 2.25rem;
+}
+
+@media (min-width: 648px) {
+
+    .ingenHeader {
+        padding: 1rem 1.25rem 0.75rem 1.25rem;
+    }
+}

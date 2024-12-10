@@ -11,7 +11,6 @@ import { dokumentarkivUrl, dokumenterUrl } from "@components/dokumenter/dokument
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton";
 import { text } from "@language/dokumenter.ts"
 import styles from "./dokumenter.module.css";
-import { options } from "../../../dist/server/entry.mjs";
 
 interface Props {
   language: Language;

@@ -37,7 +37,7 @@ api.get('/utkast', (c) => {
 });
 
 api.get('/utbetalinger/siste', (c) => {
-  return c.json(utbetalinger);
+   return c.json(utbetalinger);
 });
 
 api.get('/innboks', (c) => {

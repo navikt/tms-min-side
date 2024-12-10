@@ -3,7 +3,8 @@ import { getOboToken } from "@utils/server/token";
 import { navnUrl } from "./personaliaUrls";
 import style from "./Personalia.module.css";
 
-const oboToken = await getOboToken(Astro.locals.token);
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
+const oboToken = await getOboToken(Astro.locals.token, audience);
 let isError =  false;
 
 const response = await fetch(navnUrl, {

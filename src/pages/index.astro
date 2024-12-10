@@ -8,6 +8,7 @@ import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjen
 import Dokumenter from "@components/dokumenter/dokumenter.astro";
 import Container from "@components/container/Container.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
+import UtbetalingFallback from "../components/utbetaling/fallback/UtbetalingFallback.astro";
 import Innboks from "@components/innboks/Innboks.astro";
 import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
@@ -24,7 +25,9 @@ const language = getLanguage(Astro.url);
     <AlertIsland />
     <DinOversikt language={language} client:only="react" />
     <Container>
-      <Utbetaling />
+      <Utbetaling server:defer>
+        <UtbetalingFallback slot="fallback" />
+      </Utbetaling>
       <Innboks />
       <Dokumenter />
       <Aktuelt language={language} client:only="react" />

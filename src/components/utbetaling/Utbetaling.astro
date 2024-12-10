@@ -1,11 +1,60 @@
 ---
-import UtbetalingContent from "./content/UtbetalingContent";
-import { getLanguage } from "@language/language";
+import { getOboToken } from "../../utils/server/token";
+import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
+import { getLanguage } from "../../language/language";
+import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
+import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
+import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
+import UtbetalingError from "./error/UtbetalingError";
+import type { UtbetalingResponse } from "./utbetalingTypes";
 import styles from "./Utbetaling.module.css";
 
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utbetalingsoversikt-api`;
+const oboToken = await getOboToken(Astro.locals.token, audience);
+let isError =  false;
+
+const response: UtbetalingResponse = await fetch(utbetalingsoversiktApiUrl, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${oboToken}`,
+  },
+}).then((response) => {
+  if (!response.ok) {
+    console.error(`Error, fetch failed with status: ${response.status}`);
+    isError = true;
+    return;
+  }
+
+  return response.json();
+}).catch((error) => {
+  console.error(`Error, fetch failed: ${error}`);
+  isError = true;
+  return;
+});
+
+const data = isError ?
+  {
+    hasKommende: false,
+    hasUtbetaling: false,
+    sisteUtbetaling: null,
+    kommende: null
+  } : response;
+
+console.log(isError);
 const language = getLanguage(Astro.url);
 ---
 
+{isError && <UtbetalingError client:only="react" />}
 <div class={styles.container}>
-  <UtbetalingContent language={language} client:only="react" />
+  {data.hasUtbetaling && (
+    <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} />
+  )}
+  {data.hasKommende && (
+    <KommendeUtbetaling kommende={data.kommende} />
+  )}
+  {!data.hasKommende && !data.hasUtbetaling && (
+    <IngenUtbetaling />
+  )}
 </div>
