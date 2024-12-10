@@ -12,14 +12,14 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/node": "8.3.3",
-    "@astrojs/react": "3.6.2",
+    "@astrojs/node": "9.0.0",
+    "@astrojs/react": "4.0.0",
     "@grafana/faro-web-sdk": "1.7.3",
     "@nanostores/react": "0.7.2",
     "@navikt/ds-react": "5.7.2",
     "@navikt/nav-dekoratoren-moduler": "2.1.6",
     "@navikt/oasis": "^3.3.0",
-    "astro": "4.15.4",
+    "astro": "5.0.4",
     "dayjs": "1.11.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
