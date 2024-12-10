@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0.15rem;
+    margin-top: var(--tms-space-between-sections);
 }
 
 .detaljerContainer {
@@ -17,7 +18,7 @@
     border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
 }
 
-/* ---- */
+/* -- TODO: clean this-- */
 
 .wrapper {
     display: flex;
