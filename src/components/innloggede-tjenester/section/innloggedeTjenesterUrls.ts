@@ -222,9 +222,9 @@ const hjelpemidlerLenkerProd = [
     nn: "Uføretrygd",
     en: "Disability benefit",
     url: {
-      nb: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-      nn: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-      en: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
+      nb: "https://www.nav.no/uforetrygd/selvbetjening",
+      nn: "https://www.nav.no/uforetrygd/selvbetjening",
+      en: "https://www.nav.no/uforetrygd/selvbetjening",
     }
   },
   {
@@ -550,9 +550,9 @@ const annetLenkerProd = [
     }
   },
   {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Documents",
+    nb: "Siste dokumenter",
+    nn: "Siste dokument",
+    en: "Recent documents",
     url: {
       nb: "https://www.nav.no/dokumentarkiv",
       nn: "https://www.nav.no/dokumentarkiv/nn",
@@ -579,16 +579,6 @@ const annetLenkerProd = [
       en: "https://innboks.nav.no/",
     }
   },
-  {
-    nb: "Søknad og skjema",
-    nn: "Søknad og skjema",
-    en: "Applications and forms",
-    url: {
-      nb: "https://www.nav.no/soknader",
-      nn: "https://www.nav.no/soknader",
-      en: "https://www.nav.no/soknader/en/person",
-    }
-  },
 ];
 
 const annetLenkerDev = [
@@ -603,9 +593,9 @@ const annetLenkerDev = [
     }
   },
   {
-    nb: "Dokumentarkiv",
-    nn: "Dokumentarkiv",
-    en: "Documents",
+    nb: "Siste dokumenter",
+    nn: "Siste dokument",
+    en: "Recent documents",
     url: {
       nb: "https://www.intern.dev.nav.no/dokumentarkiv",
       nn: "https://www.intern.dev.nav.no/dokumentarkiv/nn",
@@ -630,16 +620,6 @@ const annetLenkerDev = [
       nb: "https://innboks.nav.no/",
       nn: "https://innboks.nav.no/",
       en: "https://innboks.nav.no/",
-    }
-  },
-  {
-    nb: "Søknad og skjema",
-    nn: "Søknad og skjema",
-    en: "Applications and forms",
-    url: {
-      nb: "https://www.nav.no/soknader",
-      nn: "https://www.nav.no/soknader",
-      en: "https://www.nav.no/soknader/en/person",
     }
   },
 ];

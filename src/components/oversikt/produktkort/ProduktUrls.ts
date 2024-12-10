@@ -27,9 +27,9 @@ const produktlinkerDev = {
     en: "https://www.nav.no/syk/sykefravaer",
   },
   uføretrygd: {
-    nb: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-    nn: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-    en: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
+    nb: "https://www.nav.no/uforetrygd/selvbetjening",
+    nn: "https://www.nav.no/uforetrygd/selvbetjening",
+    en: "https://www.nav.no/uforetrygd/selvbetjening",
   },
   sosialhjelp: {
     nb: "https://www.nav.no/sosialhjelp/innsyn/",

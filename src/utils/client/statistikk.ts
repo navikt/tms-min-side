@@ -1,8 +1,8 @@
-import { getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const INNLOGGINGSSTATISTIKK_URL = {
   local: "http://localhost:3000/statistikk",
-  dev: "https://www.intern.dev.nav.no/tms-min-side-proxy/statistikk/innlogging",
+  dev: `${getDevBaseUrl}/tms-min-side-proxy/statistikk/innlogging`,
   prod: "https://www.nav.no/tms-min-side-proxy/statistikk/innlogging",
 };
 

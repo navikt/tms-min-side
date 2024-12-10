@@ -1,0 +1,29 @@
+[
+  {
+    "tittel": "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet",
+    "opprettet": "2021-07-10T08:27:01Z",
+    "dokumentInfoId": "624887896",
+    "journalpostId": "598134457",
+    "temakode": "AAP",
+    "avsender": null,
+    "mottaker": "TRYGDERETTEN"
+  },
+  {
+    "tittel": "Vedtak om å beholde arbeidsavklaringspenger under opphold i innlandet",
+    "opprettet": "2021-07-10T08:27:01Z",
+    "dokumentInfoId": "624887896",
+    "journalpostId": "598134897",
+    "temakode": "FOR",
+    "avsender": null,
+    "mottaker": "TRYGDERETTEN"
+  },
+  {
+    "tittel": "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet",
+    "opprettet": "2020-12-10T15:27:01Z",
+    "dokumentInfoId": "621234104",
+    "journalpostId": "598167457",
+    "temakode": "PEN",
+    "avsender": "Navn Navnesen",
+    "mottaker": null
+  }
+]
