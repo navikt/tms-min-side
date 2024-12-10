@@ -5,6 +5,7 @@ import { Label } from "@navikt/ds-react/cjs/typography/Label.js";
 import { getLanguage } from "../../../language/language";
 import { text } from "../../../language/utbetaling";
 import styles from "./IngenUtbetaling.module.css";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 
 const language = getLanguage(Astro.url);
 ---
@@ -20,7 +21,7 @@ const language = getLanguage(Astro.url);
       {text.ingen[language]}
     </BodyLong>
     <Label size="small">
-      <a class="navds-button navds-button--primary-neutral navds-button--small" href={"utbetalingsoversiktUrl"}>
+      <a class="navds-button navds-button--primary-neutral navds-button--small" href={utbetalingsoversiktUrl}>
         {text.tidligere[language]}
       </a>
     </Label>
