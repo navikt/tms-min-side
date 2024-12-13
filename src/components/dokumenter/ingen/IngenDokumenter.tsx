@@ -36,7 +36,7 @@ const IngenDokumenter = ({ language }: Props) => {
         </div>
         <div className={styles.skeletonContainer} />
         <a className={styles.link} href={spraakTilpassetDokumentarkivUrl(language)}>
-          {text.dokumentarkiv[language]}
+          {text.tidligere[language]}
         </a>
       </div>
     </>
