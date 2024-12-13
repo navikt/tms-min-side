@@ -30,8 +30,13 @@ export const text = {
     en: "Regnskap/utbetaling/årsoppgave",
   },
   alle: {
-    nb: "Se alle",
-    nn: "Se alle",
-    en: "See all",
+    nb: "Se alle dokumenter",
+    nn: "Se alle dokument",
+    en: "See all documents",
   },
+  tidligere: {
+    nb: "Se tidligere dokumenter",
+    nn: "Se tidlegare dokument",
+    en: "See previous documents",
+  }
 };
