@@ -5,8 +5,9 @@ import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
 import ClientError from "../client-error/ClientError";
-import { fetchUtbetaling } from "./fetchUtbetaling";
+import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 import type { Utbetaling } from "./utbetalingTypes";
+import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utbetalingsoversikt-api`;
@@ -17,7 +18,7 @@ let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetali
 let isError = false;
 
 try {
-    data = await fetchUtbetaling(oboToken);
+    data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
   } catch (error: any) {
     console.error("Fetch failed.", error.message);
     isError = true;

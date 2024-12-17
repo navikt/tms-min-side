@@ -1,7 +1,8 @@
 ---
-import { fetchNavn } from "./fetchNavn";
 import { getOboToken } from "../../utils/server/token";
 import ClientError from "../client-error/ClientError";
+import { navnUrl } from "./personaliaUrls";
+import { fetchData } from "../../utils/server/fetch";
 import style from "./Personalia.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
@@ -11,7 +12,7 @@ let data = { navn: "", ident: "" };
 let isError = false;
 
 try {
-  data = await fetchNavn(oboToken);
+  data = await fetchData(oboToken, navnUrl);
 } catch (error: any) {
   console.error("Fetch failed.", error.message);
   isError = true;
