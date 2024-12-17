@@ -1,7 +1,8 @@
-import { navnUrl } from "./personaliaUrls";
+import type { Utbetaling } from "./utbetalingTypes";
+import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 
-export const fetchNavn = async (oboToken: string) => {
-  const response = await fetch(navnUrl, {
+export const fetchUtbetaling = async (oboToken: string): Promise<Utbetaling> => {
+  const response = await fetch(utbetalingsoversiktApiUrl, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

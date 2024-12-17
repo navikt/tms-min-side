@@ -12,6 +12,7 @@ import innboks from "./data/innboks.json" assert { type: "json" };
 import status from "./data/status.json" assert { type: "json" };
 import mikrofrontend from "./data/microfrontend/mikrofrontend.js";
 import { mikrofrontendBundle } from "./data/microfrontend/microfrontend-oversikt.ts";
+import { HTTPException } from "hono/http-exception";
 
 const api = new Hono();
 
