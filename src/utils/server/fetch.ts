@@ -1,7 +1,5 @@
-import { navnUrl } from "./personaliaUrls";
-
-export const fetchNavn = async (oboToken: string) => {
-  const response = await fetch(navnUrl, {
+export const fetchData = async (oboToken: string,  url: string) => {
+  const response = await fetch(url, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
