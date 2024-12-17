@@ -6,13 +6,22 @@ import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
 import UtbetalingError from "./error/UtbetalingError";
 import { fetchUtbetaling } from "./fetchUtbetaling";
+import type { Utbetaling } from "./utbetalingTypes";
 import styles from "./Utbetaling.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utbetalingsoversikt-api`;
 const oboToken = await getOboToken(Astro.locals.token, audience);
-
-const { data, isError } = fetchUtbetaling(oboToken);
 const language = getLanguage(Astro.url);
+
+let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetaling: null, kommende: null };
+let isError = false;
+
+try {
+    data = await fetchUtbetaling(oboToken);
+  } catch (error: any) {
+    console.error("Fetch failed.", error.message);
+    isError = true;
+}
 ---
 
 {isError && <UtbetalingError client:only="react" />}
