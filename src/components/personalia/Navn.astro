@@ -6,7 +6,15 @@ import style from "./Personalia.module.css";
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-const { data, isError } = await fetchNavn(oboToken);
+let data = { navn: "", ident: "" };
+let isError = false;
+
+try {
+  data = await fetchNavn(oboToken);
+} catch (error: any) {
+  console.error("Fetch failed.", error.message);
+  isError = true;
+}
 ---
 
 <span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
