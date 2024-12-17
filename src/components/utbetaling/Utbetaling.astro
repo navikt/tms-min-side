@@ -4,7 +4,7 @@ import { getLanguage } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
-import UtbetalingError from "./error/UtbetalingError";
+import ClientError from "../client-error/ClientError";
 import { fetchUtbetaling } from "./fetchUtbetaling";
 import type { Utbetaling } from "./utbetalingTypes";
 import styles from "./Utbetaling.module.css";
@@ -24,7 +24,7 @@ try {
 }
 ---
 
-{isError && <UtbetalingError client:only="react" />}
+{isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   {data.hasUtbetaling && (
     <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} kommende={data.kommende} />
