@@ -1,34 +1,12 @@
 ---
-import { getOboToken } from "@utils/server/token";
-import { navnUrl } from "./personaliaUrls";
+import { fetchNavn } from "./fetchNavn";
+import { getOboToken } from "../../utils/server/token";
 import style from "./Personalia.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
 const oboToken = await getOboToken(Astro.locals.token, audience);
-let isError =  false;
 
-const response = await fetch(navnUrl, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${oboToken}`,
-  },
-}).then((response) => {
-  if (!response.ok) {
-    console.error(`Error, fetch failed with status: ${response.status}`);
-    isError = true;
-    return;
-  }
-
-  return response.json();
-}).catch((error) => {
-  console.error(`Error, fetch failed: ${error}`);
-  isError = true;
-  return;
-});
-
-const data = isError ? { navn: "" } : response;
+const { data, isError } = await fetchNavn(oboToken);
 ---
 
 <span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
