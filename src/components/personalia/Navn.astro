@@ -1,6 +1,7 @@
 ---
 import { fetchNavn } from "./fetchNavn";
 import { getOboToken } from "../../utils/server/token";
+import ClientError from "../client-error/ClientError";
 import style from "./Personalia.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
@@ -17,4 +18,6 @@ try {
 }
 ---
 
+{isError && <ClientError client:only="react" />}
 <span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
+
