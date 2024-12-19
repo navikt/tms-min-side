@@ -3,7 +3,7 @@ import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "../../.
 import { text } from "../../../language/varsler";
 import { getOboToken } from "../../../utils/server/token";
 import { fetchData } from "../../../utils/server/fetch";
-import { antallVarslerUrl } from "./varslerUrls";
+import { varselApiUrl } from "./varslerUrls";
 import { varslerUrl } from "./varslerUrls";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll";
@@ -20,7 +20,7 @@ let data = { "oppgaver": 0, "beskjeder": 0, "innbokser": 0 };
 let isError = false;
 
 try {
-    data = await fetchData(oboToken, antallVarslerUrl);
+    data = await fetchData(oboToken, varselApiUrl);
   } catch (error: any) {
     console.error("Fetching varsler failed.", error.message);
     isError = true;

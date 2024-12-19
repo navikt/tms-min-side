@@ -1,12 +1,12 @@
 ---
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
-import { antallUtkastUrl, utkastUrl } from "./utkastUrls";
-import { text } from "@language/utkast.ts";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
 import { getLanguage } from "../../../language/language";
 import { fetchData } from "../../../utils/server/fetch";
 import { getOboToken } from "../../../utils/server/token";
+import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
+import { text } from "@language/utkast.ts";
 import style from "./Utkast.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;
@@ -17,7 +17,7 @@ let data = { "antall": 0 };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, antallUtkastUrl);
+  data = await fetchData(oboToken, utkastApiUrl);
 } catch (error: any) {
   console.error("Fetching utkast failed.", error.message);
   isError = true;
@@ -27,6 +27,7 @@ const antall = (data ? data.antall : 0);
 const hasUtkast = antall > 0;
 const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](antall);
 ---
+
 {isError && <ClientError client:only="react" />}
 {hasUtkast &&
   <div class={style.wrapper}>

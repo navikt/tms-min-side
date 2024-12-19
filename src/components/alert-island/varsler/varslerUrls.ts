@@ -1,4 +1,5 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getDevBaseUrl } from "@utils/client/environment.ts";
+import { getEnvironment } from "../../../utils/server/environment";
 
 const VARSLER_URL = {
   local: "http://localhost:3000/minside/varsler",
@@ -6,11 +7,11 @@ const VARSLER_URL = {
   prod: "https://www.nav.no/minside/varsler",
 };
 
-const VARSLER_API_URL = {
+const VARSEL_API_URL = {
   local: "http://localhost:3000/varsler",
-  dev: `${getDevBaseUrl}/tms-varsel-api/antall/aktive`,
-  prod: "https://www.nav.no/tms-varsel-api/antall/aktive",
+  dev: `http://tms-varsel-api/tms-varsel-api/antall/aktive`,
+  prod: "http://tms-varsel-api/tms-varsel-api/antall/aktive",
 };
 
-export const varslerUrl = VARSLER_URL[getEnvironmentClientSide()];
-export const antallVarslerUrl = VARSLER_API_URL[getEnvironmentClientSide()];
+export const varslerUrl = VARSLER_URL[getEnvironment()];
+export const varselApiUrl = VARSEL_API_URL[getEnvironment()];

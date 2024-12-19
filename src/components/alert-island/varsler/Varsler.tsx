@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { antallVarslerUrl } from "./varslerUrls.ts";
+import { varselApiUrl } from "./varslerUrls.ts";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "@utils/client/varsler.ts";
 import type { Language } from "@language/language.ts";
 import { text } from "@language/varsler.ts"
@@ -24,7 +24,7 @@ interface VarslerResponse {
 }
 
 const Varsler = ({ language }: Props) => {
-  const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: antallVarslerUrl }, fetcher);
+  const { data, isLoading, error } = useSWRImmutable<VarslerResponse>({ path: varselApiUrl }, fetcher);
 
   if (isLoading) {
     return null;
