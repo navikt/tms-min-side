@@ -11,8 +11,7 @@ import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll";
 import { getLanguage } from "../../../language/language";
 import style from "./Varsler.module.css";
 
-// TODO: fix audience
-const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-varsel-api`;
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const language = getLanguage(Astro.url);
 
@@ -35,7 +34,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
 ---
 
-{!hasVarsler(varsler) ?
+{!hasVarsler(varsler) ? (
   <div class={style.wrapper}>
     <a href={varslerUrl} class={style.varsler}>
       <IngenVarslerIkon />
@@ -46,7 +45,7 @@ const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text
         </p>
       </div>
     </a>
-  </div> :
+  </div>) : (
   <div class={style.wrapper}>
     <a href={varslerUrl} class={style.varsler}>
       <div class={style.ikonRektangel}>
@@ -60,6 +59,6 @@ const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text
         </p>
       </div>
     </a>
-  </div>
+  </div>)
 }
 
