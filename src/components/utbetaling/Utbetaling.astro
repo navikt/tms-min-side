@@ -20,7 +20,7 @@ let isError = false;
 try {
     data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
   } catch (error: any) {
-    console.error("Fetch failed.", error.message);
+    console.error("Fetching utbetaling failed.", error.message);
     isError = true;
 }
 ---
