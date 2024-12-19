@@ -1,7 +1,7 @@
 ---
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "../../../utils/client/varsler";
 import { text } from "../../../language/varsler";
-import { getOboToken } from "../../../utils/server/token";
+import { getAudience, getOboToken } from "../../../utils/server/token";
 import { fetchData } from "../../../utils/server/fetch";
 import { varselApiUrl } from "./varslerUrls";
 import { varslerUrl } from "./varslerUrls";
@@ -12,9 +12,8 @@ import { getLanguage } from "../../../language/language";
 import ClientError from "../../client-error/ClientError";
 import style from "./Varsler.module.css";
 
-const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-varsel-api`;
+const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const language = getLanguage(Astro.url);
 
 let data = { "oppgaver": 0, "beskjeder": 0, "innbokser": 0 };
 let isError = false;
@@ -30,9 +29,9 @@ const oppgaver = data.oppgaver || 0;
 const beskjeder = data.beskjeder + data.innbokser;
 const varsler = beskjeder + oppgaver;
 
+const language = getLanguage(Astro.url);
 const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[language] : text.oppgaver[language];
 const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
-const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -57,7 +56,7 @@ const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text
       <div class={style.container}>
         <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
         <p class="navds-body-long navds-body-long--small">
-          {varselText}
+          {buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}
         </p>
       </div>
     </a>

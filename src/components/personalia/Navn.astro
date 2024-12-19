@@ -1,11 +1,11 @@
 ---
-import { getOboToken } from "../../utils/server/token";
+import { getAudience, getOboToken } from "../../utils/server/token";
 import ClientError from "../client-error/ClientError";
 import { navnUrl } from "./personaliaUrls";
 import { fetchData } from "../../utils/server/fetch";
 import style from "./Personalia.module.css";
 
-const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
+const audience = getAudience("tms-min-side-proxy");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data = { navn: "", ident: "" };

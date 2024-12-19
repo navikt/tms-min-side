@@ -3,15 +3,14 @@ import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
 import { getLanguage } from "../../../language/language";
 import { fetchData } from "../../../utils/server/fetch";
-import { getOboToken } from "../../../utils/server/token";
+import { getAudience, getOboToken } from "../../../utils/server/token";
 import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
 import { text } from "@language/utkast.ts";
 import style from "./Utkast.module.css";
 
-const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;
+const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const language = getLanguage(Astro.url);
 
 let data = { "antall": 0 };
 let isError = false;
@@ -23,6 +22,7 @@ try {
   isError = true;
 }
 
+const language = getLanguage(Astro.url);
 const antall = (data ? data.antall : 0);
 const hasUtkast = antall > 0;
 const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](antall);
