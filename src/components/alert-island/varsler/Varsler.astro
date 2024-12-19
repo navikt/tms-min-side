@@ -9,19 +9,20 @@ import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll";
 import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll";
 import { getLanguage } from "../../../language/language";
+import ClientError from "../../client-error/ClientError";
 import style from "./Varsler.module.css";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-varsel-api`;
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const language = getLanguage(Astro.url);
 
-let data = { "oppgaver": 3, "beskjeder": 2, "innbokser": 4 };
+let data = { "oppgaver": 0, "beskjeder": 0, "innbokser": 0 };
 let isError = false;
 
 try {
     data = await fetchData(oboToken, antallVarslerUrl);
   } catch (error: any) {
-    console.error("Fetch failed.", error.message);
+    console.error("Fetching varsler failed.", error.message);
     isError = true;
 }
 
@@ -34,6 +35,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
 ---
 
+{isError && <ClientError client:only="react" />}
 {!hasVarsler(varsler) ? (
   <div class={style.wrapper}>
     <a href={varslerUrl} class={style.varsler}>
