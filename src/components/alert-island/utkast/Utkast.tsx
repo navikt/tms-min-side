@@ -6,8 +6,8 @@ import type { Language } from "@language/language.ts";
 import { text } from "@language/utkast.ts";
 import { logEvent } from "@utils/client/amplitude.ts";
 import { setIsError } from "../../../store/store.ts";
-import style from "./Utkast.module.css";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
+import style from "./Utkast.module.css";
 
 interface Props {
   language: Language;

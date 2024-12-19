@@ -1,0 +1,49 @@
+---
+import UtkastIkon from "./ikoner/UtkastIkon.tsx";
+import { antallUtkastUrl, utkastUrl } from "./utkastUrls";
+import { text } from "@language/utkast.ts";
+import { logEvent } from "@utils/client/amplitude.ts";
+import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
+import { getLanguage } from "../../../language/language";
+import style from "./Utkast.module.css";
+import { fetchData } from "../../../utils/server/fetch";
+import { getOboToken } from "../../../utils/server/token";
+
+// TODO: fix audience
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
+const oboToken = await getOboToken(Astro.locals.token, audience);
+const language = getLanguage(Astro.url);
+
+let data = { "antall": 1 };
+let isError = false;
+
+try {
+  data = await fetchData(oboToken, antallUtkastUrl);
+} catch (error: any) {
+  console.error("Fetch failed.", error.message);
+  isError = true;
+}
+
+const antall = (data ? data.antall : 0);
+const hasUtkast = antall > 0;
+const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](antall);
+---
+
+{hasUtkast &&
+<div class={style.wrapper}>
+  <a href={utkastUrl} class={style.utkast}>
+    <div class={style.ikonRektangel}>
+      <UtkastIkon />
+      <UtkastIkonHover />
+    </div>
+    <div class={style.container}>
+      <h3 class="navds-heading navds-heading--small">{text.utkast[language]}</h3>
+      <p class="navds-body-long navds-body-long--small">
+        {ingress}
+      </p>
+    </div>
+  </a>
+</div>
+
+}
+

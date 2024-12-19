@@ -1,0 +1,65 @@
+---
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "../../../utils/client/varsler";
+import { text } from "../../../language/varsler";
+import { getOboToken } from "../../../utils/server/token";
+import { fetchData } from "../../../utils/server/fetch";
+import { antallVarslerUrl } from "./varslerUrls";
+import { varslerUrl } from "./varslerUrls";
+import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
+import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll";
+import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll";
+import { getLanguage } from "../../../language/language";
+import style from "./Varsler.module.css";
+
+// TODO: fix audience
+const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-min-side-proxy`;
+const oboToken = await getOboToken(Astro.locals.token, audience);
+const language = getLanguage(Astro.url);
+
+let data = { "oppgaver": 3, "beskjeder": 2, "innbokser": 4 };
+let isError = false;
+
+try {
+    data = await fetchData(oboToken, antallVarslerUrl);
+  } catch (error: any) {
+    console.error("Fetch failed.", error.message);
+    isError = true;
+}
+
+const oppgaver = data.oppgaver || 0;
+const beskjeder = data.beskjeder + data.innbokser;
+const varsler = beskjeder + oppgaver;
+
+const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[language] : text.oppgaver[language];
+const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
+const varselText = buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language]);
+---
+
+{!hasVarsler(varsler) ?
+  <div class={style.wrapper}>
+    <a href={varslerUrl} class={style.varsler}>
+      <IngenVarslerIkon />
+      <div class={style.container}>
+        <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+        <p class="navds-body-long navds-body-long--small">
+          {text.ingenVarsler[language]}
+        </p>
+      </div>
+    </a>
+  </div> :
+  <div class={style.wrapper}>
+    <a href={varslerUrl} class={style.varsler}>
+      <div class={style.ikonRektangel}>
+        <VarselBjelleDotMedFyll />
+        <VarselBjelleDotUtenFyll />
+      </div>
+      <div class={style.container}>
+        <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
+        <p class="navds-body-long navds-body-long--small">
+          {varselText}
+        </p>
+      </div>
+    </a>
+  </div>
+}
+

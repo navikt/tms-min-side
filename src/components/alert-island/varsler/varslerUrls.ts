@@ -6,7 +6,6 @@ const VARSLER_URL = {
   prod: "https://www.nav.no/minside/varsler",
 };
 
-
 const VARSLER_API_URL = {
   local: "http://localhost:3000/varsler",
   dev: `${getDevBaseUrl}/tms-varsel-api/antall/aktive`,
