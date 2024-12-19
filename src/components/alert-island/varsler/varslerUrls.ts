@@ -9,8 +9,8 @@ const VARSLER_URL = {
 
 const VARSEL_API_URL = {
   local: "http://localhost:3000/varsler",
-  dev: `http://tms-varsel-api/tms-varsel-api/antall/aktive`,
-  prod: "http://tms-varsel-api/tms-varsel-api/antall/aktive",
+  dev: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive",
+  prod: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive",
 };
 
 export const varslerUrl = VARSLER_URL[getEnvironment()];
