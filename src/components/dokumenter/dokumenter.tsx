@@ -47,7 +47,7 @@ const Dokumenter = ({ language }: Props) => {
           <Dokument key={dokument.dokumentInfoId} dokument={dokument} />
         ))}
         <div className={styles.alle}>
-          <a className={styles.link} href={dokumentarkivUrl}>
+          <a className={styles.link} href={`${dokumentarkivUrl}/${language}`}>
             <BodyShort size="medium">
               {text.alle[language]}
             </BodyShort>
