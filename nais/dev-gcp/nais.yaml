@@ -23,6 +23,9 @@ spec:
   readiness:
     path: /minside/api/internal/isReady
     initialDelay: 10
+  prometheus:
+    enabled: true
+    path: /minside/metrics
   replicas:
     min: 2
     max: 4
