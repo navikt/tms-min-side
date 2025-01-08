@@ -12,13 +12,13 @@ const jobbLenkerProd = [
     },
   },
   {
-    nb: "CV til bruk ved jobbsøk (Arbeidsplassen)",
+    nb: "CV",
     nn: "CV",
     en: "CV",
     url: {
-      nb: "https://arbeidsplassen.nav.no/min-side",
-      nn: "https://arbeidsplassen.nav.no/min-side",
-      en: "https://arbeidsplassen.nav.no/min-side",
+      nb: "https://www.nav.no/min-cv",
+      nn: "https://www.nav.no/min-cv",
+      en: "https://www.nav.no/min-cv",
     },
   },
   {
@@ -85,13 +85,13 @@ const jobbLenkerDev = [
     },
   },
   {
-    nb: "CV til bruk ved jobbsøk (Arbeidsplassen)",
+    nb: "CV",
     nn: "CV",
     en: "CV",
     url: {
-      nb: "https://arbeidsplassen.nav.no/min-side",
-      nn: "https://arbeidsplassen.nav.no/min-side",
-      en: "https://arbeidsplassen.nav.no/min-side",
+      nb: "https://www.nav.no/min-cv",
+      nn: "https://www.nav.no/min-cv",
+      en: "https://www.nav.no/min-cv",
     },
   },
   {
