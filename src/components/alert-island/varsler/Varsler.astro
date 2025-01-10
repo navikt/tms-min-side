@@ -10,6 +10,7 @@ import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll";
 import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll";
 import { getLanguage } from "../../../language/language";
 import ClientError from "../../client-error/ClientError";
+import { logEvent } from "../../../utils/client/amplitude";
 import style from "./Varsler.module.css";
 
 const audience = getAudience("tms-varsel-api");
@@ -37,7 +38,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 {isError && <ClientError client:only="react" />}
 {!hasVarsler(varsler) ? (
   <div class={style.wrapper}>
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={varslerUrl} class={style.varsler} onclick={() => logEvent("varsler", "generell", "Varsler")}>
       <IngenVarslerIkon />
       <div class={style.container}>
         <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -48,7 +49,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
     </a>
   </div>) : (
   <div class={style.wrapper}>
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={varslerUrl} class={style.varsler} onclick={() => logEvent("varsler", "generell", "Varsler")}>
       <div class={style.ikonRektangel}>
         <VarselBjelleDotMedFyll />
         <VarselBjelleDotUtenFyll />

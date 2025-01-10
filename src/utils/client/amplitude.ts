@@ -1,33 +1,38 @@
-import { logAmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
+import { init, track } from "@amplitude/analytics-browser";
 
-export const logEvent = (data: string, kategori: string, lenketekst: string) => {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
-    eventName: "navigere",
-    eventData: {
-      komponent: data,
-      kategori: kategori,
-      lenketekst: lenketekst
-    },
+const APP_NAME = "tms-min-side";
+
+export const logEvent = (metric: string, kategori: string, lenketekst: string) => {
+  track("navigere", {
+    app: APP_NAME,
+    komponent: metric,
+    kategori: kategori,
+    lenketekst: lenketekst
   });
 };
 
 export function logMfEvent(name: string, metric: boolean) {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
-    eventName: name,
-    eventData: {
-      komponent: metric,
-    },
+  track(name, {
+    app: APP_NAME,
+    komponent: metric,
   });
 }
 
-export const logGroupedEvent = (list: string) => {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
+export const logGroupedEvent = (metric: string) => {
+  track("minside-composition", {
+    app: APP_NAME,
     eventName: "minside-composition",
     eventData: {
-      composition: list,
+      composition: metric,
+    },
+  });
+};
+
+export const initAmplitude = () => {
+  init("default", undefined, {
+    serverUrl: "https://amplitude.nav.no/collect-auto",
+    ingestionMetadata: {
+      sourceName: window.location.toString(),
     },
   });
 };

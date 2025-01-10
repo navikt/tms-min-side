@@ -7,6 +7,7 @@ import { getAudience, getOboToken } from "../../../utils/server/token";
 import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
 import { text } from "@language/utkast.ts";
+import { logEvent } from "../../../utils/client/amplitude";
 import style from "./Utkast.module.css";
 
 const audience = getAudience("tms-utkast");
@@ -31,7 +32,7 @@ const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](a
 {isError && <ClientError client:only="react" />}
 {hasUtkast &&
   <div class={style.wrapper}>
-    <a href={utkastUrl} class={style.utkast}>
+    <a href={utkastUrl} class={style.utkast} onclick={() => logEvent("utkast", "generell", "Utkast")}>
       <div class={style.ikonRektangel}>
         <UtkastIkon />
         <UtkastIkonHover />
