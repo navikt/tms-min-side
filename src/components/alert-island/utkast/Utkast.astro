@@ -30,7 +30,6 @@ const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](a
 
 {isError && <ClientError client:only="react" />}
 {hasUtkast &&
-  <div class={style.wrapper}>
     <a href={utkastUrl} class={style.utkast}>
       <div class={style.ikonRektangel}>
         <UtkastIkon />
@@ -43,6 +42,6 @@ const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](a
         </p>
       </div>
     </a>
-  </div>
 }
+
 

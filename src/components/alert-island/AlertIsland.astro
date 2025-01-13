@@ -8,6 +8,25 @@ const language = getLanguage(Astro.url);
 ---
 
 <div class={style.container}>
-  <Varsler server:defer />
-  <Utkast server:defer />
+  <div class={style.wrapper} id="varlser">
+    <Varsler server:defer />
+  </div>
+  <div class={style.wrapper} id="utkast">
+    <Utkast server:defer />
+  </div>
 </div>
+
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const utkast = document.querySelector('#utkast');
+
+    utkast?.addEventListener('click', () => {
+      logEvent('utkast', 'generell', 'Utkast');
+    });
+     const varsler = document.querySelector('#varlser');
+
+    varsler?.addEventListener('click', () => {
+      logEvent('varsel', 'generell', 'Varsel');
+    });
+</script>
