@@ -8,6 +8,15 @@
   padding: 0.5rem;
 }
 
+.wrapper {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--a-blue-900);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+  min-height: 5rem;
+  width: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
