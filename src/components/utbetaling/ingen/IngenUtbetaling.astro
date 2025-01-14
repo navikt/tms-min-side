@@ -27,3 +27,13 @@ const language = getLanguage(Astro.url);
     </Label>
   </div>
 </div>
+
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const ingen = document.querySelector("#ingen");
+
+  ingen?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "Se alle");
+  });
+</script>

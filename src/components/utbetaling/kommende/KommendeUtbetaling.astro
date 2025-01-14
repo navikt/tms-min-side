@@ -56,3 +56,13 @@ const language = getLanguage(Astro.url);
     </a>
   </div>
 </>
+
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const kommende = document.querySelector("#kommende");
+
+  kommende?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "Se alle");
+  });
+</script>
