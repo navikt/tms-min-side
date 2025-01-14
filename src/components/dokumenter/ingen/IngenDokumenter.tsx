@@ -3,22 +3,22 @@ import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { text } from "@language/dokumenter.ts";
 import { dokumentarkivUrl } from "@components/dokumenter/dokumenterUrls.ts";
 import styles from "./IngenDokumenter.module.css";
+import { logEvent } from "@utils/client/amplitude";
 
 interface Props {
   language: Language;
 }
 
 const IngenDokumenter = ({ language }: Props) => {
-
   const spraakTilpassetDokumentarkivUrl = (language: Language) => {
-    if(language === "en") {
+    if (language === "en") {
       return dokumentarkivUrl + "/en";
     }
-    if(language === "nn") {
+    if (language === "nn") {
       return dokumentarkivUrl + "/nn";
     }
     return dokumentarkivUrl;
-  }
+  };
 
   return (
     <>
@@ -30,12 +30,14 @@ const IngenDokumenter = ({ language }: Props) => {
           <Heading size="small" as="h3">
             {text.ingenHeading[language]}
           </Heading>
-          <BodyLong className={styles.ingenText}>
-            {text.ingenText[language]}
-          </BodyLong>
+          <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
         </div>
         <div className={styles.skeletonContainer} />
-        <a className={styles.link} href={spraakTilpassetDokumentarkivUrl(language)}>
+        <a
+          className={styles.link}
+          href={spraakTilpassetDokumentarkivUrl(language)}
+          onClick={() => logEvent("dokumentwidget", "dokumenter", "Se tidligere dokumenter")}
+        >
           {text.tidligere[language]}
         </a>
       </div>
