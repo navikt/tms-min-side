@@ -45,6 +45,7 @@ const language = getLanguage(Astro.url);
     <a
       href={`${utbetalingsoversiktUrl}/utbetaling/${kommende.id}`}
       class={`${styles.containerYtelse} ${styles.kommende}`}
+      id="kommende"
     >
       <div class={styles.ytelse}>
         <BodyShort>{kommende.ytelse}</BodyShort>
