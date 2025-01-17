@@ -1,16 +1,15 @@
 ---
-import InnboksTag from "./InnboksTag";
-import { getLanguage } from "../../language/language";
-import { innboksUrl } from "./innboksUrls";
-import { antallVarslerUrl } from "./innboksUrls";
-import { text } from "../../language/innboks";
-import { getAudience,getOboToken } from "../../utils/server/token";
+import InnboksTag from "../InnboksTag";
+import { getLanguage } from "../../../language/language";
+import { innboksUrl } from "../innboksUrls";
+import { antallVarslerUrl } from "../innboksUrls";
+import { text } from "../../../language/innboks";
+import { getAudience,getOboToken } from "../../../utils/server/token";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import Chevron from "./Chevron.astro";
-import { fetchData } from "../../utils/server/fetch";
-import styles from "./Innboks.module.css";
-import ClientError from "../client-error/ClientError";
+import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
+import { fetchData } from "../../../utils/server/fetch";
+import styles from "../Innboks.module.css";
 
 const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -26,18 +25,16 @@ try {
 }
 
 const innbokser = data.innbokser;
-const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
+const type = "IngenNyMelding";
 const language = getLanguage(Astro.url);
 ---
 
-{isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   <div class={styles.content}>
-    <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
+    <a class={`${styles.headerContainer} ${styles[`headerContainerIngenNyMelding`]}`} href={innboksUrl}>
       <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
       <div class={styles.tagChevron}>
-        <InnboksTag innbokser={innbokser} language={language} />
-        <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
+        <Skeleton className={styles.dokumentSkeleton} width={120} height={24} />
       </div>
     </a>
     <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
@@ -45,3 +42,5 @@ const language = getLanguage(Astro.url);
     </div>
   </div>
 </div>
+
+
