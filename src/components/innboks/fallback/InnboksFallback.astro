@@ -1,43 +1,24 @@
 ---
-import InnboksTag from "../InnboksTag";
 import { getLanguage } from "../../../language/language";
 import { innboksUrl } from "../innboksUrls";
-import { antallVarslerUrl } from "../innboksUrls";
 import { text } from "../../../language/innboks";
-import { getAudience,getOboToken } from "../../../utils/server/token";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
-import { fetchData } from "../../../utils/server/fetch";
 import styles from "../Innboks.module.css";
 
-const audience = getAudience("tms-varsel-api");
-const oboToken = await getOboToken(Astro.locals.token, audience);
-
-let data = { innbokser: 0 };
-let isError = false;
-
-try {
-  data = await fetchData(oboToken, antallVarslerUrl);
-} catch (error: any) {
-  console.error("Fetch failed.", error.message);
-  isError = true;
-}
-
-const innbokser = data.innbokser;
-const type = "IngenNyMelding";
 const language = getLanguage(Astro.url);
 ---
 
 <div class={styles.container}>
   <div class={styles.content}>
-    <a class={`${styles.headerContainer} ${styles[`headerContainerIngenNyMelding`]}`} href={innboksUrl}>
+    <a class={`${styles.headerContainer} ${styles.headerContainerIngenNyMelding}`} href={innboksUrl}>
       <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
       <div class={styles.tagChevron}>
-        <Skeleton className={styles.dokumentSkeleton} width={120} height={24} />
+        <Skeleton width={120} height={24} />
       </div>
     </a>
-    <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
+    <div class={`${styles.bodyContainer} ${styles.bodyContainerIngenNyMelding}`}>
       <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
     </div>
   </div>
