@@ -1,13 +1,47 @@
 ---
-import InnboksContent from "./InnboksContent";
+import InnboksTag from "./InnboksTag";
 import { getLanguage } from "../../language/language";
+import { innboksUrl } from "./innboksUrls";
+import { antallVarslerUrl } from "./innboksUrls";
+import { text } from "../../language/innboks";
+import { getAudience,getOboToken } from "../../utils/server/token";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import Chevron from "./Chevron.astro";
+import { fetchData } from "../../utils/server/fetch";
 import styles from "./Innboks.module.css";
+import ClientError from "../client-error/ClientError";
 
+const audience = getAudience("tms-varsel-api");
+const oboToken = await getOboToken(Astro.locals.token, audience);
+
+let data = { innbokser: 0 };
+let isError = false;
+
+try {
+  data = await fetchData(oboToken, antallVarslerUrl);
+} catch (error: any) {
+  console.error("Fetch failed.", error.message);
+  isError = true;
+}
+
+const innbokser = data.innbokser;
+const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
 const language = getLanguage(Astro.url);
 ---
 
+{isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   <div class={styles.content}>
-    <InnboksContent language={language} client:only="react" />
+    <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
+      <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
+      <div class={styles.tagChevron}>
+        <InnboksTag innbokser={innbokser} language={language} />
+        <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
+      </div>
+    </a>
+    <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
+      <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
+    </div>
   </div>
 </div>

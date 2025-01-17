@@ -13,6 +13,8 @@ import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "../../components/aktuelt/Aktuelt";
 import Dokumenter from "../../components/dokumenter/dokumenter.astro";
+import InnboksFallback from "../../components/innboks/fallback/InnboksFallback.astro";
+import UtbetalingFallback from "../../components/utbetaling/fallback/UtbetalingFallback.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -24,8 +26,12 @@ const language = getLanguage(Astro.url);
     <AlertIsland />
     <DinOversikt language={language} client:only="react" />
     <Container>
-      <Utbetaling />
-      <Innboks />
+      <Utbetaling server:defer>
+        <UtbetalingFallback slot="fallback" />
+      </Utbetaling>
+      <Innboks server:defer>
+        <InnboksFallback slot="fallback" />
+      </Innboks>
       <Dokumenter />
       <Aktuelt language={language} client:only="react" />
     </Container>

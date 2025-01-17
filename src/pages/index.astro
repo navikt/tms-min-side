@@ -14,6 +14,7 @@ import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
+import InnboksFallback from "../components/innboks/fallback/InnboksFallback.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -28,7 +29,9 @@ const language = getLanguage(Astro.url);
       <Utbetaling server:defer>
         <UtbetalingFallback slot="fallback" />
       </Utbetaling>
-      <Innboks />
+      <Innboks server:defer>
+        <InnboksFallback slot="fallback" />
+      </Innboks>
       <Dokumenter />
       <Aktuelt language={language} client:only="react" />
     </Container>
