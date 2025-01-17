@@ -46,9 +46,9 @@ const InnboksContent = ({ language }: Props) => {
             )
           }
         </a>
-          <div className={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
-            <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
-          </div>
+        <div className={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
+          <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
+        </div>
       </>
   );
 };

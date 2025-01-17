@@ -1,9 +1,9 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getEnvironment } from "../../utils/server/environment";
 
 const VARSEL_API_URL = {
   local: "http://localhost:3000/innboks",
-  dev: `${getDevBaseUrl}/tms-varsel-api/antall/aktive`,
-  prod: "https://www.nav.no/tms-varsel-api/antall/aktive",
+  dev: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive",
+  prod: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive",
 };
 
 const INNBOKS_URL = {
@@ -12,5 +12,5 @@ const INNBOKS_URL = {
   prod: "https://innboks.nav.no",
 };
 
-export const innboksUrl = INNBOKS_URL[getEnvironmentClientSide()];
-export const antallVarslerUrl = `${VARSEL_API_URL[getEnvironmentClientSide()]}`;
+export const innboksUrl = INNBOKS_URL[getEnvironment()];
+export const antallVarslerUrl = `${VARSEL_API_URL[getEnvironment()]}`;

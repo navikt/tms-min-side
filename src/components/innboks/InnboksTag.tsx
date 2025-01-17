@@ -1,4 +1,5 @@
-import { Tag } from "@navikt/ds-react";
+import { Tag } from "@navikt/ds-react/cjs/tag/Tag.js";
+
 import type { Language } from "@language/language.ts";
 import { text } from "@language/innboks.ts";
 

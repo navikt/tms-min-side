@@ -28,7 +28,7 @@ const language = getLanguage(Astro.url);
       <Utbetaling server:defer>
         <UtbetalingFallback slot="fallback" />
       </Utbetaling>
-      <Innboks />
+      <Innboks server:defer />
       <Dokumenter />
       <Aktuelt language={language} client:only="react" />
     </Container>
