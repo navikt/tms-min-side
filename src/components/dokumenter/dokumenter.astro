@@ -16,6 +16,6 @@ const isLevelHigh = Astro.locals.securityLevel4
     ?
       <Dokumenter language={language} client:only="react" />
     :
-      <IngenDokumenter language={language} />
+      <IngenDokumenter language={language} client:only="react" />
   }
 </div>
