@@ -3,5 +3,6 @@
 declare namespace App {
   interface Locals {
     token: string;
+    securityLevel4: boolean;
   }
 }
