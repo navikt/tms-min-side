@@ -29,7 +29,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   context.locals.token = token;
-  context.locals.securityLevel4 = validation.payload.acr === "idporten-loa-substantial";
+  context.locals.securityLevel4 = validation.payload.acr === "idporten-loa-high";
   console.log("securityLevel:" + context.locals.securityLevel4);
   console.log("validation directly" + validation.payload.acr);
 
