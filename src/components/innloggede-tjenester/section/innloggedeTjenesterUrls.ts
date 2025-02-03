@@ -325,9 +325,9 @@ const hjelpemidlerLenkerDev = [
     nn: "Uføretrygd",
     en: "Disability benefit",
     url: {
-      nb: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-      nn: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-      en: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
+      nb: "https://www.nav.no/uforetrygd/selvbetjening",
+      nn: "https://www.nav.no/uforetrygd/selvbetjening",
+      en: "https://www.nav.no/uforetrygd/selvbetjening",
     }
   },
   {
