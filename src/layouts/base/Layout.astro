@@ -1,14 +1,9 @@
 ---
 import Authentication from "@components/authentication/Authentication";
-import { DecoratorComponentsReact, fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getDecoratorEnvironment } from "../../utils/server/environment";
 import { getLanguage } from "@language/language";
 import "./Layout.css";
-
-interface Props {
-  Decorator: DecoratorComponentsReact
-  language: string
-}
 
 export interface Props {
   title: string;
