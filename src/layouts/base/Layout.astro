@@ -1,10 +1,14 @@
 ---
 import Authentication from "@components/authentication/Authentication";
-import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
-import { getEnvironment } from "../../utils/server/environment";
+import { DecoratorComponentsReact, fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { getDecoratorEnvironment } from "../../utils/server/environment";
 import { getLanguage } from "@language/language";
 import "./Layout.css";
 
+interface Props {
+  Decorator: DecoratorComponentsReact
+  language: string
+}
 
 export interface Props {
   title: string;
@@ -18,7 +22,7 @@ const language = getLanguage(Astro.url);
 const { title, breadcrumbs } = Astro.props;
 
 const Decorator = await fetchDecoratorReact({
-  env: getEnvironment(),
+  env: getDecoratorEnvironment(),
   params: {
     context: "privatperson",
     breadcrumbs: breadcrumbs,
@@ -52,7 +56,7 @@ const Decorator = await fetchDecoratorReact({
     <title>{title}</title>
     <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" />
-    <Decorator.Styles />
+    <Decorator.HeadAssets />
   </head>
   <body>
     <Decorator.Header />
