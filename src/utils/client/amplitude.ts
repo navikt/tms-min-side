@@ -1,33 +1,18 @@
-import { logAmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
+import { getAmplitudeInstance } from "@navikt/nav-dekoratoren-moduler";
+
+const logger = getAmplitudeInstance("dekoratoren");
 
 export const logEvent = (data: string, kategori: string, lenketekst: string) => {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
-    eventName: "navigere",
-    eventData: {
-      komponent: data,
-      kategori: kategori,
-      lenketekst: lenketekst
-    },
-  });
+  logger("navigere", { komponent: data, kategori: kategori, lenketekst: lenketekst })
+    .catch(() => console.warn("Uninitialized amplitude"));
 };
 
 export function logMfEvent(name: string, metric: boolean) {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
-    eventName: name,
-    eventData: {
-      komponent: metric,
-    },
-  });
+  logger(name, { komponent: metric })
+    .catch(() => console.warn("Uninitialized amplitude"));
 }
 
 export const logGroupedEvent = (list: string) => {
-  logAmplitudeEvent({
-    origin: "tms-min-side",
-    eventName: "minside-composition",
-    eventData: {
-      composition: list,
-    },
-  });
+  logger("minside-composition", { composition: list })
+    .catch(() => console.warn("Uninitialized amplitude"));
 };

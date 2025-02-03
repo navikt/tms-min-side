@@ -31,11 +31,7 @@ const DinOversikt = ({ language }: Props) => {
         setDokumenterError();
       },
       onSuccess: (data) => {
-        try {
-          data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
-        } catch (error) {
-          console.warn("Amplitude was not initialized");
-        }
+        data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
       }
     }
   );
