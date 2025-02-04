@@ -1,0 +1,26 @@
+---
+import { Alert } from "@navikt/ds-react/cjs/alert/Alert.js";
+import { Heading } from "@navikt/ds-react/cjs/typography/heading";
+import { Link } from "@navikt/ds-react/cjs/link/Link";
+import { text } from "@language/substantialInfo";
+import type { Language } from "@language/language";
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+
+const isSubstantial: boolean = Astro.locals.isSubstantial;
+---
+
+{
+  isSubstantial && (
+    <Alert variant="info">
+      <Heading level="2" size="xsmall">
+        {text.heading[language]}
+      </Heading>
+      {text.info[language]} <Link href="/oauth2/login?level=idporten-loa-high">{text.link[language]}</Link>
+    </Alert>
+  )
+}
