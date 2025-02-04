@@ -9,6 +9,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
+    context.locals.isSubstantial = true;
     return next();
   }
 
@@ -29,6 +30,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   context.locals.token = token;
+  context.locals.isSubstantial = validation.payload.acr === "idporten-loa-substantial";
 
   return next();
 });

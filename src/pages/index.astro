@@ -15,12 +15,14 @@ import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt";
 import InnboksFallback from "../components/innboks/fallback/InnboksFallback.astro";
+import SubstantialInfo from "@components/substantial-info/SubstantialInfo.astro";
 
 const language = getLanguage(Astro.url);
 ---
 
 <Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
+    <SubstantialInfo language={language} />
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
