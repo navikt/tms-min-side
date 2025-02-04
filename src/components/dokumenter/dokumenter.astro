@@ -1,21 +1,21 @@
 ---
 import Dokumenter from "./dokumenter";
 import { getLanguage } from "../../language/language";
-import styles from "./dokumenter.module.css"
+import styles from "./dokumenter.module.css";
 import { Context } from "hono";
 import IngenDokumenter from "./ingen/IngenDokumenter";
 
 const language = getLanguage(Astro.url);
 
-const isLevelHigh = Astro.locals.securityLevel4
+const isSubstantial = Astro.locals.isSubstantial;
 ---
 
 <div class={styles.container}>
   {
-    isLevelHigh
-    ?
+    !isSubstantial ? (
       <Dokumenter language={language} client:only="react" />
-    :
+    ) : (
       <IngenDokumenter language={language} client:only="react" />
+    )
   }
 </div>
