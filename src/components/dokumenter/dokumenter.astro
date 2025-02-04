@@ -12,10 +12,10 @@ const isSubstantial = Astro.locals.isSubstantial;
 
 <div class={styles.container}>
   {
-    !isSubstantial ? (
-      <Dokumenter language={language} client:only="react" />
-    ) : (
+    isSubstantial ? (
       <IngenDokumenter language={language} client:only="react" />
+    ) : (
+      <Dokumenter language={language} client:only="react" />
     )
   }
 </div>
