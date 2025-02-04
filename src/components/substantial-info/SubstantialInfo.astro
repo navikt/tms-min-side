@@ -4,6 +4,7 @@ import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import { Link } from "@navikt/ds-react/cjs/link/Link.js";
 import { text } from "@language/substantialInfo";
 import type { Language } from "@language/language";
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   language: Language;
@@ -20,7 +21,8 @@ const isSubstantial: boolean = Astro.locals.isSubstantial;
       <Heading level="2" size="xsmall">
         {text.heading[language]}
       </Heading>
-      {text.info[language]} <Link href="/minside/oauth2/login?level=idporten-loa-high">{text.link[language]}</Link>
+      <BodyShort>{text.info[language]}</BodyShort>
+      <Link href="/minside/oauth2/login?level=idporten-loa-high">{text.link[language]}</Link>
     </Alert>
   )
 }
