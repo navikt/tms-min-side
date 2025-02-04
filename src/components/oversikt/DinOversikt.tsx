@@ -17,6 +17,7 @@ import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import styles from "./DinOversikt.module.css";
+import { useLanguage } from "../../hooks/useLanguage";
 
 interface Props {
   language: Language;
@@ -42,6 +43,7 @@ const DinOversikt = ({ language }: Props) => {
   const shouldShowOversikt = useOversikt(produktProperties);
 
   useLogComposition(produktProperties);
+  useLanguage(language);
 
   if (personalizedContent) {
     setDokumenter(personalizedContent.dokumenter);
