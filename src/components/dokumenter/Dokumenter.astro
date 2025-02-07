@@ -22,7 +22,7 @@ let isError = false;
 try {
   data = await fetchData(oboToken, dokumenterUrl);
 } catch (error: any) {
-  console.error("Fetch failed.", error.message);
+  console.error("Fetching dokumenter failed.", error.message);
   isError = true;
 }
 
