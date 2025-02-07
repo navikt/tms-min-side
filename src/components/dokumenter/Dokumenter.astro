@@ -26,7 +26,7 @@ try {
   isError = true;
 }
 
-const hasDokumenter = data.length > 0;
+const hasIngenDokumenter = data.length === 0;
 const isSubstantial = Astro.locals.isSubstantial;
 const language = getLanguage(Astro.url);
 ---
@@ -34,7 +34,7 @@ const language = getLanguage(Astro.url);
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   {
-    isSubstantial || !hasDokumenter ? (
+    isSubstantial || hasIngenDokumenter ? (
       <div class={styles.ingenContainer}>
         <BodyShort as="h2" spacing={true}>
           {text.heading[language]}
