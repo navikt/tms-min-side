@@ -8,7 +8,7 @@ import { produktText } from "./produktkort/ProduktText";
 import Produktkort from "./produktkort/Produktkort";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
 import Aktivitetsplan from "./aktivitetsplan/Aktivitetsplan";
-import { setDokumenter, setDokumenterError, setDokumenterLoading, setIsError } from "./../../store/store.ts";
+import { setIsError } from "../../store/store";
 import { logMfEvent } from "@utils/client/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
 import type { Language } from "@language/language.ts";
@@ -16,8 +16,8 @@ import { fetcher, include } from "@utils/client/api.ts";
 import { useOversikt } from "@hooks/useOversikt.ts";
 import { useLogComposition } from "@hooks/useLogComposition.ts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import styles from "./DinOversikt.module.css";
 import { useLanguage } from "../../hooks/useLanguage";
+import styles from "./DinOversikt.module.css";
 
 interface Props {
   language: Language;
@@ -29,7 +29,6 @@ const DinOversikt = ({ language }: Props) => {
   } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
       onError: () => {
         setIsError();
-        setDokumenterError();
       },
       onSuccess: (data) => {
         data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
@@ -37,17 +36,11 @@ const DinOversikt = ({ language }: Props) => {
     }
   );
 
-  setDokumenterLoading(isLoading);
-
   const produktProperties = getProduktProperties(language, personalizedContent);
   const shouldShowOversikt = useOversikt(produktProperties);
 
   useLogComposition(produktProperties);
   useLanguage(language);
-
-  if (personalizedContent) {
-    setDokumenter(personalizedContent.dokumenter);
-  }
 
   if (!shouldShowOversikt) {
     return null;
