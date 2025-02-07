@@ -4,6 +4,16 @@
     margin-top: var(--tms-space-between-sections);
 }
 
+.ingenContainer {
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+.ingenContentContainer {
+    border-top: 1px solid lightgray;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .dokumenter {
     margin: 0;
     padding: 0;
@@ -20,6 +30,21 @@
     background: #F2F3F5;
 }
 
+.chevron {
+    flex-shrink: 0;
+    color: #23262A;
+}
+
+.alle:hover .chevron {
+    transition-duration: 0.2s;
+    transform: translate(3px, 0);
+    text-decoration: none;
+}
+
+.ingenText {
+    color: var(--a-text-subtle);
+}
+
 .link {
     color: var(--a-text-action);
     text-decoration: underline;
@@ -30,10 +55,23 @@
     cursor: pointer;
 }
 
+.ingenLink {
+    color: #272727;
+}
+
+.ingenLink:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 @media (min-width: 648px) {
     .alle {
         padding: 16px 16px 16px 20px;
 
+    }
+
+    .ingenContainer {
+        padding: 0rem 1.25rem 0rem 1.25rem;
     }
 }

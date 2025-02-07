@@ -12,10 +12,11 @@ import Feilmelding from "@components/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
 import Observability from "@components/obersvability/Observability";
 import Aktuelt from "../../components/aktuelt/Aktuelt";
-import Dokumenter from "../../components/dokumenter/dokumenter.astro";
+import Dokumenter from "../../components/dokumenter/Dokumenter.astro";
 import InnboksFallback from "../../components/innboks/fallback/InnboksFallback.astro";
 import UtbetalingFallback from "../../components/utbetaling/fallback/UtbetalingFallback.astro";
 import SubstantialInfo from "@components/substantial-info/SubstantialInfo.astro";
+import DokumenterFallback from "../../components/dokumenter/fallback/DokumenterFallback.astro";
 
 const language = getLanguage(Astro.url);
 ---
@@ -34,7 +35,9 @@ const language = getLanguage(Astro.url);
       <Innboks server:defer>
         <InnboksFallback slot="fallback" />
       </Innboks>
-      <Dokumenter />
+      <Dokumenter server:defer>
+        <DokumenterFallback slot="fallback" />
+      </Dokumenter>
       <Aktuelt language={language} client:only="react" />
     </Container>
     <InnloggedeTjenester />

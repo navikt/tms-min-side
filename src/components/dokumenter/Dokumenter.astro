@@ -1,0 +1,70 @@
+---
+import Dokument from "./dokument/Dokument.astro";
+import ClientError from "../client-error/ClientError";
+import { getLanguage } from "../../language/language";
+import { getAudience,getOboToken } from "../../utils/server/token";
+import { fetchData } from "../../utils/server/fetch";
+import { dokumentarkivUrl, dokumenterUrl } from "./dokumenterUrls";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import Chevron from "./Chevron.astro";
+import { text } from "../../language/dokumenter";
+import type { DokumentType } from "./dokumenterTypes";
+import styles from "./Dokumenter.module.css";
+
+const audience = getAudience("mine-saker-api");
+const oboToken = await getOboToken(Astro.locals.token, audience);
+
+let data: DokumentType[] = [];
+let isError = false;
+
+try {
+  data = await fetchData(oboToken, dokumenterUrl);
+} catch (error: any) {
+  console.error("Fetch failed.", error.message);
+  isError = true;
+}
+
+const hasDokumenter = data.length > 0;
+const isSubstantial = Astro.locals.isSubstantial;
+const language = getLanguage(Astro.url);
+---
+
+{isError && <ClientError client:only="react" />}
+<div class={styles.container}>
+  {
+    isSubstantial || !hasDokumenter ? (
+      <div class={styles.ingenContainer}>
+        <BodyShort as="h2" spacing={true}>
+          {text.heading[language]}
+        </BodyShort>
+        <div class={styles.ingenContentContainer}>
+          <Heading size="small" as="h3">
+            {text.ingenHeading[language]}
+          </Heading>
+          <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
+        </div>
+        <div class={styles.ingenContentContainer} />
+        <a class={styles.ingenLink} href={`${dokumentarkivUrl}/${language}`}>
+          {text.tidligere[language]}
+        </a>
+      </div>
+    ) : (
+      <>
+        <Heading size="xsmall" as="h2" spacing>
+          {text.heading[language]}
+        </Heading>
+        <ul class={styles.dokumenter}>
+          {data.map((dokument) => <Dokument key={dokument.dokumentInfoId} dokument={dokument} />)}
+        </ul>
+        <div class={styles.alle}>
+          <a class={styles.link} href={`${dokumentarkivUrl}/${language}`}>
+            <BodyShort size="medium">{text.alle[language]}</BodyShort>
+          </a>
+          <Chevron class={styles.chevron} aria-hidden={true} fontSize="20px" />
+        </div>
+      </>
+    )
+  }
+</div>
