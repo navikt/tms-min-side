@@ -8,7 +8,7 @@ const DOKUMENTARKIV_URL = {
 
 const DOKUMENTER_URL = {
   local: "http://localhost:3000/journalposter",
-  dev: "https://www.dev.nav.no/mine-saker-api/ssr/journalposter/siste",
+  dev: "https://www.intern.dev.nav.no/mine-saker-api/ssr/journalposter/siste",
   prod: "https://www.nav.no/mine-saker-api/ssr/journalposter/siste",
 };
 
