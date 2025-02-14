@@ -1,0 +1,30 @@
+---
+import { dokumentarkivUrl } from "../dokumenterUrls";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { formatDateMonth, setAvsenderMottaker } from "../../../utils/client/dokument";
+import type { DokumentType } from "../dokumenterTypes";
+import Chevron from "./Chevron.astro";
+import styles from "./Dokument.module.css";
+
+interface Props {
+  dokument: DokumentType;
+}
+
+const { dokument } = Astro.props;
+const dato = formatDateMonth(dokument.opprettet);
+const avsender = setAvsenderMottaker(dokument);
+---
+
+<li class={`${styles.container}`}>
+  <a class={styles.wrapper} href={`${dokumentarkivUrl}/tema/${dokument.temakode}/${dokument.journalpostId}`}>
+    <div>
+      <BodyShort className={styles.link} size="medium">
+        {dokument.tittel}
+      </BodyShort>
+      <BodyShort className={styles.details} size="small">
+        {dato + " - " + avsender}
+      </BodyShort>
+    </div>
+    <Chevron className={styles.chevron} fontSize="20px" />
+  </a>
+</li>

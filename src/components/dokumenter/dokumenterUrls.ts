@@ -1,16 +1,16 @@
-import { getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
+import { getEnvironment } from "../../utils/server/environment";
 
 const DOKUMENTARKIV_URL = {
   local: "http://localhost:3000/dokumentarkiv",
-  dev: `${getDevBaseUrl}/dokumentarkiv`,
+  dev: "https://www.ansatt.dev.nav.no/dokumentarkiv",
   prod: "https://www.nav.no/dokumentarkiv",
 };
 
 const DOKUMENTER_URL = {
   local: "http://localhost:3000/journalposter",
-  dev: `${getDevBaseUrl}/mine-saker-api/v2/journalposter/siste`,
-  prod: "https://person.nav.no/mine-saker-api/v2/journalposter/siste",
+  dev: "http://mine-saker-api/mine-saker-api/ssr/journalposter/siste",
+  prod: "http://mine-saker-api/mine-saker-api/ssr/journalposter/siste",
 };
 
-export const dokumentarkivUrl = DOKUMENTARKIV_URL[getEnvironmentClientSide()];
-export const dokumenterUrl = DOKUMENTER_URL[getEnvironmentClientSide()];
+export const dokumentarkivUrl = DOKUMENTARKIV_URL[getEnvironment()];
+export const dokumenterUrl = DOKUMENTER_URL[getEnvironment()];

@@ -41,6 +41,7 @@ spec:
         - application: tms-varsel-api
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast
+        - application: mine-saker-api
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"

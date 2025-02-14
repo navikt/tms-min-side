@@ -1,0 +1,17 @@
+---
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
+import { text } from "../../../language/dokumenter";
+import { getLanguage } from "../../../language/language";
+
+const language = getLanguage(Astro.url);
+---
+
+<div>
+  <Heading size="xsmall" as="h2" spacing>
+    {text.heading[language]}
+  </Heading>
+  <Skeleton variant="text" height="50px" width="100%" />
+  <Skeleton variant="text" height="50px" width="100%" />
+  <Skeleton variant="text" height="50px" width="100%" />
+</div>
