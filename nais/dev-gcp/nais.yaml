@@ -11,6 +11,8 @@ spec:
     sidecar:
       enabled: true
       level: Level3
+      autoLoginIgnorePaths:
+        - /minside/api/internal/*
   tokenx:
     enabled: true
   envFrom:

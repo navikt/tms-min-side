@@ -1,7 +1,6 @@
 import { defineMiddleware } from "astro/middleware";
 import { getToken, validateToken } from "@navikt/oasis";
 import { loginUrl } from "./urls";
-import { isInternal } from "./utils";
 import { isLocal } from "@utils/server/environment.ts";
 
 export const onRequest = defineMiddleware(async (context, next) => {
@@ -9,11 +8,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
-    context.locals.isSubstantial = true;
-    return next();
-  }
-
-  if (isInternal(context)) {
     return next();
   }
 
