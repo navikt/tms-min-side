@@ -3,13 +3,13 @@ import { getToken, validateToken } from "@navikt/oasis";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
 import { isLocal } from "@utils/server/environment.ts";
+import { isIdportenLoginLevel } from "@navikt/oasis/dist/login-level";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
-    context.locals.isSubstantial = true;
     return next();
   }
 
@@ -30,7 +30,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   context.locals.token = token;
-  context.locals.isSubstantial = validation.payload.acr === "idporten-loa-substantial";
 
   return next();
 });
