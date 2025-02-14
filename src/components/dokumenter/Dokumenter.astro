@@ -12,9 +12,11 @@ import Chevron from "./Chevron.astro";
 import { text } from "../../language/dokumenter";
 import type { DokumentType } from "./dokumenterTypes";
 import styles from "./Dokumenter.module.css";
+import { isIdportenLoginLevel } from "@navikt/oasis/dist/login-level";
 
+const token = Astro.locals.token;
 const audience = getAudience("mine-saker-api");
-const oboToken = await getOboToken(Astro.locals.token, audience);
+const oboToken = await getOboToken(token, audience);
 
 let data: DokumentType[] = [];
 let isError = false;
@@ -27,7 +29,7 @@ try {
 }
 
 const hasIngenDokumenter = data.length === 0;
-const isSubstantial = Astro.locals.isSubstantial;
+const isSubstantial = isIdportenLoginLevel("Substantial", token);
 const language = getLanguage(Astro.url);
 ---
 

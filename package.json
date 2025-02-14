@@ -18,7 +18,7 @@
     "@nanostores/react": "0.7.2",
     "@navikt/ds-react": "5.7.2",
     "@navikt/nav-dekoratoren-moduler": "3.2.1",
-    "@navikt/oasis": "^3.3.0",
+    "@navikt/oasis": "3.7.0",
     "astro": "5.1.0",
     "dayjs": "1.11.11",
     "prom-client": "^15.1.3",
