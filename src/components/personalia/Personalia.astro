@@ -2,12 +2,15 @@
 import { getLanguage } from "@language/language";
 import { text } from "@language/personalia";
 import style from "./Personalia.module.css";
+import { Image } from "astro:assets";
+import logo from '../../images/logo.png'
 import Navn from "./Navn.astro";
 
 const language = getLanguage(Astro.url);
 ---
 
 <div class={style.container}>
+  <Image src={logo} alt="A starry night sky." />
   <h2 class={`${style.tekst} navds-heading navds-heading--large`}>
     <span>{text.hilsen[language]} <Navn server:defer /></span>
   </h2>
