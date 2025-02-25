@@ -6,9 +6,6 @@ import importmap from "./importmap.json";
 
 export default defineConfig({
   base: "/minside",
-  build: {
-    assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
-  },
   integrations: [
     react(),
     {
