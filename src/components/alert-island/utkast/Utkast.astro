@@ -1,4 +1,5 @@
 ---
+import pino from "pino-http";
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
 import { getLanguage } from "../../../language/language";
@@ -14,11 +15,12 @@ const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data = { "antall": 0 };
 let isError = false;
+const logger = pino().logger;
 
 try {
   data = await fetchData(oboToken, utkastApiUrl);
 } catch (error: any) {
-  console.error("Fetching utkast failed.", error.message);
+  logger.error("Fetching utkast failed.", error.message);
   isError = true;
 }
 

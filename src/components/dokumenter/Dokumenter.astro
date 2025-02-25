@@ -1,4 +1,5 @@
 ---
+import pino from "pino-http";
 import Dokument from "./dokument/Dokument.astro";
 import ClientError from "../client-error/ClientError";
 import { getLanguage } from "../../language/language";
@@ -16,6 +17,7 @@ import styles from "./Dokumenter.module.css";
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const isSubstantial = Astro.locals.isSubstantial;
+const logger = pino().logger;
 
 let data: DokumentType[] = [];
 let isError = false;
@@ -25,7 +27,7 @@ try {
     data = await fetchData(oboToken, dokumenterUrl);
   }
 } catch (error: any) {
-  console.error("Fetching dokumenter failed.", error.message);
+  logger.error("Fetching dokumenter failed.", error.message);
   isError = true;
 }
 
