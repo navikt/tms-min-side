@@ -1,4 +1,5 @@
 ---
+import pino from "pino-http";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import ClientError from "../client-error/ClientError";
 import { navnUrl } from "./personaliaUrls";
@@ -7,6 +8,7 @@ import style from "./Personalia.module.css";
 
 const audience = getAudience("tms-min-side-proxy");
 const oboToken = await getOboToken(Astro.locals.token, audience);
+const logger = pino().logger;
 
 let data = { navn: "", ident: "" };
 let isError = false;
@@ -14,7 +16,7 @@ let isError = false;
 try {
   data = await fetchData(oboToken, navnUrl);
 } catch (error: any) {
-  console.error("Fetch failed.", error.message);
+  logger.error("Fetch failed.", error.message);
   isError = true;
 }
 ---

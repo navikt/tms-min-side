@@ -1,4 +1,5 @@
 ---
+import pino from "pino-http";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { getLanguage } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
@@ -12,6 +13,7 @@ import styles from "./Utbetaling.module.css";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
+const logger = pino().logger;
 
 let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetaling: null, kommende: null };
 let isError = false;
@@ -19,7 +21,7 @@ let isError = false;
 try {
     data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
   } catch (error: any) {
-    console.error("Fetching utbetaling failed.", error.message);
+    logger.error("Fetching utbetaling failed.", error.message);
     isError = true;
 }
 
