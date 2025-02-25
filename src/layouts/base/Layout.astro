@@ -61,3 +61,25 @@ const Decorator = await fetchDecoratorReact({
     <Decorator.Scripts />
   </body>
 </html>
+
+<script>
+  import { getCurrentConsent } from "@navikt/nav-dekoratoren-moduler";
+
+  interface Consent {
+    consent: {
+      analytics: boolean;
+      surveys: boolean;
+    };
+  }
+
+  const { consent }: Consent = getCurrentConsent();
+
+  if (consent) {
+    const script = new DOMParser().parseFromString(
+      "<script is:inline defer data-astro-rerun src='https://cdn.nav.no/team-researchops/sporing/sporing.js' data-host-url='https://umami.nav.no' data-website-id='8dfbb064-8462-460c-8a21-06a5bcf932de' />",
+      "text/html"
+    );
+
+    document.head.appendChild(script);
+  }
+</script>

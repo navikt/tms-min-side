@@ -13,18 +13,3 @@ const language = getLanguage(Astro.url);
   </div>
     <Utkast server:defer />
 </div>
-
-<script>
-  import { logEvent } from "@utils/client/amplitude";
-
-  const utkast = document.querySelector('#utkast');
-  const varsler = document.querySelector('#varlser');
-
-  utkast?.addEventListener('click', () => {
-    logEvent('utkast', 'generell', 'Utkast');
-  });
-
-  varsler?.addEventListener('click', () => {
-    logEvent('varsel', 'generell', 'Varsel');
-  });
-</script>

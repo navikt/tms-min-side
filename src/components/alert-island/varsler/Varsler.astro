@@ -38,7 +38,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 
 {isError && <ClientError client:only="react" />}
 {!hasVarsler(varsler) ? (
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={varslerUrl} class={style.varsler} data-umami-event="varsler">
       <IngenVarslerIkon />
       <div class={style.container}>
         <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
@@ -48,7 +48,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
       </div>
     </a>
   ) : (
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={varslerUrl} class={style.varsler} data-umami-event="varsler">
       <div class={style.ikonRektangel}>
         <VarselBjelleDotMedFyll />
         <VarselBjelleDotUtenFyll />
