@@ -15,26 +15,27 @@ import styles from "./Dokumenter.module.css";
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
+const isSubstantial = Astro.locals.isSubstantial;
 
 let data: DokumentType[] = [];
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, dokumenterUrl);
+  if (!isSubstantial) {
+    data = await fetchData(oboToken, dokumenterUrl);
+  }
 } catch (error: any) {
   console.error("Fetching dokumenter failed.", error.message);
   isError = true;
 }
 
 const hasIngenDokumenter = data.length === 0;
-const isSubstantial = Astro.locals.isSubstantial;
 const language = getLanguage(Astro.url);
 ---
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  {
-    isSubstantial || hasIngenDokumenter ? (
+  { hasIngenDokumenter ? (
       <div class={styles.ingenContainer}>
         <BodyShort as="h2" spacing={true}>
           {text.heading[language]}
