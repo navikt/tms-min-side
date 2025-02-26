@@ -42,7 +42,7 @@ const language = getLanguage(Astro.url);
     <a
       href={`${utbetalingsoversiktUrl}/utbetaling/${sisteUtbetaling.id}`}
       class={`${styles.containerYtelse} ${styles.utbetalt}`}
-      id="siste"
+      data-umami-event="siste-utbetaling"
     >
       <div class={styles.ytelse}>
         <BodyShort>
@@ -56,13 +56,3 @@ const language = getLanguage(Astro.url);
     </a>
   </div>
 </div>}
-
-<script>
-  import { logEvent } from "@utils/client/amplitude";
-
-  const siste = document.querySelector("#siste");
-
-  siste?.addEventListener("click", () => {
-    logEvent("utbetaling-widget", "generell", "Se alle");
-  });
-</script>

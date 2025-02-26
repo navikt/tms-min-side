@@ -35,7 +35,7 @@ const language = getLanguage(Astro.url);
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   <div class={styles.content}>
-    <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
+    <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} data-umami-event="innboks">
       <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
       <div class={styles.tagChevron}>
         <InnboksTag innbokser={innbokser} language={language} />
@@ -47,13 +47,3 @@ const language = getLanguage(Astro.url);
     </div>
   </div>
 </div>
-
-<script>
-  import { logEvent } from "@utils/client/amplitude";
-
-  const innboks = document.querySelector("#innboks");
-
-  innboks?.addEventListener("click", () => {
-    logEvent("innboks.json", "kommunikasjon", "InnboksContent");
-  });
-</script>
