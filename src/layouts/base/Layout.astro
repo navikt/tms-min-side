@@ -80,6 +80,7 @@ const Decorator = await fetchDecoratorReact({
       "text/html"
     );
 
-    document.head.appendChild(script);
+    document.head.appendChild(script.documentElement.querySelector("script"));
   }
+
 </script>
