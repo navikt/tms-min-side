@@ -61,3 +61,30 @@ const Decorator = await fetchDecoratorReact({
     <Decorator.Scripts />
   </body>
 </html>
+
+<script>
+  import { getCurrentConsent } from "@navikt/nav-dekoratoren-moduler";
+  import { getEnvironmentClientSide } from "../../utils/client/environment";
+
+  interface Consent {
+    consent: {
+      analytics: boolean;
+      surveys: boolean;
+    };
+  }
+
+  const { consent }: Consent = getCurrentConsent();
+
+  if (consent) {
+    const script = document.createElement("script");
+    const websiteId= getEnvironmentClientSide() === "prod" ? "28461d11-25ed-4e27-bfc6-6994e6dffb63": "8dfbb064-8462-460c-8a21-06a5bcf932de";
+
+    script.defer = true;
+    script.src = "https://cdn.nav.no/team-researchops/sporing/sporing.js";
+    script.setAttribute("data-astro-rerun", "");
+    script.setAttribute("data-host-url", "https://umami.nav.no");
+    script.setAttribute("data-website-id", websiteId);
+
+    document.head.appendChild(script);
+  }
+</script>
