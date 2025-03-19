@@ -1,13 +1,11 @@
 import { BodyShort } from "@navikt/ds-react";
 import useSWRImmutable from "swr/immutable";
 import { dinOversiktUrl } from "./urls";
-import DialogVeileder from "./dialog-veileder/DialogVeileder";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
 import { getProduktProperties } from "@utils/client/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import Produktkort from "./produktkort/Produktkort";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
-import Aktivitetsplan from "./aktivitetsplan/Aktivitetsplan";
 import { setIsError } from "../../store/store";
 import { logMfEvent } from "@utils/client/amplitude.ts";
 import type { PersonalizedContent } from "./microfrontendTypes";
@@ -62,8 +60,6 @@ const DinOversikt = ({ language }: Props) => {
             {personalizedContent?.microfrontends.map((mf) => (
               <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
             ))}
-            {personalizedContent?.oppfolgingContent && <DialogVeileder language={language} />}
-            {personalizedContent?.oppfolgingContent && <Aktivitetsplan language={language} />}
             {produktProperties?.map((produktConfig) => (
               <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
             ))}
