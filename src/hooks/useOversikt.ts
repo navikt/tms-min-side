@@ -24,7 +24,6 @@ export const useOversikt = (produktProperties?: ProduktProperties[]) => {
   return (
     hasMicrofrontends(personalizedContent.microfrontends)
     || hasProduktkort(produktProperties)
-    || personalizedContent?.oppfolgingContent
     || personalizedContent?.meldekort
   );
 };
