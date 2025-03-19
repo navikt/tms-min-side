@@ -36,11 +36,6 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
         liste.push("meldekort");
       }
 
-      if (personalizedContent?.oppfolgingContent) {
-        liste.push("Aktivitetsplan");
-        liste.push("Dialog med veileder");
-      }
-
       liste.sort();
       logGroupedEvent(liste.toString());
     }

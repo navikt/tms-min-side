@@ -14,7 +14,6 @@ export interface PersonalizedContent {
   microfrontends: Microfrontend[];
   produktkort: string[];
   dokumenter: Dokument[];
-  oppfolgingContent: boolean;
   meldekort: boolean;
   aktuelt: Microfrontend[];
   offerStepup: boolean;
