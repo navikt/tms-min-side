@@ -1,0 +1,5 @@
+---
+const url = "https://www.intern.dev.nav.no/tms-microfrontend-test";
+---
+
+<Fragment set:html={fetch(url).catch((e) => console.error("Failed to fetch ssr-microfrontend"))} />
