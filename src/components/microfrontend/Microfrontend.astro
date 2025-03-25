@@ -5,7 +5,7 @@ import { getAudience } from "../../utils/server/token";
 const audience = getAudience("tms-microfrontend-test");
 const oboToken = getOboToken(Astro.locals.token, audience);
 
-const url = "https://www.intern.dev.nav.no/tms-microfrontend-test";
+const url = "http://tms-microfrontend-test/tms-microfrontend-test";
 const html = await fetch(url, {
   method: "GET",
   headers: {
