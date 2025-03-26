@@ -3,7 +3,7 @@ import { getOboToken } from "../../utils/server/token";
 import { getAudience } from "../../utils/server/token";
 
 const audience = getAudience("tms-microfrontend-test");
-const oboToken = getOboToken(Astro.locals.token, audience);
+const oboToken = await getOboToken(Astro.locals.token, audience);
 
 const url = "http://tms-microfrontend-test/tms-microfrontend-test";
 const html = await fetch(url, {
