@@ -28,10 +28,10 @@ const language = getLanguage(Astro.url);
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
+    <DinOversikt language={language} client:only="react" />
     <Microfrontend server:defer>
       <div slot="fallback">Loading microfrontend...</div>
     </Microfrontend>
-    <DinOversikt language={language} client:only="react" />
     <Container>
       <Utbetaling server:defer>
         <UtbetalingFallback slot="fallback" />
