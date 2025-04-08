@@ -13,6 +13,7 @@ import Chevron from "./Chevron.astro";
 import { text } from "../../language/dokumenter";
 import type { DokumentType } from "./dokumenterTypes";
 import styles from "./Dokumenter.module.css";
+import MinIDDokumenter from "./MinIDDokumenter.astro";
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -36,6 +37,7 @@ const language = getLanguage(Astro.url);
 ---
 
 {isError && <ClientError client:only="react" />}
+{isSubstantial ? <MinIDDokumenter /> :
 <div class={styles.container}>
   { hasIngenDokumenter ? (
       <div class={styles.ingenContainer}>
@@ -71,3 +73,4 @@ const language = getLanguage(Astro.url);
     )
   }
 </div>
+}

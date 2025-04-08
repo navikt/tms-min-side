@@ -1,0 +1,22 @@
+---
+import { text } from "../../language/dokumenter";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { getLanguage } from "../../language/language";
+import styles from "./Dokumenter.module.css";
+
+const language = getLanguage(Astro.url);
+---
+
+<viv class={styles.container}>
+    <Heading size="xsmall" as="h2" spacing>
+        {text.heading[language]}
+    </Heading>
+    <div class={styles.ingenContainer}>
+    <Heading size="small" as="h3">
+        {text.minidHeading[language]}
+    </Heading>
+    <BodyLong className={styles.ingenText}>{text.minidBody[language]}</BodyLong>
+    </div>
+</viv>
