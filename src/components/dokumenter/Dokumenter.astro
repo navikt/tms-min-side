@@ -2,7 +2,7 @@
 import pino from "pino-http";
 import Dokument from "./dokument/Dokument.astro";
 import ClientError from "../client-error/ClientError";
-import { getLanguage } from "../../language/language";
+import { Language } from "../../language/language";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { fetchData } from "../../utils/server/fetch";
 import { dokumentarkivUrl, dokumenterUrl } from "./dokumenterUrls";
@@ -14,6 +14,10 @@ import { text } from "../../language/dokumenter";
 import type { DokumentType } from "./dokumenterTypes";
 import styles from "./Dokumenter.module.css";
 import MinIDDokumenter from "./MinIDDokumenter.astro";
+
+interface Props {
+  language: Language;
+}
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -33,13 +37,13 @@ try {
 }
 
 const hasIngenDokumenter = data.length === 0;
-const language = getLanguage(Astro.url);
+const { language } = Astro.props;
 ---
 
 {isError && <ClientError client:only="react" />}
 {
   isSubstantial ? (
-    <MinIDDokumenter />
+    <MinIDDokumenter language={language} />
   ) : (
     <div class={styles.container}>
       {hasIngenDokumenter ? (

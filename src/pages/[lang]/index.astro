@@ -35,7 +35,7 @@ const language = getLanguage(Astro.url);
       <Innboks server:defer>
         <InnboksFallback slot="fallback" />
       </Innboks>
-      <Dokumenter server:defer>
+      <Dokumenter language={language} server:defer>
         <DokumenterFallback slot="fallback" />
       </Dokumenter>
       <Aktuelt language={language} client:only="react" />

@@ -3,10 +3,14 @@ import { text } from "../../language/dokumenter";
 import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import { getLanguage } from "../../language/language";
+import { Language } from "../../language/language";
 import styles from "./Dokumenter.module.css";
 
-const language = getLanguage(Astro.url);
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
 ---
 
 <div class={styles.container}>

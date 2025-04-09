@@ -19,10 +19,10 @@ let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetali
 let isError = false;
 
 try {
-    data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
-  } catch (error: any) {
-    logger.error("Fetching utbetaling failed.", error.message);
-    isError = true;
+  data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
+} catch (error: any) {
+  logger.error("Fetching utbetaling failed.", error.message);
+  isError = true;
 }
 
 const language = getLanguage(Astro.url);
@@ -30,13 +30,7 @@ const language = getLanguage(Astro.url);
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  {data.hasUtbetaling && (
-    <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} kommende={data.kommende} />
-  )}
-  {data.hasKommende && (
-    <KommendeUtbetaling kommende={data.kommende} />
-  )}
-  {!data.hasKommende && !data.hasUtbetaling && (
-    <IngenUtbetaling />
-  )}
+  {data.hasUtbetaling && <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} kommende={data.kommende} />}
+  {data.hasKommende && <KommendeUtbetaling kommende={data.kommende} />}
+  {!data.hasKommende && !data.hasUtbetaling && <IngenUtbetaling />}
 </div>

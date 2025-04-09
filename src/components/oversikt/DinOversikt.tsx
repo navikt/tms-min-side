@@ -23,16 +23,17 @@ interface Props {
 
 const DinOversikt = ({ language }: Props) => {
   const {
-    data: personalizedContent, isLoading, error
+    data: personalizedContent,
+    isLoading,
+    error,
   } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
-      onError: () => {
-        setIsError();
-      },
-      onSuccess: (data) => {
-        data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
-      }
-    }
-  );
+    onError: () => {
+      setIsError();
+    },
+    onSuccess: (data) => {
+      data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true));
+    },
+  });
 
   const produktProperties = getProduktProperties(language, personalizedContent);
   const shouldShowOversikt = useOversikt(produktProperties);
