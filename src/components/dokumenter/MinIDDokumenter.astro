@@ -9,14 +9,17 @@ import styles from "./Dokumenter.module.css";
 const language = getLanguage(Astro.url);
 ---
 
-<viv class={styles.container}>
-    <Heading size="xsmall" as="h2" spacing>
-        {text.heading[language]}
-    </Heading>
-    <div class={styles.ingenContainer}>
-    <Heading size="small" as="h3">
+<div class={styles.container}>
+  <div class={styles.ingenContainer}>
+    <BodyShort as="h2" spacing={true}>
+      {text.heading[language]}
+    </BodyShort>
+    <div class={styles.ingenContentContainer}>
+      <Heading size="small" as="h3">
         {text.minidHeading[language]}
-    </Heading>
-    <BodyLong className={styles.ingenText}>{text.minidBody[language]}</BodyLong>
+      </Heading>
+      <BodyLong className={styles.ingenText}>{text.minidBody[language]}</BodyLong>
     </div>
-</viv>
+    <div class={styles.ingenContentContainer}></div>
+  </div>
+</div>
