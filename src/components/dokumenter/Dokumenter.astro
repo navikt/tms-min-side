@@ -46,7 +46,7 @@ const { language } = Astro.props;
     <MinIDDokumenter language={language} />
   ) : (
     <div class={styles.container}>
-      {true ? (
+      {hasIngenDokumenter ? (
         <div class={styles.ingenContainer}>
           <div class={styles.ingenHeadingContainer}>
             <BodyShort as="h2">
