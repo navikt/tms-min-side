@@ -13,7 +13,7 @@ const language = getLanguage(Astro.url);
 <div>
   <div class={styles.header}>
     <BodyShort as="h2">
-      {text.tittel[language]}
+      <strong>{text.tittel[language]}</strong>
     </BodyShort>
   </div>
   <div class={styles.content}>
@@ -21,7 +21,11 @@ const language = getLanguage(Astro.url);
       {text.ingen[language]}
     </BodyLong>
     <Label size="small">
-      <a class="navds-button navds-button--primary-neutral navds-button--small" href={utbetalingsoversiktUrl} id="ingen">
+      <a
+        class="navds-button navds-button--primary-neutral navds-button--small"
+        href={utbetalingsoversiktUrl}
+        id="ingen"
+      >
         {text.tidligere[language]}
       </a>
     </Label>

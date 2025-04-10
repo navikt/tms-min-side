@@ -5,7 +5,7 @@ import { getLanguage } from "../../language/language";
 import { innboksUrl } from "./innboksUrls";
 import { antallVarslerUrl } from "./innboksUrls";
 import { text } from "../../language/innboks";
-import { getAudience,getOboToken } from "../../utils/server/token";
+import { getAudience, getOboToken } from "../../utils/server/token";
 import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import Chevron from "./Chevron.astro";
@@ -36,7 +36,7 @@ const language = getLanguage(Astro.url);
 <div class={styles.container}>
   <div class={styles.content}>
     <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
-      <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
+      <BodyShort as="h2"><strong>{text.kommunikasjonsFlisLenketekstInnboks[language]}</strong></BodyShort>
       <div class={styles.tagChevron}>
         <InnboksTag innbokser={innbokser} language={language} />
         <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
