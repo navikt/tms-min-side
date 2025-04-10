@@ -1,77 +1,75 @@
 .container {
-    width: 100%;
-    min-height: 16.6rem;
-    margin-top: var(--tms-space-between-sections);
+  width: 100%;
+  min-height: 16.6rem;
+  margin-top: var(--tms-space-between-sections);
 }
 
-.ingenContainer {
-    padding: 0rem 1rem 0rem 1rem;
+.ingenHeadingContainer {
+  background-color: var(--a-bg-subtle);
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+  margin-bottom: 0.125rem;
 }
 
-.ingenContentContainer {
-    border-top: 1px solid lightgray;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+.ingenIngressContainer {
+  background-color: var(--a-bg-subtle);
+  padding: 1rem 1.25rem;
+  border-radius: 0.125rem 0.125rem 0.5rem 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .dokumenter {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .alle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    padding: 16px;
-    align-self: stretch;
-    border-radius: 0px 0px 8px 8px;
-    background: #F2F3F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  align-self: stretch;
+  border-radius: 0px 0px 8px 8px;
+  background: #f2f3f5;
 }
 
 .chevron {
-    flex-shrink: 0;
-    color: #23262A;
+  flex-shrink: 0;
+  color: #23262a;
 }
 
 .alle:hover .chevron {
-    transition-duration: 0.2s;
-    transform: translate(3px, 0);
-    text-decoration: none;
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+  text-decoration: none;
 }
 
 .ingenText {
-    color: var(--a-text-subtle);
+  color: var(--a-text-subtle);
 }
 
 .link {
-    color: var(--a-text-action);
-    text-decoration: underline;
+  color: var(--a-text-action);
+  text-decoration: underline;
 }
 
 .link:hover {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .ingenLink {
-    color: #272727;
+  color: #272727;
 }
 
 .ingenLink:hover {
-    cursor: pointer;
-    text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-
 @media (min-width: 648px) {
-    .alle {
-        padding: 16px 16px 16px 20px;
-
-    }
-
-    .ingenContainer {
-        padding: 0rem 1.25rem 0rem 1.25rem;
-    }
+  .alle {
+    padding: 16px 16px 16px 20px;
+  }
 }

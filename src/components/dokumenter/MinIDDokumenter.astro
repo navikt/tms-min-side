@@ -14,16 +14,12 @@ const { language } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <div class={styles.ingenContainer}>
-    <BodyShort as="h2" spacing={true}>
-      {text.heading[language]}
+  <div class={styles.ingenHeadingContainer}>
+    <BodyShort as="h2">
+      <strong>{text.heading[language]}</strong>
     </BodyShort>
-    <div class={styles.ingenContentContainer}>
-      <Heading size="small" as="h3">
-        {text.minidHeading[language]}
-      </Heading>
-      <BodyLong className={styles.ingenText}>{text.minidBody[language]}</BodyLong>
-    </div>
-    <div class={styles.ingenContentContainer}></div>
+  </div>
+  <div class={styles.ingenIngressContainer}>
+    <BodyLong className={styles.ingenText}>{text.minidIngress[language]}</BodyLong>
   </div>
 </div>

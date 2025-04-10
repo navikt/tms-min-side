@@ -39,12 +39,7 @@ export const text = {
     nn: "Se tidlegare dokument",
     en: "See previous documents",
   },
-  minidHeading: {
-    nb: "Dokumenter vises ikke",
-    nn: "Dokumenter vises ikkje",
-    en: "Documents are not displayed",
-  },
-  minidBody: {
+  minidIngress: {
     nb: "Du har ingen dokumenter som vises fordi du er logget inn med MinID.",
     nn: "Du har ingen dokument som visast fordi du er logga inn med MinID.",
     en: "You have no documents displayed because you are logged in with MinID.",
