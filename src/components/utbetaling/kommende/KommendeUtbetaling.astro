@@ -23,7 +23,7 @@ const { kommende, language } = Astro.props;
     <div class={`${styles.detaljerContainer} ${styles.kommendeUtbetaling}`}>
       <div class={styles.heading}>
         <BodyShort as="h2" spacing>
-          {text.tittelNeste[language]}
+          <strong>{text.tittelNeste[language]}</strong>
         </BodyShort>
         <a class={styles.link} href={utbetalingsoversiktUrl} onClick={() => null}>
           <BodyShort>{text.alle[language]}</BodyShort>
