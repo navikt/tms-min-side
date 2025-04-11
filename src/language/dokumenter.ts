@@ -41,7 +41,7 @@ export const text = {
   },
   minidIngress: {
     nb: "Du har ingen dokumenter som vises fordi du er logget inn med MinID.",
-    nn: "Du har ingen dokument som visast fordi du er logga inn med MinID.",
+    nn: "Du har ingen dokument som blir viste fordi du er logga inn med MinID.",
     en: "You have no documents displayed because you are logged in with MinID.",
   },
 };
