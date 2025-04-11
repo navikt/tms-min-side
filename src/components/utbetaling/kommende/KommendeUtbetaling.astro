@@ -6,16 +6,16 @@ import { text } from "../../../language/utbetaling";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { formatToReadableDate } from "../../../utils/client/utbetaling";
 import type { Kommende } from "../utbetalingTypes";
-import { getLanguage } from "../../../language/language";
+import { Language } from "../../../language/language";
 import Chevron from "./Chevron.astro";
 import styles from "./KommendeUtbetaling.module.css";
 
 interface Props {
   kommende: Kommende;
+  language: Language;
 }
 
-const { kommende } = Astro.props;
-const language = getLanguage(Astro.url);
+const { kommende, language } = Astro.props;
 ---
 
 <>
@@ -23,13 +23,9 @@ const language = getLanguage(Astro.url);
     <div class={`${styles.detaljerContainer} ${styles.kommendeUtbetaling}`}>
       <div class={styles.heading}>
         <BodyShort as="h2" spacing>
-          {text.tittelNeste[language]}
+          <strong>{text.tittelNeste[language]}</strong>
         </BodyShort>
-        <a
-          class={styles.link}
-          href={utbetalingsoversiktUrl}
-          onClick={() => null}
-        >
+        <a class={styles.link} href={utbetalingsoversiktUrl} onClick={() => null}>
           <BodyShort>{text.alle[language]}</BodyShort>
         </a>
       </div>
@@ -37,7 +33,8 @@ const language = getLanguage(Astro.url);
         {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
       </Heading>
       <BodyLong>
-        {formatToReadableDate(typeof kommende.dato === "string" ? kommende.dato : "")} {text.konto[language]}&nbsp;{kommende.kontonummer}
+        {formatToReadableDate(typeof kommende.dato === "string" ? kommende.dato : "")}
+        {text.konto[language]}&nbsp;{kommende.kontonummer}
       </BodyLong>
     </div>
   </div>
@@ -49,9 +46,7 @@ const language = getLanguage(Astro.url);
     >
       <div class={styles.ytelse}>
         <BodyShort>{kommende.ytelse}</BodyShort>
-        <BodyShort weight="semibold">{`${kommende.utbetaling?.toLocaleString(
-          "no-nb",
-        )} kr`}</BodyShort>
+        <BodyShort weight="semibold">{`${kommende.utbetaling?.toLocaleString("no-nb")} kr`}</BodyShort>
       </div>
       <Chevron />
     </a>

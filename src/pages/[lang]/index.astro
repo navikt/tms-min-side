@@ -29,13 +29,13 @@ const language = getLanguage(Astro.url);
     <AlertIsland />
     <DinOversikt language={language} client:only="react" />
     <Container>
-      <Utbetaling server:defer>
+      <Utbetaling language={language} server:defer>
         <UtbetalingFallback slot="fallback" />
       </Utbetaling>
-      <Innboks server:defer>
+      <Innboks language={language} server:defer>
         <InnboksFallback slot="fallback" />
       </Innboks>
-      <Dokumenter server:defer>
+      <Dokumenter language={language} server:defer>
         <DokumenterFallback slot="fallback" />
       </Dokumenter>
       <Aktuelt language={language} client:only="react" />

@@ -1,0 +1,25 @@
+---
+import { text } from "../../language/dokumenter";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { Language } from "../../language/language";
+import styles from "./Dokumenter.module.css";
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+---
+
+<div class={styles.container}>
+  <div class={styles.ingenHeadingContainer}>
+    <BodyShort as="h2">
+      <strong>{text.heading[language]}</strong>
+    </BodyShort>
+  </div>
+  <div class={styles.ingenIngressContainer}>
+    <BodyLong className={styles.ingenText}>{text.minidIngress[language]}</BodyLong>
+  </div>
+</div>
