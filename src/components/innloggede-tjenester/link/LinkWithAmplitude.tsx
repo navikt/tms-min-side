@@ -8,10 +8,10 @@ interface Link {
   nn: string;
   en: string;
   url: {
-    nb: string,
+    nb: string;
     nn: string;
     en: string;
-  }
+  };
 }
 
 interface Props {
@@ -20,7 +20,11 @@ interface Props {
 }
 
 const LinkWithAmplitude = ({ link, language }: Props) => (
-  <a className={style.color} href={link.url[language]} onClick={() => logEvent("innloggede-tjenester-lenke", "innloggede-tjenester", link["nb"])}>
+  <a
+    className={style.color}
+    href={link.url[language]}
+    onClick={() => logEvent("innloggede-tjenester-lenke", "innloggede-tjenester", link["nb"])}
+  >
     {link[language]}
   </a>
 );

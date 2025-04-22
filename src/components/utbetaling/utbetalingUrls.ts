@@ -8,7 +8,7 @@ const UTBETALINGSOVERSIKT_URL = {
 
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/utbetalinger/siste",
-  dev:  "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste",
+  dev: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste",
   prod: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste",
 };
 

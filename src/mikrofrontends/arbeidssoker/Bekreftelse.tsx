@@ -9,7 +9,10 @@ import { useLanguage } from "@hooks/useLanguage.ts";
 import { bundle, entry } from "../entrypoints.ts";
 
 const Bekreftelse = ({ language }: Props) => {
-  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable({ path: `${aiaMeldekortUrl}/dist/.vite/manifest.json` }, fetcher);
+  const { data: manifest, isLoading: isLoadingManifest } = useSWRImmutable(
+    { path: `${aiaMeldekortUrl}/dist/.vite/manifest.json` },
+    fetcher,
+  );
   useLanguage(language);
 
   if (isLoadingManifest) {
@@ -25,6 +28,6 @@ const Bekreftelse = ({ language }: Props) => {
       </ErrorBoundary>
     </React.Suspense>
   );
-}
+};
 
 export default Bekreftelse;

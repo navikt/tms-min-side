@@ -39,7 +39,7 @@ const jobbLenkerProd = [
       nb: "https://jobbsporet.nav.no ",
       nn: "https://jobbsporet.nav.no ",
       en: "https://jobbsporet.nav.no ",
-    }
+    },
   },
   {
     nb: "Ledige stillinger (Arbeidsplassen)",
@@ -49,7 +49,7 @@ const jobbLenkerProd = [
       nb: "https://arbeidsplassen.nav.no/stillinger",
       nn: "https://arbeidsplassen.nav.no/stillinger",
       en: "https://arbeidsplassen.nav.no/stillinger",
-    }
+    },
   },
   {
     nb: "Meldekort",
@@ -59,7 +59,7 @@ const jobbLenkerProd = [
       nb: "https://www.nav.no/meldekort/",
       nn: "https://www.nav.no/meldekort/",
       en: "https://www.nav.no/meldekort/",
-    }
+    },
   },
   {
     nb: "Registrer deg som arbeidssøker",
@@ -69,7 +69,7 @@ const jobbLenkerProd = [
       nb: "https://www.nav.no/arbeid/registrering/",
       nn: "https://www.nav.no/arbeid/registrering/",
       en: "https://www.nav.no/arbeid/registrering/",
-    }
+    },
   },
 ];
 
@@ -112,7 +112,7 @@ const jobbLenkerDev = [
       nb: "https://jobbsporet.nav.no ",
       nn: "https://jobbsporet.nav.no ",
       en: "https://jobbsporet.nav.no ",
-    }
+    },
   },
   {
     nb: "Ledige stillinger (Arbeidsplassen)",
@@ -122,7 +122,7 @@ const jobbLenkerDev = [
       nb: "https://arbeidsplassen.nav.no/stillinger",
       nn: "https://arbeidsplassen.nav.no/stillinger",
       en: "https://arbeidsplassen.nav.no/stillinger",
-    }
+    },
   },
   {
     nb: "Meldekort",
@@ -132,7 +132,7 @@ const jobbLenkerDev = [
       nb: "https://www.nav.no/meldekort/",
       nn: "https://www.nav.no/meldekort/",
       en: "https://www.nav.no/meldekort/",
-    }
+    },
   },
   {
     nb: "Registrer deg som arbeidssøker",
@@ -142,7 +142,7 @@ const jobbLenkerDev = [
       nb: "https://arbeidssokerregistrering.nav.no/",
       nn: "https://arbeidssokerregistrering.nav.no/",
       en: "https://arbeidssokerregistrering.nav.no/",
-    }
+    },
   },
 ];
 
@@ -155,7 +155,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/aap/mine-aap/",
       nn: "https://www.nav.no/aap/mine-aap/nn/",
       en: "https://www.nav.no/aap/mine-aap/",
-    }
+    },
   },
   {
     nb: "Dagpenger",
@@ -165,7 +165,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
       nn: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
       en: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
-    }
+    },
   },
   {
     nb: "Foreldrepenger",
@@ -175,7 +175,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://foreldrepenger.nav.no/",
       nn: "https://foreldrepenger.nav.no/",
       en: "https://foreldrepenger.nav.no/",
-    }
+    },
   },
   {
     nb: "Hjelpemidler",
@@ -185,7 +185,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
       nn: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
       en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
-    }
+    },
   },
   {
     nb: "Pleiepenger for sykt barn",
@@ -195,7 +195,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       en: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    }
+    },
   },
   {
     nb: "Pensjon",
@@ -205,7 +205,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
       nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
       en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
-    }
+    },
   },
   {
     nb: "Sykefravær",
@@ -215,7 +215,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/syk/sykefravaer",
       nn: "https://www.nav.no/syk/sykefravaer",
       en: "https://www.nav.no/syk/sykefravaer",
-    }
+    },
   },
   {
     nb: "Uføretrygd",
@@ -225,7 +225,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/uforetrygd/selvbetjening",
       nn: "https://www.nav.no/uforetrygd/selvbetjening",
       en: "https://www.nav.no/uforetrygd/selvbetjening",
-    }
+    },
   },
   {
     nb: "Yrkesskade og yrkessykdom",
@@ -235,7 +235,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://yrkesskadeoversikt.nav.no/",
       nn: "https://yrkesskadeoversikt.nav.no/",
       en: "https://yrkesskadeoversikt.nav.no/",
-    }
+    },
   },
   {
     nb: "Økonomisk sosialhjelp",
@@ -245,7 +245,7 @@ const hjelpemidlerLenkerProd = [
       nb: "https://www.nav.no/sosialhjelp/innsyn/",
       nn: "https://www.nav.no/sosialhjelp/innsyn/",
       en: "https://www.nav.no/sosialhjelp/innsyn/",
-    }
+    },
   },
 ];
 
@@ -258,7 +258,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/aap/mine-aap/",
       nn: "https://www.nav.no/aap/mine-aap/nn/",
       en: "https://www.nav.no/aap/mine-aap/",
-    }
+    },
   },
   {
     nb: "Dagpenger",
@@ -268,7 +268,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
       nn: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
       en: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
-    }
+    },
   },
   {
     nb: "Foreldrepenger",
@@ -278,7 +278,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://foreldrepenger.nav.no/",
       nn: "https://foreldrepenger.nav.no/",
       en: "https://foreldrepenger.nav.no/",
-    }
+    },
   },
   {
     nb: "Hjelpemidler",
@@ -288,7 +288,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
       nn: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
       en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
-    }
+    },
   },
   {
     nb: "Pleiepenger for sykt barn",
@@ -298,7 +298,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
       en: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    }
+    },
   },
   {
     nb: "Pensjon",
@@ -308,7 +308,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
       nn: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
       en: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
-    }
+    },
   },
   {
     nb: "Sykefravær",
@@ -318,7 +318,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/syk/sykefravaer",
       nn: "https://www.nav.no/syk/sykefravaer",
       en: "https://www.nav.no/syk/sykefravaer",
-    }
+    },
   },
   {
     nb: "Uføretrygd",
@@ -328,7 +328,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/uforetrygd/selvbetjening",
       nn: "https://www.nav.no/uforetrygd/selvbetjening",
       en: "https://www.nav.no/uforetrygd/selvbetjening",
-    }
+    },
   },
   {
     nb: "Yrkesskade og yrkessykdom",
@@ -338,7 +338,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://yrkesskadeoversikt.intern.dev.nav.no/",
       nn: "https://yrkesskadeoversikt.intern.dev.nav.no/",
       en: "https://yrkesskadeoversikt.intern.dev.nav.no/",
-    }
+    },
   },
   {
     nb: "Økonomisk sosialhjelp",
@@ -348,7 +348,7 @@ const hjelpemidlerLenkerDev = [
       nb: "https://www.nav.no/sosialhjelp/innsyn/",
       nn: "https://www.nav.no/sosialhjelp/innsyn/",
       en: "https://www.nav.no/sosialhjelp/innsyn/",
-    }
+    },
   },
 ];
 
@@ -361,7 +361,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#adresser",
       nn: "https://www.nav.no/person/personopplysninger/nn/#adresser",
       en: "https://www.nav.no/person/personopplysninger/en/#adresser",
-    }
+    },
   },
   {
     nb: "Arbeidsforhold",
@@ -371,7 +371,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#arbeidsforhold",
       nn: "https://www.nav.no/person/personopplysninger/nn/#arbeidsforhold",
       en: "https://www.nav.no/person/personopplysninger/en/#arbeidsforhold",
-    }
+    },
   },
   {
     nb: "Ditt NAV-kontor",
@@ -381,7 +381,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#ditt-nav-kontor",
       nn: "https://www.nav.no/person/personopplysninger/nn/#ditt-nav-kontor",
       en: "https://www.nav.no/person/personopplysninger/en/#ditt-nav-kontor",
-    }
+    },
   },
   {
     nb: "Fullmakt",
@@ -391,7 +391,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/pdl-fullmakt-ui",
       nn: "https://www.nav.no/person/pdl-fullmakt-ui",
       en: "https://www.nav.no/person/pdl-fullmakt-ui",
-    }
+    },
   },
   {
     nb: "Institusjonsopphold",
@@ -401,7 +401,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/institusjonsopphold",
       nn: "https://www.nav.no/person/personopplysninger/nn/institusjonsopphold",
       en: "https://www.nav.no/person/personopplysninger/en/institusjonsopphold",
-    }
+    },
   },
   {
     nb: "Kontaktinformasjon",
@@ -411,7 +411,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#kontaktinformasjon",
       nn: "https://www.nav.no/person/personopplysninger/nn/#kontaktinformasjon",
       en: "https://www.nav.no/person/personopplysninger/en/#kontaktinformasjon",
-    }
+    },
   },
   {
     nb: "Kontonummer for utbetaling",
@@ -421,7 +421,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#utbetaling",
       nn: "https://www.nav.no/person/personopplysninger/nn/#utbetaling",
       en: "https://www.nav.no/person/personopplysninger/en/#utbetaling",
-    }
+    },
   },
   {
     nb: "Medlemskap i folketrygden",
@@ -431,7 +431,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/medlemskap-i-folketrygden",
       nn: "https://www.nav.no/person/personopplysninger/nn/medlemskap-i-folketrygden",
       en: "https://www.nav.no/person/personopplysninger/en/medlemskap-i-folketrygden",
-    }
+    },
   },
   {
     nb: "Personalia",
@@ -441,7 +441,7 @@ const personopplysningLenkerProd = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#personalia",
       nn: "https://www.nav.no/person/personopplysninger/nn/#personalia",
       en: "https://www.nav.no/person/personopplysninger/en/#personalia",
-    }
+    },
   },
 ];
 
@@ -454,7 +454,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#adresser",
       nn: "https://www.nav.no/person/personopplysninger/nn/#adresser",
       en: "https://www.nav.no/person/personopplysninger/en/#adresser",
-    }
+    },
   },
   {
     nb: "Arbeidsforhold",
@@ -464,7 +464,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#arbeidsforhold",
       nn: "https://www.nav.no/person/personopplysninger/nn/#arbeidsforhold",
       en: "https://www.nav.no/person/personopplysninger/en/#arbeidsforhold",
-    }
+    },
   },
   {
     nb: "Ditt NAV-kontor",
@@ -474,7 +474,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#ditt-nav-kontor",
       nn: "https://www.nav.no/person/personopplysninger/nn/#ditt-nav-kontor",
       en: "https://www.nav.no/person/personopplysninger/en/#ditt-nav-kontor",
-    }
+    },
   },
   {
     nb: "Fullmakt",
@@ -484,7 +484,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/pdl-fullmakt-ui",
       nn: "https://www.nav.no/person/pdl-fullmakt-ui",
       en: "https://www.nav.no/person/pdl-fullmakt-ui",
-    }
+    },
   },
   {
     nb: "Institusjonsopphold",
@@ -494,7 +494,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/institusjonsopphold",
       nn: "https://www.nav.no/person/personopplysninger/nn/institusjonsopphold",
       en: "https://www.nav.no/person/personopplysninger/en/institusjonsopphold",
-    }
+    },
   },
   {
     nb: "Kontaktinformasjon",
@@ -504,7 +504,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#kontaktinformasjon",
       nn: "https://www.nav.no/person/personopplysninger/nn/#kontaktinformasjon",
       en: "https://www.nav.no/person/personopplysninger/en/#kontaktinformasjon",
-    }
+    },
   },
   {
     nb: "Kontonummer for utbetaling",
@@ -514,7 +514,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#utbetaling",
       nn: "https://www.nav.no/person/personopplysninger/nn/#utbetaling",
       en: "https://www.nav.no/person/personopplysninger/en/#utbetaling",
-    }
+    },
   },
   {
     nb: "Medlemskap i folketrygden",
@@ -524,7 +524,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/medlemskap-i-folketrygden",
       nn: "https://www.nav.no/person/personopplysninger/nn/medlemskap-i-folketrygden",
       en: "https://www.nav.no/person/personopplysninger/en/medlemskap-i-folketrygden",
-    }
+    },
   },
   {
     nb: "Personalia",
@@ -534,7 +534,7 @@ const personopplysningLenkerDev = [
       nb: "https://www.nav.no/person/personopplysninger/nb/#personalia",
       nn: "https://www.nav.no/person/personopplysninger/nn/#personalia",
       en: "https://www.nav.no/person/personopplysninger/en/#personalia",
-    }
+    },
   },
 ];
 
@@ -547,7 +547,7 @@ const annetLenkerProd = [
       nb: "https://www.nav.no/pensjon/kalkulator/login",
       nn: "https://www.nav.no/pensjon/kalkulator/login",
       en: "https://www.nav.no/pensjon/kalkulator/login",
-    }
+    },
   },
   {
     nb: "Siste dokumenter",
@@ -557,7 +557,7 @@ const annetLenkerProd = [
       nb: "https://www.nav.no/dokumentarkiv",
       nn: "https://www.nav.no/dokumentarkiv/nn",
       en: "https://www.nav.no/dokumentarkiv/en",
-    }
+    },
   },
   {
     nb: "Siste utbetalinger",
@@ -567,7 +567,7 @@ const annetLenkerProd = [
       nb: "https://www.nav.no/utbetalingsoversikt",
       nn: "https://www.nav.no/utbetalingsoversikt",
       en: "https://www.nav.no/utbetalingsoversikt",
-    }
+    },
   },
   {
     nb: "Svar og referater",
@@ -577,7 +577,7 @@ const annetLenkerProd = [
       nb: "https://innboks.nav.no/",
       nn: "https://innboks.nav.no/",
       en: "https://innboks.nav.no/",
-    }
+    },
   },
 ];
 
@@ -590,7 +590,7 @@ const annetLenkerDev = [
       nb: "https://www.nav.no/pensjon/kalkulator/login",
       nn: "https://www.nav.no/pensjon/kalkulator/login",
       en: "https://www.nav.no/pensjon/kalkulator/login",
-    }
+    },
   },
   {
     nb: "Siste dokumenter",
@@ -600,7 +600,7 @@ const annetLenkerDev = [
       nb: "https://www.intern.dev.nav.no/dokumentarkiv",
       nn: "https://www.intern.dev.nav.no/dokumentarkiv/nn",
       en: "https://www.intern.dev.nav.no/dokumentarkiv/en",
-    }
+    },
   },
   {
     nb: "Siste utbetalinger",
@@ -610,7 +610,7 @@ const annetLenkerDev = [
       nb: "https://www.intern.dev.nav.no/utbetalingsoversikt",
       nn: "https://www.intern.dev.nav.no/utbetalingsoversikt",
       en: "https://www.intern.dev.nav.no/utbetalingsoversikt",
-    }
+    },
   },
   {
     nb: "Svar og referater",
@@ -620,7 +620,7 @@ const annetLenkerDev = [
       nb: "https://innboks.nav.no/",
       nn: "https://innboks.nav.no/",
       en: "https://innboks.nav.no/",
-    }
+    },
   },
 ];
 

@@ -28,5 +28,5 @@ export const text = {
     nb: "Se tidligere utbetalinger",
     nn: "Se tidlegare utbetalingar",
     en: "See previous payments",
-  }
+  },
 };

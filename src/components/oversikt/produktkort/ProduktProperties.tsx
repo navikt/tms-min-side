@@ -12,7 +12,6 @@ import type { Language } from "@language/language.ts";
 type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
 
 export function getProduktPropertiesMap(language: Language): Record<string, ProduktProperties> {
-
   const sykefraværConfig: ProduktProperties = {
     produktnavn: "sykefravær",
     url: produktUrls.sykefravær[language],

@@ -12,8 +12,7 @@ const useUXSignalScript = (ready: boolean) => {
     return () => {
       try {
         document.body.removeChild(script);
-      } catch {
-      }
+      } catch {}
     };
   }, [ready]);
 };

@@ -18,4 +18,4 @@ export const getOboToken = async (token: string, audience: string): Promise<stri
   return oboResult.token;
 };
 
-export const getAudience = (name: string) => `${process.env.NAIS_CLUSTER_NAME}:min-side:${name}`
+export const getAudience = (name: string) => `${process.env.NAIS_CLUSTER_NAME}:min-side:${name}`;
