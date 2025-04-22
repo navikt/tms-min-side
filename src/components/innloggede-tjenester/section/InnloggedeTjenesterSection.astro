@@ -13,13 +13,15 @@ const { liste, tittel } = Astro.props;
 <div class={style.listeContainer}>
   <Detail className={style.listeTittel}>{tittel}</Detail>
   <ul class={style.liste}>
-    {liste.map((link) => (
-      <li class={style.link}>
-        <ChevronRight />
-        <BodyShort>
-          <LinkWithAmplitude link={link} language={language} client:only="react" />
-        </BodyShort>
-      </li>
-    ))}
+    {
+      liste.map((link) => (
+        <li class={style.link}>
+          <ChevronRight />
+          <BodyShort>
+            <LinkWithAmplitude link={link} language={language} client:only="react" />
+          </BodyShort>
+        </li>
+      ))
+    }
   </ul>
 </div>

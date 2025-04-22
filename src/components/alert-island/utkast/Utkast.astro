@@ -13,7 +13,7 @@ import style from "./Utkast.module.css";
 const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-let data = { "antall": 0 };
+let data = { antall: 0 };
 let isError = false;
 const logger = pino().logger;
 
@@ -25,26 +25,25 @@ try {
 }
 
 const language = getLanguage(Astro.url);
-const antall = (data ? data.antall : 0);
+const antall = data ? data.antall : 0;
 const hasUtkast = antall > 0;
 const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](antall);
 ---
 
 {isError && <ClientError client:only="react" />}
-{hasUtkast &&
-  <div class={style.wrapper} id="utkast">
-    <a href={utkastUrl} class={style.utkast}>
-      <div class={style.ikonRektangel}>
-        <UtkastIkon />
-        <UtkastIkonHover />
-      </div>
-      <div class={style.container}>
-        <h3 class="navds-heading navds-heading--small">{text.utkast[language]}</h3>
-        <p class="navds-body-long navds-body-long--small">
-          {ingress}
-        </p>
-      </div>
-    </a>
-  </div>
+{
+  hasUtkast && (
+    <div class={style.wrapper} id="utkast">
+      <a href={utkastUrl} class={style.utkast}>
+        <div class={style.ikonRektangel}>
+          <UtkastIkon />
+          <UtkastIkonHover />
+        </div>
+        <div class={style.container}>
+          <h3 class="navds-heading navds-heading--small">{text.utkast[language]}</h3>
+          <p class="navds-body-long navds-body-long--small">{ingress}</p>
+        </div>
+      </a>
+    </div>
+  )
 }
-

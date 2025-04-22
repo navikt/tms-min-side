@@ -13,31 +13,21 @@ const isEnglish = language === "en";
 
 <div class={styles.container}>
   <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenester[language]}</Heading>
-  {isEnglish ?
-    <BodyShort size="medium" className={styles.disclaimer}>
-      {text.disclaimer[language]}
-    </BodyShort> : null
+  {
+    isEnglish ? (
+      <BodyShort size="medium" className={styles.disclaimer}>
+        {text.disclaimer[language]}
+      </BodyShort>
+    ) : null
   }
   <nav class={styles.sectionContainer}>
     <div class={styles.column}>
-      <InnloggedeTjensterSection
-        tittel={text.jobbOgOppfolging[language]}
-        liste={jobbLenker}
-      />
-      <InnloggedeTjensterSection
-        tittel={text.dinOversikt[language]}
-        liste={hjelpemidlerLenker}
-      />
+      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} liste={jobbLenker} />
+      <InnloggedeTjensterSection tittel={text.dinOversikt[language]} liste={hjelpemidlerLenker} />
     </div>
     <div class={styles.column}>
-      <InnloggedeTjensterSection
-        tittel={text.personopplysning[language]}
-        liste={personopplysningLenker}
-      />
-      <InnloggedeTjensterSection
-        tittel={text.annet[language]}
-        liste={annetLenker}
-      />
+      <InnloggedeTjensterSection tittel={text.personopplysning[language]} liste={personopplysningLenker} />
+      <InnloggedeTjensterSection tittel={text.annet[language]} liste={annetLenker} />
     </div>
   </nav>
 </div>

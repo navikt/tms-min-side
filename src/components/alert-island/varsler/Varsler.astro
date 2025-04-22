@@ -17,14 +17,14 @@ const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const logger = pino().logger;
 
-let data = { "oppgaver": 0, "beskjeder": 0, "innbokser": 0 };
+let data = { oppgaver: 0, beskjeder: 0, innbokser: 0 };
 let isError = false;
 
 try {
-    data = await fetchData(oboToken, varselApiUrl);
-  } catch (error: any) {
-    logger.error("Fetching varsler failed.", error.message);
-    isError = true;
+  data = await fetchData(oboToken, varselApiUrl);
+} catch (error: any) {
+  logger.error("Fetching varsler failed.", error.message);
+  isError = true;
 }
 
 const oppgaver = data.oppgaver || 0;
@@ -37,14 +37,13 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 ---
 
 {isError && <ClientError client:only="react" />}
-{!hasVarsler(varsler) ? (
+{
+  !hasVarsler(varsler) ? (
     <a href={varslerUrl} class={style.varsler}>
       <IngenVarslerIkon />
       <div class={style.container}>
         <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
-        <p class="navds-body-long navds-body-long--small">
-          {text.ingenVarsler[language]}
-        </p>
+        <p class="navds-body-long navds-body-long--small">{text.ingenVarsler[language]}</p>
       </div>
     </a>
   ) : (
@@ -59,6 +58,6 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
           {buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}
         </p>
       </div>
-    </a>)
+    </a>
+  )
 }
-
