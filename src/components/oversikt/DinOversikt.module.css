@@ -8,13 +8,23 @@
   margin-right: calc(((100vw - 100%) / 2) * -1);
   background-color: var(--a-bg-subtle);
 }
-.meldekort, .nyAia {
+.meldekort,
+.nyAia {
   padding-bottom: 1rem;
 }
 
-@media (min-width: 648px) {
+.masonry {
+  columns: 1;
+  column-gap: 1rem;
+}
 
-  .meldekort, .nyAia {
+@media (min-width: 648px) {
+  .meldekort,
+  .nyAia {
     padding-bottom: 1.5rem;
+  }
+
+  .masonry {
+    columns: 2;
   }
 }
