@@ -14,4 +14,4 @@ export const getEnvironment = () => {
   return "prod";
 };
 
-export const getDecoratorEnvironment = () => isProduction ? "prod" : "dev";
+export const getDecoratorEnvironment = () => (isProduction ? "prod" : "dev");

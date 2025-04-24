@@ -1,4 +1,4 @@
-export const fetchData = async (oboToken: string,  url: string) => {
+export const fetchData = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -13,4 +13,4 @@ export const fetchData = async (oboToken: string,  url: string) => {
   }
 
   return await response.json();
-}
+};

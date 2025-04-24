@@ -13,4 +13,4 @@ export const setAvsenderMottaker = (dokument: DokumentType) => {
   } else {
     return dokument.avsender;
   }
-}
+};

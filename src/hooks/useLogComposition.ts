@@ -9,13 +9,13 @@ import { setIsError } from "../store/store.ts";
 import ProduktProperties from "@components/oversikt/produktkort/ProduktProperties.tsx";
 
 export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
-  const {
-    data: personalizedContent,
-    isLoading: isLoadingMicrofrontends
-  } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
+  const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
+    { path: dinOversiktUrl, options: include },
+    fetcher,
+    {
       onError: () => setIsError(),
-      onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true))
-    }
+      onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),
+    },
   );
 
   useEffect(() => {
@@ -40,5 +40,4 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
       logGroupedEvent(liste.toString());
     }
   }, [!isLoadingMicrofrontends]);
-
 };

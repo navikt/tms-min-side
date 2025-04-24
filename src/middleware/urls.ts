@@ -2,7 +2,7 @@ import { getEnvironment } from "@utils/server/environment.ts";
 import { getDevBaseUrl } from "@utils/client/environment.ts";
 
 const REDIRECT_URI = {
-  dev:`${getDevBaseUrl}/minside`,
+  dev: `${getDevBaseUrl}/minside`,
   prod: "https://www.nav.no/minside",
 };
 

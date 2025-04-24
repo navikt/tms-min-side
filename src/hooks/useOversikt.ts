@@ -8,25 +8,24 @@ import ProduktProperties from "@components/oversikt/produktkort/ProduktPropertie
 import { hasMicrofrontends } from "@utils/client/oversikt.ts";
 
 export const useOversikt = (produktProperties?: ProduktProperties[]) => {
-  const {
-    data: personalizedContent,
-  } = useSWRImmutable<PersonalizedContent>({ path: dinOversiktUrl, options: include }, fetcher, {
+  const { data: personalizedContent } = useSWRImmutable<PersonalizedContent>(
+    { path: dinOversiktUrl, options: include },
+    fetcher,
+    {
       onError: () => setIsError(),
-      onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true))
-    }
+      onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),
+    },
   );
-  const hasProduktkort = (produktConfig?: ProduktProperties[]) => produktConfig !== undefined && produktConfig.length > 0;
+  const hasProduktkort = (produktConfig?: ProduktProperties[]) =>
+    produktConfig !== undefined && produktConfig.length > 0;
 
   if (!personalizedContent) {
     return false;
   }
 
   return (
-    hasMicrofrontends(personalizedContent.microfrontends)
-    || hasProduktkort(produktProperties)
-    || personalizedContent?.meldekort
+    hasMicrofrontends(personalizedContent.microfrontends) ||
+    hasProduktkort(produktProperties) ||
+    personalizedContent?.meldekort
   );
 };
-
-
-

@@ -1,7 +1,7 @@
 export interface SisteUtbetaling {
   utbetaling: number;
   dato: string;
-  ytelse: string,
+  ytelse: string;
   kontonummer: string;
   id: string;
 }
@@ -20,5 +20,3 @@ export interface Utbetaling {
   sisteUtbetaling: SisteUtbetaling | null;
   kommende: Kommende | null;
 }
-
-

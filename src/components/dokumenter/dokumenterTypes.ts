@@ -7,11 +7,11 @@ export interface Dokumenter {
 }
 
 export interface DokumentType {
-  tittel: string,
-  opprettet: string,
-  dokumentInfoId: string,
-  journalpostId: string,
-  temakode: string,
-  avsender: string | null,
-  mottaker: string | null
+  tittel: string;
+  opprettet: string;
+  dokumentInfoId: string;
+  journalpostId: string;
+  temakode: string;
+  avsender: string | null;
+  mottaker: string | null;
 }

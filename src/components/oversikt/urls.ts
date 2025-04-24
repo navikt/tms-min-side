@@ -1,8 +1,4 @@
-import {
-  getIsAnsattClientSide,
-  getDevBaseUrl,
-  getEnvironmentClientSide,
-} from "@utils/client/environment.ts";
+import { getIsAnsattClientSide, getDevBaseUrl, getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000/tms-min-side-proxy",

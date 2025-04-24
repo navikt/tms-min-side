@@ -1,4 +1,4 @@
-import useSWRImmutable from "swr/immutable"
+import useSWRImmutable from "swr/immutable";
 import { redirectUrl, statusUrl } from "./urls";
 import { fetcher } from "@utils/client/api.ts";
 
@@ -11,12 +11,12 @@ export const reloadOnPageshow = () => {
 };
 
 const Authentication = () => {
-  const { data } = useSWRImmutable({ path : statusUrl }, fetcher);
+  const { data } = useSWRImmutable({ path: statusUrl }, fetcher);
 
-  reloadOnPageshow()
+  reloadOnPageshow();
   if (data?.authenticated === false) {
-    window.location.assign(redirectUrl)
+    window.location.assign(redirectUrl);
   }
-}
+};
 
 export default Authentication;

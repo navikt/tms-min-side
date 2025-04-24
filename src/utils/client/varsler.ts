@@ -10,7 +10,13 @@ export const oppgaveSingular = (oppgaver: number) => oppgaver === 1;
 
 export const beskjedSingular = (beskjeder: number) => beskjeder === 1;
 
-export const buildText = (beskjeder: number, oppgaver: number, beskjedText:string, oppgaveText: string, ogText: string) => {
+export const buildText = (
+  beskjeder: number,
+  oppgaver: number,
+  beskjedText: string,
+  oppgaveText: string,
+  ogText: string,
+) => {
   if (hasOppgaverAndBeskjeder(oppgaver, beskjeder)) {
     return `${oppgaver} ${oppgaveText} ${ogText} ${beskjeder} ${beskjedText}`;
   }
@@ -22,6 +28,4 @@ export const buildText = (beskjeder: number, oppgaver: number, beskjedText:strin
   if (hasBeskjeder(beskjeder)) {
     return `${beskjeder} ${beskjedText}`;
   }
-}
-
-
+};
