@@ -18,6 +18,10 @@
   column-gap: 1rem;
 }
 
+.masonry * > {
+  break-inside: avoid;
+}
+
 @media (min-width: 648px) {
   .meldekort,
   .nyAia {
