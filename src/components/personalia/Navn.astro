@@ -22,4 +22,4 @@ try {
 ---
 
 {isError && <ClientError client:only="react" />}
-<span class={style.navn}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
+<span class:list={["notranslate", style.navn]}>{data.navn ? data.navn.toLowerCase() : data.ident}</span>
