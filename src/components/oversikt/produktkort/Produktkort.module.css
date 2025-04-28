@@ -12,6 +12,8 @@
   text-decoration: none;
   min-width: 0;
   word-break: break-word;
+  break-inside: avoid;
+  margin-bottom: 1rem;
 }
 
 .container:hover {

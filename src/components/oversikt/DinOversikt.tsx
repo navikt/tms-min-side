@@ -56,16 +56,14 @@ const DinOversikt = ({ language }: Props) => {
             <MeldekortWrapper />
           </div>
         )}
-        <ResponsiveMasonry columnsCountBreakPoints={{ 480: 1, 767: 2 }}>
-          <Masonry columnsCount={2} gutter="1rem">
-            {personalizedContent?.microfrontends.map((mf) => (
-              <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
-            ))}
-            {produktProperties?.map((produktConfig) => (
-              <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
+        <div className={styles.masonry}>
+          {personalizedContent?.microfrontends.map((mf) => (
+            <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+          ))}
+          {produktProperties?.map((produktConfig) => (
+            <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
+          ))}
+        </div>
       </div>
     );
   }

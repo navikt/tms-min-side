@@ -1,0 +1,5 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
