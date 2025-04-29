@@ -13,14 +13,14 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/node": "9.0.0",
-    "@astrojs/react": "4.0.0",
+    "@astrojs/node": "^9.2.1",
+    "@astrojs/react": "^4.2.5",
     "@grafana/faro-web-sdk": "1.7.3",
     "@nanostores/react": "0.7.2",
     "@navikt/ds-react": "5.7.2",
     "@navikt/nav-dekoratoren-moduler": "3.2.1",
     "@navikt/oasis": "3.3.0",
-    "astro": "5.1.0",
+    "astro": "^5.7.8",
     "dayjs": "1.11.11",
     "husky": "^9.1.7",
     "pino-http": "10.4.0",
@@ -43,6 +43,6 @@
     "prettier-plugin-astro": "0.14.1",
     "prop-types": "15.8.1",
     "rollup-plugin-import-map": "3.0.0",
-    "tsx": "4.10.5"
+    "tsx": "4.19.3"
   }
 }
