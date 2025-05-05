@@ -35,6 +35,7 @@ try {
     personalizedContent = await fetchData(oboToken, dinOversiktUrl);
   } catch (error: any) {
     logger.error("Fetching din-oversikt failed.", error.message);
+    logger.error(`Error: ${error}`);
     isError = true;
   }
 
