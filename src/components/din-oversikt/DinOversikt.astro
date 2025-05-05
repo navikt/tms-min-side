@@ -1,0 +1,65 @@
+---
+import pino from "pino-http";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { dinOversiktUrl } from "./utils/urls";
+import MeldekortWrapper from "./meldekort/MeldekortWrapper";
+import MicrofrontendWrapper from "./MicrofrontendWrapper";
+import Produktkort from "./produktkort/Produktkort";
+import { getProduktkortList } from "../../utils/server/oversikt.ts";
+import { produktText } from "./produktkort/ProduktText";
+import { getShowDinOversikt } from "./utils/useOversikt.ts";
+import { fetchData } from "../../utils/server/fetch";
+import { getAudience,getOboToken } from "../../utils/server/token";
+import { PersonalizedContent } from "./microfrontendTypes";
+import { getLanguage } from "../../language/language";
+import ClientError from "../client-error/ClientError";
+import Produktkort from "./produktkort/Produktkort";
+import styles from "./DinOversikt.module.css";
+
+const audience = getAudience("tms-mikrofrontend-selector");
+const oboToken = await getOboToken(Astro.locals.token, audience);
+const logger = pino().logger;
+const language = getLanguage(Astro.url);
+
+let isError = false;
+let personalizedContent: PersonalizedContent = {
+  microfrontends: [],
+  produktkort: [],
+  dokumenter: [],
+  meldekort: false,
+  aktuelt: [],
+  offerStepup: false
+};
+
+try {
+    personalizedContent = await fetchData(oboToken, dinOversiktUrl);
+  } catch (error: any) {
+    logger.error("Fetching din-oversikt failed.", error.message);
+    isError = true;
+  }
+
+const produktkortList = getProduktkortList(language, personalizedContent);
+const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
+---
+
+{isError && <ClientError client:only="react" />}
+{showDinOversikt && (
+<div class={styles.oversiktContainer}>
+  <BodyShort as="h2" spacing>
+    {produktText.oversiktTittel[language]}
+  </BodyShort>
+  {personalizedContent?.meldekort && (
+    <div class={styles.meldekort}>
+      <MeldekortWrapper client:only="react" />
+    </div>
+  )}
+  <div class={styles.masonry}>
+    {personalizedContent?.microfrontends.map((mf) => (
+      <MicrofrontendWrapper client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />
+    ))}
+    {produktkortList?.map((produktConfig) => (
+      <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
+    ))}
+  </div>
+</div>
+)}

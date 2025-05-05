@@ -1,13 +1,13 @@
 import useSWRImmutable from "swr/immutable";
+import MicrofrontendWrapper from "../din-oversikt/MicrofrontendWrapper.tsx";
 import { fetcher, include } from "@utils/client/api.ts";
-import { dinOversiktUrl } from "@components/oversikt/urls.ts";
 import { BodyShort } from "@navikt/ds-react";
-import MicrofrontendWrapper from "@components/oversikt/MicrofrontendWrapper.tsx";
-import { Microfrontend, PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
-import type { Language } from "@language/language.ts";
+import { Microfrontend, PersonalizedContent } from "../din-oversikt/microfrontendTypes.tsx";
 import { text } from "@language/aktuelt.ts";
-import style from "./Aktuelt.module.css";
 import { setIsError } from "src/store/store";
+import { dinOversiktLegacyUrl } from "../legacy/urls";
+import type { Language } from "@language/language.ts";
+import style from "./Aktuelt.module.css";
 
 interface Props {
   language: Language;
@@ -15,7 +15,7 @@ interface Props {
 
 const Aktuelt = ({ language }: Props) => {
   const { data, isLoading } = useSWRImmutable<PersonalizedContent>(
-    { path: dinOversiktUrl, options: include },
+    { path: dinOversiktLegacyUrl, options: include },
     fetcher,
     {
       onError: () => setIsError(),

@@ -5,7 +5,7 @@ import type { Props } from "../types.ts";
 import useSWRImmutable from "swr/immutable";
 import { aiaMeldekortUrl } from "./urls.ts";
 import { fetcher } from "@utils/client/api.ts";
-import { useLanguage } from "@hooks/useLanguage.ts";
+import { useLanguage } from "../../components/legacy/useLanguage.ts";
 import { bundle, entry } from "../entrypoints.ts";
 
 const Bekreftelse = ({ language }: Props) => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UXSignalContent from "@components/ux-signal/UXSignalContent.tsx";
-import { aiaBackendUrl } from "@components/oversikt/urls.ts";
+import { aiaBackendUrl } from "../din-oversikt/utils/urls.ts";
 import { getEnvironmentClientSide } from "@utils/client/environment.ts";
 
 async function fetchToggles() {

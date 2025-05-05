@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/base/Layout.astro";
 import Content from "../layouts/content/Content.astro";
-import DinOversikt from "@components/oversikt/DinOversikt";
+import DinOversikt from "../components/din-oversikt/DinOversikt.astro";
 import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
@@ -17,6 +17,7 @@ import Aktuelt from "@components/aktuelt/Aktuelt";
 import InnboksFallback from "../components/innboks/fallback/InnboksFallback.astro";
 import SubstantialInfo from "@components/substantial-info/SubstantialInfo.astro";
 import DokumenterFallback from "../components/dokumenter/fallback/DokumenterFallback.astro";
+import Legacy from "../components/legacy/Legacy";
 
 const language = getLanguage(Astro.url);
 ---
@@ -27,7 +28,7 @@ const language = getLanguage(Astro.url);
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
-    <DinOversikt language={language} client:only="react" />
+    <DinOversikt server:defer />
     <Container>
       <Utbetaling language={language} server:defer>
         <UtbetalingFallback slot="fallback" />
@@ -42,5 +43,6 @@ const language = getLanguage(Astro.url);
     </Container>
     <InnloggedeTjenester />
   </Content>
+  <Legacy language={language} client:only="react"/>
   <Observability client:only="react" />
 </Layout>

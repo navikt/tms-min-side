@@ -1,7 +1,7 @@
-import { ChevronRightIcon } from "@navikt/aksel-icons";
-import { BodyLong, Heading } from "@navikt/ds-react";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import ProduktProperties from "./ProduktProperties.tsx";
-import { logEvent } from "@utils/client/amplitude.ts";
+import Chevron from "../assets/Chevron";
 import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) => {
@@ -9,7 +9,6 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) =>
     <a
       className={styles.container}
       href={produktConfig.url}
-      onClick={() => logEvent("produktkort", "personlig", produktConfig.produktnavn)}
     >
       <div className={styles.ikonOgTekstContainer}>
         <div aria-hidden>{produktConfig.ikon}</div>
@@ -20,7 +19,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) =>
           <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
         </div>
       </div>
-      <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
+      <Chevron aria-hidden />
     </a>
   );
 };
