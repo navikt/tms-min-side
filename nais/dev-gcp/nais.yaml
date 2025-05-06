@@ -39,6 +39,7 @@ spec:
         - application: nav-dekoratoren
           namespace: personbruker
         - application: tms-min-side-proxy
+        - application: tms-mikrofrontend-selector
         - application: tms-varsel-api
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast

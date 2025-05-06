@@ -1,19 +1,16 @@
 import { useEffect } from "react";
-import { hasMicrofrontends, hasAktueltMicrofrontends } from "@utils/client/oversikt.ts";
-import { logGroupedEvent, logMfEvent } from "@utils/client/amplitude.ts";
-import { PersonalizedContent } from "@components/oversikt/microfrontendTypes.tsx";
+import { logGroupedEvent, logMfEvent } from "../../utils/client/amplitude.ts";
+import { PersonalizedContent } from "../din-oversikt/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
-import { dinOversiktUrl } from "@components/oversikt/urls.ts";
-import { fetcher, include } from "@utils/client/api.ts";
-import { setIsError } from "../store/store.ts";
-import ProduktProperties from "@components/oversikt/produktkort/ProduktProperties.tsx";
+import { fetcher, include } from "../../utils/client/api.ts";
+import { dinOversiktLegacyUrl } from "./urls";
+import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./utils";
 
-export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
+export const useLogComposition = () => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
-    { path: dinOversiktUrl, options: include },
+    { path: dinOversiktLegacyUrl, options: include },
     fetcher,
     {
-      onError: () => setIsError(),
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),
     },
   );
@@ -21,12 +18,13 @@ export const useLogComposition = (produktProperties?: ProduktProperties[]) => {
   useEffect(() => {
     if (personalizedContent && !isLoadingMicrofrontends) {
       let liste = [];
+      const produktProperties = getProduktPropertiesLegacy("nb", personalizedContent);
 
-      if (hasMicrofrontends(personalizedContent?.microfrontends)) {
+      if (hasMicrofrontendsLegacy(personalizedContent?.microfrontends)) {
         personalizedContent?.microfrontends?.map((mf) => liste.push(mf.microfrontend_id));
       }
 
-      if (hasAktueltMicrofrontends(personalizedContent?.aktuelt)) {
+      if (hasAktueltMicrofrontendsLegacy(personalizedContent?.aktuelt)) {
         personalizedContent?.aktuelt?.map((mf) => liste.push("Aktuelt - " + mf.microfrontend_id));
       }
 

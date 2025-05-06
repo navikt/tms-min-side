@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { onLanguageSelect, setAvailableLanguages, setParams, DecoratorLocale } from "@navikt/nav-dekoratoren-moduler";
-import type { Language } from "@language/language";
+import type { Language } from "../../language/language";
 
 export const setSessionLanguage = (language: DecoratorLocale) => {
   window.sessionStorage.setItem("language", language);
