@@ -11,15 +11,19 @@ import { getShowDinOversikt } from "./utils/useOversikt.ts";
 import { fetchData } from "../../utils/server/fetch";
 import { getAudience,getOboToken } from "../../utils/server/token";
 import { PersonalizedContent } from "./microfrontendTypes";
-import { getLanguage } from "../../language/language";
 import ClientError from "../client-error/ClientError";
 import Produktkort from "./produktkort/Produktkort";
+import type { Language } from "../../language/language";
 import styles from "./DinOversikt.module.css";
+
+interface Props {
+  language: Language;
+}
 
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
+const { language } = Astro.props;
 const logger = pino().logger;
-const language = getLanguage(Astro.url);
 
 let isError = false;
 let personalizedContent: PersonalizedContent = {
