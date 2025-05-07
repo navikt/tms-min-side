@@ -1,0 +1,56 @@
+
+---
+import pino from "pino-http";
+import MicrofrontendWrapper from "../din-oversikt/MicrofrontendWrapper.tsx";
+import { getAudience,getOboToken } from "../../utils/server/token";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { PersonalizedContent } from "../din-oversikt/microfrontendTypes.tsx";
+import { text } from "@language/aktuelt.ts";
+import { fetchData } from "../../utils/server/fetch";
+import { dinOversiktUrl } from "../din-oversikt/utils/urls";
+import ClientError from "../client-error/ClientError";
+import type { Language } from "@language/language.ts";
+import style from "./Aktuelt.module.css";
+
+interface Props {
+  language: Language;
+}
+
+const audience = getAudience("tms-mikrofrontend-selector");
+const oboToken = await getOboToken(Astro.locals.token, audience);
+const { language } = Astro.props;
+const logger = pino().logger;
+
+let isError = false;
+let personalizedContent: PersonalizedContent = {
+  microfrontends: [],
+  produktkort: [],
+  dokumenter: [],
+  meldekort: false,
+  aktuelt: [],
+  offerStepup: false
+};
+
+try {
+  personalizedContent = await fetchData(oboToken, dinOversiktUrl);
+} catch (error: any) {
+  logger.error("Fetching din-oversikt for aktuelt failed.", error.message);
+  isError = true;
+}
+
+const aktuelt = personalizedContent.aktuelt;
+---
+
+{isError && <ClientError client:only="react" />}
+{aktuelt.length === 0 ? null : (
+<div class={style.container}>
+  <BodyShort as="h2" className={style.aktuelt} spacing>
+    {text.aktuelt[language]}
+  </BodyShort>
+  {aktuelt?.map((microfrontend) => (
+    <MicrofrontendWrapper key={microfrontend.microfrontend_id} manifestUrl={microfrontend.url} client:only="react" />
+  ))}
+</div>
+)}
+
+
