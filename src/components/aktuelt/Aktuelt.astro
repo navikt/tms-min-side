@@ -1,11 +1,11 @@
 
 ---
 import pino from "pino-http";
-import MicrofrontendCSR from "@components/microfrontend/MicrofrontendCSR.tsx";
-import MicrofrontendSSR from "@components/microfrontend/MicrofrontendSSR.astro"
+import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR.tsx";
+import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro"
 import { getAudience,getOboToken } from "../../utils/server/token";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import { PersonalizedContent } from "../microfrontend/microfrontendTypes.tsx";
+import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes.tsx";
 import { text } from "@language/aktuelt.ts";
 import { fetchData } from "../../utils/server/fetch";
 import { dinOversiktUrl } from "../din-oversikt/utils/urls";

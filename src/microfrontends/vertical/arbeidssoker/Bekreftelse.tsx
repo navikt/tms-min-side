@@ -1,11 +1,11 @@
 import React from "react";
-import ContentLoader from "@components/loader/ContentLoader.tsx";
-import ErrorBoundary from "@components/error-boundary/ErrorBoundary.tsx";
+import ContentLoader from "../../../components/loader/ContentLoader.tsx";
+import ErrorBoundary from "../../../components/error-boundary/ErrorBoundary.tsx";
 import type { Props } from "../types.ts";
 import useSWRImmutable from "swr/immutable";
 import { aiaMeldekortUrl } from "./urls.ts";
-import { fetcher } from "@utils/client/api.ts";
-import { useLanguage } from "../../components/legacy/useLanguage.ts";
+import { fetcher } from "../../../utils/client/api.ts";
+import { useLanguage } from "../../../components/legacy/useLanguage.ts";
 import { bundle, entry } from "../entrypoints.ts";
 
 const Bekreftelse = ({ language }: Props) => {
