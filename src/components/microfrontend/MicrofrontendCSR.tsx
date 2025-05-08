@@ -1,9 +1,9 @@
 import React from "react";
-import ErrorBoundary from "@components/error-boundary/ErrorBoundary.tsx";
+import ErrorBoundary from "../error-boundary/ErrorBoundary.tsx";
 import { Skeleton } from "@navikt/ds-react";
-import styles from "./MicrofrontendWrapper.module.css";
+import styles from "./MicrofrontendCSR.module.css";
 
-const MicrofrontendWrapper = ({ manifestUrl }: { manifestUrl: string }) => {
+const MicrofrontendCSR = ({ manifestUrl }: { manifestUrl: string }) => {
   const Microfrontend = React.lazy(() => import(manifestUrl));
 
   return (
@@ -17,4 +17,4 @@ const MicrofrontendWrapper = ({ manifestUrl }: { manifestUrl: string }) => {
   );
 };
 
-export default MicrofrontendWrapper;
+export default MicrofrontendCSR;

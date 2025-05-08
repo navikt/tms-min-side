@@ -1,6 +1,9 @@
 export interface Microfrontend {
   microfrontend_id: string;
   url: string;
+  name?: string;
+  namespace?: string;
+  ssr?: boolean;
 }
 
 export interface Dokument {

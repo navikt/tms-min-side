@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { logGroupedEvent, logMfEvent } from "../../utils/client/amplitude.ts";
-import { PersonalizedContent } from "../din-oversikt/microfrontendTypes.tsx";
+import { PersonalizedContent } from "../microfrontend/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
 import { fetcher, include } from "../../utils/client/api.ts";
 import { dinOversiktLegacyUrl } from "./urls";
