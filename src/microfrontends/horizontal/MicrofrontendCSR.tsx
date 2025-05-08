@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorBoundary from "../error-boundary/ErrorBoundary.tsx";
+import ErrorBoundary from "../../components/error-boundary/ErrorBoundary.tsx";
 import { Skeleton } from "@navikt/ds-react";
 import styles from "./MicrofrontendCSR.module.css";
 

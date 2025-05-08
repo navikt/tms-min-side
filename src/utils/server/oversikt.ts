@@ -1,5 +1,5 @@
 import { Language } from "../../language/language.ts";
-import { Microfrontend, PersonalizedContent } from "../../components/microfrontend/microfrontendTypes.tsx";
+import { Microfrontend, PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes.tsx";
 import { getProduktPropertiesMap } from "../../components/din-oversikt/produktkort/ProduktProperties.tsx";
 
 export const getProduktkortList = (language: Language, personalizedContent?: PersonalizedContent) => {
