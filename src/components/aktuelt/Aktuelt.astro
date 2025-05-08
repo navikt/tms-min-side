@@ -1,10 +1,11 @@
 
 ---
 import pino from "pino-http";
-import MicrofrontendWrapper from "../din-oversikt/MicrofrontendWrapper.tsx";
+import MicrofrontendCSR from "@components/microfrontend/MicrofrontendCSR.tsx";
+import MicrofrontendSSR from "@components/microfrontend/MicrofrontendSSR.astro"
 import { getAudience,getOboToken } from "../../utils/server/token";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import { PersonalizedContent } from "../din-oversikt/microfrontendTypes.tsx";
+import { PersonalizedContent } from "../microfrontend/microfrontendTypes.tsx";
 import { text } from "@language/aktuelt.ts";
 import { fetchData } from "../../utils/server/fetch";
 import { dinOversiktUrl } from "../din-oversikt/utils/urls";
@@ -47,9 +48,14 @@ const aktuelt = personalizedContent.aktuelt;
   <BodyShort as="h2" className={style.aktuelt} spacing>
     {text.aktuelt[language]}
   </BodyShort>
-  {aktuelt?.map((microfrontend) => (
-    <MicrofrontendWrapper key={microfrontend.microfrontend_id} manifestUrl={microfrontend.url} client:only="react" />
-  ))}
+  {aktuelt?.map((microfrontend) => {
+    if (microfrontend.ssr) {
+      return <MicrofrontendSSR url={microfrontend.url} name={microfrontend.name} namespace={microfrontend.namespace} />
+    }
+    else {
+      return <MicrofrontendCSR key={microfrontend.microfrontend_id} manifestUrl={microfrontend.url} client:only="react" />
+    }
+  })}
 </div>
 )}
 

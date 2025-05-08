@@ -1,4 +1,4 @@
-import type { PersonalizedContent } from "../microfrontendTypes.tsx";
+import type { PersonalizedContent } from "../../microfrontend/microfrontendTypes.tsx";
 import ProduktProperties from "../produktkort/ProduktProperties.tsx";
 import { hasMicrofrontends } from "../../../utils/server/oversikt.ts";
 

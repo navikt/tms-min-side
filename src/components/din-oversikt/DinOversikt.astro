@@ -3,14 +3,15 @@ import pino from "pino-http";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { dinOversiktUrl } from "./utils/urls";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
-import MicrofrontendWrapper from "./MicrofrontendWrapper";
+import MicrofrontendCSR from "../microfrontend/MicrofrontendCSR";
+import MicrofrontendSSR from "../microfrontend/MicrofrontendSSR.astro";
 import Produktkort from "./produktkort/Produktkort";
 import { getProduktkortList } from "../../utils/server/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import { getShowDinOversikt } from "./utils/useOversikt.ts";
 import { fetchData } from "../../utils/server/fetch";
 import { getAudience,getOboToken } from "../../utils/server/token";
-import { PersonalizedContent } from "./microfrontendTypes";
+import { PersonalizedContent } from "../microfrontend/microfrontendTypes";
 import ClientError from "../client-error/ClientError";
 import Produktkort from "./produktkort/Produktkort";
 import type { Language } from "../../language/language";
@@ -59,9 +60,13 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
     </div>
   )}
   <div class={styles.masonry}>
-    {personalizedContent?.microfrontends.map((mf) => (
-      <MicrofrontendWrapper client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />
-    ))}
+    {personalizedContent?.microfrontends.map((mf) => {
+      if (mf.ssr) {
+        return <MicrofrontendSSR url={mf.url} name={mf.name} namespace={mf.namespace} />
+      } else {
+        return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />
+      }
+    })}
     {produktkortList?.map((produktConfig) => (
       <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
     ))}
