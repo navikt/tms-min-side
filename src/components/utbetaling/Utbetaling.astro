@@ -10,6 +10,7 @@ import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 import type { Utbetaling } from "./utbetalingTypes";
 import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
+import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 
 interface Props {
   language: Language;
@@ -41,4 +42,9 @@ const { language } = Astro.props;
   }
   {data.hasKommende && <KommendeUtbetaling kommende={data.kommende} language={language} />}
   {!data.hasKommende && !data.hasUtbetaling && <IngenUtbetaling language={language} />}
+  <PersonalContentLogger
+    event={"utbetaling"}
+    value={data.hasUtbetaling || data.hasKommende ? true : false}
+    client:only="react"
+  />
 </div>

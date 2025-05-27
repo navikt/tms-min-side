@@ -18,7 +18,7 @@ export const hasMicrofrontendsLegacy = (microfrontends: Microfrontend[]) =>
 export const hasAktueltMicrofrontendsLegacy = (microfrontends: Microfrontend[]) =>
   microfrontends !== undefined && microfrontends.length > 0;
 
-type ProduktProperties = { produktnavn: string; tittel: string; };
+type ProduktProperties = { produktnavn: string; tittel: string };
 
 export function getProduktPropertiesMapLegacy(language: Language): Record<string, ProduktProperties> {
   const sykefraværConfig: ProduktProperties = {

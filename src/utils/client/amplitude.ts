@@ -15,3 +15,7 @@ export function logMfEvent(name: string, metric: boolean) {
 export const logGroupedEvent = (list: string) => {
   logger("minside-composition", { composition: list }).catch(() => console.warn("Uninitialized amplitude"));
 };
+
+export const logContentEvent = (event: string, value: boolean) => {
+  logger(event, { hasContent: value }).catch(() => console.warn("Uninitialized amplitude"));
+};

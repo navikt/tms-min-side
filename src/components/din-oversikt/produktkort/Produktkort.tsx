@@ -6,10 +6,7 @@ import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) => {
   return (
-    <a
-      className={styles.container}
-      href={produktConfig.url}
-    >
+    <a className={styles.container} href={produktConfig.url}>
       <div className={styles.ikonOgTekstContainer}>
         <div aria-hidden>{produktConfig.ikon}</div>
         <div>

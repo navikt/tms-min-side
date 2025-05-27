@@ -12,6 +12,7 @@ import Chevron from "./Chevron.astro";
 import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";
 import styles from "./Innboks.module.css";
+import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 
 interface Props {
   language: Language;
@@ -50,6 +51,7 @@ const { language } = Astro.props;
       <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
     </div>
   </div>
+  <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 </div>
 
 <script>
