@@ -6,7 +6,6 @@ interface Props {
 }
 
 const PersonalContentLogger = ({ event, value }: Props) => {
-  console.log("PersonalContentLogger", event, value);
   logContentEvent(event, value);
   return null;
 };

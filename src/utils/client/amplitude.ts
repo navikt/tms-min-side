@@ -17,6 +17,5 @@ export const logGroupedEvent = (list: string) => {
 };
 
 export const logContentEvent = (event: string, value: boolean) => {
-  console.log("logContentEvent", event, value);
   logger(event, { hasContent: value }).catch(() => console.warn("Uninitialized amplitude"));
 };
