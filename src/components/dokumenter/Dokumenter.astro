@@ -14,6 +14,7 @@ import { text } from "../../language/dokumenter";
 import type { DokumentType } from "./dokumenterTypes";
 import styles from "./Dokumenter.module.css";
 import MinIDDokumenter from "./MinIDDokumenter.astro";
+import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 
 interface Props {
   language: Language;
@@ -79,6 +80,7 @@ const { language } = Astro.props;
           </div>
         </>
       )}
+      <PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />
     </div>
   )
 }

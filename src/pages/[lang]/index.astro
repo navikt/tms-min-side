@@ -43,6 +43,6 @@ const language = getLanguage(Astro.url);
     </Container>
     <InnloggedeTjenester />
   </Content>
-  <Legacy language={language} client:only="react"/>
+  <Legacy language={language} client:only="react" />
   <Observability client:only="react" />
 </Layout>

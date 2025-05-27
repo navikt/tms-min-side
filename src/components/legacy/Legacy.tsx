@@ -3,7 +3,7 @@ import { Language } from "../../language/language";
 import { useLogComposition } from "./useLogComposition";
 
 interface Props {
-  language: Language
+  language: Language;
 }
 
 const Legacy = ({ language }: Props) => {

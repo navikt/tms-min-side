@@ -1,23 +1,24 @@
 ---
 import pino from "pino-http";
-import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "../../../utils/client/varsler";
-import { text } from "../../../language/varsler";
-import { getAudience, getOboToken } from "../../../utils/server/token";
-import { fetchData } from "../../../utils/server/fetch";
-import { varselApiUrl } from "./varslerUrls";
-import { varslerUrl } from "./varslerUrls";
+import {beskjedSingular, buildText, hasVarsler, oppgaveSingular} from "../../../utils/client/varsler";
+import {text} from "../../../language/varsler";
+import {getAudience, getOboToken} from "../../../utils/server/token";
+import {fetchData} from "../../../utils/server/fetch";
+import {varselApiUrl} from "./varslerUrls";
+import {varslerUrl} from "./varslerUrls";
 import IngenVarslerIkon from "./ikoner/IngenVarslerIkon";
 import VarselBjelleDotMedFyll from "./ikoner/VarselBjelleDotMedFyll";
 import VarselBjelleDotUtenFyll from "./ikoner/VarselBjelleDotUtenFyll";
-import { getLanguage } from "../../../language/language";
+import {getLanguage} from "../../../language/language";
 import ClientError from "../../client-error/ClientError";
 import style from "./Varsler.module.css";
+import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 
 const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const logger = pino().logger;
 
-let data = { oppgaver: 0, beskjeder: 0, innbokser: 0 };
+let data = {oppgaver: 0, beskjeder: 0, innbokser: 0};
 let isError = false;
 
 try {
@@ -45,6 +46,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
         <h3 class="navds-heading navds-heading--small">{text.varsler[language]}</h3>
         <p class="navds-body-long navds-body-long--small">{text.ingenVarsler[language]}</p>
       </div>
+      <PersonalContentLogger event={"varsler"} value={false} client:only="react" />
     </a>
   ) : (
     <a href={varslerUrl} class={style.varsler}>
@@ -58,6 +60,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
           {buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}
         </p>
       </div>
+      <PersonalContentLogger event={"varsler"} value={true} client:only="react" />
     </a>
   )
 }

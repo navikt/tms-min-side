@@ -10,7 +10,7 @@ import { getProduktkortList } from "../../utils/server/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import { getShowDinOversikt } from "./utils/useOversikt.ts";
 import { fetchData } from "../../utils/server/fetch";
-import { getAudience,getOboToken } from "../../utils/server/token";
+import { getAudience, getOboToken } from "../../utils/server/token";
 import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes";
 import ClientError from "../client-error/ClientError";
 import Produktkort from "./produktkort/Produktkort";
@@ -33,43 +33,45 @@ let personalizedContent: PersonalizedContent = {
   dokumenter: [],
   meldekort: false,
   aktuelt: [],
-  offerStepup: false
+  offerStepup: false,
 };
 
 try {
-    personalizedContent = await fetchData(oboToken, dinOversiktUrl);
-  } catch (error: any) {
-    logger.error("Fetching din-oversikt failed.", error.message);
-    logger.error(`Error: ${error}`);
-    isError = true;
-  }
+  personalizedContent = await fetchData(oboToken, dinOversiktUrl);
+} catch (error: any) {
+  logger.error("Fetching din-oversikt failed.", error.message);
+  logger.error(`Error: ${error}`);
+  isError = true;
+}
 
 const produktkortList = getProduktkortList(language, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
 ---
 
 {isError && <ClientError client:only="react" />}
-{showDinOversikt && (
-<div class={styles.oversiktContainer}>
-  <BodyShort as="h2" spacing>
-    {produktText.oversiktTittel[language]}
-  </BodyShort>
-  {personalizedContent?.meldekort && (
-    <div class={styles.meldekort}>
-      <MeldekortWrapper client:only="react" />
+{
+  showDinOversikt && (
+    <div class={styles.oversiktContainer}>
+      <BodyShort as="h2" spacing>
+        {produktText.oversiktTittel[language]}
+      </BodyShort>
+      {personalizedContent?.meldekort && (
+        <div class={styles.meldekort}>
+          <MeldekortWrapper client:only="react" />
+        </div>
+      )}
+      <div class={styles.masonry}>
+        {personalizedContent?.microfrontends.map((mf) => {
+          if (mf.ssr) {
+            return <MicrofrontendSSR url={mf.url} name={mf.name} namespace={mf.namespace} />;
+          } else {
+            return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />;
+          }
+        })}
+        {produktkortList?.map((produktConfig) => (
+          <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
+        ))}
+      </div>
     </div>
-  )}
-  <div class={styles.masonry}>
-    {personalizedContent?.microfrontends.map((mf) => {
-      if (mf.ssr) {
-        return <MicrofrontendSSR url={mf.url} name={mf.name} namespace={mf.namespace} />
-      } else {
-        return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />
-      }
-    })}
-    {produktkortList?.map((produktConfig) => (
-      <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
-    ))}
-  </div>
-</div>
-)}
+  )
+}
