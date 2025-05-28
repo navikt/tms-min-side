@@ -80,7 +80,7 @@ const { language } = Astro.props;
           </div>
         </>
       )}
-      <PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />
     </div>
   )
 }
+<PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />

@@ -51,8 +51,8 @@ const { language } = Astro.props;
       <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
     </div>
   </div>
-  <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 </div>
+<PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 
 <script>
   import { logEvent } from "@utils/client/amplitude";
