@@ -1,14 +1,14 @@
 ---
 import pino from "pino-http";
-import { getAudience, getOboToken } from "../../utils/server/token";
-import { Language } from "../../language/language";
+import {getAudience, getOboToken} from "../../utils/server/token";
+import {Language} from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
 import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
 import ClientError from "../client-error/ClientError";
-import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
-import type { Utbetaling } from "./utbetalingTypes";
-import { fetchData } from "../../utils/server/fetch";
+import {utbetalingsoversiktApiUrl} from "./utbetalingUrls";
+import type {Utbetaling} from "./utbetalingTypes";
+import {fetchData} from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 
@@ -20,7 +20,7 @@ const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const logger = pino().logger;
 
-let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetaling: null, kommende: null };
+let data: Utbetaling = {hasKommende: false, hasUtbetaling: false, sisteUtbetaling: null, kommende: null};
 let isError = false;
 
 try {
@@ -30,7 +30,7 @@ try {
   isError = true;
 }
 
-const { language } = Astro.props;
+const {language} = Astro.props;
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -42,9 +42,9 @@ const { language } = Astro.props;
   }
   {data.hasKommende && <KommendeUtbetaling kommende={data.kommende} language={language} />}
   {!data.hasKommende && !data.hasUtbetaling && <IngenUtbetaling language={language} />}
-  <PersonalContentLogger
-    event={"utbetaling"}
-    value={data.hasUtbetaling || data.hasKommende ? true : false}
-    client:only="react"
-  />
 </div>
+<PersonalContentLogger
+  event={"utbetaling"}
+  value={data.hasUtbetaling || data.hasKommende ? true : false}
+  client:only="react"
+/>
