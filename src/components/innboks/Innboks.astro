@@ -1,15 +1,15 @@
 ---
 import pino from "pino-http";
 import InnboksTag from "./InnboksTag";
-import {getLanguage, Language} from "../../language/language";
-import {innboksUrl} from "./innboksUrls";
-import {antallVarslerUrl} from "./innboksUrls";
-import {text} from "../../language/innboks";
-import {getAudience, getOboToken} from "../../utils/server/token";
-import {BodyLong} from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import {BodyShort} from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { getLanguage, Language } from "../../language/language";
+import { innboksUrl } from "./innboksUrls";
+import { antallVarslerUrl } from "./innboksUrls";
+import { text } from "../../language/innboks";
+import { getAudience, getOboToken } from "../../utils/server/token";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import Chevron from "./Chevron.astro";
-import {fetchData} from "../../utils/server/fetch";
+import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";
 import styles from "./Innboks.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
@@ -22,7 +22,7 @@ const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const logger = pino().logger;
 
-let data = {innbokser: 0};
+let data = { innbokser: 0 };
 let isError = false;
 
 try {
@@ -34,7 +34,7 @@ try {
 
 const innbokser = data.innbokser;
 const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
-const {language} = Astro.props;
+const { language } = Astro.props;
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -55,7 +55,7 @@ const {language} = Astro.props;
 <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 
 <script>
-  import {logEvent} from "@utils/client/amplitude";
+  import { logEvent } from "@utils/client/amplitude";
 
   const innboks = document.querySelector("#innboks");
 

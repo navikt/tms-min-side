@@ -6,7 +6,10 @@ interface Props {
 }
 
 const PersonalContentLogger = ({ event, value }: Props) => {
-  logContentEvent(event, value);
+  setTimeout(() => {
+    logContentEvent(event, value);
+  }, 500);
+
   return null;
 };
 

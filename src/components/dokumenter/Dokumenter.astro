@@ -2,16 +2,16 @@
 import pino from "pino-http";
 import Dokument from "./dokument/Dokument.astro";
 import ClientError from "../client-error/ClientError";
-import {Language} from "../../language/language";
-import {getAudience, getOboToken} from "../../utils/server/token";
-import {fetchData} from "../../utils/server/fetch";
-import {dokumentarkivUrl, dokumenterUrl} from "./dokumenterUrls";
-import {BodyLong} from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import {BodyShort} from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import {Heading} from "@navikt/ds-react/cjs/typography/Heading.js";
+import { Language } from "../../language/language";
+import { getAudience, getOboToken } from "../../utils/server/token";
+import { fetchData } from "../../utils/server/fetch";
+import { dokumentarkivUrl, dokumenterUrl } from "./dokumenterUrls";
+import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
 import Chevron from "./Chevron.astro";
-import {text} from "../../language/dokumenter";
-import type {DokumentType} from "./dokumenterTypes";
+import { text } from "../../language/dokumenter";
+import type { DokumentType } from "./dokumenterTypes";
 import styles from "./Dokumenter.module.css";
 import MinIDDokumenter from "./MinIDDokumenter.astro";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
@@ -38,7 +38,7 @@ try {
 }
 
 const hasIngenDokumenter = data.length === 0;
-const {language} = Astro.props;
+const { language } = Astro.props;
 ---
 
 {isError && <ClientError client:only="react" />}
