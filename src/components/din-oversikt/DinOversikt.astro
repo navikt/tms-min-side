@@ -45,7 +45,7 @@ try {
 }
 
 const audienceTest = getAudience("tms-microfrontend-test");
-const oboTokenTest = await getOboToken(Astro.locals.token, audience);
+const oboTokenTest = await getOboToken(Astro.locals.token, audienceTest);
 const url = "http://tms-microfrontend-test/tms-microfrontend-test";
 const html = await fetch(url, {
   method: "GET",

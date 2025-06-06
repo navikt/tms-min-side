@@ -19,7 +19,7 @@ spec:
     enabled: true
   envFrom:
     - secret: tms-min-side-secrets
-  image: { { image } }
+  image: {{ image }}
   port: 3000
   liveness:
     path: /minside/api/internal/isAlive
