@@ -19,7 +19,7 @@ spec:
     enabled: true
   envFrom:
     - secret: tms-min-side-secrets
-  image: {{image}}
+  image: { { image } }
   port: 3000
   liveness:
     path: /minside/api/internal/isAlive
@@ -44,6 +44,7 @@ spec:
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast
         - application: mine-saker-api
+        - application: tms-microfrontend-test
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
