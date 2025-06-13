@@ -3,6 +3,7 @@ export interface Microfrontend {
   url: string;
   name?: string;
   namespace?: string;
+  fallback?: string;
   ssr?: boolean;
 }
 
