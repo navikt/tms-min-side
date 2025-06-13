@@ -12,7 +12,9 @@ const { url, appname, namespace, fallback } = Astro.props;
 const audience = getAudience(appname, namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-const html = await fetch(url, {
+console.info("Url:", url);
+
+const html = await fetch(`${url}/nb`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
