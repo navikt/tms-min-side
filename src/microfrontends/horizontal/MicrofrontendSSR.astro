@@ -3,13 +3,13 @@ import { getAudience, getOboToken } from "../../utils/server/token";
 
 interface Props {
   url: string;
-  name: string;
-  fallback: string;
+  appname: string;
   namespace: string;
+  fallback: string;
 }
 
-const { url, name, namespace } = Astro.props;
-const audience = getAudience(name, namespace);
+const { url, appname, namespace, fallback } = Astro.props;
+const audience = getAudience(appname, namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 const html = await fetch(url, {
