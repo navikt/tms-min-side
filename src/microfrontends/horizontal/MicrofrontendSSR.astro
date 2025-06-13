@@ -1,5 +1,6 @@
 ---
 import { getAudience, getOboToken } from "../../utils/server/token";
+import { fetchData } from "../../utils/server/fetch";
 
 interface Props {
   url: string;
@@ -11,9 +12,16 @@ interface Props {
 const { url, appname, namespace, fallback } = Astro.props;
 const audience = getAudience(appname, namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
-
+let html;
 console.info("Url:", url);
 
+try {
+  html = await fetchData(oboToken, url);
+} catch (error) {
+  console.error(`Failed to fetch ${appname}. Error: `, error);
+}
+
+/*
 const html = await fetch(`${url}/nb`, {
   method: "GET",
   headers: {
@@ -22,6 +30,7 @@ const html = await fetch(`${url}/nb`, {
     Authorization: `Bearer ${oboToken}`,
   },
 }).catch((e) => console.error("Failed to fetch ssr-microfrontend. Error:" + e.message));
+*/
 ---
 
 <Fragment set:html={html} />
