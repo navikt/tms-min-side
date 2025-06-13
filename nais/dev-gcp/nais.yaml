@@ -44,8 +44,8 @@ spec:
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast
         - application: mine-saker-api
-        - application: "*"
-          namespace: "*"
+        - application: pensjonskalkulator-microfrontend-ssr
+          namespace: pensjonskalkulator
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
