@@ -21,7 +21,7 @@ const html = await fetch(`${url}/nb`, {
     Accept: "application/json",
     Authorization: `Bearer ${oboToken}`,
   },
-}).catch((e) => console.error("Failed to fetch ssr-microfrontend"));
+}).catch((e) => console.error("Failed to fetch ssr-microfrontend. Error:" + e.message));
 ---
 
 <Fragment set:html={html} />
