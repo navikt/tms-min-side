@@ -13,10 +13,11 @@ const { url, appname, namespace, fallback } = Astro.props;
 const audience = getAudience(appname, namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
 let html;
-console.info("Url:", url);
+
+console.info("Url:", `${url}/nb`);
 
 try {
-  html = await fetchData(oboToken, url);
+  html = await fetchData(oboToken, `${url}/nb`);
 } catch (error) {
   console.error(`Failed to fetch ${appname}. Error: `, error);
 }
