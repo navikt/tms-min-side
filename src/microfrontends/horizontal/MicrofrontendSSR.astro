@@ -17,7 +17,14 @@ let html;
 console.info("Url:", `${url}/nb`);
 
 try {
-  html = await fetchData(oboToken, `${url}/nb`);
+  html = await fetch(`${url}/nb`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${oboToken}`,
+    },
+  });
 } catch (error) {
   console.error(`Failed to fetch ${appname}. Error: `, error);
 }
