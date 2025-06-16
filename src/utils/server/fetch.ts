@@ -19,7 +19,6 @@ export const fetchHtml = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
     method: "GET",
     headers: {
-      "Content-Type": "text/html",
       Authorization: `Bearer ${oboToken}`,
     },
   });
