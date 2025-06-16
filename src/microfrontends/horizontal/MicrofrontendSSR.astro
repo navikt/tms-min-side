@@ -1,25 +1,23 @@
 ---
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { fetchHtml } from "../../utils/server/fetch";
+import { Microfrontend } from "./microfrontendTypes";
 
 interface Props {
-  url: string;
-  appname: string;
-  namespace: string;
-  fallback: string;
+  micofrontend: Microfrontend;
   language: string;
 }
 
-const { url, appname, namespace, fallback, language } = Astro.props;
-const audience = getAudience(appname, namespace);
+const { microfrontend, language } = Astro.props;
+const audience = getAudience(microfrontend.appname, microfrontend.namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let html;
 
 try {
-  html = await fetchHtml(oboToken, `${url}/${language}`);
+  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
 } catch (error) {
-  console.error(`Failed to fetch microfrontend: ${appname}. Error: `, error);
+  console.error(`Failed to fetch microfrontend: ${microfrontend.appname}. Error: `, error);
 }
 ---
 
