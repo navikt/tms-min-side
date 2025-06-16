@@ -47,6 +47,8 @@ spec:
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast
         - application: mine-saker-api
+        - application: pensjonskalkulator-microfrontend-ssr
+          namespace: pensjonskalkulator
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"

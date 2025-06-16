@@ -21,5 +21,5 @@ export const getOboToken = async (token: string, audience: string): Promise<stri
 export const getAudience = (name: string, namespace: string = "min-side") => {
   const cluster = process.env.NAIS_CLUSTER_NAME;
 
-  return `${cluster}:${namespace}:${name}`
+  return `${cluster}:${namespace}:${name}`;
 };
