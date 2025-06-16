@@ -51,7 +51,13 @@ const aktuelt = personalizedContent.aktuelt;
       {aktuelt?.map((microfrontend) => {
         if (microfrontend.ssr) {
           return (
-            <MicrofrontendSSR url={microfrontend.url} name={microfrontend.name} namespace={microfrontend.namespace} />
+            <MicrofrontendSSR
+              url={microfrontend.url}
+              appname={microfrontend.appname}
+              namespace={microfrontend.namespace}
+              fallback={microfrontend.fallback}
+              language={language}
+            />
           );
         } else {
           return (
