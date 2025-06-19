@@ -58,7 +58,7 @@ const { language } = Astro.props;
             <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
           </div>
           <div class={styles.ingenContentContainer} />
-          <a class={styles.ingenLink} href={`${dokumentarkivUrl}/${language}`}>
+          <a class={styles.ingenLink} href={`${dokumentarkivUrl}/${language}`} id="ingenDokumenterAlle">
             {text.tidligere[language]}
           </a>
         </div>
@@ -73,7 +73,7 @@ const { language } = Astro.props;
             ))}
           </ul>
           <div class={styles.alle}>
-            <a class={styles.link} href={`${dokumentarkivUrl}/${language}`}>
+            <a class={styles.link} href={`${dokumentarkivUrl}/${language}`} id="alle">
               <BodyShort size="medium">{text.alle[language]}</BodyShort>
             </a>
             <Chevron class={styles.chevron} aria-hidden={true} fontSize="20px" />
@@ -84,3 +84,18 @@ const { language } = Astro.props;
   )
 }
 <PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />
+
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const harDokumenterAlle = document.querySelector("#alle");
+  const ingenDokumenterAlle = document.querySelector("#ingenDokumenterAlle");
+
+  harDokumenterAlle?.addEventListener("click", () => {
+    logEvent("dokumentwidget", "widget", "Se alle dokumenter");
+  });
+
+  harDokumenterAlle?.addEventListener("click", () => {
+    logEvent("dokumentwidget", "widget", "Se alle dokumenter");
+  });
+</script>
