@@ -15,12 +15,8 @@ const dato = formatDateMonth(dokument.opprettet);
 const avsender = setAvsenderMottaker(dokument);
 ---
 
-<li class={`${styles.container}`}>
-  <a
-    class={styles.wrapper}
-    href={`${dokumentarkivUrl}/tema/${dokument.temakode}/${dokument.journalpostId}`}
-    id="dokumentlenke"
-  >
+<li class={`${styles.container}`} id="dokumentlenke">
+  <a class={styles.wrapper} href={`${dokumentarkivUrl}/tema/${dokument.temakode}/${dokument.journalpostId}`}>
     <div>
       <BodyShort className={styles.link} size="medium">
         {dokument.tittel}
