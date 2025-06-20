@@ -18,13 +18,13 @@ interface Props {
 
 const { utbetaling, language, utbetalingType } = Astro.props;
 
-const klasse = {
+const styling = {
   kommende: styles.kommendeContainer,
   tidligere: styles.tidligereContainer,
 }[utbetalingType];
 ---
 
-<Link className={klasse} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+<Link className={styling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
   <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
     <Heading level="2" size="xsmall">
       {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
