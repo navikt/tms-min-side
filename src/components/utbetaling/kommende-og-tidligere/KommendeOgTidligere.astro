@@ -30,7 +30,7 @@ const { kommende, tidligere, language } = Astro.props;
     <BodyShort className={styles.datoOgYtelse}>
       <span class={styles.datoOgTag}>
         {formatToReadableDate(kommende.dato)}
-        <Tag variant="success-moderate">Neste utbetaling</Tag>
+        <Tag variant="success-moderate" size="small" className={styles.tag}>{text.tittelKommende[language]}</Tag>
       </span>
       <span class={styles.ytelse}>
         {kommende.ytelse}

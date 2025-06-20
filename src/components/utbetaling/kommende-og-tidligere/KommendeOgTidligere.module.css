@@ -32,13 +32,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.125rem;
   text-decoration: none;
 }
 
 .ytelse {
   text-decoration: underline;
   color: var(--a-text-action);
+}
+
+.tag {
+  background: var(--ac-tag-success-moderate-bg, var(--a-surface-success-moderate-subtle));
 }
 
 .ytelse:hover {
