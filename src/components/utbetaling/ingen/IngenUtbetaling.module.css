@@ -1,25 +1,25 @@
-
-.header {
+.contentContainer {
   color: var(--a-text-default);
   background: var(--a-bg-subtle);
-  padding: 1rem 1rem 0.75rem 1rem;
-  border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+  padding: 1rem;
+  border-radius: var(--a-border-radius-large) var(--a-border-radius-large) var(--a-border-radius-small)
+    var(--a-border-radius-small);
   margin-bottom: 0.125rem;
 }
 
-.content {
+.linkContainer {
   color: var(--a-text-subtle);
   background: var(--a-bg-subtle);
   padding: 1.25rem 1rem 1.25rem 1.25rem;
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: var(--a-border-radius-small) var(--a-border-radius-small) var(--a-border-radius-large)
+    var(--a-border-radius-large);
 }
 
 .text {
-  padding-bottom: 2.25rem;
+  margin: 1rem 0 0 0;
 }
 
 @media (min-width: 648px) {
-
   .header {
     padding: 1rem 1.25rem 0.75rem 1.25rem;
   }

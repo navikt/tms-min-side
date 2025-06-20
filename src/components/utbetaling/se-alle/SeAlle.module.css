@@ -1,0 +1,23 @@
+.linkContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--a-text-subtle);
+  background: var(--a-bg-subtle);
+  padding: 1rem;
+  border-radius: var(--a-border-radius-small) var(--a-border-radius-small) var(--a-border-radius-large)
+    var(--a-border-radius-large);
+  margin-top: 0.25rem;
+}
+
+.linkContainer:hover {
+  background: var(--a-surface-neutral-subtle-hover);
+  border: none;
+  text-decoration: none;
+  color: var(--a-text-action-hover);
+}
+
+.linkContainer:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}

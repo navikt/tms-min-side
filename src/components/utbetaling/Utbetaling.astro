@@ -1,16 +1,17 @@
 ---
 import pino from "pino-http";
 import { getAudience, getOboToken } from "../../utils/server/token";
-import { Language } from "../../language/language";
+import type { Language } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
-import KommendeUtbetaling from "./kommende/KommendeUtbetaling.astro";
-import SisteUtbetaling from "./siste/SisteUtbetaling.astro";
 import ClientError from "../client-error/ClientError";
 import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 import type { Utbetaling } from "./utbetalingTypes";
 import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
+import KommendeEllerTidligere from "./kommende-eller-tidligere/KommendeEllerTidligere.astro";
+import SeAlle from "./se-alle/SeAlle.astro";
+import KommendeOgTidligere from "./kommende-og-tidligere/KommendeOgTidligere.astro";
 
 interface Props {
   language: Language;
@@ -35,16 +36,27 @@ const { language } = Astro.props;
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
+  {!data.kommende && !data.sisteUtbetaling && <IngenUtbetaling language={language} />}
   {
-    data.hasUtbetaling && (
-      <SisteUtbetaling sisteUtbetaling={data.sisteUtbetaling} kommende={data.kommende} language={language} />
+    data.kommende && !data.sisteUtbetaling && (
+      <KommendeEllerTidligere utbetaling={data.kommende} language={language} utbetalingType="kommende" />
     )
   }
-  {data.hasKommende && <KommendeUtbetaling kommende={data.kommende} language={language} />}
-  {!data.hasKommende && !data.hasUtbetaling && <IngenUtbetaling language={language} />}
+  {
+    data.sisteUtbetaling && !data.kommende && (
+      <KommendeEllerTidligere utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />
+    )
+  }
+  {
+    data.sisteUtbetaling && data.kommende && (
+      <KommendeOgTidligere kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />
+    )
+  }
+  <SeAlle language={language} />
+
+  <PersonalContentLogger
+    event={"utbetaling"}
+    value={data.hasUtbetaling || data.hasKommende ? true : false}
+    client:only="react"
+  />
 </div>
-<PersonalContentLogger
-  event={"utbetaling"}
-  value={data.hasUtbetaling || data.hasKommende ? true : false}
-  client:only="react"
-/>

@@ -1,32 +1,42 @@
 export const text = {
-  tittel: {
+  tittelTidligere: {
     nb: "Siste utbetaling",
     nn: "Siste utbetaling",
     en: "Last payment",
   },
-  tittelNeste: {
+  tittelKommende: {
     nb: "Neste utbetaling",
     nn: "Neste utbetaling",
     en: "Next payment",
   },
-  alle: {
-    nb: "Se alle",
-    nn: "Se alle",
-    en: "See all",
+  tittelUtbetalinger: {
+    nb: "Utbetalinger",
+    nn: "Utbetalingar",
+    en: "Payments",
   },
-  konto: {
-    nb: "til kontonummer",
-    nn: "til kontonummer",
-    en: "to account number",
+  alle: {
+    nb: "Se alle utbetalinger",
+    nn: "Se alle utbetalingar",
+    en: "See all payments",
   },
   ingen: {
     nb: "Du har ingen nye utbetalinger de siste tre månedene",
     nn: "Du har ingen nye utbetalingar dei siste tre månadene",
     en: "You have no new payments in the last three months",
   },
-  tidligere: {
-    nb: "Se tidligere utbetalinger",
-    nn: "Se tidlegare utbetalingar",
-    en: "See previous payments",
+  seDetaljer: {
+    nb: "Se detaljer",
+    nn: "Sjå detaljar",
+    en: "See details",
+  },
+  utbetalt: {
+    nb: "utbetalt",
+    nn: "utbetalt",
+    en: "paid out",
+  },
+  utbetales: {
+    nb: "utbetales",
+    nn: "utbetalast",
+    en: "will be paid out",
   },
 };

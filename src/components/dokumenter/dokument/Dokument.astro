@@ -1,8 +1,8 @@
 ---
-import {dokumentarkivUrl} from "../dokumenterUrls";
-import {BodyShort} from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import {formatDateMonth, setAvsenderMottaker} from "../../../utils/client/dokument";
-import type {DokumentType} from "../dokumenterTypes";
+import { dokumentarkivUrl } from "../dokumenterUrls";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { formatDateMonth, setAvsenderMottaker } from "../../../utils/client/dokument";
+import type { DokumentType } from "../dokumenterTypes";
 import Chevron from "./Chevron.astro";
 import styles from "./Dokument.module.css";
 
@@ -10,7 +10,7 @@ interface Props {
   dokument: DokumentType;
 }
 
-const {dokument} = Astro.props;
+const { dokument } = Astro.props;
 const dato = formatDateMonth(dokument.opprettet);
 const avsender = setAvsenderMottaker(dokument);
 ---
@@ -30,7 +30,7 @@ const avsender = setAvsenderMottaker(dokument);
 </li>
 
 <script>
-  import {logEvent} from "@utils/client/amplitude";
+  import { logEvent } from "@utils/client/amplitude";
 
   const dokumentlenke = document.querySelector("#dokumentlenke");
 
