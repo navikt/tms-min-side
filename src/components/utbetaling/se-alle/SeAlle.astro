@@ -26,7 +26,7 @@ const { language } = Astro.props;
   <script>
     import { logEvent } from "@utils/client/amplitude";
 
-    const seAlle = document.querySelector("#ingen");
+    const seAlle = document.querySelector("#seAlle");
 
     seAlle?.addEventListener("click", () => {
       logEvent("utbetaling-widget", "generell", "se-alle-utbetalinger");

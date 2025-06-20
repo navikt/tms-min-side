@@ -48,8 +48,8 @@ const styling = {
 <script>
   import { logEvent } from "@utils/client/amplitude";
 
-  const kommende = document.querySelector("#ingen");
-  const tidligere = document.querySelector("#ingen");
+  const kommende = document.querySelector("#kommende");
+  const tidligere = document.querySelector("#tidligere");
 
   kommende?.addEventListener("click", () => {
     logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
