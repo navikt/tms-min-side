@@ -1,0 +1,79 @@
+---
+import { Language } from "@language/language";
+import { UtbetalingData } from "../utbetalingTypes";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { formatToReadableDate } from "../../../utils/client/utbetaling";
+import { Link } from "@navikt/ds-react/cjs/link/Link.js";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import styles from "./KommendeOgTidligere.module.css";
+import Chevron from "../Chevron.astro";
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { Tag } from "@navikt/ds-react/cjs/tag/Tag.js";
+import { text } from "../../../language/utbetaling";
+
+interface Props {
+  kommende: UtbetalingData;
+  tidligere: UtbetalingData;
+  language: Language;
+}
+
+const { kommende, tidligere, language } = Astro.props;
+---
+
+<div class={styles.wrapper}>
+  <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[language]}</Heading>
+  <Link
+    href={`${utbetalingsoversiktUrl}/utbetaling/${kommende.id}`}
+    className={styles.kommendeOgTidligere}
+    id="kommende"
+  >
+    <BodyShort className={styles.datoOgYtelse}>
+      <span class={styles.datoOgTag}>
+        {formatToReadableDate(kommende.dato)}
+        <Tag variant="success-moderate">Neste utbetaling</Tag>
+      </span>
+      <span class={styles.ytelse}>
+        {kommende.ytelse}
+      </span>
+    </BodyShort>
+    <BodyShort weight="semibold" className={styles.utbetaling}>
+      {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
+      <span class={styles.chevron}>
+        <Chevron />
+      </span>
+    </BodyShort>
+  </Link>
+  <Link
+    href={`${utbetalingsoversiktUrl}/utbetaling/${tidligere.id}`}
+    className={styles.kommendeOgTidligere}
+    id="tidligere"
+  >
+    <BodyShort className={styles.datoOgYtelse}>
+      <span>
+        {formatToReadableDate(tidligere.dato)}
+      </span>
+      <span class={styles.ytelse}>
+        {tidligere.ytelse}
+      </span>
+    </BodyShort>
+    <BodyShort weight="semibold" className={styles.utbetaling}>
+      {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
+      <span class={styles.chevron}>
+        <Chevron />
+      </span>
+    </BodyShort>
+  </Link>
+  <script>
+    import { logEvent } from "@utils/client/amplitude";
+
+    const kommende = document.querySelector("#ingen");
+    const tidligere = document.querySelector("#ingen");
+
+    kommende?.addEventListener("click", () => {
+      logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
+    });
+    tidligere?.addEventListener("click", () => {
+      logEvent("utbetaling-widget", "generell", "tidligere-utbetaling");
+    });
+  </script>
+</div>

@@ -1,0 +1,35 @@
+---
+import { Link } from "@navikt/ds-react/cjs/link/Link.js";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { text } from "../../../language/utbetaling";
+import { Language } from "../../../language/language";
+import styles from "./SeAlle.module.css";
+import Chevron from "../Chevron.astro";
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+---
+
+<>
+  <Link href={utbetalingsoversiktUrl} id="seAlle" className={styles.linkContainer} href={utbetalingsoversiktUrl}>
+    <span>
+      {text.alle[language]}
+    </span>
+    <span class={styles.chevron}>
+      <Chevron />
+    </span>
+  </Link>
+
+  <script>
+    import { logEvent } from "@utils/client/amplitude";
+
+    const seAlle = document.querySelector("#ingen");
+
+    seAlle?.addEventListener("click", () => {
+      logEvent("utbetaling-widget", "generell", "se-alle-utbetalinger");
+    });
+  </script>
+</>

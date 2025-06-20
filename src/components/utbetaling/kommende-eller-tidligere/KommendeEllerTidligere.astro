@@ -1,0 +1,60 @@
+---
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { text } from "../../../language/utbetaling";
+import { formatToReadableDate } from "../../../utils/client/utbetaling";
+import type { UtbetalingData } from "../utbetalingTypes";
+import type { Language } from "../../../language/language";
+import styles from "./KommendeEllerTidligere.module.css";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { Link } from "@navikt/ds-react/cjs/link/Link.js";
+import Chevron from "../Chevron.astro";
+
+interface Props {
+  utbetaling: UtbetalingData;
+  language: Language;
+  utbetalingType: "kommende" | "tidligere";
+}
+
+const { utbetaling, language, utbetalingType } = Astro.props;
+
+const klasse = {
+  kommende: styles.kommendeContainer,
+  tidligere: styles.tidligereContainer,
+}[utbetalingType];
+---
+
+<Link className={klasse} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+  <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
+    <Heading level="2" size="xsmall">
+      {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
+    </Heading>
+    <BodyShort className={styles.seDetaljer}
+      >{text.seDetaljer[language]}
+      <span class={styles.chevron}>
+        <Chevron />
+      </span>
+    </BodyShort>
+  </span>
+  <Heading level="3" size="large">
+    {utbetaling.utbetaling?.toLocaleString("no-nb") + " kr"}
+  </Heading>
+  <BodyShort
+    >{
+      `${utbetaling.ytelse} — ${utbetalingType === "kommende" ? text.utbetales[language] : text.utbetalt[language]} ${formatToReadableDate(utbetaling.dato)}`
+    }</BodyShort
+  >
+</Link>
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const kommende = document.querySelector("#ingen");
+  const tidligere = document.querySelector("#ingen");
+
+  kommende?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
+  });
+  tidligere?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "tidligere-utbetaling");
+  });
+</script>
