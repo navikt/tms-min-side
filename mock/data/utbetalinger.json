@@ -1,13 +1,6 @@
 {
   "hasKommende": false,
   "hasUtbetaling": true,
-  "kommende": {
-    "utbetaling": 1234,
-    "dato": "2023-11-14",
-    "ytelse": "Arbeidsavklaringspenger",
-    "kontonummer": 1234,
-    "id": 1233
-  },
   "sisteUtbetaling": {
     "utbetaling": 1234,
     "dato": "2023-11-14",

@@ -32,6 +32,8 @@ try {
 }
 
 const { language } = Astro.props;
+
+const hasKommende = data.kommende && !data.sisteUtbetaling ? true : false;
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -52,7 +54,7 @@ const { language } = Astro.props;
       <KommendeOgTidligere kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />
     )
   }
-  <SeAlle language={language} />
+  <SeAlle language={language} hasKommende={hasKommende} />
 
   <PersonalContentLogger
     event={"utbetaling"}

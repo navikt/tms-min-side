@@ -42,7 +42,7 @@
 }
 
 .tag {
-  background: var(--ac-tag-success-moderate-bg, var(--a-surface-success-moderate-subtle));
+  background: var(--a-surface-success-subtle);
 }
 
 .ytelse:hover {

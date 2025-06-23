@@ -1,23 +1,39 @@
-.linkContainer {
+.container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: var(--a-text-subtle);
-  background: var(--a-bg-subtle);
+  color: var(--a-text-action);
   padding: 1rem;
   border-radius: var(--a-border-radius-small) var(--a-border-radius-small) var(--a-border-radius-large)
     var(--a-border-radius-large);
   margin-top: 0.25rem;
 }
 
-.linkContainer:hover {
-  background: var(--a-surface-neutral-subtle-hover);
+.tidligere {
+  background-color: var(--a-surface-neutral-subtle);
+}
+
+.kommende {
+  background-color: var(--a-surface-success-subtle);
+  color: var(--a-text-subtle);
+}
+
+.tidligere:hover {
+  background-color: var(--a-surface-neutral-subtle-hover);
+}
+
+.kommende:hover {
+  background-color: var(--a-surface-success-subtle-hover);
+  color: var(--a-text-subtle-hover);
+}
+
+.container:hover {
   border: none;
   text-decoration: none;
   color: var(--a-text-action-hover);
 }
 
-.linkContainer:hover .chevron {
+.container:hover .chevron {
   transition-duration: 0.2s;
   transform: translate(3px, 0);
 }

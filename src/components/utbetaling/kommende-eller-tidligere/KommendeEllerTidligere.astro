@@ -18,19 +18,24 @@ interface Props {
 
 const { utbetaling, language, utbetalingType } = Astro.props;
 
-const styling = {
-  kommende: styles.kommendeContainer,
-  tidligere: styles.tidligereContainer,
+const containerStyling = {
+  kommende: `${styles.container} ${styles.kommende}`,
+  tidligere: `${styles.container} ${styles.tidligere}`,
+}[utbetalingType];
+
+const seDetaljerStyling = {
+  kommende: `${styles.seDetaljer} ${styles.seDetaljerKommende}`,
+  tidligere: `${styles.seDetaljer} ${styles.seDetaljerTidligere}`,
 }[utbetalingType];
 ---
 
-<Link className={styling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+<Link className={containerStyling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
   <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
     <Heading level="2" size="xsmall">
       {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
     </Heading>
-    <BodyShort className={styles.seDetaljer}
-      >{text.seDetaljer[language]}
+    <BodyShort className={seDetaljerStyling} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
+      {text.seDetaljer[language]}
       <span class={styles.chevron}>
         <Chevron />
       </span>

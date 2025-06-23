@@ -8,13 +8,19 @@ import Chevron from "../Chevron.astro";
 
 interface Props {
   language: Language;
+  hasKommende: boolean;
 }
 
-const { language } = Astro.props;
+const { language, hasKommende } = Astro.props;
 ---
 
 <>
-  <Link href={utbetalingsoversiktUrl} id="seAlle" className={styles.linkContainer} href={utbetalingsoversiktUrl}>
+  <Link
+    href={utbetalingsoversiktUrl}
+    id="seAlle"
+    className={hasKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
+    href={utbetalingsoversiktUrl}
+  >
     <span>
       {text.alle[language]}
     </span>
