@@ -7,7 +7,6 @@ import type { UtbetalingData } from "../utbetalingTypes";
 import type { Language } from "../../../language/language";
 import styles from "./EnkelUtbetaling.module.css";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
-import { Link } from "@navikt/ds-react/cjs/link/Link.js";
 import Chevron from "../Chevron.astro";
 
 interface Props {
@@ -29,16 +28,14 @@ const seDetaljerStyling = {
 }[utbetalingType];
 ---
 
-<Link className={containerStyling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+<a class={containerStyling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
   <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
     <Heading level="2" size="xsmall">
       {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
     </Heading>
     <BodyShort className={seDetaljerStyling} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
       {text.seDetaljer[language]}
-      <span class={styles.chevron}>
-        <Chevron />
-      </span>
+      <Chevron className={styles.chevron} />
     </BodyShort>
   </span>
   <Heading level="3" size="large">
@@ -49,7 +46,7 @@ const seDetaljerStyling = {
       `${utbetaling.ytelse} — ${utbetalingType === "kommende" ? text.utbetales[language] : text.utbetalt[language]} ${formatToReadableDate(utbetaling.dato)}`
     }</BodyShort
   >
-</Link>
+</a>
 <script>
   import { logEvent } from "@utils/client/amplitude";
 

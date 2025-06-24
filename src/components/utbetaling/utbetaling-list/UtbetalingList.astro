@@ -22,11 +22,7 @@ const { kommende, tidligere, language } = Astro.props;
 
 <div class={styles.wrapper}>
   <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[language]}</Heading>
-  <Link
-    href={`${utbetalingsoversiktUrl}/utbetaling/${kommende.id}`}
-    className={styles.kommendeOgTidligere}
-    id="kommende"
-  >
+  <a href={`${utbetalingsoversiktUrl}/utbetaling/${kommende.id}`} class={styles.kommendeOgTidligere} id="kommende">
     <BodyShort className={styles.datoOgYtelse}>
       <span class={styles.datoOgTag}>
         {formatToReadableDate(kommende.dato)}
@@ -38,16 +34,10 @@ const { kommende, tidligere, language } = Astro.props;
     </BodyShort>
     <BodyShort weight="semibold" className={styles.utbetaling}>
       {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <span class={styles.chevron}>
-        <Chevron />
-      </span>
+      <Chevron className={styles.chevron} />
     </BodyShort>
-  </Link>
-  <Link
-    href={`${utbetalingsoversiktUrl}/utbetaling/${tidligere.id}`}
-    className={styles.kommendeOgTidligere}
-    id="tidligere"
-  >
+  </a>
+  <a href={`${utbetalingsoversiktUrl}/utbetaling/${tidligere.id}`} class={styles.kommendeOgTidligere} id="tidligere">
     <BodyShort className={styles.datoOgYtelse}>
       <span>
         {formatToReadableDate(tidligere.dato)}
@@ -58,11 +48,9 @@ const { kommende, tidligere, language } = Astro.props;
     </BodyShort>
     <BodyShort weight="semibold" className={styles.utbetaling}>
       {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <span class={styles.chevron}>
-        <Chevron />
-      </span>
+      <Chevron className={styles.chevron} />
     </BodyShort>
-  </Link>
+  </a>
   <script>
     import { logEvent } from "@utils/client/amplitude";
 

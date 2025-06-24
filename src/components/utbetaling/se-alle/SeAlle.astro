@@ -15,19 +15,17 @@ const { language, hasKommende } = Astro.props;
 ---
 
 <>
-  <Link
+  <a
     href={utbetalingsoversiktUrl}
     id="seAlle"
-    className={hasKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
+    class={hasKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
     href={utbetalingsoversiktUrl}
   >
     <span>
       {text.alle[language]}
     </span>
-    <span class={styles.chevron}>
-      <Chevron />
-    </span>
-  </Link>
+    <Chevron className={styles.chevron} />
+  </a>
 
   <script>
     import { logEvent } from "@utils/client/amplitude";
