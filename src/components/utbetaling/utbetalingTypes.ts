@@ -7,8 +7,6 @@ export type UtbetalingData = {
 };
 
 export type Utbetaling = {
-  hasUtbetaling: boolean;
-  hasKommende: boolean;
   sisteUtbetaling: UtbetalingData | null;
   kommende: UtbetalingData | null;
 };

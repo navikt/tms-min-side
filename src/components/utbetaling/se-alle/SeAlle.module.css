@@ -20,6 +20,7 @@
 
 .tidligere:hover {
   background-color: var(--a-surface-neutral-subtle-hover);
+  color: var(--a-text-action-hover);
 }
 
 .kommende:hover {
@@ -30,7 +31,6 @@
 .container:hover {
   border: none;
   text-decoration: none;
-  color: var(--a-text-action-hover);
 }
 
 .container:hover .chevron {

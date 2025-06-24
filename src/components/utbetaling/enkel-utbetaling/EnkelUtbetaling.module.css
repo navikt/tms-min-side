@@ -48,7 +48,6 @@
 .container:hover .seDetaljerKommende {
   color: var(--a-text-subtle-hover);
   text-decoration: none;
-  background-color: transparent;
 }
 
 .container:hover .chevron {
