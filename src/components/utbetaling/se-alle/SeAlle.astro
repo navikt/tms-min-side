@@ -8,17 +8,17 @@ import Chevron from "../Chevron.astro";
 
 interface Props {
   language: Language;
-  hasKommende: boolean;
+  isKommende: boolean;
 }
 
-const { language, hasKommende } = Astro.props;
+const { language, isKommende } = Astro.props;
 ---
 
 <>
   <a
     href={utbetalingsoversiktUrl}
     id="seAlle"
-    class={hasKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
+    class={isKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
     href={utbetalingsoversiktUrl}
   >
     <span>
@@ -26,7 +26,6 @@ const { language, hasKommende } = Astro.props;
     </span>
     <Chevron className={styles.chevron} />
   </a>
-
   <script>
     import { logEvent } from "@utils/client/amplitude";
 
