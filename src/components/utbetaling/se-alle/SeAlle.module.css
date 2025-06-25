@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: var(--a-text-action);
   padding: 1rem;
   border-radius: var(--a-border-radius-small) var(--a-border-radius-small) var(--a-border-radius-large)
     var(--a-border-radius-large);
