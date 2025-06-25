@@ -1,0 +1,62 @@
+---
+import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { text } from "../../../language/utbetaling";
+import { formatToReadableDate } from "../../../utils/client/utbetaling";
+import type { UtbetalingData } from "../utbetalingTypes";
+import type { Language } from "../../../language/language";
+import styles from "./EnkelUtbetaling.module.css";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import Chevron from "../Chevron.astro";
+
+interface Props {
+  utbetaling: UtbetalingData;
+  language: Language;
+  utbetalingType: "kommende" | "tidligere";
+}
+
+const { utbetaling, language, utbetalingType } = Astro.props;
+
+const containerStyling = {
+  kommende: `${styles.container} ${styles.kommende}`,
+  tidligere: `${styles.container} ${styles.tidligere}`,
+}[utbetalingType];
+
+const seDetaljerStyling = {
+  kommende: `${styles.seDetaljer} ${styles.seDetaljerKommende}`,
+  tidligere: `${styles.seDetaljer} ${styles.seDetaljerTidligere}`,
+}[utbetalingType];
+---
+
+<a class={containerStyling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+  <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
+    <Heading level="2" size="xsmall">
+      {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
+    </Heading>
+    <BodyShort className={seDetaljerStyling} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
+      {text.seDetaljer[language]}
+      <Chevron className={styles.chevron} />
+    </BodyShort>
+  </span>
+  <Heading level="3" size="large">
+    {utbetaling.utbetaling?.toLocaleString("no-nb") + " kr"}
+  </Heading>
+  <BodyShort
+    >{
+      `${utbetaling.ytelse} — ${utbetalingType === "kommende" ? text.utbetales[language] : text.utbetalt[language]} ${formatToReadableDate(utbetaling.dato)}`
+    }</BodyShort
+  >
+</a>
+<script>
+  import { logEvent } from "@utils/client/amplitude";
+
+  const kommende = document.querySelector("#kommende");
+  const tidligere = document.querySelector("#tidligere");
+
+  kommende?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
+  });
+  tidligere?.addEventListener("click", () => {
+    logEvent("utbetaling-widget", "generell", "tidligere-utbetaling");
+  });
+</script>

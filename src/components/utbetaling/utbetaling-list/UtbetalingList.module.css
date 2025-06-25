@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.heading {
+  background: var(--a-bg-subtle);
+  border-radius: var(--a-border-radius-large) var(--a-border-radius-large) var(--a-border-radius-small)
+    var(--a-border-radius-small);
+  padding: 1rem;
+}
+
+.kommendeOgTidligere {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--a-surface-neutral-subtle);
+  border-radius: var(--a-border-radius-small);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--a-text-subtle);
+}
+
+.datoOgYtelse {
+  display: flex;
+  flex-direction: column;
+}
+
+.datoOgTag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.125rem;
+  text-decoration: none;
+}
+
+.ytelse {
+  text-decoration: underline;
+  color: var(--a-text-action);
+}
+
+.tag {
+  background: var(--a-surface-success-subtle);
+}
+
+.ytelse:hover {
+  color: var(--a-text-action-hover);
+  text-decoration: none;
+}
+
+.kommendeOgTidligere:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.utbetaling {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.kommendeOgTidligere:hover {
+  background: var(--a-surface-neutral-subtle-hover);
+}

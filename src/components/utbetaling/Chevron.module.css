@@ -1,0 +1,4 @@
+.chevron {
+  flex-shrink: 0;
+  color: var(aa-a-text-subtle);
+}

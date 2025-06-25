@@ -1,22 +1,12 @@
-export interface SisteUtbetaling {
+export type UtbetalingData = {
   utbetaling: number;
   dato: string;
   ytelse: string;
   kontonummer: string;
   id: string;
-}
+};
 
-export interface Kommende {
-  utbetaling: number;
-  dato: string;
-  ytelse: string;
-  kontonummer: string;
-  id: string;
-}
-
-export interface Utbetaling {
-  hasUtbetaling: boolean;
-  hasKommende: boolean;
-  sisteUtbetaling: SisteUtbetaling | null;
-  kommende: Kommende | null;
-}
+export type Utbetaling = {
+  sisteUtbetaling: UtbetalingData | null;
+  kommende: UtbetalingData | null;
+};
