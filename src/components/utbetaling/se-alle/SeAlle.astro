@@ -21,9 +21,7 @@ const { language, isKommende } = Astro.props;
     class={isKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
     href={utbetalingsoversiktUrl}
   >
-    <span>
-      {text.alle[language]}
-    </span>
+    {text.alle[language]}
     <Chevron className={styles.chevron} />
   </a>
   <script>

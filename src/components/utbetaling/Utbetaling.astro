@@ -21,7 +21,7 @@ const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const logger = pino().logger;
 
-let data: Utbetaling = { hasKommende: false, hasUtbetaling: false, sisteUtbetaling: null, kommende: null };
+let data: Utbetaling = { sisteUtbetaling: null, kommende: null };
 let isError = false;
 
 try {
