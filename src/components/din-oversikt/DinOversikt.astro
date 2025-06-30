@@ -54,7 +54,7 @@ const html = await fetch(url, {
     Accept: "application/json",
     Authorization: `Bearer ${oboTokenTest}`,
   },
-}).catch((e) => console.error("Failed to fetch ssr-microfrontend"));
+}).catch((e) => console.error(`Http error with status: ${e}`));
 
 const produktkortList = getProduktkortList(language, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
