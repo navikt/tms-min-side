@@ -9,7 +9,7 @@ import Produktkort from "./produktkort/Produktkort";
 import {getProduktkortList} from "../../utils/server/oversikt.ts";
 import {produktText} from "./produktkort/ProduktText";
 import {getShowDinOversikt} from "./utils/useOversikt.ts";
-import {fetchData} from "../../utils/server/fetch";
+import {fetchData, fetchHtml} from "../../utils/server/fetch";
 import {getAudience, getOboToken} from "../../utils/server/token";
 import {PersonalizedContent} from "../../microfrontends/horizontal/microfrontendTypes";
 import ClientError from "../client-error/ClientError";
@@ -47,14 +47,12 @@ try {
 const audienceTest = getAudience("tms-microfrontend-test");
 const oboTokenTest = await getOboToken(Astro.locals.token, audienceTest);
 const url = "http://tms-microfrontend-test/tms-microfrontend-test";
-const html = await fetch(url, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${oboTokenTest}`,
-  },
-}).catch((e) => console.error(`Http error with status: ${e}`));
+let html;
+try {
+  html = await fetchHtml(oboTokenTest, url);
+} catch (error) {
+  console.error(`Failed to fetch microfrontend: tms-microfrontend-test. Error: `, error);
+}
 
 const produktkortList = getProduktkortList(language, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
