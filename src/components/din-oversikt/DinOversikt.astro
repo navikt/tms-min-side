@@ -60,6 +60,7 @@ const produktkortList = getProduktkortList(language, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
 ---
 
+<Fragment set:html={html} />
 {isError && <ClientError client:only="react" />}
 {
   showDinOversikt && (
@@ -67,7 +68,6 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       <BodyShort as="h2" spacing>
         {produktText.oversiktTittel[language]}
       </BodyShort>
-      <Fragment set:html={html} />
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
           <MeldekortWrapper client:only="react" />
