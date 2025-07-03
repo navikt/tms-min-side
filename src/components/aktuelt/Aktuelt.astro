@@ -50,7 +50,7 @@ const aktuelt = personalizedContent.aktuelt;
       </BodyShort>
       {aktuelt?.map((mf) => {
         if (mf.ssr) {
-          return <MicrofrontendSSR microfrontend={mf} language={language} />;
+          return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
         } else {
           return <MicrofrontendCSR key={mf.microfrontend_id} manifestUrl={mf.url} client:only="react" />;
         }
