@@ -52,17 +52,17 @@ jobs:
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
-  deploy:
-    runs-on: "ubuntu-latest"
-    needs: "build"
-    strategy:
-      matrix:
-        cluster: [ dev-gcp, prod-gcp ]
-    steps:
-      - uses: "actions/checkout@v4"
-      - name: "Deploy"
-        uses: "nais/deploy/actions/deploy@v2"
-        env:
-          CLUSTER: ${{ matrix.cluster }}
-          RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
-          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
+    deploy:
+      runs-on: "ubuntu-latest"
+      needs: "build"
+      strategy:
+        matrix:
+          cluster: [ dev-gcp, prod-gcp ]
+      steps:
+        - uses: "actions/checkout@v4"
+        - name: "Deploy"
+          uses: "nais/deploy/actions/deploy@v2"
+          env:
+            CLUSTER: ${{ matrix.cluster }}
+            RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
+            VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
