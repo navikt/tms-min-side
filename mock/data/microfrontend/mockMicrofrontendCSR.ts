@@ -1,4 +1,4 @@
-export const mikrofrontendBundle = (title: string, minHeight: string) => {
+export const mockMicrofrontendCSR = (title: string, minHeight: string) => {
 const cssIdentifier = title.replace(/\s/g, "");
 return `var react = {exports: {}};
 
