@@ -3,7 +3,7 @@ import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
 import manifest from "./data/microfrontend/manifest.json" with { type: "json" };
 import navn from "./data/navn.json" with { type: "json" };
-import selector from "./data/selector.json" with { type: "json" };
+import dinOversikt from "./data/din-oversikt.json" with { type: "json" };
 import journalposter from "./data/dokumenter.json" with { type: "json" };
 import varsler from "./data/varsler.json" with { type: "json" };
 import utkast from "./data/utkast.json" with { type: "json" };
@@ -11,7 +11,8 @@ import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
 import innboks from "./data/innboks.json" with { type: "json" };
 import status from "./data/status.json" with { type: "json" };
 import mikrofrontend from "./data/microfrontend/mikrofrontend.js";
-import { mikrofrontendBundle } from "./data/microfrontend/microfrontend-oversikt.ts";
+import { mockMicrofrontendSSR } from "./data/microfrontend/mockMicrofrontendSSR.ts";
+import { mockMicrofrontendCSR } from "./data/microfrontend/mockMicrofrontendCSR.ts";
 import { HTTPException } from "hono/http-exception";
 
 const api = new Hono();
@@ -29,7 +30,7 @@ api.get("/navn", (c) => {
 });
 
 api.get("/selector/din-oversikt", (c) => {
-  return c.json(selector);
+  return c.json(dinOversikt);
 });
 
 api.get("/varsler", (c) => {
@@ -68,6 +69,14 @@ api.get("/manifest.json", (c) => {
   return c.json(manifest);
 });
 
+api.get("/pensjonskalkulator/*", (c) => {
+  return c.html(mockMicrofrontendSSR("Pensjonskalkulator"));
+});
+
+api.get("/syfo-dialog/*", (c) => {
+  return c.html(mockMicrofrontendSSR("Syfo dialog"));
+});
+
 api.get("/bundle.js", (c) => {
   return new Response(mikrofrontend, {
     headers: {
@@ -76,24 +85,8 @@ api.get("/bundle.js", (c) => {
   });
 });
 
-api.get("/pensjon/bundle.js", (c) => {
-  return new Response(mikrofrontendBundle("Pensjon", "5vh"), {
-    headers: {
-      "Content-Type": "text/javascript",
-    },
-  });
-});
-
-api.get("/syfo-dialog/bundle.js", (c) => {
-  return new Response(mikrofrontendBundle("Syfo dialog", "5vh"), {
-    headers: {
-      "Content-Type": "text/javascript",
-    },
-  });
-});
-
 api.get("/aap/bundle.js", (c) => {
-  return new Response(mikrofrontendBundle("AAP", "5vh"), {
+  return new Response(mockMicrofrontendCSR("AAP", "5vh"), {
     headers: {
       "Content-Type": "text/javascript",
     },
@@ -101,7 +94,7 @@ api.get("/aap/bundle.js", (c) => {
 });
 
 api.get("/meldekort/bundle.js", (c) => {
-  return new Response(mikrofrontendBundle("Meldekort", "5vh"), {
+  return new Response(mockMicrofrontendCSR("Meldekort", "5vh"), {
     headers: {
       "Content-Type": "text/javascript",
     },

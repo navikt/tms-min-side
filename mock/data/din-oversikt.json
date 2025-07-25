@@ -1,0 +1,35 @@
+{
+  "microfrontends": [
+    {
+      "microfrontend_id": "aap",
+      "url": "http://localhost:3000/aap/bundle.js",
+      "appname": "",
+      "namespace": "",
+      "fallback": "",
+      "ssr": false
+    },
+    {
+      "microfrontend_id": "syfo-dialog",
+      "url": "http://localhost:3000/syfo-dialog",
+      "appname": "syfo-dialog",
+      "namespace": "syfo",
+      "fallback": "http://localhost:3000/syfo-dialog/fallback",
+      "ssr": true
+    }
+  ],
+  "aktuelt": [
+    {
+      "microfrontend_id": "pensjonskalkulator-microfrontend",
+      "url": "http://localhost:3000/pensjonskalkulator",
+      "appname": "pensjonskalkulator-microfrontend-ssr",
+      "namespace": "pensjonskalkulator",
+      "fallback": "http://localhost:3000/pensjonskalkulator",
+      "ssr": true
+    }
+  ],
+  "produktkort": ["DAG", "FOR", "HJE", "KOM", "PEN", "UFO", "SYK"],
+  "aiaStandard": true,
+  "brukNyAia": false,
+  "meldekort": true,
+  "offerStepup": false
+}
