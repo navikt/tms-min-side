@@ -44,5 +44,8 @@
     "prop-types": "15.8.1",
     "rollup-plugin-import-map": "3.0.0",
     "tsx": "4.19.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
