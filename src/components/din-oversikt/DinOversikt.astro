@@ -63,7 +63,7 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       <div class={styles.masonry}>
         {personalizedContent?.microfrontends.map((mf) => {
           if (mf.ssr) {
-            return <MicrofrontendSSR microfrontend={mf} language={language} />;
+            return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
           } else {
             return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />;
           }
