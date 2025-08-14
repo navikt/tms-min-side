@@ -2,6 +2,7 @@
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { fetchHtml } from "../../utils/server/fetch";
 import { Microfrontend } from "./microfrontendTypes";
+import ClientError from "../../components/client-error/ClientError";
 
 interface Props {
   micofrontend: Microfrontend;
@@ -11,6 +12,7 @@ interface Props {
 const { microfrontend, language } = Astro.props;
 const audience = getAudience(microfrontend.appname, microfrontend.namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
+let isError = false;
 
 let html;
 
@@ -18,7 +20,10 @@ try {
   html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
 } catch (error) {
   console.error(`Failed to fetch microfrontend: ${microfrontend.appname}. Error: `, error);
+  isError = true;
+  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
 }
 ---
 
+{isError && <ClientError client:only="react" />}
 <Fragment set:html={html} />
