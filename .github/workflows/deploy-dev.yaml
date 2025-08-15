@@ -34,7 +34,7 @@ jobs:
         with:
           team: min-side
           source: ./dist/client/_astro
-          destination: 'tms-min-side'
+          destination: "tms-min-side"
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
 
@@ -58,9 +58,8 @@ jobs:
     steps:
       - uses: "actions/checkout@v4"
       - name: "Deploy to dev"
-        uses: "nais/deploy/actions/deploy@v1"
+        uses: "nais/deploy/actions/deploy@v2"
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: ${{ matrix.cluster }}
           RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
           VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
