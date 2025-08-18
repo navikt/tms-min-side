@@ -3,6 +3,7 @@ import { getAudience, getOboToken } from "../../utils/server/token";
 import { fetchHtml } from "../../utils/server/fetch";
 import { Microfrontend } from "./microfrontendTypes";
 import ClientError from "../../components/client-error/ClientError";
+import styles from "./MicrofrontendCSR.module.css";
 
 interface Props {
   microfrontend: Microfrontend;
@@ -26,4 +27,6 @@ try {
 ---
 
 {isError && <ClientError client:only="react" />}
-<Fragment set:html={html} />
+<div class={styles.wrapper}>
+  <Fragment set:html={html} />
+</div>
