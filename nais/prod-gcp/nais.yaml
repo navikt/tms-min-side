@@ -49,6 +49,8 @@ spec:
         - application: mine-saker-api
         - application: pensjonskalkulator-microfrontend-ssr
           namespace: pensjonskalkulator
+        - application: tiltakspenger-meldekort-microfrontend
+          namespace: tpts
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
