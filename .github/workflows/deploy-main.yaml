@@ -3,16 +3,16 @@ on:
   push:
     branches:
       - "main"
+      
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
 
 jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
-
-    permissions:
-      contents: "read"
-      id-token: "write"
-      packages: "write"
 
     steps:
       - uses: "actions/checkout@v4"
