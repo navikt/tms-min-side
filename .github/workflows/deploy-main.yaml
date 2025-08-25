@@ -3,16 +3,16 @@ on:
   push:
     branches:
       - "main"
+      
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
 
 jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
-
-    permissions:
-      contents: "read"
-      id-token: "write"
-      packages: "write"
 
     steps:
       - uses: "actions/checkout@v4"
@@ -61,9 +61,8 @@ jobs:
     steps:
       - uses: "actions/checkout@v4"
       - name: "Deploy"
-        uses: "nais/deploy/actions/deploy@v1"
+        uses: "nais/deploy/actions/deploy@v2"
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: ${{ matrix.cluster }}
           RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
           VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
