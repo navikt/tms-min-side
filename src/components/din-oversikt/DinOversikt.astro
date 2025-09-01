@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { dinOversiktUrl } from "./utils/urls";
 import MeldekortWrapper from "./meldekort/MeldekortWrapper";
@@ -13,9 +12,9 @@ import { fetchData } from "../../utils/server/fetch";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes";
 import ClientError from "../client-error/ClientError";
-import Produktkort from "./produktkort/Produktkort";
 import type { Language } from "../../language/language";
 import styles from "./DinOversikt.module.css";
+import logger from "../../utils/server/logger";
 
 interface Props {
   language: Language;
@@ -24,7 +23,6 @@ interface Props {
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
-const logger = pino().logger;
 
 let isError = false;
 let personalizedContent: PersonalizedContent = {

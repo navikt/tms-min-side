@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import type { Language } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
@@ -12,6 +11,7 @@ import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 import SeAlle from "./se-alle/SeAlle.astro";
 import EnkelUtbetaling from "./enkel-utbetaling/EnkelUtbetaling.astro";
 import UtbetalingList from "./utbetaling-list/UtbetalingList.astro";
+import logger from "@utils/server/logger";
 
 interface Props {
   language: Language;
@@ -19,7 +19,6 @@ interface Props {
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const logger = pino().logger;
 
 let data: Utbetaling = { sisteUtbetaling: null, kommende: null };
 let isError = false;

@@ -4,6 +4,7 @@ import { fetchHtml } from "../../utils/server/fetch";
 import { Microfrontend } from "./microfrontendTypes";
 import ClientError from "../../components/client-error/ClientError";
 import styles from "./MicrofrontendCSR.module.css";
+import logger from "@utils/server/logger";
 
 interface Props {
   microfrontend: Microfrontend;
@@ -20,7 +21,7 @@ let html;
 try {
   html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
 } catch (error) {
-  console.error(`Failed to fetch microfrontend: ${microfrontend.appname}. Error: `, error);
+  logger.error(`Failed to fetch microfrontend: ${microfrontend.appname}. Error: `, error);
   isError = true;
   html = await fetchHtml(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
 }
