@@ -3,6 +3,7 @@ import { getToken, validateToken } from "@navikt/oasis";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
 import { isLocal } from "@utils/server/environment.ts";
+import logger from "@utils/server/logger";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
@@ -17,7 +18,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   if (!token) {
-    console.info("Could not find any bearer token on the request. Redirecting to login.");
+    logger.info("Could not find any bearer token on the request. Redirecting to login.");
     return context.redirect(`${loginUrl}${params}`);
   }
 
