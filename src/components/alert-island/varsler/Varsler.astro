@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "../../../utils/client/varsler";
 import { text } from "../../../language/varsler";
 import { getAudience, getOboToken } from "../../../utils/server/token";
@@ -13,10 +12,10 @@ import { getLanguage } from "../../../language/language";
 import ClientError from "../../client-error/ClientError";
 import style from "./Varsler.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
+import logger from "@utils/server/logger";
 
 const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const logger = pino().logger;
 
 let data = { oppgaver: 0, beskjeder: 0, innbokser: 0 };
 let isError = false;

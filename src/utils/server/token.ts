@@ -1,10 +1,9 @@
 import { requestOboToken } from "@navikt/oasis";
 import { isLocal } from "@utils/server/environment.ts";
-import pino from "pino-http";
+import logger from "./logger";
 
 export const getOboToken = async (token: string, audience: string): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
-  const logger = pino().logger;
 
   if (isLocal) {
     return "Fake token";

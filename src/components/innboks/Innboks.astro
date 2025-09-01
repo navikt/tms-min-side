@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import InnboksTag from "./InnboksTag";
 import { getLanguage, Language } from "../../language/language";
 import { innboksUrl } from "./innboksUrls";
@@ -13,6 +12,7 @@ import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";
 import styles from "./Innboks.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
+import logger from "@utils/server/logger";
 
 interface Props {
   language: Language;
@@ -20,7 +20,6 @@ interface Props {
 
 const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const logger = pino().logger;
 
 let data = { innbokser: 0 };
 let isError = false;

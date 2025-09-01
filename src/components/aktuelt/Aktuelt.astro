@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR.tsx";
 import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
 import ClientError from "../client-error/ClientError";
@@ -11,6 +10,7 @@ import { fetchData } from "../../utils/server/fetch";
 import { dinOversiktUrl } from "../din-oversikt/utils/urls";
 import type { Language } from "@language/language.ts";
 import style from "./Aktuelt.module.css";
+import logger from "../../utils/server/logger.ts";
 
 interface Props {
   language: Language;
@@ -19,7 +19,6 @@ interface Props {
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
-const logger = pino().logger;
 
 let isError = false;
 let personalizedContent: PersonalizedContent = {

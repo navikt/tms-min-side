@@ -1,5 +1,4 @@
 ---
-import pino from "pino-http";
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
 import { getLanguage } from "../../../language/language";
@@ -9,13 +8,13 @@ import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
 import { text } from "@language/utkast.ts";
 import style from "./Utkast.module.css";
+import logger from "@utils/server/logger";
 
 const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data = { antall: 0 };
 let isError = false;
-const logger = pino().logger;
 
 try {
   data = await fetchData(oboToken, utkastApiUrl);
