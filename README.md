@@ -10,4 +10,4 @@ Container som setter sammen mikrofrontends for Min Side.
 Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på github.
 
 For NAV-ansatte
-Interne henvendelser kan sendes via Slack i kanalen #team-personbruker.
+Interne henvendelser kan sendes via Slack i kanalen #team-minside.
