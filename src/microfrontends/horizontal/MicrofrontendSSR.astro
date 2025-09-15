@@ -21,7 +21,9 @@ let html;
 try {
   html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
 } catch (error) {
-  logger.error(`Failed to fetch microfrontend: ${microfrontend.appname}. Error: `, error);
+  logger.error(
+    `Failed to fetch microfrontend: ${microfrontend.appname} with url: ${microfrontend.url}. Error: ${error}`,
+  );
   isError = true;
   html = await fetchHtml(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
 }
