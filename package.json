@@ -18,7 +18,7 @@
     "@grafana/faro-web-sdk": "1.7.3",
     "@nanostores/react": "0.7.2",
     "@navikt/ds-react": "5.7.2",
-    "@navikt/nav-dekoratoren-moduler": "3.2.1",
+    "@navikt/nav-dekoratoren-moduler": "3.2.3",
     "@navikt/oasis": "3.3.0",
     "@opentelemetry/sdk-node": "0.202.0",
     "astro": "^5.7.8",
