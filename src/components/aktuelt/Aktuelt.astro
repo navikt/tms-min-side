@@ -19,11 +19,11 @@ const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
 
-let data: Aktuelt = { offerStepup: false, microfrontends: [] };
+let aktuelt: Aktuelt = { offerStepup: false, microfrontends: [] };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, aktueltUrl);
+  aktuelt = await fetchData(oboToken, aktueltUrl);
 } catch (error: any) {
   logger.error(`Fetching aktuelt failed. ${error.message}`);
   isError = true;
@@ -32,12 +32,12 @@ try {
 
 {isError && <ClientError client:only="react" />}
 {
-  data.microfrontends.length === 0 ? null : (
+    aktuelt.microfrontends.length === 0 ? null : (
     <div class={style.container}>
       <BodyShort as="h2" className={style.aktuelt} spacing>
         {text.aktuelt[language]}
       </BodyShort>
-      {data.microfrontends.map((mf) => {
+      {aktuelt.microfrontends.map((mf) => {
         return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
       })}
     </div>
