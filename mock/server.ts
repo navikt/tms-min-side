@@ -3,6 +3,7 @@ import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
 import manifest from "./data/microfrontend/manifest.json" with { type: "json" };
 import navn from "./data/navn.json" with { type: "json" };
+import aktuelt from "./data/aktuelt.json" with { type: "json" };
 import dinOversikt from "./data/din-oversikt.json" with { type: "json" };
 import journalposter from "./data/dokumenter.json" with { type: "json" };
 import varsler from "./data/varsler.json" with { type: "json" };
@@ -31,6 +32,10 @@ api.get("/navn", (c) => {
 
 api.get("/selector/din-oversikt", (c) => {
   return c.json(dinOversikt);
+});
+
+api.get("/aktuelt", (c) => {
+  return c.json(aktuelt);
 });
 
 api.get("/varsler", (c) => {
