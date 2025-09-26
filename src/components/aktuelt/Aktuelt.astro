@@ -1,16 +1,15 @@
 ---
-import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR.tsx";
 import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
 import ClientError from "../client-error/ClientError";
-import { getAudience, getOboToken } from "../../utils/server/token";
+import { getAudience, getOboToken } from "@utils/server/token";
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes.tsx";
 import { text } from "@language/aktuelt.ts";
-import { fetchData } from "../../utils/server/fetch";
-import { dinOversiktUrl } from "../din-oversikt/utils/urls";
+import { fetchData } from "@utils/server/fetch";
 import type { Language } from "@language/language.ts";
 import style from "./Aktuelt.module.css";
-import logger from "../../utils/server/logger.ts";
+import logger from "@utils/server/logger.ts";
+import { Aktuelt } from "./types";
+import { aktueltUrl } from "./urls";
 
 interface Props {
   language: Language;
@@ -20,39 +19,26 @@ const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
 
+let aktuelt: Aktuelt = { offerStepup: false, microfrontends: [] };
 let isError = false;
-let personalizedContent: PersonalizedContent = {
-  microfrontends: [],
-  produktkort: [],
-  dokumenter: [],
-  meldekort: false,
-  aktuelt: [],
-  offerStepup: false,
-};
 
 try {
-  personalizedContent = await fetchData(oboToken, dinOversiktUrl);
+  aktuelt = await fetchData(oboToken, aktueltUrl);
 } catch (error: any) {
-  logger.error("Fetching din-oversikt for aktuelt failed.", error.message);
+  logger.error(`Fetching aktuelt failed. ${error.message}`);
   isError = true;
 }
-
-const aktuelt = personalizedContent.aktuelt;
 ---
 
 {isError && <ClientError client:only="react" />}
 {
-  aktuelt.length === 0 ? null : (
+  aktuelt.microfrontends.length === 0 ? null : (
     <div class={style.container}>
       <BodyShort as="h2" className={style.aktuelt} spacing>
         {text.aktuelt[language]}
       </BodyShort>
-      {aktuelt?.map((mf) => {
-        if (mf.ssr) {
-          return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
-        } else {
-          return <MicrofrontendCSR key={mf.microfrontend_id} manifestUrl={mf.url} client:only="react" />;
-        }
+      {aktuelt.microfrontends.map((mf) => {
+        return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
       })}
     </div>
   )
