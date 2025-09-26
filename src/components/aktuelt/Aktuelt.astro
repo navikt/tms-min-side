@@ -32,13 +32,13 @@ try {
 
 {isError && <ClientError client:only="react" />}
 {
-    data.microfrontends.length === 0 ? null : (
+  data.microfrontends.length === 0 ? null : (
     <div class={style.container}>
       <BodyShort as="h2" className={style.aktuelt} spacing>
         {text.aktuelt[language]}
       </BodyShort>
       {data.microfrontends.map((mf) => {
-          return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
+        return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
       })}
     </div>
   )
