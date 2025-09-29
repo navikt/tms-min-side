@@ -384,8 +384,8 @@ const personopplysningLenkerProd = [
     },
   },
   {
-    nb: "Fullmakt",
-    nn: "Fullmakt",
+    nb: "Fullmakter",
+    nn: "Fullmakter",
     en: "Powers of attorney",
     url: {
       nb: "https://www.nav.no/person/pdl-fullmakt-ui",
@@ -477,8 +477,8 @@ const personopplysningLenkerDev = [
     },
   },
   {
-    nb: "Fullmakt",
-    nn: "Fullmakt",
+    nb: "Fullmakter",
+    nn: "Fullmakter",
     en: "Powers of attorney",
     url: {
       nb: "https://www.nav.no/person/pdl-fullmakt-ui",
