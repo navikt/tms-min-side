@@ -51,6 +51,8 @@ spec:
           namespace: pensjonskalkulator
         - application: tiltakspenger-meldekort-microfrontend
           namespace: tpts
+        - application: meldekort-mikrofrontend
+          namespace: meldekort
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
