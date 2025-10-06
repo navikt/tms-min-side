@@ -1,13 +1,7 @@
 import { getEnvironment } from "../../../utils/server/environment";
 
 const MELDEKORT_URL = {
-  local: "http://localhost:3000/meldekort", // TODO: fix this
-  dev: "http://meldekort-mikrofrontend.meldekort",
-  prod: "http://meldekort-mikrofrontend.meldekort",
-};
-
-const MELDEKORT_FALLBACK_URL = {
-  local: "http://localhost:3000/meldekort", // TODO: fix this
+  local: "http://localhost:3000/meldekort",
   dev: "http://meldekort-mikrofrontend.meldekort",
   prod: "http://meldekort-mikrofrontend.meldekort",
 };
