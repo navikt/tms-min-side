@@ -6,7 +6,7 @@ import ClientError from "@components/client-error/ClientError";
 import logger from "@utils/server/logger";
 
 interface Props {
-    language: string;
+  language: string;
 }
 
 const { microfrontend, language } = Astro.props;
@@ -17,11 +17,11 @@ let isError = false;
 let html;
 
 try {
-    html = await fetchHtml(oboToken, `${meldekortUrl}/${language}`);
+  html = await fetchHtml(oboToken, `${meldekortUrl}/${language}`);
 } catch (error) {
-    logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
-    isError = true;
-    html = await fetchHtml(oboToken, `${meldekortUrl}/${language}/"fallback"}`);
+  logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
+  isError = true;
+  html = await fetchHtml(oboToken, `${meldekortUrl}/${language}/"fallback"}`);
 }
 ---
 
