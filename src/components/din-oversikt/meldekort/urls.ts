@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../../utils/server/environment";
+import { getEnvironment } from "@utils/server/environment";
 
 const MELDEKORT_URL = {
   local: "http://localhost:3000/meldekort",
