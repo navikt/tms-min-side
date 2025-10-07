@@ -1,5 +1,6 @@
 ---
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
 import { dinOversiktUrl } from "./utils/urls";
 import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR";
 import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
@@ -55,7 +56,9 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       </BodyShort>
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
-          <Meldekort language={language} server:defer />
+          <Meldekort language={language} server:defer>
+            <Skeleton variant="rectangle" width={444} height={124} slot="fallback"/>
+          </Meldekort>
         </div>
       )}
       <div class={styles.masonry}>
