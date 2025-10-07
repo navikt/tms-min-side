@@ -32,7 +32,7 @@ try {
     data = await fetchData(oboToken, dokumenterUrl);
   }
 } catch (error: any) {
-  logger.error("Fetching dokumenter failed.", error.message);
+  logger.error(`Fetching dokumenter failed. ${error.message}`);
   isError = true;
 }
 

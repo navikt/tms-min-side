@@ -26,7 +26,7 @@ let isError = false;
 try {
   data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
 } catch (error: any) {
-  logger.error("Fetching utbetaling failed.", error.message);
+  logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
 }
 
