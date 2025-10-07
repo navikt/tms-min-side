@@ -18,7 +18,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   if (!token) {
-    logger.info("Could not find any bearer token on the request. Redirecting to login.");
     return context.redirect(`${loginUrl}${params}`);
   }
 
