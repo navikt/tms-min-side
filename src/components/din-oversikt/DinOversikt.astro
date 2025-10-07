@@ -15,6 +15,7 @@ import ClientError from "../client-error/ClientError";
 import type { Language } from "../../language/language";
 import styles from "./DinOversikt.module.css";
 import logger from "../../utils/server/logger";
+import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
 
 interface Props {
   language: Language;
@@ -55,7 +56,9 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       </BodyShort>
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
-          <Meldekort language={language} server:defer />
+          <Meldekort language={language} server:defer>
+            <MeldekortSkeleton slot="fallback" />
+          </Meldekort>
         </div>
       )}
       <div class={styles.masonry}>
