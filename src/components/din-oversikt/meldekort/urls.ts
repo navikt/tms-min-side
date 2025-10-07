@@ -1,10 +1,9 @@
-import { getEnvironmentClientSide, getIsAnsattClientSide } from "../../../utils/client/environment";
+import { getEnvironment } from "@utils/server/environment";
 
 const MELDEKORT_URL = {
-  local: "http://localhost:3000/meldekort/bundle.js",
-  dev: "https://www.intern.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
-  prod: "https://www.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
+  local: "http://localhost:3000/meldekort",
+  dev: "http://meldekort-mikrofrontend.meldekort",
+  prod: "http://meldekort-mikrofrontend.meldekort",
 };
 
-const meldekortAnsattUrl = "https://arbeid.ansatt.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js";
-export const meldekortUrl = getIsAnsattClientSide() ? meldekortAnsattUrl : MELDEKORT_URL[getEnvironmentClientSide()];
+export const meldekortUrl = MELDEKORT_URL[getEnvironment()];

@@ -48,8 +48,8 @@ spec:
           namespace: pensjonskalkulator
         - application: tiltakspenger-meldekort-microfrontend
           namespace: tpts
-        - application: tms-microfrontend-do-test
-        - application: tms-microfrontend-do-test-1
+        - application: meldekort-mikrofrontend
+          namespace: meldekort
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"

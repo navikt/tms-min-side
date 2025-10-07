@@ -1,0 +1,29 @@
+---
+import { getAudience, getOboToken } from "@utils/server/token";
+import { fetchHtml } from "@utils/server/fetch";
+import { meldekortUrl } from "./urls";
+import ClientError from "@components/client-error/ClientError";
+import logger from "@utils/server/logger";
+
+interface Props {
+  language: string;
+}
+
+const { microfrontend, language } = Astro.props;
+const audience = getAudience("meldekort-mikrofrontend", "meldekort");
+const oboToken = await getOboToken(Astro.locals.token, audience);
+
+let isError = false;
+let html;
+
+try {
+  html = await fetchHtml(oboToken, `${meldekortUrl}/${language}`);
+} catch (error) {
+  logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
+  isError = true;
+  html = await fetchHtml(oboToken, `${meldekortUrl}/${language}/"fallback"}`);
+}
+---
+
+{isError && <ClientError client:only="react" />}
+<Fragment set:html={html} />

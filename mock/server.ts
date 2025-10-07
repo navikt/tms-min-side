@@ -74,6 +74,10 @@ api.get("/manifest.json", (c) => {
   return c.json(manifest);
 });
 
+api.get("/meldekort/*", (c) => {
+  return c.html(mockMicrofrontendSSR("Meldekort"));
+});
+
 api.get("/pensjonskalkulator/*", (c) => {
   return c.html(mockMicrofrontendSSR("Pensjonskalkulator"));
 });

@@ -1,10 +1,10 @@
 ---
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { dinOversiktUrl } from "./utils/urls";
-import MeldekortWrapper from "./meldekort/MeldekortWrapper";
 import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR";
 import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
 import Produktkort from "./produktkort/Produktkort";
+import Meldekort from "./meldekort/Meldekort.astro";
 import { getProduktkortList } from "../../utils/server/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import { getShowDinOversikt } from "./utils/useOversikt.ts";
@@ -37,7 +37,7 @@ let personalizedContent: PersonalizedContent = {
 try {
   personalizedContent = await fetchData(oboToken, dinOversiktUrl);
 } catch (error: any) {
-  logger.error("Fetching din-oversikt failed.", error.message);
+  logger.error(`Fetching din-oversikt failed. ${error.message}`);
   logger.error(`Error: ${error}`);
   isError = true;
 }
@@ -55,7 +55,7 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       </BodyShort>
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
-          <MeldekortWrapper client:only="react" />
+          <Meldekort language={language} server:defer />
         </div>
       )}
       <div class={styles.masonry}>
