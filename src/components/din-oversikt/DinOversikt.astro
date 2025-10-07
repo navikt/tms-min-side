@@ -57,7 +57,7 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
           <Meldekort language={language} server:defer>
-            <Skeleton variant="rectangle" width={444} height={124} slot="fallback"/>
+            <Skeleton variant="rectangle" width={444} height={124} slot="fallback" />
           </Meldekort>
         </div>
       )}
