@@ -54,7 +54,7 @@ spec:
         - application: meldekort-mikrofrontend
           namespace: meldekort
         - application: aia-min-side-ssr
-          namespacke: paw
+          namespace: paw
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
