@@ -55,6 +55,8 @@ spec:
           namespace: meldekort
         - application: aia-min-side-ssr
           namespace: paw
+        - application: pam-min-side-microfrontend
+          namespace: teampam
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
