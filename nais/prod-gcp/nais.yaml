@@ -53,6 +53,8 @@ spec:
           namespace: tpts
         - application: meldekort-mikrofrontend
           namespace: meldekort
+        - application: aia-min-side-ssr
+          namespace: paw
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
