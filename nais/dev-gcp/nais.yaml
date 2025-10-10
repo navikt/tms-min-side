@@ -54,6 +54,7 @@ spec:
           namespace: paw
         - application: pam-min-side-microfrontend
           namespace: teampam
+        - application: tms-microfrontend-do-test
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
