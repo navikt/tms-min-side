@@ -16,6 +16,7 @@ import type { Language } from "../../language/language";
 import styles from "./DinOversikt.module.css";
 import logger from "../../utils/server/logger";
 import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
+import MicrofrontendSSRSkeleton from "../../microfrontends/horizontal/MicrofrontendSSRSkeleton.astro";
 
 interface Props {
   language: Language;
@@ -64,7 +65,11 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       <div class={styles.masonry}>
         {personalizedContent?.microfrontends.map((mf) => {
           if (mf.ssr) {
-            return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
+            return (
+              <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
+                <MicrofrontendSSRSkeleton slot="fallback" />
+              </MicrofrontendSSR>
+            );
           } else {
             return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />;
           }
