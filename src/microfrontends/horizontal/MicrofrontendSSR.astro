@@ -19,7 +19,7 @@ let isError = false;
 let html;
 
 try {
-  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
+  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`, language);
 } catch (error) {
   logger.error(
     `Failed to fetch microfrontend: ${microfrontend.appname} with url: ${microfrontend.url}. Error: ${error}`,

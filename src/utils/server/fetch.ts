@@ -15,11 +15,12 @@ export const fetchData = async (oboToken: string, url: string) => {
   return await response.json();
 };
 
-export const fetchHtml = async (oboToken: string, url: string) => {
+export const fetchHtml = async (oboToken: string, url: string, currentLocale?: string) => {
   const response = await fetch(url, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${oboToken}`,
+      locale: currentLocale,
     },
   });
 
