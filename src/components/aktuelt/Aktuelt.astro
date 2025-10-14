@@ -6,11 +6,11 @@ import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { text } from "@language/aktuelt.ts";
 import { fetchData } from "@utils/server/fetch";
 import type { Language } from "@language/language.ts";
+import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
 import style from "./Aktuelt.module.css";
 import logger from "@utils/server/logger.ts";
 import { Aktuelt } from "./types";
 import { aktueltUrl } from "./urls";
-import MicrofrontendSSRSkeleton from "../../microfrontends/horizontal/MicrofrontendSSRSkeleton.astro";
 
 interface Props {
   language: Language;
@@ -38,10 +38,10 @@ try {
       <BodyShort as="h2" className={style.aktuelt} spacing>
         {text.aktuelt[language]}
       </BodyShort>
-      {aktuelt.microfrontends.map((mf) => {
+        {aktuelt.microfrontends.map((mf) => {
         return (
           <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-            <MicrofrontendSSRSkeleton slot="fallback" />
+              <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback" />
           </MicrofrontendSSR>
         );
       })}
