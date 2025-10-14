@@ -41,7 +41,7 @@ try {
       {aktuelt.microfrontends.map((mf) => {
         return (
           <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-            <MicrofrontendSSRSkeleton slot="fallback"/>
+            <MicrofrontendSSRSkeleton slot="fallback" />
           </MicrofrontendSSR>
         );
       })}
