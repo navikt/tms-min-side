@@ -10,6 +10,7 @@ import style from "./Aktuelt.module.css";
 import logger from "@utils/server/logger.ts";
 import { Aktuelt } from "./types";
 import { aktueltUrl } from "./urls";
+import MicrofrontendSSRSkeleton from "../../microfrontends/horizontal/MicrofrontendSSRSkeleton.astro";
 
 interface Props {
   language: Language;
@@ -38,7 +39,11 @@ try {
         {text.aktuelt[language]}
       </BodyShort>
       {aktuelt.microfrontends.map((mf) => {
-        return <MicrofrontendSSR microfrontend={mf} language={language} server:defer />;
+        return (
+          <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
+            <MicrofrontendSSRSkeleton slot="fallback"/>
+          </MicrofrontendSSR>
+        );
       })}
     </div>
   )
