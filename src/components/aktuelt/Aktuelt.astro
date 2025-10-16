@@ -38,10 +38,10 @@ try {
       <BodyShort as="h2" className={style.aktuelt} spacing>
         {text.aktuelt[language]}
       </BodyShort>
-        {aktuelt.microfrontends.map((mf) => {
+      {aktuelt.microfrontends.map((mf) => {
         return (
           <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-              <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback" />
+            <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback" />
           </MicrofrontendSSR>
         );
       })}
