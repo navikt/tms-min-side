@@ -59,6 +59,8 @@ spec:
           namespace: teampam
         - application: ungdomsprogramytelse-innsyn-mikrofrontend-ssr
           namespace: dusseldorf
+        - application: k9-innsyn-dine-pleiepenger-mikrofrontend-ssr
+          namespace: dusseldorf
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
