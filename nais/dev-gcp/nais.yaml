@@ -54,6 +54,8 @@ spec:
           namespace: paw
         - application: pam-min-side-microfrontend
           namespace: teampam
+        - application: ungdomsprogramytelse-innsyn-mikrofrontend-ssr
+          namespace: dusseldorf
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
