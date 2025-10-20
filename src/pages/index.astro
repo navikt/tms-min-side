@@ -18,14 +18,12 @@ import InnboksFallback from "../components/innboks/fallback/InnboksFallback.astr
 import SubstantialInfo from "@components/substantial-info/SubstantialInfo.astro";
 import DokumenterFallback from "../components/dokumenter/fallback/DokumenterFallback.astro";
 import Legacy from "../components/legacy/Legacy";
-import Infomelding from "@components/infomelding/Infomelding.astro";
 
 const language = getLanguage(Astro.url);
 ---
 
 <Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
-    <Infomelding />
     <SubstantialInfo language={language} />
     <Feilmelding language={language} client:only="react" />
     <Personalia />
