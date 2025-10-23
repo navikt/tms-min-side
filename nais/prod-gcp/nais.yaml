@@ -61,6 +61,8 @@ spec:
           namespace: dusseldorf
         - application: k9-innsyn-dine-pleiepenger-mikrofrontend-ssr
           namespace: dusseldorf
+        - application: familie-ba-minside-mikrofrontend
+          namespace: teamfamilie
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
