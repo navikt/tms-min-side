@@ -60,6 +60,8 @@ spec:
           namespace: dusseldorf
         - application: familie-ba-minside-mikrofrontend
           namespace: teamfamilie
+        - application: familie-ef-mikrofrontend-minside
+          namespace: teamfamilie
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
