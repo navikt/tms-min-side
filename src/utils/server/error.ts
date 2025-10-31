@@ -1,8 +1,8 @@
 export class MultiStatusError extends Error {
-    partialContent;
+  partialContent;
 
-    constructor(message: string, content: any) {
-        super(message);
-        this.partialContent = content;
-    }
+  constructor(message: string, content: any) {
+    super(message);
+    this.partialContent = content;
+  }
 }
