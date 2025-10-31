@@ -5,16 +5,17 @@ import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR";
 import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
 import Produktkort from "./produktkort/Produktkort";
 import Meldekort from "./meldekort/Meldekort.astro";
-import { getProduktkortList } from "../../utils/server/oversikt.ts";
+import { getProduktkortList } from "@utils/server/oversikt.ts";
 import { produktText } from "./produktkort/ProduktText";
 import { getShowDinOversikt } from "./utils/useOversikt.ts";
-import { fetchData } from "../../utils/server/fetch";
-import { getAudience, getOboToken } from "../../utils/server/token";
+import { fetchData } from "@utils/server/fetch";
+import { MultiStatusError } from "@utils/server/error";
+import { getAudience, getOboToken } from "@utils/server/token";
 import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes";
 import ClientError from "../client-error/ClientError";
 import type { Language } from "../../language/language";
 import styles from "./DinOversikt.module.css";
-import logger from "../../utils/server/logger";
+import logger from "@utils/server/logger";
 import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
 import MicrofrontendSSRSkeleton from "../../microfrontends/horizontal/MicrofrontendSSRSkeleton.astro";
 
@@ -39,6 +40,10 @@ let personalizedContent: PersonalizedContent = {
 try {
   personalizedContent = await fetchData(oboToken, dinOversiktUrl);
 } catch (error: any) {
+  if (error instanceof MultiStatusError) {
+    personalizedContent = error.partialData as PersonalizedContent;
+  }
+
   logger.error(`Fetching din-oversikt failed. ${error.message}`);
   logger.error(`Error: ${error}`);
   isError = true;

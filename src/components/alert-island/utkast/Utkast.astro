@@ -1,11 +1,13 @@
 ---
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
-import { getLanguage } from "../../../language/language";
-import { fetchData } from "../../../utils/server/fetch";
-import { getAudience, getOboToken } from "../../../utils/server/token";
+import { getLanguage } from "@language/language";
+import { fetchData } from "@utils/server/fetch";
+import { getAudience, getOboToken } from "@utils/server/token";
 import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
+import { MultiStatusError } from "@utils/server/error";
+import { Utkast } from "./utkastTypes";
 import { text } from "@language/utkast.ts";
 import style from "./Utkast.module.css";
 import logger from "@utils/server/logger";
@@ -13,12 +15,16 @@ import logger from "@utils/server/logger";
 const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-let data = { antall: 0 };
+let data: Utkast = { antall: 0 };
 let isError = false;
 
 try {
   data = await fetchData(oboToken, utkastApiUrl);
 } catch (error: any) {
+  if (error instanceof MultiStatusError) {
+    data = error.partialData as Utkast;
+  }
+
   logger.error(`Fetching utkast failed. ${error.message}`);
   isError = true;
 }
