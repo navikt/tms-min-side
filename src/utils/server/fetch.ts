@@ -1,3 +1,5 @@
+import { MultiStatusError } from "./error";
+
 export const fetchData = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
     method: "GET",
@@ -10,6 +12,10 @@ export const fetchData = async (oboToken: string, url: string) => {
 
   if (!response.ok) {
     throw new Error(`Http error with status: ${response.status}`);
+  }
+
+  if (response.status === 207) {
+    throw new MultiStatusError(`Http multi-status from ${url}`, await response.json());
   }
 
   return await response.json();

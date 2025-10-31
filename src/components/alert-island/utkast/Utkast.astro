@@ -1,11 +1,12 @@
 ---
 import UtkastIkon from "./ikoner/UtkastIkon.tsx";
 import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
-import { getLanguage } from "../../../language/language";
-import { fetchData } from "../../../utils/server/fetch";
-import { getAudience, getOboToken } from "../../../utils/server/token";
+import { getLanguage } from "@language/language";
+import { fetchData } from "@utils/server/fetch";
+import { getAudience, getOboToken } from "@utils/server/token";
 import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "../../client-error/ClientError";
+import { MultiStatusError } from "@utils/server/error";
 import { text } from "@language/utkast.ts";
 import style from "./Utkast.module.css";
 import logger from "@utils/server/logger";
@@ -19,6 +20,10 @@ let isError = false;
 try {
   data = await fetchData(oboToken, utkastApiUrl);
 } catch (error: any) {
+  if (error instanceof MultiStatusError) {
+    data = error.partialContent;
+  }
+
   logger.error(`Fetching utkast failed. ${error.message}`);
   isError = true;
 }
