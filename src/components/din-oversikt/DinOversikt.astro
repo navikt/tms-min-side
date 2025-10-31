@@ -41,7 +41,7 @@ try {
   personalizedContent = await fetchData(oboToken, dinOversiktUrl);
 } catch (error: any) {
   if (error instanceof MultiStatusError) {
-    personalizedContent = error.partialContent as PersonalizedContent;
+    personalizedContent = error.partialData as PersonalizedContent;
   }
 
   logger.error(`Fetching din-oversikt failed. ${error.message}`);

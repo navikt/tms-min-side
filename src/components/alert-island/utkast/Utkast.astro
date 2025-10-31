@@ -22,7 +22,7 @@ try {
   data = await fetchData(oboToken, utkastApiUrl);
 } catch (error: any) {
   if (error instanceof MultiStatusError) {
-    data = error.partialContent as Utkast;
+    data = error.partialData as Utkast;
   }
 
   logger.error(`Fetching utkast failed. ${error.message}`);
