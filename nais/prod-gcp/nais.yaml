@@ -65,6 +65,8 @@ spec:
           namespace: teamfamilie
         - application: familie-ef-mikrofrontend-minside
           namespace: teamfamilie
+        - application: ao-min-side-microfrontend-ssr
+          namespace: dab
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
