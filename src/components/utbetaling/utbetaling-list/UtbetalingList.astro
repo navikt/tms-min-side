@@ -47,7 +47,7 @@ const { kommende, tidligere, language } = Astro.props;
       </span>
     </BodyShort>
     <BodyShort weight="semibold" className={styles.utbetaling}>
-      {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
+      {tidligere.utbetaling?.toLocaleString("no-nb") + " kr"}
       <Chevron className={styles.chevron} />
     </BodyShort>
   </a>
