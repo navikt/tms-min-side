@@ -69,6 +69,8 @@ spec:
           namespace: dab
         - application: aap-min-side-microfrontend
           namespace: aap
+        - application: mine-klager-microfrontend
+          namespace: klage
   ingresses:
     - "https://www.intern.nav.no/minside"
     - "https://www.nav.no/minside"
