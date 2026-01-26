@@ -1,5 +1,5 @@
 const IkonDagpenger = () => (
-  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={true}>
     <g clipPath="url(#clip0_4222_182392)">
       <path
         d="M22.8132 31.8403L10.3529 19.38L19.6294 10.1036L32.0897 22.5639L37.3509 17.3026L41.5076 41.2583L17.5519 37.1016L22.8132 31.8403Z"

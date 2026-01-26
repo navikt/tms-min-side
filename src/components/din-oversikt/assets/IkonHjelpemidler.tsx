@@ -1,5 +1,5 @@
 const IkonHjelpemidler = () => (
-  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={true}>
     <g clipPath="url(#clip0_4222_182547)">
       <rect x="10.5" y="23" width="6" height="10" fill="#CCE2F0" />
       <rect x="20.5" y="23" width="6" height="10" fill="#CCE2F0" />
