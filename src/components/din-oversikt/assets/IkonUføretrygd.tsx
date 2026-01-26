@@ -1,5 +1,5 @@
 const IkonUføretrygd = () => (
-  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={true}>
     <g clipPath="url(#clip0_4222_182467)">
       <path
         d="M24.0176 21.2214L36.4779 8.76111L45.7544 18.0376L33.2941 30.4979L38.5553 35.7591L14.5996 39.9158L18.7563 15.9601L24.0176 21.2214Z"

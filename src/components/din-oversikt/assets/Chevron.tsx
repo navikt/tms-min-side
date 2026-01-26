@@ -10,7 +10,7 @@ const Chevron = () => (
     fill="none"
     viewBox="0 0 24 24"
     focusable="false"
-    role="img"
+    aria-hidden={true}
   >
     <path
       fill="currentColor"

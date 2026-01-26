@@ -1,5 +1,5 @@
 const IkonForeldrepenger = () => (
-  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={true}>
     <g clipPath="url(#clip0_4222_182479)">
       <path
         d="M28 14L36.3315 26.278C40.8679 32.9632 36.0791 42 28 42V42C19.9209 42 15.1321 32.9632 19.6685 26.278L28 14Z"

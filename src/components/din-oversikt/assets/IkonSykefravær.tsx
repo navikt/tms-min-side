@@ -1,5 +1,5 @@
 const IkonSykefravær = () => (
-  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={true}>
     <g clipPath="url(#clip0_4222_182417)">
       <rect x="12" y="22" width="32" height="12" fill="#CCE2F0" />
       <rect x="34" y="12" width="32" height="12" transform="rotate(90 34 12)" fill="#CCE2F0" />
