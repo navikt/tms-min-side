@@ -10,7 +10,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) =>
       <div className={styles.ikonOgTekstContainer}>
         <div aria-hidden>{produktConfig.ikon}</div>
         <div>
-          <Heading size="small" level="2">
+          <Heading size="small" level="3">
             {produktConfig.tittel}
           </Heading>
           <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
