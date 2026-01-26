@@ -1,7 +1,7 @@
 import style from "../Varsler.module.css";
 
 const VarlserIkon = () => (
-  <svg className={style["varsler-ikon"]} width="56" height="56" viewBox="0 0 56 56" fill="none">
+  <svg className={style["varsler-ikon"]} width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
     <rect className={style["varsler-ikon-rect"]} width="56" height="56" rx="8" fill="#FF9100" />
     <path
       className={style["varsler-ikon-path"]}
