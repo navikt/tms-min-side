@@ -54,6 +54,14 @@ const Decorator = await fetchDecoratorReact({
     <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" />
     <Decorator.HeadAssets />
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js",
+          "react-dom": "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js",
+        }
+      }
+    </script>
   </head>
   <body>
     <Decorator.Header />
