@@ -74,8 +74,6 @@ spec:
           namespace: team-esyfo
         - application: meroppfolging-microfrontend
           namespace: team-esyfo
-        - application: motebehov-microfrontend
-          namespace: team-esyfo
   ingresses:
     - "https://www.intern.dev.nav.no/minside"
     - "https://www.ansatt.dev.nav.no/minside"
