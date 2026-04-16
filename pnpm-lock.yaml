@@ -18,8 +18,8 @@ importers:
         specifier: 1.19.0
         version: 1.19.0
       '@nanostores/react':
-        specifier: 1.0.0
-        version: 1.0.0(nanostores@1.2.0)(react@18.2.0)
+        specifier: 1.1.0
+        version: 1.1.0(nanostores@1.2.0)(react@18.2.0)
       '@navikt/ds-react':
         specifier: 5.7.2
         version: 5.7.2(@types/react@18.0.28)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -41,6 +41,9 @@ importers:
       husky:
         specifier: 9.1.7
         version: 9.1.7
+      nanostores:
+        specifier: 1.2.0
+        version: 1.2.0
       pino:
         specifier: 9.9.5
         version: 9.9.5
@@ -659,11 +662,11 @@ packages:
   '@js-sdsl/ordered-map@4.4.2':
     resolution: {integrity: sha512-iUKgm52T8HOE/makSxjqoWhe95ZJA1/G1sYsGev2JDKUSS14KAgg1LHb+Ba+IPow0xflbnSkOsZcO08C7w1gYw==}
 
-  '@nanostores/react@1.0.0':
-    resolution: {integrity: sha512-eDduyNy+lbQJMg6XxZ/YssQqF6b4OXMFEZMYKPJCCmBevp1lg0g+4ZRi94qGHirMtsNfAWKNwsjOhC+q1gvC+A==}
+  '@nanostores/react@1.1.0':
+    resolution: {integrity: sha512-MbH35fjhcf7LAubYX5vhOChYUfTLzNLqH/mBGLVsHkcvjy0F8crO1WQwdmQ2xKbAmtpalDa2zBt3Hlg5kqr8iw==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
-      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
+      nanostores: ^1.2.0
       react: '>=18.0.0'
 
   '@navikt/aksel-icons@5.18.3':
@@ -674,6 +677,9 @@ packages:
     peerDependencies:
       '@types/react': ^17.0.30 || ^18.0.0
       react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@navikt/ds-tokens@5.18.3':
     resolution: {integrity: sha512-PMA4K1DCosKbekk/hySFnjIRaQxwExhhdV6LFED+ImlutzYKJI79Gmbw1mttp6RWNAJYeVX5z8hCXPTMq6fu6w==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/5.18.3/c03906e7264f2534ab5f6238a2e2850307e51af3}
@@ -686,6 +692,9 @@ packages:
       html-react-parser: '>=5.x'
       jsdom: '>=16.x'
       react: '>=17.x'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@navikt/oasis@3.8.0':
     resolution: {integrity: sha512-5CDsv3wop9eIw2YNBCJRr0w6PwwkoTiHzZQXn1+5YZnsksCkHJAFsfKSbRle6zgsD+XRBnc/TPOP0nvNly7NWg==, tarball: https://npm.pkg.github.com/download/@navikt/oasis/3.8.0/fc6862d934adfbefa382220614af18160688cd1e}
@@ -3278,7 +3287,7 @@ snapshots:
 
   '@js-sdsl/ordered-map@4.4.2': {}
 
-  '@nanostores/react@1.0.0(nanostores@1.2.0)(react@18.2.0)':
+  '@nanostores/react@1.1.0(nanostores@1.2.0)(react@18.2.0)':
     dependencies:
       nanostores: 1.2.0
       react: 18.2.0
@@ -3292,11 +3301,12 @@ snapshots:
       '@navikt/ds-tokens': 5.18.3
       '@radix-ui/react-tabs': 1.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-toggle-group': 1.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@types/react': 18.0.28
       clsx: 1.2.1
       date-fns: 2.29.3
       react: 18.2.0
       react-day-picker: 8.3.4(date-fns@2.29.3)(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.0.28
     transitivePeerDependencies:
       - react-dom
 
@@ -3308,6 +3318,7 @@ snapshots:
       html-react-parser: 6.0.1(@types/react@18.0.28)(react@18.2.0)
       js-cookie: 3.0.5
       jsdom: 29.0.2
+    optionalDependencies:
       react: 18.2.0
 
   '@navikt/oasis@3.8.0':
