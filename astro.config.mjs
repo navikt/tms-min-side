@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import node from "@astrojs/node";
-import { rollupImportMapPlugin } from "rollup-plugin-import-map";
-import importmap from "./importmap.json";
 
 export default defineConfig({
   base: "/minside",
@@ -12,16 +10,10 @@ export default defineConfig({
   integrations: [
     react(),
     {
-      name: "importmap",
+      name: 'importmap-externals',
       hooks: {
-        "astro:build:setup": ({ vite, target }) => {
-          if (target === "client") {
-            vite.plugins.push({
-              ...rollupImportMapPlugin(importmap),
-              enforce: "pre",
-              apply: "build",
-            });
-          }
+        'astro:build:setup': ({ vite }) => {
+          vite.environments.client.build.rollupOptions.external = ['react', 'react-dom'];
         },
       },
     },
