@@ -93,9 +93,6 @@ importers:
       prop-types:
         specifier: 15.8.1
         version: 15.8.1
-      rollup-plugin-import-map:
-        specifier: 3.0.0
-        version: 3.0.0
       tsx:
         specifier: 4.20.5
         version: 4.20.5
@@ -2297,9 +2294,6 @@ packages:
 
   retext@9.0.0:
     resolution: {integrity: sha512-sbMDcpHCNjvlheSgMfEcVrZko3cDzdbe1x/e7G66dFp0Ff7Mldvi2uv6JkJQzdRcvLYE8CA8Oe8siQx8ZOgTcA==}
-
-  rollup-plugin-import-map@3.0.0:
-    resolution: {integrity: sha512-JB4WGCvTEDLU/puADvkJpqw3GqrdGs6UBR9USyYv47hkyWv0w1Nmwim4Cnq5yUZQQK1Po0gtA9s4NQblgc5i3A==}
 
   rollup@4.60.1:
     resolution: {integrity: sha512-VmtB2rFU/GroZ4oL8+ZqXgSA38O6GR8KSIvWmEFv63pQ0G6KaBH9s07PO8XTXP4vI+3UJUEypOfjkGfmSBBR0w==}
@@ -5306,8 +5300,6 @@ snapshots:
       retext-latin: 4.0.0
       retext-stringify: 4.0.0
       unified: 11.0.5
-
-  rollup-plugin-import-map@3.0.0: {}
 
   rollup@4.60.1:
     dependencies:
