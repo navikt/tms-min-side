@@ -1,0 +1,14 @@
+{
+  "domain": "frontend",
+  "tags": ["aksel", "design-system", "nextjs", "react", "ui"],
+  "examples": [
+    {
+      "prompt": "@aksel-agent Konverter Tailwind-layouten i dp-soknad til Aksel spacing tokens",
+      "scenario": "Konverter Tailwind til Aksel"
+    },
+    {
+      "prompt": "@aksel-agent Lag et responsivt søknadsskjema for sosialhjelp-innsyn med HGrid og Box",
+      "scenario": "Responsivt søknadsskjema"
+    }
+  ]
+}
