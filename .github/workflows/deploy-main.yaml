@@ -16,19 +16,22 @@ jobs:
 
     steps:
       - uses: "actions/checkout@v4"
+      - uses: "pnpm/action-setup@v4"
+        with:
+          version: 10
       - uses: "actions/setup-node@v4"
         with:
           node-version: 24
           registry-url: "https://npm.pkg.github.com"
-          cache: "npm"
+          cache: "pnpm"
 
       - name: "Install dependencies"
-        run: "npm ci"
+        run: "pnpm install --frozen-lockfile --config.minimum-release-age=10080"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: "Build application"
-        run: "npm run build"
+        run: "pnpm run build"
         env:
           ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
 
