@@ -21,7 +21,7 @@
     "@navikt/nav-dekoratoren-moduler": "3.4.0",
     "@navikt/oasis": "3.8.0",
     "@opentelemetry/sdk-node": "0.202.0",
-    "astro": "5.13.7",
+    "astro": "5.18.1",
     "dayjs": "1.11.18",
     "husky": "9.1.7",
     "nanostores": "1.2.0",
