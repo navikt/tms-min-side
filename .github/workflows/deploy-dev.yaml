@@ -23,7 +23,7 @@ jobs:
           cache: "pnpm"
 
       - name: "Install dependencies"
-        run: "pnpm install --frozen-lockfile"
+        run: "pnpm install --frozen-lockfile --config.minimum-release-age=10080"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
