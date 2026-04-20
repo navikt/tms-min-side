@@ -6,5 +6,3 @@ export interface Microfrontend {
   fallback: string;
   ssr: boolean;
 }
-
-
