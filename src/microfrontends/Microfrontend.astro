@@ -1,10 +1,10 @@
 ---
-import { getAudience, getOboToken } from "../../utils/server/token";
-import { fetchHtml } from "../../utils/server/fetch";
+import { getAudience, getOboToken } from "../utils/server/token";
+import { fetchHtml } from "../utils/server/fetch";
 import { Microfrontend } from "./microfrontendTypes";
-import ClientError from "../../components/client-error/ClientError";
-import styles from "./MicrofrontendCSR.module.css";
-import logger from "@utils/server/logger";
+import ClientError from "../components/client-error/ClientError";
+import logger from "../utils/server/logger";
+import styles from "./Microfrontend.module.css";
 
 interface Props {
   microfrontend: Microfrontend;
@@ -12,10 +12,11 @@ interface Props {
 }
 
 const { microfrontend, language } = Astro.props;
+
 const audience = getAudience(microfrontend.appname, microfrontend.namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
-let isError = false;
 
+let isError = false;
 let html;
 
 try {

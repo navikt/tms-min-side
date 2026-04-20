@@ -1,8 +1,7 @@
 ---
 import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { dinOversiktUrl } from "./utils/urls";
-import MicrofrontendCSR from "../../microfrontends/horizontal/MicrofrontendCSR";
-import MicrofrontendSSR from "../../microfrontends/horizontal/MicrofrontendSSR.astro";
+import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
 import Produktkort from "./produktkort/Produktkort";
 import Meldekort from "./meldekort/Meldekort.astro";
 import { getProduktkortList } from "@utils/server/oversikt.ts";
@@ -11,13 +10,13 @@ import { getShowDinOversikt } from "./utils/useOversikt.ts";
 import { fetchData } from "@utils/server/fetch";
 import { MultiStatusError } from "@utils/server/error";
 import { getAudience, getOboToken } from "@utils/server/token";
-import { PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes";
+import { PersonalizedContent } from "./DinOversiktTypes";
 import ClientError from "../client-error/ClientError";
 import type { Language } from "../../language/language";
-import styles from "./DinOversikt.module.css";
 import logger from "@utils/server/logger";
 import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
-import MicrofrontendSSRSkeleton from "../../microfrontends/horizontal/MicrofrontendSSRSkeleton.astro";
+import MicrofrontendSSRSkeleton from "../../microfrontends/MicrofrontendSkeleton.astro";
+import styles from "./DinOversikt.module.css";
 
 interface Props {
   language: Language;
@@ -68,17 +67,11 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
         </div>
       )}
       <div class={styles.masonry}>
-        {personalizedContent?.microfrontends.map((mf) => {
-          if (mf.ssr) {
-            return (
-              <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-                <MicrofrontendSSRSkeleton slot="fallback" />
-              </MicrofrontendSSR>
-            );
-          } else {
-            return <MicrofrontendCSR client:only="react" manifestUrl={mf.url} key={mf.microfrontend_id} />;
-          }
-        })}
+        {personalizedContent?.microfrontends.map((mf) => (
+          <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
+            <MicrofrontendSSRSkeleton slot="fallback" />
+          </MicrofrontendSSR>
+        ))}
         {produktkortList?.map((produktConfig) => (
           <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
         ))}

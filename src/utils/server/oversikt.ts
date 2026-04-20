@@ -1,6 +1,7 @@
 import { Language } from "../../language/language.ts";
-import { Microfrontend, PersonalizedContent } from "../../microfrontends/horizontal/microfrontendTypes.tsx";
 import { getProduktPropertiesMap } from "../../components/din-oversikt/produktkort/ProduktProperties.tsx";
+import type { Microfrontend } from "../../microfrontends/microfrontendTypes.tsx";
+import type { PersonalizedContent } from "../../components/din-oversikt/DinOversiktTypes";
 
 export const getProduktkortList = (language: Language, personalizedContent?: PersonalizedContent) => {
   if (personalizedContent === undefined) return undefined;
