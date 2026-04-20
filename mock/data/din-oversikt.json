@@ -2,11 +2,11 @@
   "microfrontends": [
     {
       "microfrontend_id": "aap",
-      "url": "http://localhost:3000/aap/bundle.js",
-      "appname": "",
-      "namespace": "",
-      "fallback": "",
-      "ssr": false
+      "url": "http://localhost:3000/aap",
+      "appname": "aap-microfrontend",
+      "namespace": "aap",
+      "fallback": "http://localhost:3000/aap/fallback",
+      "ssr": true
     },
     {
       "microfrontend_id": "syfo-dialog",
