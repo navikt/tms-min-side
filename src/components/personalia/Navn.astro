@@ -3,8 +3,8 @@ import { getAudience, getOboToken } from "../../utils/server/token";
 import ClientError from "../client-error/ClientError";
 import { navnUrl } from "./personaliaUrls";
 import { fetchData } from "../../utils/server/fetch";
-import style from "./Personalia.module.css";
 import logger from "../../utils/server/logger";
+import style from "./Personalia.module.css";
 
 const audience = getAudience("tms-min-side-proxy");
 const oboToken = await getOboToken(Astro.locals.token, audience);

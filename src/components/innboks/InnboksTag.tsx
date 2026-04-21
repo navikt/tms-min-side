@@ -1,6 +1,6 @@
-import { Tag } from "@navikt/ds-react/cjs/tag/Tag.js";
-import type { Language } from "@language/language.ts";
+import { Tag } from "@navikt/ds-react";
 import { text } from "@language/innboks.ts";
+import type { Language } from "@language/language.ts";
 
 interface Props {
   innbokser: number;
@@ -16,7 +16,7 @@ const InnboksTag = ({ innbokser, language }: Props) => {
     );
   } else {
     return (
-      <Tag variant="neutral-moderate" size="small">
+      <Tag variant="moderate" data-color="neutral" size="small">
         {text.innboksIngenNyMeldinger[language]}
       </Tag>
     );

@@ -1,7 +1,6 @@
 ---
-import { Skeleton } from "@navikt/ds-react/cjs/skeleton/Skeleton.js";
+import { Skeleton, Heading } from "@navikt/ds-react";
 import { getLanguage } from "../../../language/language";
-import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
 import { text } from "../../../language/utbetaling";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import style from "./UtbetalingFallback.module.css";
@@ -12,9 +11,9 @@ const language = getLanguage(Astro.url);
 <div class={style.detaljer}>
   <div class={`${style.detaljerContainer}`}>
     <div class={style.heading}>
-      <BodyShort as="h2" spacing>
+      <Heading level="2" size="xsmall">
         {text.tittelUtbetalinger[language]}
-      </BodyShort>
+      </Heading>
     </div>
     <Skeleton width={116} height={28} />
     <Skeleton width={225} height={24} />

@@ -1,7 +1,6 @@
-import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import ProduktProperties from "./ProduktProperties.tsx";
-import Chevron from "../assets/Chevron";
+import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) => {
@@ -16,7 +15,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) =>
           <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
         </div>
       </div>
-      <Chevron aria-hidden />
+      <Chevron className={styles.chevron} aria-hidden fontSize="24px" />
     </a>
   );
 };

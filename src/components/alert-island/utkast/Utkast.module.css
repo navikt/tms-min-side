@@ -22,6 +22,24 @@
   flex-direction: column;
 }
 
+.heading {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: -.001em;
+  margin: 0;
+}
+
+.tekst {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #ffffff;
+  letter-spacing: .002em;
+  margin: 0;
+}
+
 .ikonRektangel {
   position: relative;
   max-width: 100%;

@@ -1,18 +1,17 @@
 ---
 import InnboksTag from "./InnboksTag";
-import { getLanguage, Language } from "../../language/language";
+import { Language } from "../../language/language";
 import { innboksUrl } from "./innboksUrls";
 import { antallVarslerUrl } from "./innboksUrls";
 import { text } from "../../language/innboks";
 import { getAudience, getOboToken } from "../../utils/server/token";
-import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
-import Chevron from "./Chevron.astro";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";
-import styles from "./Innboks.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 import logger from "@utils/server/logger";
+import styles from "./Innboks.module.css";
 
 interface Props {
   language: Language;
@@ -38,17 +37,15 @@ const { language } = Astro.props;
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  <div class={styles.content}>
-    <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
-      <BodyShort as="h2"><strong>{text.kommunikasjonsFlisLenketekstInnboks[language]}</strong></BodyShort>
-      <div class={styles.tagChevron}>
-        <InnboksTag innbokser={innbokser} language={language} />
-        <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
-      </div>
-    </a>
-    <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
-      <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
+  <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
+    <Heading level="2" size="xsmall">{text.kommunikasjonsFlisLenketekstInnboks[language]}</Heading>
+    <div class={styles.tagChevron}>
+      <InnboksTag innbokser={innbokser} language={language} />
+      <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
     </div>
+  </a>
+  <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
+    <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
   </div>
 </div>
 <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
