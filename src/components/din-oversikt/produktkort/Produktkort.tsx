@@ -1,5 +1,4 @@
-import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import { Heading } from "@navikt/ds-react/cjs/typography/Heading.js";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import ProduktProperties from "./ProduktProperties.tsx";
 import Chevron from "../assets/Chevron";
 import styles from "./Produktkort.module.css";

@@ -1,5 +1,11 @@
 .tekst {
   margin: 0 !important;
+  font-size: 1.75rem;
+  font-family: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+  font-weight: 600;
+  line-height: 2.25rem;
+  letter-spacing: -.004em;
+  box-sizing: inherit;
 }
 
 .navn {
@@ -15,5 +21,11 @@
 @media (min-width: 648px) {
   .container {
     margin: 1rem 0;
+  }
+
+  .tekst {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: -.008em;
   }
 }

@@ -1,12 +1,11 @@
 ---
 import InnboksTag from "./InnboksTag";
-import { getLanguage, Language } from "../../language/language";
+import { Language } from "../../language/language";
 import { innboksUrl } from "./innboksUrls";
 import { antallVarslerUrl } from "./innboksUrls";
 import { text } from "../../language/innboks";
 import { getAudience, getOboToken } from "../../utils/server/token";
-import { BodyLong } from "@navikt/ds-react/cjs/typography/BodyLong.js";
-import { BodyShort } from "@navikt/ds-react/cjs/typography/BodyShort.js";
+import { BodyLong, BodyShort } from "@navikt/ds-react";
 import Chevron from "./Chevron.astro";
 import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";

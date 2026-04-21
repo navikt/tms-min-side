@@ -30,6 +30,7 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  color: #0067C5;
 }
 
 .wrapper:hover .link {
