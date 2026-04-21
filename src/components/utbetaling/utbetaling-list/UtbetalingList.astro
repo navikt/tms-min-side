@@ -5,7 +5,7 @@ import { BodyShort, Heading, Tag } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/client/utbetaling";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import styles from "./UtbetalingList.module.css";
-import Chevron from "../Chevron.astro";
+import { ChevronRightIcon as Chevron }  from "@navikt/aksel-icons";
 import { text } from "../../../language/utbetaling";
 
 interface Props {
@@ -31,7 +31,7 @@ const { kommende, tidligere, language } = Astro.props;
     </BodyShort>
     <BodyShort weight="semibold" className={styles.utbetaling}>
       {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <Chevron className={styles.chevron} />
+      <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
     </BodyShort>
   </a>
   <a href={`${utbetalingsoversiktUrl}/utbetaling/${tidligere.id}`} class={styles.kommendeOgTidligere} id="tidligere">
@@ -45,7 +45,7 @@ const { kommende, tidligere, language } = Astro.props;
     </BodyShort>
     <BodyShort weight="semibold" className={styles.utbetaling}>
       {tidligere.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <Chevron className={styles.chevron} />
+      <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
     </BodyShort>
   </a>
   <script>

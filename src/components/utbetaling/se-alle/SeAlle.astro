@@ -3,7 +3,7 @@ import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { text } from "../../../language/utbetaling";
 import { Language } from "../../../language/language";
 import styles from "./SeAlle.module.css";
-import Chevron from "../Chevron.astro";
+import { ChevronRightIcon as Chevron }  from "@navikt/aksel-icons";
 
 interface Props {
   language: Language;
@@ -20,7 +20,7 @@ const { language, isKommende } = Astro.props;
     class={isKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
   >
     {text.alle[language]}
-    <Chevron className={styles.chevron} />
+    <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
   </a>
   <script>
     import { logEvent } from "@utils/client/amplitude";

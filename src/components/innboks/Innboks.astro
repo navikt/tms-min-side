@@ -6,12 +6,12 @@ import { antallVarslerUrl } from "./innboksUrls";
 import { text } from "../../language/innboks";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
-import Chevron from "./Chevron.astro";
+import { ChevronRightIcon as Chevron }  from "@navikt/aksel-icons";
 import { fetchData } from "../../utils/server/fetch";
 import ClientError from "../client-error/ClientError";
-import styles from "./Innboks.module.css";
 import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
 import logger from "@utils/server/logger";
+import styles from "./Innboks.module.css";
 
 interface Props {
   language: Language;

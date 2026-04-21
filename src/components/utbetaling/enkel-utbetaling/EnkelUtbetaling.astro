@@ -6,7 +6,7 @@ import type { UtbetalingData } from "../utbetalingTypes";
 import type { Language } from "../../../language/language";
 import styles from "./EnkelUtbetaling.module.css";
 import { utbetalingsoversiktUrl } from "../utbetalingUrls";
-import Chevron from "../Chevron.astro";
+import { ChevronRightIcon as Chevron }  from "@navikt/aksel-icons";
 
 interface Props {
   utbetaling: UtbetalingData;
@@ -34,7 +34,7 @@ const seDetaljerStyling = {
     </Heading>
     <BodyShort className={seDetaljerStyling} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
       {text.seDetaljer[language]}
-      <Chevron className={styles.chevron} />
+      <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
     </BodyShort>
   </span>
   <Heading level="3" size="large">

@@ -54,9 +54,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
       </div>
       <div class={style.container}>
         <h3 class={style.heading}>{text.varsler[language]}</h3>
-        <p class={style.tekst}>
-          {buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}
-        </p>
+        <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
       </div>
     </a>
   )

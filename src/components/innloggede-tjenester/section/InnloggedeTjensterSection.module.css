@@ -18,6 +18,7 @@
 
 .chevron {
   padding-right: 0.25rem;
+  color: #004367;
 }
 
 .link:hover .chevron {
@@ -28,8 +29,6 @@
 .link:first-of-type {
   border-top: 1px solid var(--a-deepblue-200);
 }
-
-
 
 .listeTittel {
   color: var(--a-deepblue-600);
