@@ -16,7 +16,7 @@ const InnboksTag = ({ innbokser, language }: Props) => {
     );
   } else {
     return (
-      <Tag variant="neutral-moderate" size="small">
+      <Tag variant="moderate" data-color="neutral" size="small">
         {text.innboksIngenNyMeldinger[language]}
       </Tag>
     );

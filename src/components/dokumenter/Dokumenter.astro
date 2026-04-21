@@ -47,9 +47,9 @@ const { language } = Astro.props;
       {hasIngenDokumenter ? (
         <div class={styles.ingenContainer}>
           <div class={styles.ingenHeadingContainer}>
-            <BodyShort as="h2">
+            <Heading level="2" size="xsmall">>
               <strong>{text.heading[language]}</strong>
-            </BodyShort>
+            </Heading>
           </div>
           <div class={styles.ingenIngressContainer}>
             <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
@@ -61,7 +61,7 @@ const { language } = Astro.props;
         </div>
       ) : (
         <>
-          <Heading size="xsmall" as="h2" spacing>
+          <Heading size="xsmall" level="2" spacing>
             {text.heading[language]}
           </Heading>
           <ul class={styles.dokumenter}>

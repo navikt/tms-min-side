@@ -2,10 +2,6 @@
   margin-top: var(--tms-space-between-sections);
 }
 
-.content {
-  min-height: 9.25rem;
-}
-
 .headerContainer {
   display: flex;
   justify-content: space-between;
