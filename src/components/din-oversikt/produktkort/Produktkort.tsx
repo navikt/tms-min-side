@@ -1,6 +1,6 @@
 import { BodyLong, Heading } from "@navikt/ds-react";
 import ProduktProperties from "./ProduktProperties.tsx";
-import { ChevronRightIcon as Chevron }  from "@navikt/aksel-icons";
+import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktProperties }) => {
