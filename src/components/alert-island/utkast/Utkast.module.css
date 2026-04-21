@@ -23,7 +23,6 @@
 }
 
 .heading {
-  font-family: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
   color: rgba(255, 255, 255, 1);
   font-weight: 600;
   font-size: 1.25rem;
@@ -33,7 +32,6 @@
 }
 
 .tekst {
-  font-family: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5rem;
