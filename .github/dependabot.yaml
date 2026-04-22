@@ -1,0 +1,41 @@
+version: 2
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.READER_TOKEN }}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: "weekly"
+      time: "08:00"
+      timezone: "Europe/Oslo"
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
+    groups:
+      aksel:
+        patterns:
+          - "@navikt/aksel-*"
+          - "@navikt/ds-*"
+      astro:
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+      minor-and-patch:
+        update-types:
+          - "patch"
+          - "minor"
+        exclude-patterns:
+          - "@navikt/aksel-*"
+          - "@navikt/ds-*"
+          - "@astrojs/*"
+          - "astro"
+          - "react"
+          - "react-dom"
