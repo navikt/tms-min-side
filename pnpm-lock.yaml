@@ -67,8 +67,8 @@ importers:
         version: 2.3.6(react@18.2.0)
     devDependencies:
       '@hono/node-server':
-        specifier: 1.19.2
-        version: 1.19.2(hono@4.9.6)
+        specifier: 1.19.13
+        version: 1.19.13(hono@4.9.6)
       '@testing-library/jest-dom':
         specifier: 6.8.0
         version: 6.8.0
@@ -657,8 +657,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  '@hono/node-server@1.19.2':
-    resolution: {integrity: sha512-lndWsd9De/btN998Aiv6gkeMVV2h9Cc0AR0qwFTmxx/YFh/PbrjgoxTpHaNaRn6F4GAkPiVJwI0W0gQF4Wn8EA==}
+  '@hono/node-server@1.19.13':
+    resolution: {integrity: sha512-TsQLe4i2gvoTtrHje625ngThGBySOgSK3Xo2XRYOdqGN1teR8+I7vchQC46uLJi8OF62YTYA3AhSpumtkhsaKQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -3252,7 +3252,7 @@ snapshots:
       protobufjs: 7.5.4
       yargs: 17.7.2
 
-  '@hono/node-server@1.19.2(hono@4.9.6)':
+  '@hono/node-server@1.19.13(hono@4.9.6)':
     dependencies:
       hono: 4.9.6
 
