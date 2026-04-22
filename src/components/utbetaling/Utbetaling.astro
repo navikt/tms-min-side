@@ -32,26 +32,32 @@ try {
 
 const { language } = Astro.props;
 
-const isKommende = data.kommende && !data.sisteUtbetaling ? true : false;
+const isKommende = data.kommende && !data.sisteUtbetaling;
+const isIngenUtbetaling = !data.kommende && !data.sisteUtbetaling;
+const isTidligereUtbetaling = data.sisteUtbetaling && !data.kommende;
+const isUtbetalingList = data.sisteUtbetaling && data.kommende;
 ---
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  {!data.kommende && !data.sisteUtbetaling && <IngenUtbetaling language={language} />}
   {
-    data.kommende && !data.sisteUtbetaling && (
-      <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />
-    )
-  }
-  {
-    data.sisteUtbetaling && !data.kommende && (
-      <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />
-    )
-  }
-  {
-    data.sisteUtbetaling && data.kommende && (
-      <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />
-    )
+    () => {
+      if (isIngenUtbetaling) {
+        return <IngenUtbetaling language={language} />;
+      }
+
+      if (isKommende) {
+        return <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />;
+      }
+
+      if (isTidligereUtbetaling) {
+        return <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />;
+      }
+
+      if (isUtbetalingList) {
+        return <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />;
+      }
+    }
   }
   <SeAlle language={language} isKommende={isKommende} />
 
