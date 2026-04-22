@@ -37,22 +37,23 @@ const isKommende = data.kommende && !data.sisteUtbetaling ? true : false;
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  {!data.kommende && !data.sisteUtbetaling && <IngenUtbetaling language={language} />}
-  {
-    data.kommende && !data.sisteUtbetaling && (
-      <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />
-    )
-  }
-  {
-    data.sisteUtbetaling && !data.kommende && (
-      <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />
-    )
-  }
-  {
-    data.sisteUtbetaling && data.kommende && (
-      <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />
-    )
-  }
+  {() => {
+    if (!data.kommende && !data.sisteUtbetaling) {
+      return <IngenUtbetaling language={language} />;
+    }
+
+    if (data.kommende && !data.sisteUtbetaling) {
+      return <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />;
+    }
+
+    if (data.sisteUtbetaling && !data.kommende) {
+      return <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />;
+    }
+
+    if (data.sisteUtbetaling && data.kommende) {
+      return <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />;
+    }
+  }}
   <SeAlle language={language} isKommende={isKommende} />
 
   <PersonalContentLogger
