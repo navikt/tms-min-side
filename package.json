@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/node": "10.0.4",
-    "@astrojs/react": "5.0.2",
+    "@astrojs/react": "5.0.3",
     "@grafana/faro-web-sdk": "1.19.0",
     "@nanostores/react": "1.1.0",
     "@navikt/aksel-icons": "8.9.1",
@@ -23,7 +23,7 @@
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "3.8.0",
     "@opentelemetry/sdk-node": "0.214.0",
-    "astro": "6.1.4",
+    "astro": "6.1.6",
     "dayjs": "1.11.20",
     "husky": "9.1.7",
     "nanostores": "1.2.0",
