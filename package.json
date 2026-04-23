@@ -13,7 +13,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/node": "10.0.4",
+    "@astrojs/node": "10.0.5",
     "@astrojs/react": "5.0.2",
     "@grafana/faro-web-sdk": "1.19.0",
     "@nanostores/react": "1.1.0",
