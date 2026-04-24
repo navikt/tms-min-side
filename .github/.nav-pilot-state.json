@@ -1,9 +1,9 @@
 {
-  "collection": "nextjs-frontend",
-  "version": "2026.04.17-064315-e010946",
+  "collection": "frontend",
+  "version": "2026.04.20-194821-8b2cb9f",
   "scope": "repo",
-  "source_sha": "e010946",
-  "installed_at": "2026-04-17T08:52:30Z",
+  "source_sha": "8b2cb9f",
+  "installed_at": "2026-04-24T09:58:45Z",
   "files": [
     {
       "path": ".github/agents/accessibility.agent.md",
@@ -15,15 +15,15 @@
     },
     {
       "path": ".github/agents/aksel.agent.md",
-      "hash": "9a80d306394a0cf4"
+      "hash": "f3f31e695bc1df0f"
     },
     {
       "path": ".github/agents/aksel.metadata.json",
-      "hash": "019ce826aad4c5e9"
+      "hash": "8eada8fad9d3b868"
     },
     {
       "path": ".github/agents/forfatter.agent.md",
-      "hash": "42eb060eeeaef4cf"
+      "hash": "f638bd5c234f329b"
     },
     {
       "path": ".github/agents/forfatter.metadata.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "3eac438b61ab279a"
+      "hash": "3179adb5db9ae3af"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -39,7 +39,7 @@
     },
     {
       "path": ".github/skills/aksel-spacing/",
-      "hash": "bfcaaa3b06123c66"
+      "hash": "690f23009e204e36"
     },
     {
       "path": ".github/skills/playwright-testing/",
@@ -66,14 +66,6 @@
       "hash": "ce043cf29ce427b1"
     },
     {
-      "path": ".github/instructions/nextjs-aksel.instructions.md",
-      "hash": "6aa56ec320c72809"
-    },
-    {
-      "path": ".github/instructions/performance.instructions.md",
-      "hash": "23b58fe157ef8f0e"
-    },
-    {
       "path": ".github/instructions/testing.instructions.md",
       "hash": "4a6a7547a3701ce1"
     },
@@ -96,10 +88,6 @@
     {
       "path": ".github/prompts/aksel-component.prompt.md",
       "hash": "9da00ddfc10aefc4"
-    },
-    {
-      "path": ".github/prompts/nextjs-api-route.prompt.md",
-      "hash": "6dc6506e5264a67b"
     },
     {
       "path": ".github/prompts/nais-manifest.prompt.md",
