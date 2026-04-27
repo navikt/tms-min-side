@@ -1,6 +1,6 @@
 ---
 import Authentication from "@components/authentication/Authentication";
-import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getDecoratorEnvironment } from "../../utils/server/environment";
 import { getLanguage } from "@language/language";
 import "./Layout.css";
@@ -18,7 +18,7 @@ export interface Props {
 const language = getLanguage(Astro.url);
 const { title, breadcrumbs } = Astro.props;
 
-const Decorator = await fetchDecoratorReact({
+const Decorator = await fetchDecoratorHtml({
   env: getDecoratorEnvironment(),
   params: {
     context: "privatperson",
@@ -42,6 +42,13 @@ const Decorator = await fetchDecoratorReact({
     ],
   },
 });
+
+const {
+  DECORATOR_HEAD_ASSETS,
+  DECORATOR_HEADER,
+  DECORATOR_FOOTER,
+  DECORATOR_SCRIPTS,
+} = Decorator;
 ---
 
 <!doctype html>
@@ -51,7 +58,7 @@ const Decorator = await fetchDecoratorReact({
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="noindex" />
     <title>{title}</title>
-    <Decorator.HeadAssets />
+    <Fragment set:html={DECORATOR_HEAD_ASSETS} />
     <script type="importmap">
       {
         "imports": {
@@ -65,10 +72,10 @@ const Decorator = await fetchDecoratorReact({
     </script>
   </head>
   <body>
-    <Decorator.Header />
+    <Fragment set:html={DECORATOR_HEADER} />
     <slot />
     <Authentication client:only="react" />
-    <Decorator.Footer />
-    <Decorator.Scripts />
+    <Fragment set:html={DECORATOR_FOOTER} />
+    <Fragment set:html={DECORATOR_SCRIPTS} />
   </body>
 </html>
