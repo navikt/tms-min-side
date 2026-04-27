@@ -1,0 +1,16 @@
+{
+  "up_to_date": false,
+  "source": "fa7e104",
+  "updates": [
+    {
+      "path": ".github/agents/forfatter.agent.md",
+      "current_hash": "f638bd5c234f329b",
+      "source_hash": "13a58d6edf244114"
+    },
+    {
+      "path": ".github/agents/nav-pilot.agent.md",
+      "current_hash": "3179adb5db9ae3af",
+      "source_hash": "75c6d1771bdce25c"
+    }
+  ]
+}
