@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/node": "10.0.5",
     "@astrojs/react": "5.0.3",
-    "@grafana/faro-web-sdk": "1.19.0",
+    "@grafana/faro-web-sdk": "2.3.1",
     "@nanostores/react": "1.1.0",
     "@navikt/aksel-icons": "8.9.1",
     "@navikt/ds-css": "8.9.1",
