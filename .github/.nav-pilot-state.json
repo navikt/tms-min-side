@@ -1,8 +1,8 @@
 {
   "collection": "frontend",
-  "version": "2026.04.20-194821-8b2cb9f",
+  "version": "2026.04.27-201649-b3cecb8",
   "scope": "repo",
-  "source_sha": "8b2cb9f",
+  "source_sha": "b3cecb8",
   "installed_at": "2026-04-24T09:58:45Z",
   "files": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "path": ".github/agents/forfatter.agent.md",
-      "hash": "f638bd5c234f329b"
+      "hash": "13a58d6edf244114"
     },
     {
       "path": ".github/agents/forfatter.metadata.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "3179adb5db9ae3af"
+      "hash": "75c6d1771bdce25c"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
