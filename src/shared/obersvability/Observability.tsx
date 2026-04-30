@@ -1,4 +1,4 @@
-import { useFaro } from "@hooks/useFaro.ts";
+import { useFaro } from "./useFaro.ts";
 
 const Observability = () => {
   useFaro();

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { logGroupedEvent, logMfEvent } from "../../utils/client/amplitude.ts";
+import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
 import { PersonalizedContent } from "../../microfrontends/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
 import { fetcher, include } from "../../utils/client/api.ts";

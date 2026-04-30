@@ -23,7 +23,7 @@ const { language, isKommende } = Astro.props;
     <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
   </a>
   <script>
-    import { logEvent } from "@utils/client/amplitude";
+    import { logEvent } from "../../../utils/client/umami";
 
     const seAlle = document.querySelector("#seAlle");
 

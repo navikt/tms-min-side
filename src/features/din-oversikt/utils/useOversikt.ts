@@ -1,5 +1,5 @@
 import ProduktProperties from "../produktkort/ProduktProperties.tsx";
-import { hasMicrofrontends } from "../../../utils/server/oversikt.ts";
+import { hasMicrofrontends } from "./oversikt.ts";
 import type { PersonalizedContent } from "../DinOversiktTypes";
 
 export const getShowDinOversikt = (

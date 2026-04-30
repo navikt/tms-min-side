@@ -71,7 +71,7 @@ Sider ligger under `src/pages/[lang]/` — `lang` er `nb` (default), `nn` eller 
 ### Server vs. klient utilities
 
 - `@utils/server/` — kun SSR: `token.ts`, `fetch.ts`, `logger.ts`, `environment.ts`
-- `@utils/client/` — kun browser: `api.ts`, `environment.ts`, `amplitude.ts`
+- `@utils/client/` — kun browser: `api.ts`, `environment.ts`, `umami.ts`
 
 `isLocal` fra `@utils/server/environment.ts` brukes til å detektere lokal kjøring. Bruk `!import.meta.env.SSR`-guard i klient-utilities.
 

@@ -1,4 +1,4 @@
-import { getEnvironmentClientSide } from "../environment.ts";
+import { getEnvironmentClientSide } from "../../utils/client/environment.ts";
 
 const TELEMETRY_URL = {
   local: "http://localhost:3000/collect",

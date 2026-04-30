@@ -127,7 +127,7 @@ Feature-spesifikk logikk (f.eks. `oversikt.ts`, `dokument.ts`) flyttes inn i res
 Øvrige filer i `src/utils/` er ren infrastruktur og **blir liggende**:
 
 - `utils/server/`: `environment.ts`, `fetch.ts`, `logger.ts`, `token.ts`, `error.ts`
-- `utils/client/`: `amplitude.ts`, `api.ts`, `environment.ts`, `faro/`
+- `utils/client/`: `umami.ts`, `api.ts`, `environment.ts`, `faro/`
 
 ---
 
