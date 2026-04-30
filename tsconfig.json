@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "verbatimModuleSyntax": false,
     "paths": {
-      "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
       "@shared/*": ["src/shared/*"],
       "@hooks/*": ["src/hooks/*"],
       "@language/*": ["src/language/*"],
