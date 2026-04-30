@@ -1,7 +1,7 @@
 import { Alert } from "@navikt/ds-react";
 import { useStore } from "@nanostores/react";
 import { isErrorAtom } from "../../store/store.ts";
-import { text } from "@language/feilmelding.ts";
+import { text } from "./language/text";
 import type { Language } from "@language/language.ts";
 import styles from "./Feilmelding.module.css";
 
