@@ -1,4 +1,4 @@
-import { logContentEvent } from "@utils/client/amplitude";
+import { logContentEvent } from "../../utils/client/umami";
 
 interface Props {
   event: string;

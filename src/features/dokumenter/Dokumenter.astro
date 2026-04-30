@@ -83,7 +83,7 @@ const { language } = Astro.props;
 <PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />
 
 <script>
-  import { logEvent } from "@utils/client/amplitude";
+  import { logEvent } from "../../utils/client/umami";
 
   const harDokumenterAlle = document.querySelector("#alle");
   const ingenDokumenterAlle = document.querySelector("#ingenDokumenterAlle");

@@ -51,7 +51,7 @@ const { language } = Astro.props;
 <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 
 <script>
-  import { logEvent } from "@utils/client/amplitude";
+  import { logEvent } from "../../utils/client/umami";
 
   const innboks = document.querySelector("#innboks");
 
