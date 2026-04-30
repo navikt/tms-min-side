@@ -20,9 +20,21 @@
 |---|---|---|
 | **Min side** | Innbyggerens personlige portal hos Nav — applikasjonens navn og primære domene | My page, portalen |
 | **Din oversikt** | Seksjon som viser innbyggerens aktive ytelser som produktkort, meldekort og microfrontends | Oversiktssiden, dashboard |
+| **Alert island** | Seksjon som samler varsler om handlingspunkter: utkast og aktive oppgaver/varsler | Varselseksjon, notification island |
 | **Innloggede tjenester** | Seksjon med lenker til Nav-tjenester gruppert etter temaområde | Tjenesteoversikt, lenkeliste |
 | **Aktuelt** | Seksjon med dynamisk foreslått innhold som kan være relevant for innbyggeren | Anbefalt, forslag |
 | **Personalia** | Seksjon som viser innbyggerens navn og personopplysninger | Profil, brukerinfo |
+| **Substantial-info** | Banner som vises når innbygger er logget inn med MinID; informerer om begrenset tilgang og tilbyr Stepup | MinID-banner, innloggingsnivåinfo |
+| **UX-signal** | Innebygd tilbakemeldingspanel fra UXSignals-tjenesten; vises til utvalgte innbyggere for å samle brukerinnsikt | Undersøkelse, feedback-widget |
+
+## Søknader og utkast
+
+| Term | Definisjon | Aliaser som bør unngås |
+|---|---|---|
+| **Søknad** | En formell forespørsel innbyggeren sender til Nav om en ytelse eller tjeneste | Skjema, henvendelse |
+| **Utkast** | En påbegynt søknad som er lagret men ikke sendt inn av innbyggeren | Kladd, ikke-fullført søknad, draft |
+
+---
 
 ## Varsler
 
@@ -93,6 +105,9 @@ Kjente sakstemaer:
 - **Meldinger** i **Innboksen** er atskilt fra **Varsler** — de representerer dialog, ikke handlingspunkter.
 - En **Microfrontend** kan vises i **Din oversikt** (aktiv sak) eller i **Aktuelt** (relevant tilbud).
 - En **Substantial-innlogging** begrenser tilgang til visse seksjoner; **Stepup** oppgraderer til **Høyt sikkerhetsnivå**.
+- **Alert island** samler **Utkast** og aktive **Varsler** i én seksjon — begge representerer noe innbyggeren bør gjøre noe med.
+- Et **Utkast** tilhører én **Søknad** som innbyggeren har startet men ikke sendt inn; det vises i **Alert island** inntil søknaden er fullført eller slettet.
+- **Substantial-info** vises i stedet for **Din oversikt** når innbygger har **Substantial-innlogging**, og tilbyr **Stepup**.
 
 ---
 
@@ -102,9 +117,13 @@ Kjente sakstemaer:
 
 > **Domeneekspert:** «Helt separate. En **oppgave** eller **beskjed** er et **varsel** — noe Nav proaktivt sender til innbyggeren. **Innboksen** er dialog: **meldinger** innbyggeren har skrevet eller mottatt via telefon, chat og Skriv til oss. De vises aldri på samme sted.»
 
-> **Dev:** «Greit. Og hvis en innbygger er logget inn med **MinID** — ser de **produktkort** i **Din oversikt**?»
+> **Dev:** «Greit. Og **utkast** — er det varsler?»
 
-> **Domeneekspert:** «Nei. **Substantial-innlogging** gir ikke tilgang til **Din oversikt** med **produktkort**. Vi viser **Stepup**-banneret og oppfordrer til å logge inn med BankID for å se aktive **ytelser**.»
+> **Domeneekspert:** «Nei, **utkast** er påbegynte **søknader** innbyggeren selv har startet. Vi viser dem i **alert island** sammen med aktive **varsler** fordi begge er ting innbyggeren bør følge opp, men de er konseptuelt forskjellige.»
+
+> **Dev:** «Og hvis en innbygger er logget inn med **MinID** — ser de **produktkort** i **Din oversikt**?»
+
+> **Domeneekspert:** «Nei. **Substantial-innlogging** gir ikke tilgang til **Din oversikt** med **produktkort**. Vi viser **substantial-info**-banneret og oppfordrer til **stepup** med BankID for å se aktive **ytelser**.»
 
 > **Dev:** «Hva med **Aktuelt**-seksjonen — er det også blokkert?»
 
@@ -115,6 +134,8 @@ Kjente sakstemaer:
 ## Flaggede tvetydigheter
 
 - **«Varsel» vs «Beskjed» vs «Melding»**: Alle tre brukes i dagligtale om «noe Nav sender deg», men de er distinkte: **Varsel** er overordnet (inkl. **Oppgave** og **Beskjed**); **Melding** tilhører **Innboks**. Ikke bruk «melding» som synonym for varsel i kode eller design.
+
+- **«Utkast» vs «Varsel»**: Begge vises i **Alert island**, men **Utkast** er noe innbyggeren selv har startet (**søknad**), mens **Varsler** er noe Nav sender til innbyggeren. Ikke gruppér dem som samme konsept.
 
 - **«Produkt» vs «Ytelse»**: Kodebasen bruker `produktkort`, `produktnavn` og `ProduktProperties`, men det faktiske domeneordet er **ytelse**. Nye komponenter bør bruke `ytelse` i variabelnavn der det er mulig for å nærme seg domenespråket.
 
