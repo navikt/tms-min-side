@@ -1,6 +1,6 @@
 ---
 import { getAudience, getOboToken } from "../../utils/server/token";
-import type { Language } from "../../language/language";
+import type { Language } from "../../shared/language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import ClientError from "@shared/client-error/ClientError";
 import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
@@ -9,8 +9,8 @@ import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
 import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
 import SeAlle from "./se-alle/SeAlle.astro";
-import EnkelUtbetaling from "./enkel-utbetaling/EnkelUtbetaling.astro";
-import UtbetalingList from "./utbetaling-list/UtbetalingList.astro";
+import EnkelUtbetaling from "./enkel/EnkelUtbetaling.astro";
+import UtbetalingList from "./list/UtbetalingList.astro";
 import logger from "@utils/server/logger";
 
 interface Props {

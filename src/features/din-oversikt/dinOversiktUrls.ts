@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../../utils/server/environment";
+import { getEnvironment } from "../../utils/server/environment";
 
 const SELECTOR_URL = {
   local: "http://localhost:3000/selector/din-oversikt",

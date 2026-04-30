@@ -17,10 +17,10 @@ src/
 ├── features/                    # Én mappe per feature-slice
 │   ├── <feature>/
 │   │   ├── language/
-│   │   │   └── text.ts          # i18n-tekster for denne featuren
+│   │   │   └── aktueltText.ts          # i18n-tekster for denne featuren
 │   │   ├── utils/               # (valgfritt) feature-spesifikke utilities
-│   │   ├── types.ts             # TypeScript-typer
-│   │   ├── urls.ts              # URL-definisjoner og audience
+│   │   ├── aktueltTypes.ts             # TypeScript-typer
+│   │   ├── aktueltUrls.ts              # URL-definisjoner og audience
 │   │   ├── *.astro              # Server-rendrede komponenter
 │   │   ├── *.tsx                # Klient-interaktive React-komponenter
 │   │   └── *.module.css         # CSS Modules
@@ -41,7 +41,7 @@ src/
 ├── shared/                      # Delt infrastruktur og UI-primitiver
 │   ├── language/                # Delt i18n: Language-type, getLanguage(), globale tekster
 │   │   ├── language.ts          # Language-type og getLanguage()
-│   │   └── text.ts              # App-globale tekster (sidetitler, feilmelding)
+│   │   └── aktueltText.ts              # App-globale tekster (sidetitler, feilmelding)
 │   ├── authentication/
 │   ├── client-error/
 │   ├── container/
@@ -90,7 +90,7 @@ Utils-mappen beholdes for **ren teknisk infrastruktur** uten forretningslogikk:
 - `server/`: SSR-utilities som er gjenbrukbare av mange features (`fetch`, `token`, `logger`, `environment`, `error`).
 - `client/`: Browser-utilities som er gjenbrukbare av mange features (`amplitude`, `api`, `environment`, `faro`).
 
-Feature-spesifikk logikk (f.eks. `oversikt.ts`, `dokument.ts`) flyttes inn i respektive feature-slice.
+Feature-spesifikk logikk (f.eks. `dinOversiktUtils.ts`, `dokumentUtils.ts`) flyttes inn i respektive feature-slice.
 
 ---
 
@@ -101,28 +101,28 @@ Feature-spesifikk logikk (f.eks. `oversikt.ts`, `dokument.ts`) flyttes inn i res
 | Fra | Til |
 |-----|-----|
 | `src/language/language.ts` | `src/shared/language/language.ts` |
-| `src/language/text.ts` | `src/shared/language/text.ts` |
-| `src/language/aktuelt.ts` | `src/features/aktuelt/language/text.ts` |
-| `src/language/dokumenter.ts` | `src/features/dokumenter/language/text.ts` |
-| `src/language/feilmelding.ts` | `src/shared/feilmelding/language/text.ts` |
-| `src/language/innboks.ts` | `src/features/innboks/language/text.ts` |
-| `src/language/innloggedeTjenester.ts` | `src/features/innloggede-tjenester/language/text.ts` |
-| `src/language/personalia.ts` | `src/features/personalia/language/text.ts` |
-| `src/language/substantialInfo.ts` | `src/features/substantial-info/language/text.ts` |
-| `src/language/utbetaling.ts` | `src/features/utbetaling/language/text.ts` |
-| `src/language/utkast.ts` | `src/features/alert-island/utkast/language/text.ts` |
-| `src/language/varsler.ts` | `src/features/alert-island/varsler/language/text.ts` |
+| `src/language/aktueltText.ts` | `src/shared/language/aktueltText.ts` |
+| `src/language/aktuelt.ts` | `src/features/aktuelt/language/aktueltText.ts` |
+| `src/language/dokumenter.ts` | `src/features/dokumenter/language/aktueltText.ts` |
+| `src/language/feilmelding.ts` | `src/shared/feilmelding/language/aktueltText.ts` |
+| `src/language/innboks.ts` | `src/features/innboks/language/aktueltText.ts` |
+| `src/language/innloggedeTjenester.ts` | `src/features/innloggede-tjenester/language/aktueltText.ts` |
+| `src/language/personalia.ts` | `src/features/personalia/language/aktueltText.ts` |
+| `src/language/substantialInfo.ts` | `src/features/substantial-info/language/aktueltText.ts` |
+| `src/language/utbetaling.ts` | `src/features/utbetaling/language/aktueltText.ts` |
+| `src/language/utkast.ts` | `src/features/alert-island/utkast/language/aktueltText.ts` |
+| `src/language/varslerText.ts` | `src/features/alert-island/varsler/language/aktueltText.ts` |
 
-> **Merk:** `src/features/din-oversikt/language/text.ts` finnes allerede — dette mønsteret er etablert og skal brukes for alle features.
+> **Merk:** `src/features/din-oversikt/language/aktueltText.ts` finnes allerede — dette mønsteret er etablert og skal brukes for alle features.
 
 ### `src/utils/` → feature-slices
 
 | Fra | Til |
 |-----|-----|
-| `src/utils/server/oversikt.ts` | `src/features/din-oversikt/utils/oversikt.ts` |
-| `src/utils/client/dokument.ts` | `src/features/dokumenter/utils/dokument.ts` |
+| `src/utils/server/dinOversiktUtils.ts` | `src/features/din-oversikt/utils/dinOversiktUtils.ts` |
+| `src/utils/client/dokumentUtils.ts` | `src/features/dokumenter/utils/dokumentUtils.ts` |
 | `src/utils/client/utbetaling.ts` | `src/features/utbetaling/utils/utbetaling.ts` |
-| `src/utils/client/varsler.ts` | `src/features/alert-island/varsler/utils/varsler.ts` |
+| `src/utils/client/varslerText.ts` | `src/features/alert-island/varsler/utils/varslerText.ts` |
 
 Øvrige filer i `src/utils/` er ren infrastruktur og **blir liggende**:
 
@@ -141,7 +141,7 @@ Feature-spesifikk logikk (f.eks. `oversikt.ts`, `dokument.ts`) flyttes inn i res
 | `@hooks/*` | `src/hooks/*` | ✅ Beholdes |
 | `@language/*` | `src/language/*` | ⚠️ Fjernes etter at alle language-filer er co-lokert (se sub-issue #545 og #547) |
 
-Etter fullført migrering vil `@language/*` fjernes og konsumenter oppdateres til direkte relativ import eller via `@features/<feature>/language/text.ts` / `@shared/language/`.
+Etter fullført migrering vil `@language/*` fjernes og konsumenter oppdateres til direkte relativ import eller via `@features/<feature>/language/aktueltText.ts` / `@shared/language/`.
 
 ---
 
@@ -153,10 +153,10 @@ Etter fullført migrering vil `@language/*` fjernes og konsumenter oppdateres ti
 | Astro-komponent | `PascalCase.astro` | `DinOversikt.astro` |
 | React-komponent | `PascalCase.tsx` | `Produktkort.tsx` |
 | CSS Module | `PascalCase.module.css` | `DinOversikt.module.css` |
-| Typer-fil | `<feature>Types.ts` eller `types.ts` | `DinOversiktTypes.ts` |
-| URL-fil | `<feature>Urls.ts` eller `urls.ts` | `utbetalingUrls.ts` |
-| Language-fil | `language/text.ts` | `din-oversikt/language/text.ts` |
-| Feature-spesifikk utils | `utils/<navn>.ts` | `utils/oversikt.ts` |
+| Typer-fil | `<feature>Types.ts` eller `aktueltTypes.ts` | `DinOversiktTypes.ts` |
+| URL-fil | `<feature>Urls.ts` eller `aktueltUrls.ts` | `utbetalingUrls.ts` |
+| Language-fil | `language/aktueltText.ts` | `din-oversikt/language/aktueltText.ts` |
+| Feature-spesifikk utils | `utils/<navn>.ts` | `utils/dinOversiktUtils.ts` |
 
 ---
 

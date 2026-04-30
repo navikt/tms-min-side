@@ -147,7 +147,7 @@ export function {ComponentName}({
 
 - `Heading` - size: "large" | "medium" | "small", level: 1-6
 - `BodyShort` - size: "large" | "medium" | "small"
-- `BodyLong` - For longer text blocks
+- `BodyLong` - For longer aktueltText blocks
 - `Label` - For form labels
 - `Detail` - For supplementary info
 

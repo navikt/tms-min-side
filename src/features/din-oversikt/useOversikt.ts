@@ -1,6 +1,6 @@
-import ProduktProperties from "../produktkort/ProduktProperties.tsx";
-import { hasMicrofrontends } from "./oversikt.ts";
-import type { PersonalizedContent } from "../DinOversiktTypes";
+import ProduktProperties from "./produktkort/ProduktProperties.tsx";
+import { hasMicrofrontends } from "./dinOversiktUtils.ts";
+import type { PersonalizedContent } from "./DinOversiktTypes";
 
 export const getShowDinOversikt = (
   personalizedContent: PersonalizedContent,

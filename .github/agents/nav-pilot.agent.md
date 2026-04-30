@@ -268,19 +268,19 @@ Based on the approved plan, generate:
 - **Post-deploy verification checklist**
 - **API change document** (if API changes)
 - **Runbook update** (if new service or changed operations)
-- **Language review** of user-facing Norwegian text (when applicable)
+- **Language review** of user-facing Norwegian aktueltText (when applicable)
 
 For Spring Boot: use `$spring-boot-scaffold`.
 For other archetypes: generate files directly.
 
 ### Language review (last step in Phase 4)
 
-After code and documentation are generated, check if any **generated or changed files** contain user-facing Norwegian text.
+After code and documentation are generated, check if any **generated or changed files** contain user-facing Norwegian aktueltText.
 
 **Trigger when files contain:**
 - React components with Norwegian strings (`Heading`, `BodyShort`, `Alert`, `Button` labels, `ErrorMessage`, `Label`, toasts)
 - Markdown documents (README, docs, ADR, change documents)
-- UI microcopy (confirmations, empty states, error messages, help text)
+- UI microcopy (confirmations, empty states, error messages, help aktueltText)
 - API error messages in `ProblemDetail` descriptions
 
 **Do NOT trigger on:**
@@ -316,7 +316,7 @@ Show changes to the developer after `@forfatter` completes.
 | `@observability-agent` | Prometheus metrics, Grafana dashboards, alerting |
 | `@aksel-agent` | Aksel Design System, spacing, responsive layout |
 | `@accessibility-agent` | WCAG 2.1/2.2, universal design |
-| `@forfatter` | Norwegian text, plain language, microcopy |
+| `@forfatter` | Norwegian aktueltText, plain language, microcopy |
 
 ## Related skills
 

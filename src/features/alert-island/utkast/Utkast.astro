@@ -1,14 +1,14 @@
 ---
-import UtkastIkon from "./ikoner/UtkastIkon.tsx";
-import UtkastIkonHover from "./ikoner/UtkastIkonHover.tsx";
-import { getLanguage } from "@language/language";
+import UtkastIkon from "./assets/UtkastIkon.tsx";
+import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
+import { getLanguage } from "../../../shared/language/language";
 import { fetchData } from "@utils/server/fetch";
 import { getAudience, getOboToken } from "@utils/server/token";
 import { utkastApiUrl, utkastUrl } from "./utkastUrls";
 import ClientError from "@shared/client-error/ClientError";
 import { MultiStatusError } from "@utils/server/error";
 import { Utkast } from "./utkastTypes";
-import { text } from "../language/text";
+import { text } from "./utkastText";
 import style from "./Utkast.module.css";
 import logger from "@utils/server/logger";
 

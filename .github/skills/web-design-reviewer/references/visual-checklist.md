@@ -27,7 +27,7 @@ Comprehensive checklist for web design visual inspection.
 - [ ] Grid items are evenly distributed
 - [ ] Flex item alignment is correct
 - [ ] Text alignment (left/center/right) is consistent
-- [ ] Icons and text are vertically aligned
+- [ ] Icons and aktueltText are vertically aligned
 - [ ] Form labels and input fields are correctly positioned
 
 ---
@@ -36,7 +36,7 @@ Comprehensive checklist for web design visual inspection.
 
 ### Readability
 
-- [ ] Body text font size is sufficient (minimum 16px recommended)
+- [ ] Body aktueltText font size is sufficient (minimum 16px recommended)
 - [ ] Line height is appropriate (1.5-1.8 recommended)
 - [ ] Characters per line is appropriate (40-80 characters recommended)
 - [ ] Spacing between paragraphs is sufficient
@@ -46,7 +46,7 @@ Comprehensive checklist for web design visual inspection.
 
 - [ ] Long words wrap appropriately
 - [ ] URLs and code are handled properly
-- [ ] No text clipping occurs
+- [ ] No aktueltText clipping occurs
 - [ ] Ellipsis (...) displays correctly
 
 ---
@@ -55,8 +55,8 @@ Comprehensive checklist for web design visual inspection.
 
 ### Accessibility (WCAG Standards)
 
-- [ ] Body text: Contrast ratio 4.5:1 or higher (AA)
-- [ ] Large text (18px+ bold or 24px+): 3:1 or higher
+- [ ] Body aktueltText: Contrast ratio 4.5:1 or higher (AA)
+- [ ] Large aktueltText (18px+ bold or 24px+): 3:1 or higher
 - [ ] Interactive element borders: 3:1 or higher
 - [ ] Focus indicators: Sufficient contrast with background
 
@@ -113,7 +113,7 @@ Comprehensive checklist for web design visual inspection.
 ### Form Elements
 
 - [ ] Input field boundaries are clear
-- [ ] Placeholder text contrast is appropriate
+- [ ] Placeholder aktueltText contrast is appropriate
 - [ ] Visual feedback on focus
 - [ ] Error state display
 - [ ] Required field indication
@@ -131,7 +131,7 @@ Comprehensive checklist for web design visual inspection.
 
 ### Screen Reader Support
 
-- [ ] Images have alt text
+- [ ] Images have alt aktueltText
 - [ ] Forms have labels
 - [ ] ARIA labels are appropriately set
 - [ ] Heading hierarchy is correct (h1 → h2 → h3...)
@@ -158,6 +158,6 @@ Comprehensive checklist for web design visual inspection.
 | Priority      | Category               | Examples                                               |
 | ------------- | ---------------------- | ------------------------------------------------------ |
 | P0 (Critical) | Functionality breaking | Complete element overlap, content disappearance        |
-| P1 (High)     | Serious UX issues      | Unreadable text, inoperable buttons                    |
+| P1 (High)     | Serious UX issues      | Unreadable aktueltText, inoperable buttons                    |
 | P2 (Medium)   | Moderate issues        | Alignment issues, spacing inconsistencies              |
 | P3 (Low)      | Minor issues           | Slight positioning differences, minor color variations |

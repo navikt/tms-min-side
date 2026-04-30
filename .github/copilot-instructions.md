@@ -51,7 +51,7 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 
 ### Sidestruktur og i18n
 
-Sider ligger under `src/pages/[lang]/` — `lang` er `nb` (default), `nn` eller `en`. `getLanguage(url)` henter språk fra URL-path. All brukervendt tekst ligger i `src/language/` eller per-komponent `language/text.ts`.
+Sider ligger under `src/pages/[lang]/` — `lang` er `nb` (default), `nn` eller `en`. `getLanguage(url)` henter språk fra URL-path. All brukervendt tekst ligger i `src/language/` eller per-komponent `language/aktueltText.ts`.
 
 ### Nanostores (global state)
 

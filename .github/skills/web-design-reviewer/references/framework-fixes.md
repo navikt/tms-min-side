@@ -26,14 +26,14 @@ This document explains specific fix techniques for each framework and styling me
 
 ```css
 /* Single line truncation */
-.text-truncate {
+.aktueltText-truncate {
   overflow: hidden;
-  text-overflow: ellipsis;
+  aktueltText-overflow: ellipsis;
   white-space: nowrap;
 }
 
 /* Multi-line truncation */
-.text-clamp {
+.aktueltText-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -41,7 +41,7 @@ This document explains specific fix techniques for each framework and styling me
 }
 
 /* Word wrapping */
-.text-wrap {
+.aktueltText-wrap {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -70,13 +70,13 @@ This document explains specific fix techniques for each framework and styling me
 
 ```css
 /* Before: Insufficient contrast */
-.text {
+.aktueltText {
   color: #999999;
   background-color: #ffffff;
 }
 
 /* After: Meets WCAG AA standards */
-.text {
+.aktueltText {
   color: #595959; /* Contrast ratio 7:1 */
   background-color: #ffffff;
 }
@@ -104,13 +104,13 @@ This document explains specific fix techniques for each framework and styling me
 
 ```jsx
 {/* Single line truncation */}
-<p className="truncate">Long text...</p>
+<p className="truncate">Long aktueltText...</p>
 
 {/* Multi-line truncation */}
-<p className="line-clamp-3">Long text...</p>
+<p className="line-clamp-3">Long aktueltText...</p>
 
 {/* Allow wrapping */}
-<p className="break-words">Long text...</p>
+<p className="break-words">Long aktueltText...</p>
 ```
 
 ### Responsive Support
@@ -133,7 +133,7 @@ This document explains specific fix techniques for each framework and styling me
 ```jsx
 {/* Add focus state */}
 <button className="
-  bg-blue-500 text-white
+  bg-blue-500 aktueltText-white
   hover:bg-blue-600
   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
 ">
@@ -141,8 +141,8 @@ This document explains specific fix techniques for each framework and styling me
 </button>
 
 {/* Improve contrast */}
-<p className="text-gray-700 bg-white"> {/* Changed from text-gray-500 */}
-  Readable text
+<p className="aktueltText-gray-700 bg-white"> {/* Changed from aktueltText-gray-500 */}
+  Readable aktueltText
 </p>
 ```
 

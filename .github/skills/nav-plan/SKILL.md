@@ -237,7 +237,7 @@ spec:
 │   └── lib/
 │       ├── auth.ts       # @navikt/oasis
 │       └── api-client.ts
-├── next.config.ts
+├── next.observabilityConfig.ts
 ├── package.json
 └── Dockerfile
 ```

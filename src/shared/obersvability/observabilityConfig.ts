@@ -1,4 +1,4 @@
-import { telemetryUrl } from "./urls.ts";
+import { telemetryUrl } from "./observabilityUrls.ts";
 
 export const telemetryConfig = {
   telemetryCollectorURL: telemetryUrl,

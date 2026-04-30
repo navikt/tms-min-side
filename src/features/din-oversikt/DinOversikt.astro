@@ -1,18 +1,18 @@
 ---
 import { BodyShort } from "@navikt/ds-react";
-import { dinOversiktUrl } from "./utils/urls";
+import { dinOversiktUrl } from "./dinOversiktUrls";
 import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
 import Produktkort from "./produktkort/Produktkort";
 import Meldekort from "./meldekort/Meldekort.astro";
-import { getProduktkortList } from "./utils/oversikt.ts";
+import { getProduktkortList } from "./dinOversiktUtils.ts";
 import { produktText } from "./produktkort/ProduktText";
-import { getShowDinOversikt } from "./utils/useOversikt.ts";
+import { getShowDinOversikt } from "./useOversikt.ts";
 import { fetchData } from "@utils/server/fetch";
 import { MultiStatusError } from "@utils/server/error";
 import { getAudience, getOboToken } from "@utils/server/token";
 import { PersonalizedContent } from "./DinOversiktTypes";
 import ClientError from "@shared/client-error/ClientError";
-import type { Language } from "../../language/language";
+import type { Language } from "../../shared/language/language";
 import logger from "@utils/server/logger";
 import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
 import MicrofrontendSSRSkeleton from "../../microfrontends/MicrofrontendSkeleton.astro";

@@ -3,12 +3,12 @@ import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
 import ClientError from "@shared/client-error/ClientError";
 import { getAudience, getOboToken } from "@utils/server/token";
 import { BodyShort, Skeleton } from "@navikt/ds-react";
-import { text } from "./language/text";
+import { text } from "./aktueltText";
 import { fetchData } from "@utils/server/fetch";
-import type { Language } from "@language/language.ts";
+import type { Language } from "../../shared/language/language.ts";
 import logger from "@utils/server/logger.ts";
-import { Aktuelt } from "./types";
-import { aktueltUrl } from "./urls";
+import { Aktuelt } from "./aktueltTypes";
+import { aktueltUrl } from "./aktueltUrls";
 import style from "./Aktuelt.module.css";
 
 interface Props {

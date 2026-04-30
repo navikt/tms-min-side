@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { initializeFaro } from "@grafana/faro-web-sdk";
-import { telemetryConfig } from "./config";
+import { telemetryConfig } from "./observabilityConfig";
 
 export const useFaro = () => {
   useEffect(() => {
