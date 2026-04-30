@@ -3,7 +3,7 @@ import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
 import ClientError from "@shared/client-error/ClientError";
 import { getAudience, getOboToken } from "@utils/server/token";
 import { BodyShort, Skeleton } from "@navikt/ds-react";
-import { text } from "@language/aktuelt.ts";
+import { text } from "./language/text";
 import { fetchData } from "@utils/server/fetch";
 import type { Language } from "@language/language.ts";
 import logger from "@utils/server/logger.ts";

@@ -1,5 +1,5 @@
 import { Tag } from "@navikt/ds-react";
-import { text } from "@language/innboks.ts";
+import { text } from "./language/text";
 import type { Language } from "@language/language.ts";
 
 interface Props {
