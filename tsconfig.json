@@ -8,6 +8,7 @@
     "verbatimModuleSyntax": false,
     "paths": {
       "@components/*": ["src/components/*"],
+      "@shared/*": ["src/shared/*"],
       "@hooks/*": ["src/hooks/*"],
       "@language/*": ["src/language/*"],
       "@utils/*": ["src/utils/*"]

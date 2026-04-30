@@ -2,12 +2,12 @@
 import { getAudience, getOboToken } from "../../utils/server/token";
 import type { Language } from "../../language/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
-import ClientError from "../client-error/ClientError";
+import ClientError from "@shared/client-error/ClientError";
 import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
 import type { Utbetaling } from "./utbetalingTypes";
 import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
-import PersonalContentLogger from "@components/legacy/PersonalContentLogger";
+import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
 import SeAlle from "./se-alle/SeAlle.astro";
 import EnkelUtbetaling from "./enkel-utbetaling/EnkelUtbetaling.astro";
 import UtbetalingList from "./utbetaling-list/UtbetalingList.astro";

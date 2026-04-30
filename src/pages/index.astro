@@ -6,18 +6,18 @@ import Personalia from "@components/personalia/Personalia.astro";
 import AlertIsland from "@components/alert-island/AlertIsland.astro";
 import InnloggedeTjenester from "@components/innloggede-tjenester/InnloggedeTjenester.astro";
 import Dokumenter from "../components/dokumenter/Dokumenter.astro";
-import Container from "@components/container/Container.astro";
+import Container from "@shared/container/Container.astro";
 import Utbetaling from "@components/utbetaling/Utbetaling.astro";
 import UtbetalingFallback from "../components/utbetaling/fallback/UtbetalingFallback.astro";
 import Innboks from "@components/innboks/Innboks.astro";
-import Feilmelding from "@components/feilmelding/Feilmelding";
+import Feilmelding from "@shared/feilmelding/Feilmelding";
 import { getLanguage } from "@language/language";
-import Observability from "@components/obersvability/Observability";
+import Observability from "@shared/obersvability/Observability";
 import Aktuelt from "@components/aktuelt/Aktuelt.astro";
 import InnboksFallback from "../components/innboks/fallback/InnboksFallback.astro";
 import SubstantialInfo from "@components/substantial-info/SubstantialInfo.astro";
 import DokumenterFallback from "../components/dokumenter/fallback/DokumenterFallback.astro";
-import Legacy from "../components/legacy/Legacy";
+import Legacy from "@shared/legacy/Legacy";
 
 const language = getLanguage(Astro.url);
 ---
