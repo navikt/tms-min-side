@@ -21,9 +21,37 @@ Det finnes ingen `test`-script i `package.json`.
 
 ## Arkitektur
 
+### Vertikal slice-struktur
+
+Kodebasen er organisert som vertikale slices. Hver feature er selvforsynt:
+
+```
+src/
+├── features/<feature>/        # Én slice per seksjon på siden
+│   ├── language/text.ts       # i18n-tekster co-lokert med featuren
+│   ├── server/                # (valgfritt) SSR-utilities for denne featuren
+│   ├── utils/                 # (valgfritt) klient-utilities for denne featuren
+│   ├── urls.ts                # URL-definisjoner og audience
+│   ├── types.ts               # TypeScript-typer
+│   ├── *.astro                # Server-rendrede komponenter
+│   └── *.tsx                  # Klient-interaktive React-komponenter
+├── shared/                    # Delt infrastruktur brukt av flere features
+│   ├── language/language.ts   # Language-type og getLanguage()
+│   ├── feilmelding/           # Global feilmelding-komponent
+│   ├── authentication/        # Auth-primitiver
+│   └── legacy/                # Legacy-wrappers
+├── utils/
+│   ├── server/                # Delt SSR-infrastruktur: token, fetch, logger, environment, error
+│   └── client/                # Delt browser-infrastruktur: amplitude, api, environment, faro
+├── microfrontends/            # Microfrontend-loader
+├── middleware/                # Token-validering
+├── layouts/                   # Astro layouts
+└── pages/[lang]/              # Routing: nb (default), nn, en
+```
+
 ### Mikrofrontend-container
 
-`tms-min-side` henter HTML fra mikrofrontends server-side (SSR) og setter den inn direkte i siden. Hvert mikrofrontend-kall bruker OBO-token (TokenX) for autentisering mot den aktuelle tjenesten.
+`tms-min-side` henter HTML fra mikrofrontends server-side og setter den inn direkte i siden. Hvert mikrofrontend-kall bruker OBO-token (TokenX) for autentisering.
 
 ```
 Browser → Astro SSR → getOboToken(token, audience)
@@ -39,6 +67,7 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 - Middleware (`src/middleware/index.ts`) validerer token via `@navikt/oasis`
 - Validert token lagres i `Astro.locals.token`
 - `isLocal` (`NODE_ENV === "development"`) hopper over validering og returnerer fake token
+- `Astro.locals.isSubstantial` settes til `true` for MinID-innlogging (begrenset tilgang)
 
 ### Komponentstruktur
 
@@ -49,10 +78,6 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 | `client:only="react"` | Komponenter som ikke skal SSR | `Feilmelding`, `Observability`, `Legacy` |
 | `server:defer` | Utsatt SSR med fallback-slot | `<DinOversikt server:defer>` |
 
-### Sidestruktur og i18n
-
-Sider ligger under `src/pages/[lang]/` — `lang` er `nb` (default), `nn` eller `en`. `getLanguage(url)` henter språk fra URL-path. All brukervendt tekst ligger i `src/language/` eller per-komponent `language/aktueltText.ts`.
-
 ### Nanostores (global state)
 
 `src/store/store.ts` eksporterer `isErrorAtom`. Bruk `setIsError()` ved API-feil — `ClientError`-komponenten reagerer på denne.
@@ -62,18 +87,13 @@ Sider ligger under `src/pages/[lang]/` — `lang` er `nb` (default), `nn` eller 
 ### Path-aliaser (tsconfig)
 
 ```typescript
-@components/*  → src/components/*
-@hooks/*       → src/hooks/*
-@language/*    → src/language/*
-@utils/*       → src/utils/*
+@features/*  → src/features/*
+@shared/*    → src/shared/*
+@hooks/*     → src/hooks/*
+@utils/*     → src/utils/*
 ```
 
-### Server vs. klient utilities
-
-- `@utils/server/` — kun SSR: `token.ts`, `fetch.ts`, `logger.ts`, `environment.ts`
-- `@utils/client/` — kun browser: `api.ts`, `environment.ts`, `umami.ts`
-
-`isLocal` fra `@utils/server/environment.ts` brukes til å detektere lokal kjøring. Bruk `!import.meta.env.SSR`-guard i klient-utilities.
+`Language`-typen og `getLanguage()` importeres fra `@shared/language/language`.
 
 ### OBO-token-mønster
 
@@ -96,6 +116,19 @@ try {
 ---
 {isError && <ClientError client:only="react" />}
 ```
+
+### i18n-mønster
+
+Language-tekster co-lokeres med featuren i `language/text.ts`:
+
+```typescript
+// src/features/<feature>/language/text.ts
+export const text = {
+  heading: { nb: "...", nn: "...", en: "..." },
+};
+```
+
+Globale app-tekster (sidetitler o.l.) er delt og importeres fra relative stier til `src/shared/`.
 
 ### CSS
 
@@ -120,3 +153,4 @@ Bruk CSS Modules (`.module.css`) for komponent-spesifikke stiler. Globale stiler
 - **main** → automatisk deploy til prod-gcp (`deploy-main.yaml`)
 - **manuell** → dev-gcp via `workflow_dispatch` (`deploy-dev.yaml`)
 - Build krever `ASTRO_KEY`-secret og `NAIS_WORKLOAD_IDENTITY_PROVIDER`
+
