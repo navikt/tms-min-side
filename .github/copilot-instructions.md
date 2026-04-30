@@ -6,12 +6,12 @@ Min side er en **Astro SSR-applikasjon** som er en container for mikrofrontends.
 
 ```bash
 # Lokal utvikling — begge må kjøre samtidig
-pnpm run dev        # Astro dev-server på http://localhost:4321/minside
-pnpm run mock       # Hono mock-server (erstatter backend-APIer lokalt)
+pnpm run dev        # Astro dev-server på http://localhost:4321/minside (alias: pnpm start)
+pnpm run mock       # Hono mock-server på port 3000 (erstatter backend-APIer lokalt)
 
 # Bygg og forhåndsvis
 pnpm run build
-pnpm run preview    # Kjør prod-build lokalt
+pnpm run preview    # Kjør prod-build lokalt (node ./dist/server/entry.mjs)
 
 # Formatering (kjøres automatisk av husky pre-commit)
 pnpm run prettier
@@ -27,22 +27,35 @@ Kodebasen er organisert som vertikale slices. Hver feature er selvforsynt:
 
 ```
 src/
-├── features/<feature>/        # Én slice per seksjon på siden
-│   ├── language/text.ts       # i18n-tekster co-lokert med featuren
-│   ├── server/                # (valgfritt) SSR-utilities for denne featuren
-│   ├── utils/                 # (valgfritt) klient-utilities for denne featuren
-│   ├── urls.ts                # URL-definisjoner og audience
-│   ├── types.ts               # TypeScript-typer
-│   ├── *.astro                # Server-rendrede komponenter
-│   └── *.tsx                  # Klient-interaktive React-komponenter
+├── features/                  # Én slice per seksjon på siden
+│   ├── aktuelt/
+│   ├── alert-island/
+│   ├── din-oversikt/
+│   ├── dokumenter/
+│   ├── innboks/
+│   ├── innloggede-tjenester/
+│   ├── personalia/
+│   ├── substantial-info/
+│   ├── utbetaling/
+│   └── ux-signal/
+│       ├── <Feature>Text.ts   # i18n-tekster co-lokert med featuren
+│       ├── <Feature>Urls.ts   # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
+│       ├── <Feature>Types.ts  # TypeScript-typer
+│       ├── *.astro            # Server-rendrede komponenter
+│       └── *.tsx              # Klient-interaktive React-komponenter
 ├── shared/                    # Delt infrastruktur brukt av flere features
 │   ├── language/language.ts   # Language-type og getLanguage()
-│   ├── feilmelding/           # Global feilmelding-komponent
 │   ├── authentication/        # Auth-primitiver
-│   └── legacy/                # Legacy-wrappers
+│   ├── client-error/          # ClientError-komponent
+│   ├── container/             # Layout-container
+│   ├── feilmelding/           # Global feilmelding-komponent
+│   ├── legacy/                # Legacy-wrappers
+│   └── obersvability/         # Observability (Faro, Amplitude)
+├── store/
+│   └── store.ts               # Nanostores global state
 ├── utils/
-│   ├── server/                # Delt SSR-infrastruktur: token, fetch, logger, environment, error
-│   └── client/                # Delt browser-infrastruktur: amplitude, api, environment, faro
+│   ├── server/                # Delt SSR-infrastruktur: token.ts, fetch.ts, logger.ts, environment.ts, error.ts
+│   └── client/                # Delt browser-infrastruktur: api.ts, environment.ts, umami.ts
 ├── microfrontends/            # Microfrontend-loader
 ├── middleware/                # Token-validering
 ├── layouts/                   # Astro layouts
@@ -119,10 +132,10 @@ try {
 
 ### i18n-mønster
 
-Language-tekster co-lokeres med featuren i `language/text.ts`:
+Language-tekster co-lokeres med featuren i `<Feature>Text.ts` (navnekonvensjon varierer per feature):
 
 ```typescript
-// src/features/<feature>/language/text.ts
+// src/features/<feature>/<Feature>Text.ts
 export const text = {
   heading: { nb: "...", nn: "...", en: "..." },
 };
@@ -136,7 +149,17 @@ Bruk CSS Modules (`.module.css`) for komponent-spesifikke stiler. Globale stiler
 
 ### Mock-server
 
-`mock/server.ts` er en Hono-server som etterligner alle backend-APIer lokalt. Legg til nye endepunkter her med tilhørende JSON-data i `mock/data/`. Serveren kjører på port 3000, Astro proxier mot den.
+`mock/server.ts` er en Hono-server som etterligner alle backend-APIer lokalt. Legg til nye endepunkter her med tilhørende JSON-data i `mock/data/`. Serveren kjører på port 3000 (standardport for `@hono/node-server`).
+
+Hver feature definerer sin lokale URL direkte i sin `*Urls.ts`:
+
+```typescript
+// src/features/<feature>/<Feature>Urls.ts
+export const url = {
+  local: "http://localhost:3000/<path>",
+  prod: "https://<tjeneste>.intern.nav.no/<path>",
+};
+```
 
 ## Nais-konfigurasjon
 
