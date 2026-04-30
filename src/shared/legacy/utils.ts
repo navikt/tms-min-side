@@ -1,6 +1,6 @@
 import { Language } from "@language/language.ts";
 import { Microfrontend, PersonalizedContent } from "../../microfrontends/microfrontendTypes";
-import { produktText } from "@components/din-oversikt/produktkort/ProduktText";
+import { produktText } from "@features/din-oversikt/produktkort/ProduktText";
 
 export const getProduktPropertiesLegacy = (language: Language, personalizedContent?: PersonalizedContent) => {
   if (personalizedContent === undefined) return undefined;
