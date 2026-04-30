@@ -102,7 +102,6 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 ```typescript
 @features/*  → src/features/*
 @shared/*    → src/shared/*
-@hooks/*     → src/hooks/*
 @utils/*     → src/utils/*
 ```
 

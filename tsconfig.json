@@ -9,7 +9,6 @@
     "paths": {
       "@features/*": ["src/features/*"],
       "@shared/*": ["src/shared/*"],
-      "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"]
     }
   }

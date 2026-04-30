@@ -1,26 +1,25 @@
 # Vertikal slice-arkitektur — tms-min-side
 
-> ADR-light som dokumenterer target-arkitektur og navnekonvensjoner for omstrukturering til vertical slices (se epic #541).
+> ADR-light som dokumenterer arkitektur og navnekonvensjoner for vertikal slice-struktur (se epic #541).
 
 ---
 
 ## Bakgrunn
 
-Kodebasen organiseres fra en horisontal, lagdelt struktur til en **vertikal slice-arkitektur**. I dag er feature-kode spredt over `src/language/`, `src/utils/` og `src/features/`. Målet er at all kode for én feature finnes på ett sted — slik at det er lett å forstå, endre og slette en feature.
+Kodebasen er organisert som en **vertikal slice-arkitektur**. All kode for én feature finnes på ett sted — slik at det er lett å forstå, endre og slette en feature. Kodebasen er migrert fra en horisontal, lagdelt struktur (med bl.a. `src/language/`) til denne strukturen.
 
 ---
 
-## Target directory-layout
+## Directory-layout
 
 ```
 src/
 ├── features/                    # Én mappe per feature-slice
 │   ├── <feature>/
-│   │   ├── language/
-│   │   │   └── aktueltText.ts          # i18n-tekster for denne featuren
+│   │   ├── <feature>Text.ts     # i18n-tekster for denne featuren (co-lokert, ikke i undermappe)
+│   │   ├── <feature>Urls.ts     # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
+│   │   ├── <feature>Types.ts    # TypeScript-typer (valgfritt)
 │   │   ├── utils/               # (valgfritt) feature-spesifikke utilities
-│   │   ├── aktueltTypes.ts             # TypeScript-typer
-│   │   ├── aktueltUrls.ts              # URL-definisjoner og audience
 │   │   ├── *.astro              # Server-rendrede komponenter
 │   │   ├── *.tsx                # Klient-interaktive React-komponenter
 │   │   └── *.module.css         # CSS Modules
@@ -30,30 +29,43 @@ src/
 │   │   ├── utkast/
 │   │   └── varsler/
 │   ├── din-oversikt/
+│   │   ├── assets/
+│   │   ├── meldekort/
+│   │   └── produktkort/
 │   ├── dokumenter/
+│   │   ├── dokument/
+│   │   ├── fallback/
+│   │   └── ingen/
 │   ├── innboks/
+│   │   └── fallback/
 │   ├── innloggede-tjenester/
+│   │   ├── link/
+│   │   └── section/
 │   ├── personalia/
 │   ├── substantial-info/
 │   ├── utbetaling/
+│   │   ├── enkel/
+│   │   ├── fallback/
+│   │   ├── ingen/
+│   │   ├── list/
+│   │   ├── se-alle/
+│   │   └── utils/
 │   └── ux-signal/
 │
 ├── shared/                      # Delt infrastruktur og UI-primitiver
-│   ├── language/                # Delt i18n: Language-type, getLanguage(), globale tekster
-│   │   ├── language.ts          # Language-type og getLanguage()
-│   │   └── aktueltText.ts              # App-globale tekster (sidetitler, feilmelding)
+│   ├── language/
+│   │   └── language.ts          # Language-type og getLanguage()
 │   ├── authentication/
 │   ├── client-error/
 │   ├── container/
 │   ├── feilmelding/
 │   ├── legacy/
-│   └── observability/
+│   └── obersvability/           # Observability: Faro, Amplitude (merk: typo i mappenavn)
 │
 ├── utils/                       # Teknisk infrastruktur (ikke feature-logikk)
-│   ├── server/                  # SSR-only: fetch, token, logger, environment, error
-│   └── client/                  # Browser-only: amplitude, api, environment, faro
+│   ├── server/                  # SSR-only: fetch.ts, token.ts, logger.ts, environment.ts, error.ts
+│   └── client/                  # Browser-only: api.ts, environment.ts, umami.ts
 │
-├── hooks/                       # Delte React-hooks
 ├── store/                       # Global state (nanostores)
 ├── microfrontends/              # Microfrontend-loader
 ├── middleware/                  # Astro middleware
@@ -85,49 +97,12 @@ Shared inneholder UI-primitiver og infrastruktur som **brukes av flere features*
 
 ### Utils (`src/utils/`)
 
-Utils-mappen beholdes for **ren teknisk infrastruktur** uten forretningslogikk:
+Utils-mappen inneholder **ren teknisk infrastruktur** uten forretningslogikk:
 
 - `server/`: SSR-utilities som er gjenbrukbare av mange features (`fetch`, `token`, `logger`, `environment`, `error`).
-- `client/`: Browser-utilities som er gjenbrukbare av mange features (`amplitude`, `api`, `environment`, `faro`).
+- `client/`: Browser-utilities som er gjenbrukbare av mange features (`api`, `environment`, `umami`).
 
-Feature-spesifikk logikk (f.eks. `dinOversiktUtils.ts`, `dokumentUtils.ts`) flyttes inn i respektive feature-slice.
-
----
-
-## Filer som skal flyttes
-
-### `src/language/` → feature-slices og `src/shared/language/`
-
-| Fra | Til |
-|-----|-----|
-| `src/language/language.ts` | `src/shared/language/language.ts` |
-| `src/language/aktueltText.ts` | `src/shared/language/aktueltText.ts` |
-| `src/language/aktuelt.ts` | `src/features/aktuelt/language/aktueltText.ts` |
-| `src/language/dokumenter.ts` | `src/features/dokumenter/language/aktueltText.ts` |
-| `src/language/feilmelding.ts` | `src/shared/feilmelding/language/aktueltText.ts` |
-| `src/language/innboks.ts` | `src/features/innboks/language/aktueltText.ts` |
-| `src/language/innloggedeTjenester.ts` | `src/features/innloggede-tjenester/language/aktueltText.ts` |
-| `src/language/personalia.ts` | `src/features/personalia/language/aktueltText.ts` |
-| `src/language/substantialInfo.ts` | `src/features/substantial-info/language/aktueltText.ts` |
-| `src/language/utbetaling.ts` | `src/features/utbetaling/language/aktueltText.ts` |
-| `src/language/utkast.ts` | `src/features/alert-island/utkast/language/aktueltText.ts` |
-| `src/language/varslerText.ts` | `src/features/alert-island/varsler/language/aktueltText.ts` |
-
-> **Merk:** `src/features/din-oversikt/language/aktueltText.ts` finnes allerede — dette mønsteret er etablert og skal brukes for alle features.
-
-### `src/utils/` → feature-slices
-
-| Fra | Til |
-|-----|-----|
-| `src/utils/server/dinOversiktUtils.ts` | `src/features/din-oversikt/utils/dinOversiktUtils.ts` |
-| `src/utils/client/dokumentUtils.ts` | `src/features/dokumenter/utils/dokumentUtils.ts` |
-| `src/utils/client/utbetaling.ts` | `src/features/utbetaling/utils/utbetaling.ts` |
-| `src/utils/client/varslerText.ts` | `src/features/alert-island/varsler/utils/varslerText.ts` |
-
-Øvrige filer i `src/utils/` er ren infrastruktur og **blir liggende**:
-
-- `utils/server/`: `environment.ts`, `fetch.ts`, `logger.ts`, `token.ts`, `error.ts`
-- `utils/client/`: `umami.ts`, `api.ts`, `environment.ts`, `faro/`
+Feature-spesifikk logikk (f.eks. `utbetaling/utils/`) ligger i respektive feature-slice.
 
 ---
 
@@ -135,13 +110,10 @@ Feature-spesifikk logikk (f.eks. `dinOversiktUtils.ts`, `dokumentUtils.ts`) flyt
 
 | Alias | Path | Status |
 |-------|------|--------|
-| `@features/*` | `src/features/*` | ✅ Allerede definert — beholdes |
-| `@shared/*` | `src/shared/*` | ✅ Allerede definert — beholdes |
-| `@utils/*` | `src/utils/*` | ✅ Beholdes for teknisk infrastruktur |
-| `@hooks/*` | `src/hooks/*` | ✅ Beholdes |
-| `@language/*` | `src/language/*` | ⚠️ Fjernes etter at alle language-filer er co-lokert (se sub-issue #545 og #547) |
-
-Etter fullført migrering vil `@language/*` fjernes og konsumenter oppdateres til direkte relativ import eller via `@features/<feature>/language/aktueltText.ts` / `@shared/language/`.
+| `@features/*` | `src/features/*` | ✅ Definert — brukes for feature-imports |
+| `@shared/*` | `src/shared/*` | ✅ Definert — brukes for delt infrastruktur |
+| `@utils/*` | `src/utils/*` | ✅ Definert — brukes for teknisk infrastruktur |
+| `@hooks/*` | `src/hooks/*` | ❌ Fjernet — `src/hooks/` eksisterer ikke |
 
 ---
 
@@ -153,20 +125,20 @@ Etter fullført migrering vil `@language/*` fjernes og konsumenter oppdateres ti
 | Astro-komponent | `PascalCase.astro` | `DinOversikt.astro` |
 | React-komponent | `PascalCase.tsx` | `Produktkort.tsx` |
 | CSS Module | `PascalCase.module.css` | `DinOversikt.module.css` |
-| Typer-fil | `<feature>Types.ts` eller `aktueltTypes.ts` | `DinOversiktTypes.ts` |
-| URL-fil | `<feature>Urls.ts` eller `aktueltUrls.ts` | `utbetalingUrls.ts` |
-| Language-fil | `language/aktueltText.ts` | `din-oversikt/language/aktueltText.ts` |
-| Feature-spesifikk utils | `utils/<navn>.ts` | `utils/dinOversiktUtils.ts` |
+| Typer-fil | `<featureName>Types.ts` | `DinOversiktTypes.ts` |
+| URL-fil | `<featureName>Urls.ts` | `utbetalingUrls.ts` |
+| Language-fil | `<featureName>Text.ts` (co-lokert i feature-rot) | `dinOversiktText.ts` |
+| Feature-spesifikk utils | `utils/<navn>.ts` | `utbetaling/utils/utbetalingUtils.ts` |
 
 ---
 
-## Beslutning
+## Status
 
-Strukturen som er beskrevet i dette dokumentet er **target-tilstanden** som de øvrige sub-issues i epic #541 skal implementere:
+Migreringen til vertikal slice-arkitektur ble gjennomført som del av epic #541:
 
-- **#543** — Flytt feature-komponenter til `src/features/`
-- **#544** — Etabler `src/shared/` (dette dokumentet)
-- **#545** — Co-locer language-filer
-- **#546** — Co-locer feature-spesifikke server-utilities
-- **#547** — Oppdater tsconfig path-aliaser
-- **#548** — Verifiser bygg og deploy
+- **#543** ✅ Flytt feature-komponenter til `src/features/`
+- **#544** ✅ Etabler `src/shared/`
+- **#545** ✅ Co-locer language-filer
+- **#546** ✅ Co-locer feature-spesifikke server-utilities
+- **#547** ✅ Oppdater tsconfig path-aliaser
+- **#548** ✅ Verifiser bygg og deploy
