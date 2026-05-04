@@ -44,17 +44,16 @@ src/
 │       ├── *.astro            # Server-rendrede komponenter
 │       └── *.tsx              # Klient-interaktive React-komponenter
 ├── shared/                    # Delt infrastruktur brukt av flere features
-│   ├── language/language.ts   # Language-type og getLanguage()
 │   ├── authentication/        # Auth-primitiver
 │   ├── client-error/          # ClientError-komponent
 │   ├── container/             # Layout-container
 │   ├── feilmelding/           # Global feilmelding-komponent
 │   ├── legacy/                # Legacy-wrappers
-│   └── obersvability/         # Observability (Faro, Amplitude)
-├── store/
-│   └── store.ts               # Nanostores global state
+│   ├── obersvability/         # Observability (Faro, Amplitude)
+│   └── store/
+│       └── store.ts           # Nanostores global state
 ├── utils/
-│   ├── server/                # Delt SSR-infrastruktur: token.ts, fetch.ts, logger.ts, environment.ts, error.ts
+│   ├── server/                # Delt SSR-infrastruktur: token.ts, fetch.ts, logger.ts, environment.ts, error.ts, language.ts
 │   └── client/                # Delt browser-infrastruktur: api.ts, environment.ts, umami.ts
 ├── microfrontends/            # Microfrontend-loader
 ├── middleware/                # Token-validering
@@ -93,7 +92,7 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 
 ### Nanostores (global state)
 
-`src/store/store.ts` eksporterer `isErrorAtom`. Bruk `setIsError()` ved API-feil — `ClientError`-komponenten reagerer på denne.
+`src/shared/store/store.ts` eksporterer `isErrorAtom`. Bruk `setIsError()` ved API-feil — `ClientError`-komponenten reagerer på denne.
 
 ## Viktige konvensjoner
 
@@ -105,7 +104,7 @@ Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikro
 @utils/*     → src/utils/*
 ```
 
-`Language`-typen og `getLanguage()` importeres fra `@shared/language/language`.
+`Language`-typen og `getLanguage()` importeres fra `@utils/server/language`.
 
 ### OBO-token-mønster
 
