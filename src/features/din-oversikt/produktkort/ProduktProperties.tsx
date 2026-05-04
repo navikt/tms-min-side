@@ -7,7 +7,7 @@ import IkonUføretrygd from "../assets/IkonUføretrygd";
 import IkonØkonomiskSosialhjelp from "../assets/IkonØkonomiskSosialhjelp";
 import { produktlinker as produktUrls } from "./ProduktUrls";
 import { produktText } from "./ProduktText";
-import type { Language } from "../../../shared/language/language.ts";
+import type { Language } from "../../../utils/server/language.ts";
 
 type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
 

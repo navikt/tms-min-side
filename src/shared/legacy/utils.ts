@@ -1,4 +1,4 @@
-import { Language } from "../language/language.ts";
+import { Language } from "../../utils/server/language.ts";
 import { Microfrontend, PersonalizedContent } from "../../microfrontends/microfrontendTypes";
 import { produktText } from "@features/din-oversikt/produktkort/ProduktText";
 

@@ -1,4 +1,4 @@
-import { Language } from "../../shared/language/language.ts";
+import { Language } from "../../utils/server/language.ts";
 import { getProduktPropertiesMap } from "./produktkort/ProduktProperties.tsx";
 import type { Microfrontend } from "../../microfrontends/microfrontendTypes.tsx";
 import type { PersonalizedContent } from "./DinOversiktTypes";

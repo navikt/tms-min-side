@@ -1,6 +1,6 @@
 import React from "react";
 import { logEvent } from "../../../utils/client/umami.ts";
-import type { Language } from "../../../shared/language/language.ts";
+import type { Language } from "../../../utils/server/language.ts";
 import style from "../section/InnloggedeTjensterSection.module.css";
 
 interface Link {
