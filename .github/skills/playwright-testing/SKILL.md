@@ -14,7 +14,7 @@ Generate Playwright tests for Nav web applications. Covers page object pattern, 
 
 ## Getting Started
 
-1. Install Playwright and configure `playwright.observabilityConfig.ts`
+1. Install Playwright and configure `playwright.config.ts`
 2. Create page objects for your app's pages
 3. Set up auth fixtures for Azure AD / MockOAuth2Server
 4. Write tests: navigation, forms, responsive, accessibility
@@ -31,7 +31,7 @@ npx playwright install --with-deps chromium
 npx playwright init
 ```
 
-### playwright.observabilityConfig.ts
+### playwright.config.ts
 
 ```typescript
 import { defineConfig, devices } from "@playwright/test";

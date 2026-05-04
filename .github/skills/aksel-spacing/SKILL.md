@@ -175,7 +175,7 @@ import { Page } from "@navikt/ds-react";
 </Page>;
 ```
 
-`Page.Block` widths: `"aktueltText"` (576px) | `"md"` (768px) | `"lg"` (1024px) | `"xl"` (1280px) | `"2xl"` (1440px)
+`Page.Block` widths: `"text"` (576px) | `"md"` (768px) | `"lg"` (1024px) | `"xl"` (1280px) | `"2xl"` (1440px)
 `gutters` = `padding-inline`: 3rem (>md), 1rem (≤md).
 
 ### Bleed
