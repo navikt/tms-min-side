@@ -1,6 +1,6 @@
 import { Tag } from "@navikt/ds-react";
 import { text } from "./innboksText";
-import type { Language } from "../../shared/language/language.ts";
+import type { Language } from "../../utils/server/language.ts";
 
 interface Props {
   innbokser: number;

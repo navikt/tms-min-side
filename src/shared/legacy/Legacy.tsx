@@ -1,5 +1,5 @@
 import { useLanguage } from "./useLanguage";
-import { Language } from "../language/language";
+import { Language } from "../../utils/server/language";
 import { useLogComposition } from "./useLogComposition";
 
 interface Props {

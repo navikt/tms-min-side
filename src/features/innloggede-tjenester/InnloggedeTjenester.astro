@@ -3,7 +3,7 @@ import { Heading, BodyShort } from "@navikt/ds-react";
 import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./innloggedeTjenesterUrls";
 import { text } from "./innloggedeTjenesterText";
-import { getLanguage } from "../../shared/language/language";
+import { getLanguage } from "../../utils/server/language";
 import styles from "./InnloggedeTjenester.module.css";
 
 const language = getLanguage(Astro.url);
