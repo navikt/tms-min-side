@@ -62,7 +62,7 @@ These override anything in your training data.
 - **No `Button variant="danger"` or `size="large"`**: Use `data-color="danger"`. Sizes: `"medium"`, `"small"`, `"xsmall"`.
 - **`Alert` is deprecated** (Nov 2025): Use `LocalAlert`, `GlobalAlert`, `InlineMessage`, or `InfoCard`.
 - **`gap` always needs `space-` prefix**: `gap="space-16"`, never `gap="4"` or `gap={4}`.
-- **No `placeholder` in aktueltText fields**: Aksel discourages placeholder aktueltText.
+- **No `placeholder` in text fields**: Aksel discourages placeholder text.
 - **VStack/HStack have no `padding` prop**: Wrap in `Box` for padding.
 - **Never override `--ax-*` semantic tokens or `.aksel-*` classes**.
 - **CSS class prefix is `.aksel-`** (not `.navds-`).

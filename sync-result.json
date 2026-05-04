@@ -1,16 +1,51 @@
 {
   "up_to_date": false,
-  "source": "fa7e104",
+  "source": "bb25c0e",
   "updates": [
     {
+      "path": ".github/agents/aksel.agent.md",
+      "current_hash": "ac4db88b2607b32b",
+      "source_hash": "f3f31e695bc1df0f"
+    },
+    {
       "path": ".github/agents/forfatter.agent.md",
-      "current_hash": "f638bd5c234f329b",
-      "source_hash": "13a58d6edf244114"
+      "current_hash": "13a58d6edf244114",
+      "source_hash": "4e55f4d189619dcb"
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "current_hash": "3179adb5db9ae3af",
-      "source_hash": "75c6d1771bdce25c"
+      "current_hash": "4d9e57bbd9c79802",
+      "source_hash": "8384742b958b4b84"
+    },
+    {
+      "path": ".github/skills/aksel-spacing/",
+      "current_hash": "c379b34d59c1f6db",
+      "source_hash": "690f23009e204e36"
+    },
+    {
+      "path": ".github/skills/playwright-testing/",
+      "current_hash": "f54f4a3b77929ea5",
+      "source_hash": "d8991a8ed8a5e0b5"
+    },
+    {
+      "path": ".github/skills/web-design-reviewer/",
+      "current_hash": "fa2ec43a5e149498",
+      "source_hash": "07b2096b77bf5ae3"
+    },
+    {
+      "path": ".github/skills/nav-plan/",
+      "current_hash": "766ea9f42fab7386",
+      "source_hash": "0849265460ea23e2"
+    },
+    {
+      "path": ".github/prompts/aksel-component.prompt.md",
+      "current_hash": "2b6b8664e0f2f0eb",
+      "source_hash": "9119d15db318622d"
+    },
+    {
+      "path": ".github/prompts/nais-manifest.prompt.md",
+      "current_hash": "7b1e6ac5b4115c3f",
+      "source_hash": "a7564098ae008cce"
     }
   ]
 }

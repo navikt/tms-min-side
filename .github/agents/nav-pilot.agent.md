@@ -165,6 +165,7 @@ Ask targeted questions to uncover blind spots. Nav developers commonly forget:
 | 8 | Modernization | Is this a change to something existing? What is the rollback plan? |
 | 9 | Backward compat | Can old code/consumers handle the new format? |
 | 10 | Decommissioning | When and how is the old solution removed? |
+| 11 | Skill preservation | Does this involve new concepts or technology? Consider coding core logic manually to build understanding (🔴 red zone). |
 
 Not all blind spots apply to every project. Skip irrelevant ones (e.g., decommissioning for greenfield), but always report which were covered vs skipped in the checkpoint.
 
@@ -268,19 +269,21 @@ Based on the approved plan, generate:
 - **Post-deploy verification checklist**
 - **API change document** (if API changes)
 - **Runbook update** (if new service or changed operations)
-- **Language review** of user-facing Norwegian aktueltText (when applicable)
+- **Language review** of user-facing Norwegian text (when applicable)
+
+**🔴 Red-zone code:** For code marked as red zone in the plan — generate only test skeletons (assertions without implementation) and code stubs with `TODO` comments. Do not generate full implementation. Encourage the developer to write core logic themselves to build understanding.
 
 For Spring Boot: use `$spring-boot-scaffold`.
 For other archetypes: generate files directly.
 
 ### Language review (last step in Phase 4)
 
-After code and documentation are generated, check if any **generated or changed files** contain user-facing Norwegian aktueltText.
+After code and documentation are generated, check if any **generated or changed files** contain user-facing Norwegian text.
 
 **Trigger when files contain:**
 - React components with Norwegian strings (`Heading`, `BodyShort`, `Alert`, `Button` labels, `ErrorMessage`, `Label`, toasts)
 - Markdown documents (README, docs, ADR, change documents)
-- UI microcopy (confirmations, empty states, error messages, help aktueltText)
+- UI microcopy (confirmations, empty states, error messages, help text)
 - API error messages in `ProblemDetail` descriptions
 
 **Do NOT trigger on:**
@@ -316,7 +319,7 @@ Show changes to the developer after `@forfatter` completes.
 | `@observability-agent` | Prometheus metrics, Grafana dashboards, alerting |
 | `@aksel-agent` | Aksel Design System, spacing, responsive layout |
 | `@accessibility-agent` | WCAG 2.1/2.2, universal design |
-| `@forfatter` | Norwegian aktueltText, plain language, microcopy |
+| `@forfatter` | Norwegian text, plain language, microcopy |
 
 ## Related skills
 
@@ -400,6 +403,9 @@ If the user asks for help with troubleshooting, switch to diagnostic mode:
 - Stop between phases and wait for confirmation (unless user explicitly fast-paths with "hopp til fase N")
 - Use existing domain agents for specialized questions
 - Track decisions, open questions, and assumptions in the state footer
+- Explain *why* behind architectural choices, not just *what*
+- Mark core logic as red zone — encourage the developer to understand it deeply
+- For red-zone code in Phase 4: generate only stubs and tests, not full implementation
 
 ### ⚠️ Ask First
 
