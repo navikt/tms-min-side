@@ -1,9 +1,3 @@
-import { getEnvironment } from "../../utils/server/environment";
+import { DIN_OVERSIKT_URL } from "astro:env/server";
 
-const SELECTOR_URL = {
-  local: "http://localhost:3000/selector/din-oversikt",
-  dev: "http://tms-mikrofrontend-selector/din-oversikt",
-  prod: "http://tms-mikrofrontend-selector/din-oversikt",
-};
-
-export const dinOversiktUrl = SELECTOR_URL[getEnvironment()];
+export const dinOversiktUrl = DIN_OVERSIKT_URL;

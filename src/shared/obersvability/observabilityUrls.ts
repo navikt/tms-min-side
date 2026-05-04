@@ -1,9 +1,3 @@
-import { getEnvironmentClientSide } from "../../utils/client/environment.ts";
+import { PUBLIC_TELEMETRY_URL } from "astro:env/client";
 
-const TELEMETRY_URL = {
-  local: "http://localhost:3000/collect",
-  dev: "https://telemetry.ekstern.dev.nav.no/collect",
-  prod: "https://telemetry.nav.no/collect",
-};
-
-export const telemetryUrl = TELEMETRY_URL[getEnvironmentClientSide()];
+export const telemetryUrl = PUBLIC_TELEMETRY_URL;

@@ -1,4 +1,3 @@
-import { getEnvironment } from "../../../utils/server/environment";
 
 const produktlinkerDev = {
   dagpenger: {
@@ -75,10 +74,5 @@ const produktlinkerProd = {
     en: "https://www.nav.no/sosialhjelp/innsyn/",
   },
 };
-const produktlinkConfig = {
-  local: produktlinkerDev,
-  dev: produktlinkerDev,
-  prod: produktlinkerProd,
-};
 
-export const produktlinker = produktlinkConfig[getEnvironment()];
+export const produktlinker = import.meta.env.PROD ? produktlinkerProd : produktlinkerDev;

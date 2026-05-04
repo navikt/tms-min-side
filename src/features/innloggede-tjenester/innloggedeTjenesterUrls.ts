@@ -1,5 +1,3 @@
-import { getEnvironment } from "../../utils/server/environment.ts";
-
 const jobbLenkerProd = [
   {
     nb: "Aktivitetsplan",
@@ -624,31 +622,7 @@ const annetLenkerDev = [
   },
 ];
 
-const jobbLenkerConfig = {
-  local: jobbLenkerDev,
-  dev: jobbLenkerDev,
-  prod: jobbLenkerProd,
-};
-
-const hjelpemidlerLenkerConfig = {
-  local: hjelpemidlerLenkerDev,
-  dev: hjelpemidlerLenkerDev,
-  prod: hjelpemidlerLenkerProd,
-};
-
-const personopplysningLenkerConfig = {
-  local: personopplysningLenkerDev,
-  dev: personopplysningLenkerDev,
-  prod: personopplysningLenkerProd,
-};
-
-const annetLenkerConfig = {
-  local: annetLenkerDev,
-  dev: annetLenkerDev,
-  prod: annetLenkerProd,
-};
-
-export const jobbLenker = jobbLenkerConfig[getEnvironment()];
-export const hjelpemidlerLenker = hjelpemidlerLenkerConfig[getEnvironment()];
-export const personopplysningLenker = personopplysningLenkerConfig[getEnvironment()];
-export const annetLenker = annetLenkerConfig[getEnvironment()];
+export const jobbLenker = import.meta.env.PROD ? jobbLenkerProd : jobbLenkerDev;
+export const hjelpemidlerLenker = import.meta.env.PROD ? hjelpemidlerLenkerProd : hjelpemidlerLenkerDev;
+export const personopplysningLenker = import.meta.env.PROD ? personopplysningLenkerProd : personopplysningLenkerDev;
+export const annetLenker = import.meta.env.PROD ? annetLenkerProd : annetLenkerDev;

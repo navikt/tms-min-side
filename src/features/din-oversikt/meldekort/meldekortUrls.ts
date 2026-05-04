@@ -1,9 +1,3 @@
-import { getEnvironment } from "@utils/server/environment";
+import { MELDEKORT_URL } from "astro:env/server";
 
-const MELDEKORT_URL = {
-  local: "http://localhost:3000/meldekort",
-  dev: "http://meldekort-mikrofrontend.meldekort",
-  prod: "http://meldekort-mikrofrontend.meldekort",
-};
-
-export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
+export const meldekortUrl = MELDEKORT_URL;
