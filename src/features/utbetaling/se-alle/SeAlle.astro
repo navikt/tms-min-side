@@ -1,5 +1,5 @@
 ---
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { text } from "../utbetalingText";
 import { Language } from "../../../utils/server/language";
 import styles from "./SeAlle.module.css";
@@ -15,7 +15,7 @@ const { language, isKommende } = Astro.props;
 
 <>
   <a
-    href={utbetalingsoversiktUrl}
+    href={UTBETALINGSOVERSIKT_URL}
     id="seAlle"
     class={isKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
   >

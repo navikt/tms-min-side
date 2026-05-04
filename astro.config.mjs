@@ -34,7 +34,7 @@ export default defineConfig({
       UTKAST_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/minside/utkast" }),
       UTKAST_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/utkast" }),
       VARSLER_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/minside/varsler" }),
-      VARSEL_ANTALL_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/varsler" }),
+      VARSEL_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/varsler" }),
       DIN_OVERSIKT_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/selector/din-oversikt" }),
       MELDEKORT_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/meldekort" }),
       DOKUMENTARKIV_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:3000/dokumentarkiv" }),

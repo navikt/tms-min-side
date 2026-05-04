@@ -1,3 +1,4 @@
+import { isProduction } from "../../../utils/server/environment";
 
 const produktlinkerDev = {
   dagpenger: {
@@ -75,4 +76,4 @@ const produktlinkerProd = {
   },
 };
 
-export const produktlinker = import.meta.env.PROD ? produktlinkerProd : produktlinkerDev;
+export const produktlinker = isProduction ? produktlinkerProd : produktlinkerDev;

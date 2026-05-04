@@ -3,8 +3,7 @@ import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varsl
 import { text } from "./varslerText";
 import { getAudience, getOboToken } from "../../../utils/server/token";
 import { fetchData } from "../../../utils/server/fetch";
-import { varselApiUrl } from "./varslerUrls";
-import { varslerUrl } from "./varslerUrls";
+import { VARSLER_URL, VARSEL_API_URL } from "astro:env/server";
 import IngenVarslerIkon from "./assets/IngenVarslerIkon";
 import VarselBjelleDotMedFyll from "./assets/VarselBjelleDotMedFyll";
 import VarselBjelleDotUtenFyll from "./assets/VarselBjelleDotUtenFyll";
@@ -21,7 +20,7 @@ let data = { oppgaver: 0, beskjeder: 0, innbokser: 0 };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, varselApiUrl);
+  data = await fetchData(oboToken, VARSEL_API_URL);
 } catch (error: any) {
   logger.error(`Fetching varsler failed. ${error.message}`);
   isError = true;
@@ -39,7 +38,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 {isError && <ClientError client:only="react" />}
 {
   !hasVarsler(varsler) ? (
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={VARSLER_URL} class={style.varsler}>
       <IngenVarslerIkon />
       <div class={style.container}>
         <h3 class={style.heading}>{text.varsler[language]}</h3>
@@ -47,7 +46,7 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
       </div>
     </a>
   ) : (
-    <a href={varslerUrl} class={style.varsler}>
+    <a href={VARSLER_URL} class={style.varsler}>
       <div class={style.ikonRektangel}>
         <VarselBjelleDotMedFyll />
         <VarselBjelleDotUtenFyll />

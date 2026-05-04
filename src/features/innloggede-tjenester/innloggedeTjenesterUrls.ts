@@ -1,3 +1,5 @@
+import { isProduction } from "../../utils/server/environment";
+
 const jobbLenkerProd = [
   {
     nb: "Aktivitetsplan",
@@ -622,7 +624,7 @@ const annetLenkerDev = [
   },
 ];
 
-export const jobbLenker = import.meta.env.PROD ? jobbLenkerProd : jobbLenkerDev;
-export const hjelpemidlerLenker = import.meta.env.PROD ? hjelpemidlerLenkerProd : hjelpemidlerLenkerDev;
-export const personopplysningLenker = import.meta.env.PROD ? personopplysningLenkerProd : personopplysningLenkerDev;
-export const annetLenker = import.meta.env.PROD ? annetLenkerProd : annetLenkerDev;
+export const jobbLenker = isProduction ? jobbLenkerProd : jobbLenkerDev;
+export const hjelpemidlerLenker = isProduction ? hjelpemidlerLenkerProd : hjelpemidlerLenkerDev;
+export const personopplysningLenker = isProduction ? personopplysningLenkerProd : personopplysningLenkerDev;
+export const annetLenker = isProduction ? annetLenkerProd : annetLenkerDev;

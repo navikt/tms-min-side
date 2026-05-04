@@ -1,7 +1,7 @@
 ---
 import { getLanguage } from "../../../utils/server/language";
-import { innboksUrl } from "../innboksUrls";
 import { text } from "../innboksText";
+import { INNBOKS_URL } from "astro:env/server";
 import { BodyLong, BodyShort, Skeleton } from "@navikt/ds-react";
 import styles from "../Innboks.module.css";
 
@@ -10,7 +10,7 @@ const language = getLanguage(Astro.url);
 
 <div class={styles.container}>
   <div class={styles.content}>
-    <a class={`${styles.headerContainer} ${styles.headerContainerIngenNyMelding}`} href={innboksUrl}>
+    <a class={`${styles.headerContainer} ${styles.headerContainerIngenNyMelding}`} href={INNBOKS_URL}>
       <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
       <div class={styles.tagChevron}>
         <Skeleton width={120} height={24} />

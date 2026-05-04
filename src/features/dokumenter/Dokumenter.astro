@@ -4,7 +4,7 @@ import ClientError from "@shared/client-error/ClientError";
 import { Language } from "../../utils/server/language";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { fetchData } from "../../utils/server/fetch";
-import { dokumentarkivUrl, dokumenterUrl } from "./dokumenterUrls";
+import { DOKUMENTARKIV_URL, DOKUMENTER_URL } from "astro:env/server";
 import { Heading, BodyLong, BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import { text } from "./dokumenterText";
@@ -27,7 +27,7 @@ let isError = false;
 
 try {
   if (!isSubstantial) {
-    data = await fetchData(oboToken, dokumenterUrl);
+    data = await fetchData(oboToken, DOKUMENTER_URL);
   }
 } catch (error: any) {
   logger.error(`Fetching dokumenter failed. ${error.message}`);
@@ -55,7 +55,7 @@ const { language } = Astro.props;
             <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
           </div>
           <div class={styles.ingenContentContainer} />
-          <a class={styles.ingenLink} href={`${dokumentarkivUrl}/${language}`} id="ingenDokumenterAlle">
+          <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${language}`} id="ingenDokumenterAlle">
             {text.tidligere[language]}
           </a>
         </div>
@@ -70,7 +70,7 @@ const { language } = Astro.props;
             ))}
           </ul>
           <div class={styles.alle}>
-            <a class={styles.link} href={`${dokumentarkivUrl}/${language}`} id="alle">
+            <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${language}`} id="alle">
               <BodyShort size="medium">{text.alle[language]}</BodyShort>
             </a>
             <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px" />

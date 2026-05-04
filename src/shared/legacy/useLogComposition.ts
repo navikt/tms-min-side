@@ -3,8 +3,8 @@ import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
 import { PersonalizedContent } from "../../microfrontends/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
 import { fetcher, include } from "../../utils/client/api.ts";
-import { dinOversiktLegacyUrl } from "./urls";
-import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./utils";
+import { dinOversiktLegacyUrl } from "./legacyUrls";
+import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
 
 export const useLogComposition = () => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(

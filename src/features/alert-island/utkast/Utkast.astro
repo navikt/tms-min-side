@@ -4,7 +4,7 @@ import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
 import { getLanguage } from "../../../utils/server/language";
 import { fetchData } from "@utils/server/fetch";
 import { getAudience, getOboToken } from "@utils/server/token";
-import { utkastApiUrl, utkastUrl } from "./utkastUrls";
+import { UTKAST_URL, UTKAST_API_URL } from "astro:env/server";
 import ClientError from "@shared/client-error/ClientError";
 import { MultiStatusError } from "@utils/server/error";
 import { Utkast } from "./utkastTypes";
@@ -19,7 +19,7 @@ let data: Utkast = { antall: 0 };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, utkastApiUrl);
+  data = await fetchData(oboToken, UTKAST_API_URL);
 } catch (error: any) {
   if (error instanceof MultiStatusError) {
     data = error.partialData as Utkast;
@@ -39,7 +39,7 @@ const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](a
 {
   hasUtkast && (
     <div class={style.wrapper} id="utkast">
-      <a href={utkastUrl} class={style.utkast}>
+      <a href={UTKAST_URL} class={style.utkast}>
         <div class={style.ikonRektangel}>
           <UtkastIkon />
           <UtkastIkonHover />

@@ -21,12 +21,12 @@ const isEnglish = language === "en";
   }
   <nav class={styles.sectionContainer}>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} liste={jobbLenker} />
-      <InnloggedeTjensterSection tittel={text.dinOversikt[language]} liste={hjelpemidlerLenker} />
+      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} lenker={jobbLenker} />
+      <InnloggedeTjensterSection tittel={text.dinOversikt[language]} lenker={hjelpemidlerLenker} />
     </div>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.personopplysning[language]} liste={personopplysningLenker} />
-      <InnloggedeTjensterSection tittel={text.annet[language]} liste={annetLenker} />
+      <InnloggedeTjensterSection tittel={text.personopplysning[language]} lenker={personopplysningLenker} />
+      <InnloggedeTjensterSection tittel={text.annet[language]} lenker={annetLenker} />
     </div>
   </nav>
 </div>

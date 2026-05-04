@@ -1,4 +1,5 @@
 ---
-import { varslerUrl } from "@features/alert-island/varsler/varslerUrls";
-return Astro.redirect(varslerUrl);
+import { VARSLER_URL } from "astro:env/server";
+
+return Astro.redirect(VARSLER_URL);
 ---

@@ -1,6 +1,6 @@
 ---
 import { BodyShort } from "@navikt/ds-react";
-import { dinOversiktUrl } from "./dinOversiktUrls";
+import { DIN_OVERSIKT_URL } from "astro:env/server";
 import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
 import Produktkort from "./produktkort/Produktkort";
 import Meldekort from "./meldekort/Meldekort.astro";
@@ -37,7 +37,7 @@ let personalizedContent: PersonalizedContent = {
 };
 
 try {
-  personalizedContent = await fetchData(oboToken, dinOversiktUrl);
+  personalizedContent = await fetchData(oboToken, DIN_OVERSIKT_URL);
 } catch (error: any) {
   if (error instanceof MultiStatusError) {
     personalizedContent = error.partialData as PersonalizedContent;

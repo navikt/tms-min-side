@@ -3,7 +3,7 @@ import { getAudience, getOboToken } from "../../utils/server/token";
 import type { Language } from "../../utils/server/language";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
 import ClientError from "@shared/client-error/ClientError";
-import { utbetalingsoversiktApiUrl } from "./utbetalingUrls";
+import { UTBETALINGSOVERSIKT_API_URL } from "astro:env/server";
 import type { Utbetaling } from "./utbetalingTypes";
 import { fetchData } from "../../utils/server/fetch";
 import styles from "./Utbetaling.module.css";
@@ -24,7 +24,7 @@ let data: Utbetaling = { sisteUtbetaling: null, kommende: null };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, utbetalingsoversiktApiUrl);
+  data = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
 } catch (error: any) {
   logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
