@@ -53,20 +53,19 @@ src/
 │   └── ux-signal/
 │
 ├── shared/                      # Delt infrastruktur og UI-primitiver
-│   ├── language/
-│   │   └── language.ts          # Language-type og getLanguage()
 │   ├── authentication/
 │   ├── client-error/
 │   ├── container/
 │   ├── feilmelding/
 │   ├── legacy/
-│   └── obersvability/           # Observability: Faro, Amplitude (merk: typo i mappenavn)
+│   ├── obersvability/           # Observability: Faro, Amplitude (merk: typo i mappenavn)
+│   └── store/
+│       └── store.ts             # Global state (nanostores): isErrorAtom, setIsError()
 │
 ├── utils/                       # Teknisk infrastruktur (ikke feature-logikk)
-│   ├── server/                  # SSR-only: fetch.ts, token.ts, logger.ts, environment.ts, error.ts
+│   ├── server/                  # SSR-only: fetch.ts, token.ts, logger.ts, environment.ts, error.ts, language.ts
 │   └── client/                  # Browser-only: api.ts, environment.ts, umami.ts
 │
-├── store/                       # Global state (nanostores)
 ├── microfrontends/              # Microfrontend-loader
 ├── middleware/                  # Astro middleware
 ├── layouts/                     # Astro layouts
@@ -92,14 +91,14 @@ Shared inneholder UI-primitiver og infrastruktur som **brukes av flere features*
 
 - Generiske UI-komponenter (`Container`, `Feilmelding`, `ClientError`) som ikke tilhører én feature.
 - Auth-primitiver (`Authentication`) brukt på tvers.
-- Delt i18n-infrastruktur: `Language`-typen, `getLanguage()` og globale applikasjonsnivå-tekster.
+- Global state (`store/store.ts`): `isErrorAtom` og `setIsError()` via nanostores.
 - Tekniske wrappers uten domeneinnhold (`Legacy`, `Observability`).
 
 ### Utils (`src/utils/`)
 
 Utils-mappen inneholder **ren teknisk infrastruktur** uten forretningslogikk:
 
-- `server/`: SSR-utilities som er gjenbrukbare av mange features (`fetch`, `token`, `logger`, `environment`, `error`).
+- `server/`: SSR-utilities som er gjenbrukbare av mange features (`fetch`, `token`, `logger`, `environment`, `error`, `language`).
 - `client/`: Browser-utilities som er gjenbrukbare av mange features (`api`, `environment`, `umami`).
 
 Feature-spesifikk logikk (f.eks. `utbetaling/utils/`) ligger i respektive feature-slice.
