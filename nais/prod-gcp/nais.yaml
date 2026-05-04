@@ -82,37 +82,37 @@ spec:
     - "https://www.nav.no/minside"
   env:
     - name: AKTUELT_URL
-    - value: "http://tms-mikrofrontend-selector/aktuelt"
+      value: "http://tms-mikrofrontend-selector/aktuelt"
     - name: UTKAST_URL
-    - value: "https://www.nav.no/minside/utkast"
+      value: "https://www.nav.no/minside/utkast"
     - name: UTKAST_API_URL
-    - value: "http://tms-utkast/v2/utkast/antall"
+      value: "http://tms-utkast/v2/utkast/antall"
     - name: VARSLER_URL
-    - value: "https://www.nav.no/minside/varsler"
+      value: "https://www.nav.no/minside/varsler"
     - name: VARSEL_API_URL
-    - value: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive"
+      value: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive"
     - name: DIN_OVERSIKT_URL
-    - value: "http://tms-mikrofrontend-selector/din-oversikt"
+      value: "http://tms-mikrofrontend-selector/din-oversikt"
     - name: MELDEKORT_URL
-    - value: "http://meldekort-mikrofrontend.meldekort"
+      value: "http://meldekort-mikrofrontend.meldekort"
     - name: DOKUMENTARKIV_URL
-    - value: "https://www.nav.no/dokumentarkiv"
+      value: "https://www.nav.no/dokumentarkiv"
     - name: DOKUMENTER_URL
-    - value: "http://mine-saker-api/mine-saker-api/ssr/journalposter/siste"
+      value: "http://mine-saker-api/mine-saker-api/ssr/journalposter/siste"
     - name: INNBOKS_URL
-    - value: "https://innboks.nav.no"
+      value: "https://innboks.nav.no"
     - name: NAVN_URL
-    - value: "http://tms-min-side-proxy/tms-min-side-proxy/personalia"
+      value: "http://tms-min-side-proxy/tms-min-side-proxy/personalia"
     - name: UTBETALINGSOVERSIKT_API_URL
-    - value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste"
+      value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste"
     - name: UTBETALINGSOVERSIKT_URL
-    - value: "https://www.nav.no/utbetalingsoversikt"
+      value: "https://www.nav.no/utbetalingsoversikt"
     - name: REDIRECT_URI
-    - value: "https://www.nav.no/minside"
+      value: "https://www.nav.no/minside"
     - name: PUBLIC_TELEMETRY_URL
-    - value: "https://telemetry.nav.no/collect"
+      value: "https://telemetry.nav.no/collect"
     - name: PUBLIC_LEGACY_SELECTOR_URL
-    - value: "https://www.nav.no/tms-min-side-proxy/selector"
+      value: "https://www.nav.no/tms-min-side-proxy/selector"
   resources:
     limits:
       memory: 768Mi
