@@ -9,7 +9,7 @@
     "mock": "tsx mock/server.ts",
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
-    "prettier": "prettier --write './src/**/*.{ts,tsx,astro}'",
+    "format": "biome format --write src/",
     "prepare": "husky"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "swr": "2.4.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.13",
     "@hono/node-server": "2.0.0",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
@@ -42,8 +43,6 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "hono": "4.12.15",
-    "prettier": "3.8.3",
-    "prettier-plugin-astro": "0.14.1",
     "prop-types": "15.8.1",
     "tsx": "4.21.0"
   },

@@ -1,7 +1,7 @@
-import React from "react";
-import { logEvent } from "../../../utils/client/umami.ts";
-import type { Language } from "../../../utils/server/language.ts";
-import style from "../section/InnloggedeTjensterSection.module.css";
+import React from 'react';
+import { logEvent } from '../../../utils/client/umami.ts';
+import type { Language } from '../../../utils/server/language.ts';
+import style from '../section/InnloggedeTjensterSection.module.css';
 
 interface Link {
   nb: string;
@@ -23,7 +23,7 @@ const LinkWithAmplitude = ({ link, language }: Props) => (
   <a
     className={style.color}
     href={link.url[language]}
-    onClick={() => logEvent("innloggede-tjenester-lenke", "innloggede-tjenester", link["nb"])}
+    onClick={() => logEvent('innloggede-tjenester-lenke', 'innloggede-tjenester', link['nb'])}
   >
     {link[language]}
   </a>

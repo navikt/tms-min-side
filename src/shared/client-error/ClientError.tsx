@@ -1,4 +1,4 @@
-import { setIsError } from "../store/store";
+import { setIsError } from '../store/store';
 
 const ClientError = () => {
   setIsError();

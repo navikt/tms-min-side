@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { onLanguageSelect, setAvailableLanguages, setParams, DecoratorLocale } from "@navikt/nav-dekoratoren-moduler";
-import type { Language } from "../../utils/server/language";
+import { useEffect } from 'react';
+import { onLanguageSelect, setAvailableLanguages, setParams, DecoratorLocale } from '@navikt/nav-dekoratoren-moduler';
+import type { Language } from '../../utils/server/language';
 
 export const setSessionLanguage = (language: DecoratorLocale) => {
-  window.sessionStorage.setItem("language", language);
+  window.sessionStorage.setItem('language', language);
 };
 
 export const useLanguage = (language: Language) => {
-  const [_leadingSlash, _basePath, _oldLocale, ...rest] = window.location.pathname.split("/");
-  const slug = rest.join("/");
+  const [_leadingSlash, _basePath, _oldLocale, ...rest] = window.location.pathname.split('/');
+  const slug = rest.join('/');
   setSessionLanguage(language);
 
   onLanguageSelect((language) => {
@@ -20,15 +20,15 @@ export const useLanguage = (language: Language) => {
     setParams({ language: language });
     setAvailableLanguages([
       {
-        locale: "nb",
+        locale: 'nb',
         handleInApp: true,
       },
       {
-        locale: "en",
+        locale: 'en',
         handleInApp: true,
       },
       {
-        locale: "nn",
+        locale: 'nn',
         handleInApp: true,
       },
     ]);

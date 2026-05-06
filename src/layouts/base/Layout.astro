@@ -1,9 +1,9 @@
 ---
-import Authentication from "@shared/authentication/Authentication";
-import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
-import { getDecoratorEnvironment } from "../../utils/server/environment";
-import { getLanguage } from "../../utils/server/language";
-import "./Layout.css";
+import Authentication from '@shared/authentication/Authentication';
+import { fetchDecoratorHtml } from '@navikt/nav-dekoratoren-moduler/ssr';
+import { getDecoratorEnvironment } from '../../utils/server/environment';
+import { getLanguage } from '../../utils/server/language';
+import './Layout.css';
 
 export interface Props {
   title: string;
@@ -21,22 +21,22 @@ const { title, breadcrumbs } = Astro.props;
 const Decorator = await fetchDecoratorHtml({
   env: getDecoratorEnvironment(),
   params: {
-    context: "privatperson",
+    context: 'privatperson',
     breadcrumbs: breadcrumbs,
     availableLanguages: [
       {
-        locale: "nb",
-        url: "https://www.nav.no/minside/nb",
+        locale: 'nb',
+        url: 'https://www.nav.no/minside/nb',
         handleInApp: true,
       },
       {
-        locale: "en",
-        url: "https://www.nav.no/minside/en",
+        locale: 'en',
+        url: 'https://www.nav.no/minside/en',
         handleInApp: true,
       },
       {
-        locale: "nn",
-        url: "https://www.nav.no/minside/nn",
+        locale: 'nn',
+        url: 'https://www.nav.no/minside/nn',
         handleInApp: true,
       },
     ],

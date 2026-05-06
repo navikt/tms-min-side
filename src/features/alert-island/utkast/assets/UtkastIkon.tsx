@@ -1,4 +1,4 @@
-import style from "../Utkast.module.css";
+import style from '../Utkast.module.css';
 
 const UtkastIkon = () => (
   <svg className={style.ikon} width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden={true}>

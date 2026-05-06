@@ -1,19 +1,19 @@
 ---
-import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtils";
-import { text } from "./varslerText";
-import { getAudience, getOboToken } from "../../../utils/server/token";
-import { fetchData } from "../../../utils/server/fetch";
-import { VARSLER_URL, VARSEL_API_URL } from "astro:env/server";
-import IngenVarslerIkon from "./assets/IngenVarslerIkon";
-import VarselBjelleDotMedFyll from "./assets/VarselBjelleDotMedFyll";
-import VarselBjelleDotUtenFyll from "./assets/VarselBjelleDotUtenFyll";
-import { getLanguage } from "../../../utils/server/language";
-import ClientError from "@shared/client-error/ClientError";
-import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
-import logger from "@utils/server/logger";
-import style from "./Varsler.module.css";
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from './varslerUtils';
+import { text } from './varslerText';
+import { getAudience, getOboToken } from '../../../utils/server/token';
+import { fetchData } from '../../../utils/server/fetch';
+import { VARSLER_URL, VARSEL_API_URL } from 'astro:env/server';
+import IngenVarslerIkon from './assets/IngenVarslerIkon';
+import VarselBjelleDotMedFyll from './assets/VarselBjelleDotMedFyll';
+import VarselBjelleDotUtenFyll from './assets/VarselBjelleDotUtenFyll';
+import { getLanguage } from '../../../utils/server/language';
+import ClientError from '@shared/client-error/ClientError';
+import PersonalContentLogger from '@shared/legacy/PersonalContentLogger';
+import logger from '@utils/server/logger';
+import style from './Varsler.module.css';
 
-const audience = getAudience("tms-varsel-api");
+const audience = getAudience('tms-varsel-api');
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data = { oppgaver: 0, beskjeder: 0, innbokser: 0 };

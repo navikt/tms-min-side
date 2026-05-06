@@ -1,15 +1,15 @@
 ---
-import { getAudience, getOboToken } from "../../utils/server/token";
-import ClientError from "@shared/client-error/ClientError";
-import { NAVN_URL } from "astro:env/server";
-import { fetchData } from "../../utils/server/fetch";
-import logger from "../../utils/server/logger";
-import style from "./Personalia.module.css";
+import { getAudience, getOboToken } from '../../utils/server/token';
+import ClientError from '@shared/client-error/ClientError';
+import { NAVN_URL } from 'astro:env/server';
+import { fetchData } from '../../utils/server/fetch';
+import logger from '../../utils/server/logger';
+import style from './Personalia.module.css';
 
-const audience = getAudience("tms-min-side-proxy");
+const audience = getAudience('tms-min-side-proxy');
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-let data = { navn: "", ident: "" };
+let data = { navn: '', ident: '' };
 let isError = false;
 
 try {
