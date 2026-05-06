@@ -1,18 +1,18 @@
 ---
-import UtkastIkon from './assets/UtkastIkon.tsx';
-import UtkastIkonHover from './assets/UtkastIkonHover.tsx';
-import { getLanguage } from '../../../utils/server/language';
-import { fetchData } from '@utils/server/fetch';
-import { getAudience, getOboToken } from '@utils/server/token';
-import { UTKAST_URL, UTKAST_API_URL } from 'astro:env/server';
-import ClientError from '@shared/client-error/ClientError';
-import { MultiStatusError } from '@utils/server/error';
-import { Utkast } from './utkastTypes';
-import { text } from './utkastText';
-import style from './Utkast.module.css';
-import logger from '@utils/server/logger';
+import UtkastIkon from "./assets/UtkastIkon.tsx";
+import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
+import { getLanguage } from "../../../utils/server/language";
+import { fetchData } from "@utils/server/fetch";
+import { getAudience, getOboToken } from "@utils/server/token";
+import { UTKAST_URL, UTKAST_API_URL } from "astro:env/server";
+import ClientError from "@shared/client-error/ClientError";
+import { MultiStatusError } from "@utils/server/error";
+import { Utkast } from "./utkastTypes";
+import { text } from "./utkastText";
+import style from "./Utkast.module.css";
+import logger from "@utils/server/logger";
 
-const audience = getAudience('tms-utkast');
+const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data: Utkast = { antall: 0 };

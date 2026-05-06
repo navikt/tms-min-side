@@ -1,11 +1,11 @@
-import 'dayjs';
-import 'dayjs/locale/nb';
-import dayjs from 'dayjs';
-import type { DokumentType } from '../dokumenterTypes.ts';
+import "dayjs";
+import "dayjs/locale/nb";
+import dayjs from "dayjs";
+import type { DokumentType } from "../dokumenterTypes.ts";
 
-dayjs.locale('nb');
+dayjs.locale("nb");
 
-export const formatDateMonth = (date: string) => dayjs(date).locale('nb').format('D. MMMM YYYY');
+export const formatDateMonth = (date: string) => dayjs(date).locale("nb").format("D. MMMM YYYY");
 
 export const setAvsenderMottaker = (dokument: DokumentType) => {
   if (!dokument.avsender) {

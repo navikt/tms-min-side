@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { logGroupedEvent, logMfEvent } from '../../utils/client/umami.ts';
-import useSWRImmutable from 'swr/immutable';
-import { fetcher, include } from '../../utils/client/api.ts';
-import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from './legacyUtils';
-import type { PersonalizedContent } from '../../features/din-oversikt/DinOversiktTypes';
+import { useEffect } from "react";
+import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
+import useSWRImmutable from "swr/immutable";
+import { fetcher, include } from "../../utils/client/api.ts";
+import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
+import type { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
 
 export const useLogComposition = (url: string) => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
@@ -17,20 +17,20 @@ export const useLogComposition = (url: string) => {
   useEffect(() => {
     if (personalizedContent && !isLoadingMicrofrontends) {
       let liste = [];
-      const produktProperties = getProduktPropertiesLegacy('nb', personalizedContent);
+      const produktProperties = getProduktPropertiesLegacy("nb", personalizedContent);
 
       if (hasMicrofrontendsLegacy(personalizedContent?.microfrontends)) {
         personalizedContent?.microfrontends?.map((mf) => liste.push(mf.microfrontend_id));
       }
 
       if (hasAktueltMicrofrontendsLegacy(personalizedContent?.aktuelt)) {
-        personalizedContent?.aktuelt?.map((mf) => liste.push('Aktuelt - ' + mf.microfrontend_id));
+        personalizedContent?.aktuelt?.map((mf) => liste.push("Aktuelt - " + mf.microfrontend_id));
       }
 
-      produktProperties?.map((produktkort) => liste.push('Produktkort - ' + produktkort.tittel));
+      produktProperties?.map((produktkort) => liste.push("Produktkort - " + produktkort.tittel));
 
       if (personalizedContent?.meldekort) {
-        liste.push('meldekort');
+        liste.push("meldekort");
       }
 
       liste.sort();

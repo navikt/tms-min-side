@@ -1,9 +1,9 @@
 ---
-import { Skeleton, Heading } from '@navikt/ds-react';
-import { getLanguage } from '../../../utils/server/language';
-import { text } from '../utbetalingText';
-import { UTBETALINGSOVERSIKT_URL } from 'astro:env/server';
-import style from './UtbetalingFallback.module.css';
+import { Skeleton, Heading } from "@navikt/ds-react";
+import { getLanguage } from "../../../utils/server/language";
+import { text } from "../utbetalingText";
+import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
+import style from "./UtbetalingFallback.module.css";
 
 const language = getLanguage(Astro.url);
 ---

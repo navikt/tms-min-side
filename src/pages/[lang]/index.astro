@@ -1,24 +1,24 @@
 ---
-import Layout from '../../layouts/base/Layout.astro';
-import Content from '../../layouts/content/Content.astro';
-import DinOversikt from '../../features/din-oversikt/DinOversikt.astro';
-import Personalia from '@features/personalia/Personalia.astro';
-import AlertIsland from '@features/alert-island/AlertIsland.astro';
-import InnloggedeTjenester from '@features/innloggede-tjenester/InnloggedeTjenester.astro';
-import Container from '@shared/container/Container.astro';
-import Innboks from '@features/innboks/Innboks.astro';
-import Utbetaling from '@features/utbetaling/Utbetaling.astro';
-import Feilmelding from '@shared/feilmelding/Feilmelding';
-import { getLanguage } from '../../utils/server/language';
-import Observability from '@shared/obersvability/Observability';
-import Aktuelt from '../../features/aktuelt/Aktuelt.astro';
-import Dokumenter from '../../features/dokumenter/Dokumenter.astro';
-import InnboksFallback from '../../features/innboks/fallback/InnboksFallback.astro';
-import UtbetalingFallback from '../../features/utbetaling/fallback/UtbetalingFallback.astro';
-import SubstantialInfo from '@features/substantial-info/SubstantialInfo.astro';
-import DokumenterFallback from '../../features/dokumenter/fallback/DokumenterFallback.astro';
-import { PUBLIC_TELEMETRY_URL, PUBLIC_LEGACY_SELECTOR_URL } from 'astro:env/server';
-import Legacy from '@shared/legacy/Legacy';
+import Layout from "../../layouts/base/Layout.astro";
+import Content from "../../layouts/content/Content.astro";
+import DinOversikt from "../../features/din-oversikt/DinOversikt.astro";
+import Personalia from "@features/personalia/Personalia.astro";
+import AlertIsland from "@features/alert-island/AlertIsland.astro";
+import InnloggedeTjenester from "@features/innloggede-tjenester/InnloggedeTjenester.astro";
+import Container from "@shared/container/Container.astro";
+import Innboks from "@features/innboks/Innboks.astro";
+import Utbetaling from "@features/utbetaling/Utbetaling.astro";
+import Feilmelding from "@shared/feilmelding/Feilmelding";
+import { getLanguage } from "../../utils/server/language";
+import Observability from "@shared/obersvability/Observability";
+import Aktuelt from "../../features/aktuelt/Aktuelt.astro";
+import Dokumenter from "../../features/dokumenter/Dokumenter.astro";
+import InnboksFallback from "../../features/innboks/fallback/InnboksFallback.astro";
+import UtbetalingFallback from "../../features/utbetaling/fallback/UtbetalingFallback.astro";
+import SubstantialInfo from "@features/substantial-info/SubstantialInfo.astro";
+import DokumenterFallback from "../../features/dokumenter/fallback/DokumenterFallback.astro";
+import { PUBLIC_TELEMETRY_URL, PUBLIC_LEGACY_SELECTOR_URL } from "astro:env/server";
+import Legacy from "@shared/legacy/Legacy";
 
 const language = getLanguage(Astro.url);
 ---

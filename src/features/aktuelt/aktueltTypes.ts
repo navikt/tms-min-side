@@ -1,4 +1,4 @@
-import { Microfrontend } from '../../microfrontends/microfrontendTypes';
+import { Microfrontend } from "../../microfrontends/microfrontendTypes";
 
 export interface Aktuelt {
   offerStepup: boolean;

@@ -1,4 +1,4 @@
-import style from '../Varsler.module.css';
+import style from "../Varsler.module.css";
 
 const VarselBjelleDotIkonMedFyll = () => (
   <svg

@@ -1,22 +1,22 @@
 ---
-import InnboksTag from './InnboksTag';
-import { Language } from '../../utils/server/language';
-import { INNBOKS_URL, VARSEL_API_URL } from 'astro:env/server';
-import { text } from './innboksText';
-import { getAudience, getOboToken } from '../../utils/server/token';
-import { BodyLong, Heading } from '@navikt/ds-react';
-import { ChevronRightIcon as Chevron } from '@navikt/aksel-icons';
-import { fetchData } from '../../utils/server/fetch';
-import ClientError from '@shared/client-error/ClientError';
-import PersonalContentLogger from '@shared/legacy/PersonalContentLogger';
-import logger from '@utils/server/logger';
-import styles from './Innboks.module.css';
+import InnboksTag from "./InnboksTag";
+import { Language } from "../../utils/server/language";
+import { INNBOKS_URL, VARSEL_API_URL } from "astro:env/server";
+import { text } from "./innboksText";
+import { getAudience, getOboToken } from "../../utils/server/token";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
+import { fetchData } from "../../utils/server/fetch";
+import ClientError from "@shared/client-error/ClientError";
+import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
+import logger from "@utils/server/logger";
+import styles from "./Innboks.module.css";
 
 interface Props {
   language: Language;
 }
 
-const audience = getAudience('tms-varsel-api');
+const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let data = { innbokser: 0 };
@@ -30,7 +30,7 @@ try {
 }
 
 const innbokser = data.innbokser;
-const type = innbokser > 0 ? 'NyMelding' : 'IngenNyMelding';
+const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
 const { language } = Astro.props;
 ---
 

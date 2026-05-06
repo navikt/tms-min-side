@@ -1,9 +1,9 @@
 ---
-import { getLanguage } from '../../../utils/server/language';
-import { text } from '../innboksText';
-import { INNBOKS_URL } from 'astro:env/server';
-import { BodyLong, BodyShort, Skeleton } from '@navikt/ds-react';
-import styles from '../Innboks.module.css';
+import { getLanguage } from "../../../utils/server/language";
+import { text } from "../innboksText";
+import { INNBOKS_URL } from "astro:env/server";
+import { BodyLong, BodyShort, Skeleton } from "@navikt/ds-react";
+import styles from "../Innboks.module.css";
 
 const language = getLanguage(Astro.url);
 ---

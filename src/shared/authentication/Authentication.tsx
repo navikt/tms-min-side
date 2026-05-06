@@ -1,9 +1,9 @@
-import useSWRImmutable from 'swr/immutable';
-import { redirectUrl, statusUrl } from './authenticationUrls';
-import { fetcher } from '@utils/client/api.ts';
+import useSWRImmutable from "swr/immutable";
+import { redirectUrl, statusUrl } from "./authenticationUrls";
+import { fetcher } from "@utils/client/api.ts";
 
 export const reloadOnPageshow = () => {
-  window.addEventListener('pageshow', (event) => {
+  window.addEventListener("pageshow", (event) => {
     if (event.persisted) {
       location.reload();
     }

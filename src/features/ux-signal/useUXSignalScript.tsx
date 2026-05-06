@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const useUXSignalScript = (ready: boolean) => {
   useEffect(() => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.async = true;
-    script.src = 'https://uxsignals-frontend.uxsignals.app.iterate.no/embed.js';
+    script.src = "https://uxsignals-frontend.uxsignals.app.iterate.no/embed.js";
     if (ready) {
       document.body.appendChild(script);
     }

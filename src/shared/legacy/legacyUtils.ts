@@ -1,7 +1,7 @@
-import { Language } from '../../utils/server/language.ts';
-import { Microfrontend } from '../../microfrontends/microfrontendTypes';
-import { PersonalizedContent } from '@features/din-oversikt/DinOversiktTypes';
-import { produktText } from '@features/din-oversikt/produktkort/ProduktText';
+import { Language } from "../../utils/server/language.ts";
+import { Microfrontend } from "../../microfrontends/microfrontendTypes";
+import { PersonalizedContent } from "@features/din-oversikt/DinOversiktTypes";
+import { produktText } from "@features/din-oversikt/produktkort/ProduktText";
 
 export const getProduktPropertiesLegacy = (language: Language, personalizedContent?: PersonalizedContent) => {
   if (personalizedContent === undefined) return undefined;
@@ -23,35 +23,35 @@ type ProduktProperties = { produktnavn: string; tittel: string };
 
 export function getProduktPropertiesMapLegacy(language: Language): Record<string, ProduktProperties> {
   const sykefraværConfig: ProduktProperties = {
-    produktnavn: 'sykefravær',
+    produktnavn: "sykefravær",
     tittel: produktText.sykefravær[language],
   };
 
   return {
     DAG: {
-      produktnavn: 'dagpenger',
+      produktnavn: "dagpenger",
       tittel: produktText.dagpenger[language],
     },
     FOR: {
-      produktnavn: 'foreldrepenger',
+      produktnavn: "foreldrepenger",
       tittel: produktText.foreldrepenger[language],
     },
     HJE: {
-      produktnavn: 'hjelpemidler',
+      produktnavn: "hjelpemidler",
       tittel: produktText.hjelpemidler[language],
     },
     KOM: {
-      produktnavn: 'sosialhjelp',
+      produktnavn: "sosialhjelp",
       tittel: produktText.sosialhjelp[language],
     },
     PEN: {
-      produktnavn: 'pensjon',
+      produktnavn: "pensjon",
       tittel: produktText.pensjon[language],
     },
     SYK: sykefraværConfig,
     SYM: sykefraværConfig,
     UFO: {
-      produktnavn: 'uføretrygd',
+      produktnavn: "uføretrygd",
       tittel: produktText.uføretrygd[language],
     },
   };

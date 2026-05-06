@@ -1,11 +1,11 @@
-import { MultiStatusError } from './error';
+import { MultiStatusError } from "./error";
 
 export const fetchData = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
       Authorization: `Bearer ${oboToken}`,
     },
   });
@@ -23,7 +23,7 @@ export const fetchData = async (oboToken: string, url: string) => {
 
 export const fetchHtml = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
       Authorization: `Bearer ${oboToken}`,
     },

@@ -1,21 +1,21 @@
 ---
-import MicrofrontendSSR from '../../microfrontends/Microfrontend.astro';
-import ClientError from '@shared/client-error/ClientError';
-import { getAudience, getOboToken } from '@utils/server/token';
-import { BodyShort, Skeleton } from '@navikt/ds-react';
-import { text } from './aktueltText';
-import { fetchData } from '@utils/server/fetch';
-import type { Language } from '../../utils/server/language.ts';
-import logger from '@utils/server/logger.ts';
-import { Aktuelt } from './aktueltTypes';
-import { AKTUELT_URL } from 'astro:env/server';
-import style from './Aktuelt.module.css';
+import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
+import ClientError from "@shared/client-error/ClientError";
+import { getAudience, getOboToken } from "@utils/server/token";
+import { BodyShort, Skeleton } from "@navikt/ds-react";
+import { text } from "./aktueltText";
+import { fetchData } from "@utils/server/fetch";
+import type { Language } from "../../utils/server/language.ts";
+import logger from "@utils/server/logger.ts";
+import { Aktuelt } from "./aktueltTypes";
+import { AKTUELT_URL } from "astro:env/server";
+import style from "./Aktuelt.module.css";
 
 interface Props {
   language: Language;
 }
 
-const audience = getAudience('tms-mikrofrontend-selector');
+const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
 

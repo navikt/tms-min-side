@@ -1,2 +1,2 @@
-export const entry = 'src/Mikrofrontend.tsx';
-export const bundle = 'file';
+export const entry = "src/Mikrofrontend.tsx";
+export const bundle = "file";

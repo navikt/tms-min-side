@@ -1,28 +1,28 @@
 ---
-import { BodyShort } from '@navikt/ds-react';
-import { DIN_OVERSIKT_URL } from 'astro:env/server';
-import MicrofrontendSSR from '../../microfrontends/Microfrontend.astro';
-import Produktkort from './produktkort/Produktkort';
-import Meldekort from './meldekort/Meldekort.astro';
-import { getProduktkortList } from './dinOversiktUtils.ts';
-import { produktText } from './produktkort/ProduktText';
-import { getShowDinOversikt } from './useOversikt.ts';
-import { fetchData } from '@utils/server/fetch';
-import { MultiStatusError } from '@utils/server/error';
-import { getAudience, getOboToken } from '@utils/server/token';
-import { PersonalizedContent } from './DinOversiktTypes';
-import ClientError from '@shared/client-error/ClientError';
-import type { Language } from '../../utils/server/language';
-import logger from '@utils/server/logger';
-import MeldekortSkeleton from './meldekort/MeldekortSkeleton.astro';
-import MicrofrontendSSRSkeleton from '../../microfrontends/MicrofrontendSkeleton.astro';
-import styles from './DinOversikt.module.css';
+import { BodyShort } from "@navikt/ds-react";
+import { DIN_OVERSIKT_URL } from "astro:env/server";
+import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
+import Produktkort from "./produktkort/Produktkort";
+import Meldekort from "./meldekort/Meldekort.astro";
+import { getProduktkortList } from "./dinOversiktUtils.ts";
+import { produktText } from "./produktkort/ProduktText";
+import { getShowDinOversikt } from "./useOversikt.ts";
+import { fetchData } from "@utils/server/fetch";
+import { MultiStatusError } from "@utils/server/error";
+import { getAudience, getOboToken } from "@utils/server/token";
+import { PersonalizedContent } from "./DinOversiktTypes";
+import ClientError from "@shared/client-error/ClientError";
+import type { Language } from "../../utils/server/language";
+import logger from "@utils/server/logger";
+import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
+import MicrofrontendSSRSkeleton from "../../microfrontends/MicrofrontendSkeleton.astro";
+import styles from "./DinOversikt.module.css";
 
 interface Props {
   language: Language;
 }
 
-const audience = getAudience('tms-mikrofrontend-selector');
+const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const { language } = Astro.props;
 
