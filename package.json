@@ -9,7 +9,7 @@
     "mock": "tsx mock/server.ts",
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
-    "format": "biome format --write src/",
+    "format": "biome format --write --no-errors-on-unmatched src/",
     "prepare": "husky"
   },
   "dependencies": {
