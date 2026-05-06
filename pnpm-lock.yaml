@@ -44,9 +44,6 @@ importers:
       dayjs:
         specifier: 1.11.20
         version: 1.11.20
-      husky:
-        specifier: 9.1.7
-        version: 9.1.7
       nanostores:
         specifier: 1.3.0
         version: 1.3.0
@@ -69,6 +66,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.4.13
         version: 2.4.13
+      '@evilmartians/lefthook':
+        specifier: 1.11.13
+        version: 1.11.13
       '@hono/node-server':
         specifier: 2.0.0
         version: 2.0.0(hono@4.12.15)
@@ -451,6 +451,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@evilmartians/lefthook@1.11.13':
+    resolution: {integrity: sha512-CcR9u7lb3uCKD+295S2GfhROI6q9npTsJ/E07XupZZFO8sdYHm3Uo3x8t+lzKmI/7rCFA2t0MWRggjNrxpjXFg==}
+    cpu: [x64, arm64, ia32]
+    os: [darwin, linux, win32]
+    hasBin: true
 
   '@floating-ui/core@1.7.5':
     resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
@@ -1611,11 +1617,6 @@ packages:
   http-errors@2.0.1:
     resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}
     engines: {node: '>= 0.8'}
-
-  husky@9.1.7:
-    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   import-in-the-middle@3.0.1:
     resolution: {integrity: sha512-pYkiyXVL2Mf3pozdlDGV6NAObxQx13Ae8knZk1UJRJ6uRW/ZRmTGHlQYtrsSl7ubuE5F8CD1z+s1n4RHNuTtuA==}
@@ -2856,6 +2857,8 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
+  '@evilmartians/lefthook@1.11.13': {}
+
   '@floating-ui/core@1.7.5':
     dependencies:
       '@floating-ui/utils': 0.2.11
@@ -4092,8 +4095,6 @@ snapshots:
       setprototypeof: 1.2.0
       statuses: 2.0.2
       toidentifier: 1.0.1
-
-  husky@9.1.7: {}
 
   import-in-the-middle@3.0.1:
     dependencies:
