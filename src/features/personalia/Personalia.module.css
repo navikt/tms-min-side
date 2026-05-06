@@ -3,7 +3,7 @@
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 2.25rem;
-  letter-spacing: -.004em;
+  letter-spacing: -0.004em;
 }
 
 .navn {
@@ -24,6 +24,6 @@
   .tekst {
     font-size: 2rem;
     line-height: 2.5rem;
-    letter-spacing: -.008em;
+    letter-spacing: -0.008em;
   }
 }
