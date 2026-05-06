@@ -1,4 +1,5 @@
 ---
+import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
 import Authentication from "@shared/authentication/Authentication";
 import { getDecoratorEnvironment } from "../../utils/server/environment";
@@ -26,17 +27,17 @@ const Decorator = await fetchDecoratorHtml({
     availableLanguages: [
       {
         locale: "nb",
-        url: "https://www.nav.no/minside/nb",
+        url: `${MIN_SIDE_URL}/nb`,
         handleInApp: false,
       },
       {
         locale: "en",
-        url: "https://www.nav.no/minside/en",
+        url: `${MIN_SIDE_URL}/en`,
         handleInApp: false,
       },
       {
         locale: "nn",
-        url: "https://www.nav.no/minside/nn",
+        url: `${MIN_SIDE_URL}/nn`,
         handleInApp: false,
       },
     ],

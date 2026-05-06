@@ -93,6 +93,8 @@ spec:
       value: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive"
     - name: DIN_OVERSIKT_URL
       value: "http://tms-mikrofrontend-selector/din-oversikt"
+    - name: MIN_SIDE_URL
+      value: "https://www.nav.no/minside/"
     - name: MELDEKORT_URL
       value: "http://meldekort-mikrofrontend.meldekort"
     - name: DOKUMENTARKIV_URL
