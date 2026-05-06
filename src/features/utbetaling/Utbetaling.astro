@@ -1,21 +1,17 @@
 ---
-import { getAudience, getOboToken } from "../../utils/server/token";
-import type { Language } from "../../utils/server/language";
-import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
-import ClientError from "@shared/client-error/ClientError";
 import { UTBETALINGSOVERSIKT_API_URL } from "astro:env/server";
-import type { Utbetaling } from "./utbetalingTypes";
-import { fetchData } from "../../utils/server/fetch";
-import styles from "./Utbetaling.module.css";
+import ClientError from "@shared/client-error/ClientError";
 import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
-import SeAlle from "./se-alle/SeAlle.astro";
-import EnkelUtbetaling from "./enkel/EnkelUtbetaling.astro";
-import UtbetalingList from "./list/UtbetalingList.astro";
 import logger from "@utils/server/logger";
-
-interface Props {
-  language: Language;
-}
+import { fetchData } from "../../utils/server/fetch";
+import type { Language } from "../../utils/server/language";
+import { getAudience, getOboToken } from "../../utils/server/token";
+import EnkelUtbetaling from "./enkel/EnkelUtbetaling.astro";
+import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
+import UtbetalingList from "./list/UtbetalingList.astro";
+import SeAlle from "./se-alle/SeAlle.astro";
+import styles from "./Utbetaling.module.css";
+import type { Utbetaling } from "./utbetalingTypes";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -30,7 +26,7 @@ try {
   isError = true;
 }
 
-const { language } = Astro.props;
+const language = Astro.currentLocale as Language;
 
 const isKommende = data.kommende && !data.sisteUtbetaling;
 const isIngenUtbetaling = !data.kommende && !data.sisteUtbetaling;

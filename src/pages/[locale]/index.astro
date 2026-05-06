@@ -1,46 +1,46 @@
 ---
-import Layout from "../../layouts/base/Layout.astro";
-import Content from "../../layouts/content/Content.astro";
-import DinOversikt from "../../features/din-oversikt/DinOversikt.astro";
-import Personalia from "@features/personalia/Personalia.astro";
+import { PUBLIC_LEGACY_SELECTOR_URL, PUBLIC_TELEMETRY_URL } from "astro:env/server";
 import AlertIsland from "@features/alert-island/AlertIsland.astro";
-import InnloggedeTjenester from "@features/innloggede-tjenester/InnloggedeTjenester.astro";
-import Container from "@shared/container/Container.astro";
 import Innboks from "@features/innboks/Innboks.astro";
+import InnloggedeTjenester from "@features/innloggede-tjenester/InnloggedeTjenester.astro";
+import Personalia from "@features/personalia/Personalia.astro";
+import SubstantialInfo from "@features/substantial-info/SubstantialInfo.astro";
 import Utbetaling from "@features/utbetaling/Utbetaling.astro";
+import Container from "@shared/container/Container.astro";
 import Feilmelding from "@shared/feilmelding/Feilmelding";
-import { getLanguage } from "../../utils/server/language";
+import Legacy from "@shared/legacy/Legacy";
 import Observability from "@shared/obersvability/Observability";
 import Aktuelt from "../../features/aktuelt/Aktuelt.astro";
+import DinOversikt from "../../features/din-oversikt/DinOversikt.astro";
 import Dokumenter from "../../features/dokumenter/Dokumenter.astro";
+import DokumenterFallback from "../../features/dokumenter/fallback/DokumenterFallback.astro";
 import InnboksFallback from "../../features/innboks/fallback/InnboksFallback.astro";
 import UtbetalingFallback from "../../features/utbetaling/fallback/UtbetalingFallback.astro";
-import SubstantialInfo from "@features/substantial-info/SubstantialInfo.astro";
-import DokumenterFallback from "../../features/dokumenter/fallback/DokumenterFallback.astro";
-import { PUBLIC_TELEMETRY_URL, PUBLIC_LEGACY_SELECTOR_URL } from "astro:env/server";
-import Legacy from "@shared/legacy/Legacy";
+import Layout from "../../layouts/base/Layout.astro";
+import Content from "../../layouts/content/Content.astro";
+import type { Language } from "../../utils/server/language";
 
-const language = getLanguage(Astro.url);
+const language = Astro.currentLocale as Language;
 ---
 
 <Layout title="Min side" breadcrumbs={[]}>
   <Content cls="min-side">
-    <SubstantialInfo language={language} />
+    <SubstantialInfo />
     <Feilmelding language={language} client:only="react" />
     <Personalia />
     <AlertIsland />
-    <DinOversikt language={language} server:defer />
+    <DinOversikt server:defer />
     <Container>
-      <Utbetaling language={language} server:defer>
+      <Utbetaling server:defer>
         <UtbetalingFallback slot="fallback" />
       </Utbetaling>
-      <Innboks language={language} server:defer>
+      <Innboks server:defer>
         <InnboksFallback slot="fallback" />
       </Innboks>
-      <Dokumenter language={language} server:defer>
+      <Dokumenter server:defer>
         <DokumenterFallback slot="fallback" />
       </Dokumenter>
-      <Aktuelt language={language} server:defer />
+      <Aktuelt server:defer />
     </Container>
     <InnloggedeTjenester />
   </Content>

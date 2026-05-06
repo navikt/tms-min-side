@@ -1,14 +1,9 @@
 ---
-import { Alert, Heading, Link, BodyShort } from "@navikt/ds-react";
-import { text } from "./substantialInfoText";
+import { Alert, BodyShort, Heading, Link } from "@navikt/ds-react";
 import type { Language } from "../../utils/server/language";
+import { text } from "./substantialInfoText";
 
-interface Props {
-  language: Language;
-}
-
-const { language } = Astro.props;
-
+const language = Astro.currentLocale as Language;
 const isSubstantial: boolean = Astro.locals.isSubstantial;
 ---
 

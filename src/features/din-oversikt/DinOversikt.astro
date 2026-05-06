@@ -1,30 +1,26 @@
 ---
-import { BodyShort } from "@navikt/ds-react";
 import { DIN_OVERSIKT_URL } from "astro:env/server";
+import { BodyShort } from "@navikt/ds-react";
+import ClientError from "@shared/client-error/ClientError";
+import { MultiStatusError } from "@utils/server/error";
+import { fetchData } from "@utils/server/fetch";
+import logger from "@utils/server/logger";
+import { getAudience, getOboToken } from "@utils/server/token";
 import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
-import Produktkort from "./produktkort/Produktkort";
-import Meldekort from "./meldekort/Meldekort.astro";
+import MicrofrontendSSRSkeleton from "../../microfrontends/MicrofrontendSkeleton.astro";
+import type { Language } from "../../utils/server/language";
+import styles from "./DinOversikt.module.css";
+import type { PersonalizedContent } from "./DinOversiktTypes";
 import { getProduktkortList } from "./dinOversiktUtils.ts";
+import Meldekort from "./meldekort/Meldekort.astro";
+import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
+import Produktkort from "./produktkort/Produktkort";
 import { produktText } from "./produktkort/ProduktText";
 import { getShowDinOversikt } from "./useOversikt.ts";
-import { fetchData } from "@utils/server/fetch";
-import { MultiStatusError } from "@utils/server/error";
-import { getAudience, getOboToken } from "@utils/server/token";
-import { PersonalizedContent } from "./DinOversiktTypes";
-import ClientError from "@shared/client-error/ClientError";
-import type { Language } from "../../utils/server/language";
-import logger from "@utils/server/logger";
-import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
-import MicrofrontendSSRSkeleton from "../../microfrontends/MicrofrontendSkeleton.astro";
-import styles from "./DinOversikt.module.css";
-
-interface Props {
-  language: Language;
-}
 
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const { language } = Astro.props;
+const language = Astro.currentLocale as Language;
 
 let isError = false;
 let personalizedContent: PersonalizedContent = {
@@ -42,7 +38,6 @@ try {
   if (error instanceof MultiStatusError) {
     personalizedContent = error.partialData as PersonalizedContent;
   }
-
   logger.error(`Fetching din-oversikt failed. ${error.message}`);
   logger.error(`Error: ${error}`);
   isError = true;

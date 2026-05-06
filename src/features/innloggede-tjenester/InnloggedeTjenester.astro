@@ -1,12 +1,12 @@
 ---
-import { Heading, BodyShort } from "@navikt/ds-react";
-import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
-import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./innloggedeTjenesterUrls";
-import { text } from "./innloggedeTjenesterText";
-import { getLanguage } from "../../utils/server/language";
+import { BodyShort, Heading } from "@navikt/ds-react";
+import type { Language } from "../../utils/server/language";
 import styles from "./InnloggedeTjenester.module.css";
+import { text } from "./innloggedeTjenesterText";
+import { annetLenker, hjelpemidlerLenker, jobbLenker, personopplysningLenker } from "./innloggedeTjenesterUrls";
+import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 
-const language = getLanguage(Astro.url);
+const language = Astro.currentLocale as Language;
 const isEnglish = language === "en";
 ---
 
