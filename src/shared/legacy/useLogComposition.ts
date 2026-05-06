@@ -3,7 +3,7 @@ import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
 import useSWRImmutable from "swr/immutable";
 import { fetcher, include } from "../../utils/client/api.ts";
 import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
-import { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
+import type { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
 
 export const useLogComposition = (url: string) => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
