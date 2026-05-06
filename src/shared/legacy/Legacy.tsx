@@ -4,11 +4,12 @@ import { useLogComposition } from "./useLogComposition";
 
 interface Props {
   language: Language;
+  url: string;
 }
 
-const Legacy = ({ language }: Props) => {
+const Legacy = ({ language, url }: Props) => {
   useLanguage(language);
-  useLogComposition();
+  useLogComposition(url);
 
   return null;
 };

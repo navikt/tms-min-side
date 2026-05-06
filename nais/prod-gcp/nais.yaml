@@ -112,7 +112,7 @@ spec:
     - name: PUBLIC_TELEMETRY_URL
       value: "https://telemetry.nav.no/collect"
     - name: PUBLIC_LEGACY_SELECTOR_URL
-      value: "https://www.nav.no/tms-min-side-proxy/selector"
+      value: "https://www.nav.no/tms-min-side-proxy/selector/din-oversikt"
   resources:
     limits:
       memory: 768Mi

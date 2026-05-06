@@ -109,7 +109,7 @@ spec:
     - name: PUBLIC_TELEMETRY_URL
       value: "https://telemetry.ekstern.dev.nav.no/collect"
     - name: PUBLIC_LEGACY_SELECTOR_URL
-      value: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/selector"
+      value: "https://www.ansatt.dev.nav.no/tms-min-side-proxy/selector/din-oversikt"
   resources:
     limits:
       cpu: "1"
