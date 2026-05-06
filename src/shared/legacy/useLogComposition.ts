@@ -5,7 +5,7 @@ import { fetcher, include } from "../../utils/client/api.ts";
 import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
 import { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
 
-export const useLogComposition = (url:string) => {
+export const useLogComposition = (url: string) => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
     { path: url, options: include },
     fetcher,

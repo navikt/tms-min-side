@@ -5,7 +5,7 @@ const Observability = ({ url }: { url: string }) => {
   useEffect(() => {
     initializeFaro({
       url: url,
-      app: { name: "tms-min-side" }
+      app: { name: "tms-min-side" },
     });
   }, []);
 
