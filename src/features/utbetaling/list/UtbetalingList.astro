@@ -3,7 +3,7 @@ import { Language } from "../../../utils/server/language";
 import { UtbetalingData } from "../utbetalingTypes";
 import { BodyShort, Heading, Tag } from "@navikt/ds-react";
 import { formatToReadableDate } from "../utbetalingUtils";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import styles from "./UtbetalingList.module.css";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import { text } from "../utbetalingText";
@@ -19,7 +19,7 @@ const { kommende, tidligere, language } = Astro.props;
 
 <div class={styles.wrapper}>
   <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[language]}</Heading>
-  <a href={`${utbetalingsoversiktUrl}/utbetaling/${kommende.id}`} class={styles.kommendeOgTidligere} id="kommende">
+  <a href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${kommende.id}`} class={styles.kommendeOgTidligere} id="kommende">
     <BodyShort className={styles.datoOgYtelse}>
       <span class={styles.datoOgTag}>
         {formatToReadableDate(kommende.dato)}
@@ -34,7 +34,7 @@ const { kommende, tidligere, language } = Astro.props;
       <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
     </BodyShort>
   </a>
-  <a href={`${utbetalingsoversiktUrl}/utbetaling/${tidligere.id}`} class={styles.kommendeOgTidligere} id="tidligere">
+  <a href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${tidligere.id}`} class={styles.kommendeOgTidligere} id="tidligere">
     <BodyShort className={styles.datoOgYtelse}>
       <span>
         {formatToReadableDate(tidligere.dato)}

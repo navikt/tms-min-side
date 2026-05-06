@@ -1,5 +1,5 @@
 ---
-import { dokumentarkivUrl } from "../dokumenterUrls";
+import { DOKUMENTARKIV_URL } from "astro:env/server";
 import { BodyShort } from "@navikt/ds-react";
 import { formatDateMonth, setAvsenderMottaker } from "./dokumentUtils";
 import type { DokumentType } from "../dokumenterTypes";
@@ -16,7 +16,7 @@ const avsender = setAvsenderMottaker(dokument);
 ---
 
 <li class={styles.container} id="dokumentlenke">
-  <a class={styles.wrapper} href={`${dokumentarkivUrl}/tema/${dokument.temakode}/${dokument.journalpostId}`}>
+  <a class={styles.wrapper} href={`${DOKUMENTARKIV_URL}/tema/${dokument.temakode}/${dokument.journalpostId}`}>
     <div>
       <BodyShort className={styles.link} size="medium">
         {dokument.tittel}

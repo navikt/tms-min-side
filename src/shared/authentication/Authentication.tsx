@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import { redirectUrl, statusUrl } from "./urls";
+import { redirectUrl, statusUrl } from "./authenticationUrls";
 import { fetcher } from "@utils/client/api.ts";
 
 export const reloadOnPageshow = () => {

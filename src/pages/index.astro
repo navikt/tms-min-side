@@ -17,6 +17,7 @@ import Aktuelt from "@features/aktuelt/Aktuelt.astro";
 import InnboksFallback from "../features/innboks/fallback/InnboksFallback.astro";
 import SubstantialInfo from "@features/substantial-info/SubstantialInfo.astro";
 import DokumenterFallback from "../features/dokumenter/fallback/DokumenterFallback.astro";
+import { PUBLIC_TELEMETRY_URL, PUBLIC_LEGACY_SELECTOR_URL } from "astro:env/server";
 import Legacy from "@shared/legacy/Legacy";
 
 const language = getLanguage(Astro.url);
@@ -43,6 +44,6 @@ const language = getLanguage(Astro.url);
     </Container>
     <InnloggedeTjenester />
   </Content>
-  <Legacy language={language} client:only="react" />
-  <Observability client:only="react" />
+  <Legacy language={language} url={PUBLIC_LEGACY_SELECTOR_URL} client:only="react" />
+  <Observability url={PUBLIC_TELEMETRY_URL} client:only="react" />
 </Layout>

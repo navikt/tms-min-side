@@ -6,14 +6,14 @@ import LinkWithAmplitude from "../link/LinkWithAmplitude";
 import style from "./InnloggedeTjensterSection.module.css";
 
 const language = getLanguage(Astro.url);
-const { liste, tittel } = Astro.props;
+const { lenker, tittel } = Astro.props;
 ---
 
 <div class={style.listeContainer}>
   <Detail className={style.listeTittel}>{tittel}</Detail>
   <ul class={style.liste}>
     {
-      liste.map((link) => (
+      lenker.map((link) => (
         <li class={style.link}>
           <Chevron className={style.chevron} fontSize="24px" aria-hidden={true} />
           <BodyShort>

@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
-import { PersonalizedContent } from "../../microfrontends/microfrontendTypes.tsx";
 import useSWRImmutable from "swr/immutable";
 import { fetcher, include } from "../../utils/client/api.ts";
-import { dinOversiktLegacyUrl } from "./urls";
-import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./utils";
+import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
+import type { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
 
-export const useLogComposition = () => {
+export const useLogComposition = (url: string) => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
-    { path: dinOversiktLegacyUrl, options: include },
+    { path: url, options: include },
     fetcher,
     {
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),

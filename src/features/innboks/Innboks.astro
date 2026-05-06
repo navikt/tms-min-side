@@ -1,8 +1,7 @@
 ---
 import InnboksTag from "./InnboksTag";
 import { Language } from "../../utils/server/language";
-import { innboksUrl } from "./innboksUrls";
-import { antallVarslerUrl } from "./innboksUrls";
+import { INNBOKS_URL, VARSEL_API_URL } from "astro:env/server";
 import { text } from "./innboksText";
 import { getAudience, getOboToken } from "../../utils/server/token";
 import { BodyLong, Heading } from "@navikt/ds-react";
@@ -24,7 +23,7 @@ let data = { innbokser: 0 };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, antallVarslerUrl);
+  data = await fetchData(oboToken, VARSEL_API_URL);
 } catch (error: any) {
   logger.error(`Fetching innboks failed. ${error.message}`);
   isError = true;
@@ -37,7 +36,7 @@ const { language } = Astro.props;
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
-  <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl} id="innboks">
+  <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={INNBOKS_URL} id="innboks">
     <Heading level="2" size="xsmall">{text.kommunikasjonsFlisLenketekstInnboks[language]}</Heading>
     <div class={styles.tagChevron}>
       <InnboksTag innbokser={innbokser} language={language} />

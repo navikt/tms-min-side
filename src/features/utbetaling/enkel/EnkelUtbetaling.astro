@@ -5,7 +5,7 @@ import { formatToReadableDate } from "../utbetalingUtils";
 import type { UtbetalingData } from "../utbetalingTypes";
 import type { Language } from "../../../utils/server/language";
 import styles from "./EnkelUtbetaling.module.css";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 
 interface Props {
@@ -27,7 +27,7 @@ const seDetaljerStyling = {
 }[utbetalingType];
 ---
 
-<a class={containerStyling} href={`${utbetalingsoversiktUrl}/utbetaling/${utbetaling.id}`}>
+<a class={containerStyling} href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${utbetaling.id}`}>
   <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
     <Heading level="2" size="xsmall">
       {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}

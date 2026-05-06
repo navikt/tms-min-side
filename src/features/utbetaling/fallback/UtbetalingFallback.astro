@@ -2,7 +2,7 @@
 import { Skeleton, Heading } from "@navikt/ds-react";
 import { getLanguage } from "../../../utils/server/language";
 import { text } from "../utbetalingText";
-import { utbetalingsoversiktUrl } from "../utbetalingUrls";
+import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import style from "./UtbetalingFallback.module.css";
 
 const language = getLanguage(Astro.url);
@@ -19,7 +19,7 @@ const language = getLanguage(Astro.url);
     <Skeleton width={225} height={24} />
   </div>
   <div class={style.wrapper}>
-    <a href={utbetalingsoversiktUrl} class={style.container}>
+    <a href={UTBETALINGSOVERSIKT_URL} class={style.container}>
       <div class={style.ytelse}>
         <Skeleton width={225} height={24} />
         <Skeleton width={125} height={24} />

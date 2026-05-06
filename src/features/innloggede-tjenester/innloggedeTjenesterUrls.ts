@@ -1,4 +1,4 @@
-import { getEnvironment } from "../../utils/server/environment.ts";
+import { isProduction } from "../../utils/server/environment";
 
 const jobbLenkerProd = [
   {
@@ -624,31 +624,7 @@ const annetLenkerDev = [
   },
 ];
 
-const jobbLenkerConfig = {
-  local: jobbLenkerDev,
-  dev: jobbLenkerDev,
-  prod: jobbLenkerProd,
-};
-
-const hjelpemidlerLenkerConfig = {
-  local: hjelpemidlerLenkerDev,
-  dev: hjelpemidlerLenkerDev,
-  prod: hjelpemidlerLenkerProd,
-};
-
-const personopplysningLenkerConfig = {
-  local: personopplysningLenkerDev,
-  dev: personopplysningLenkerDev,
-  prod: personopplysningLenkerProd,
-};
-
-const annetLenkerConfig = {
-  local: annetLenkerDev,
-  dev: annetLenkerDev,
-  prod: annetLenkerProd,
-};
-
-export const jobbLenker = jobbLenkerConfig[getEnvironment()];
-export const hjelpemidlerLenker = hjelpemidlerLenkerConfig[getEnvironment()];
-export const personopplysningLenker = personopplysningLenkerConfig[getEnvironment()];
-export const annetLenker = annetLenkerConfig[getEnvironment()];
+export const jobbLenker = isProduction ? jobbLenkerProd : jobbLenkerDev;
+export const hjelpemidlerLenker = isProduction ? hjelpemidlerLenkerProd : hjelpemidlerLenkerDev;
+export const personopplysningLenker = isProduction ? personopplysningLenkerProd : personopplysningLenkerDev;
+export const annetLenker = isProduction ? annetLenkerProd : annetLenkerDev;

@@ -8,7 +8,7 @@ import { fetchData } from "@utils/server/fetch";
 import type { Language } from "../../utils/server/language.ts";
 import logger from "@utils/server/logger.ts";
 import { Aktuelt } from "./aktueltTypes";
-import { aktueltUrl } from "./aktueltUrls";
+import { AKTUELT_URL } from "astro:env/server";
 import style from "./Aktuelt.module.css";
 
 interface Props {
@@ -23,7 +23,7 @@ let aktuelt: Aktuelt = { offerStepup: false, microfrontends: [] };
 let isError = false;
 
 try {
-  aktuelt = await fetchData(oboToken, aktueltUrl);
+  aktuelt = await fetchData(oboToken, AKTUELT_URL);
 } catch (error: any) {
   logger.error(`Fetching aktuelt failed. ${error.message}`);
   isError = true;

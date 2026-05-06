@@ -1,7 +1,7 @@
 ---
 import { getAudience, getOboToken } from "../../utils/server/token";
 import ClientError from "@shared/client-error/ClientError";
-import { navnUrl } from "./personaliaUrls";
+import { NAVN_URL } from "astro:env/server";
 import { fetchData } from "../../utils/server/fetch";
 import logger from "../../utils/server/logger";
 import style from "./Personalia.module.css";
@@ -13,7 +13,7 @@ let data = { navn: "", ident: "" };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, navnUrl);
+  data = await fetchData(oboToken, NAVN_URL);
 } catch (error: any) {
   logger.error(`Fetching navn failed. ${error.message}`);
   isError = true;
