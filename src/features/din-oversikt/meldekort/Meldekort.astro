@@ -21,7 +21,7 @@ try {
 } catch (error) {
   logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
   isError = true;
-  html = await fetchHtml(oboToken, `${MELDEKORT_URL}/${language}/"fallback"}`);
+  html = await fetchHtml(oboToken, `${MELDEKORT_URL}/${language}/fallback`);
 }
 ---
 
