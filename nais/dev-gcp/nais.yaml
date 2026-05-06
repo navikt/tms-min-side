@@ -93,7 +93,7 @@ spec:
     - name: MELDEKORT_URL
       value: "http://meldekort-mikrofrontend.meldekort"
     - name: MIN_SIDE_URL
-      value: "https://www.ansatt.dev.nav.no/minside/"
+      value: "https://www.ansatt.dev.nav.no/minside"
     - name: DOKUMENTARKIV_URL
       value: "https://www.ansatt.dev.nav.no/dokumentarkiv"
     - name: DOKUMENTER_URL
