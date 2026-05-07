@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tsx mock/server.ts & astro dev",
     "start": "astro dev",
     "build": "astro build",
     "mock": "tsx mock/server.ts",
