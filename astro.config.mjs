@@ -74,10 +74,9 @@ export default defineConfig({
         default: "http://localhost:3000/meldekort",
       }),
       MIN_SIDE_URL: envField.string({
-        // TODO: add this to NAIS-templates
         context: "server",
         access: "secret",
-        default: "http://localhost:4321/minside/",
+        default: "http://localhost:4321/minside",
       }),
       DOKUMENTARKIV_URL: envField.string({
         context: "server",
