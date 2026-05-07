@@ -19,7 +19,6 @@ src/
 │   │   ├── <feature>Text.ts     # i18n-tekster for denne featuren (co-lokert, ikke i undermappe)
 │   │   ├── <feature>Urls.ts     # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
 │   │   ├── <feature>Types.ts    # TypeScript-typer (valgfritt)
-│   │   ├── utils/               # (valgfritt) feature-spesifikke utilities
 │   │   ├── *.astro              # Server-rendrede komponenter
 │   │   ├── *.tsx                # Klient-interaktive React-komponenter
 │   │   └── *.module.css         # CSS Modules
@@ -27,7 +26,9 @@ src/
 │   ├── aktuelt/
 │   ├── alert-island/
 │   │   ├── utkast/
+│   │   │   └── assets/          # SVG-ikoner for utkast-tilstand
 │   │   └── varsler/
+│   │       └── assets/          # SVG-ikoner for varsler-tilstand
 │   ├── din-oversikt/
 │   │   ├── assets/
 │   │   ├── meldekort/
@@ -48,8 +49,7 @@ src/
 │   │   ├── fallback/
 │   │   ├── ingen/
 │   │   ├── list/
-│   │   ├── se-alle/
-│   │   └── utils/
+│   │   └── se-alle/
 │   └── ux-signal/
 │
 ├── shared/                      # Delt infrastruktur og UI-primitiver
@@ -59,12 +59,11 @@ src/
 │   ├── feilmelding/
 │   ├── legacy/
 │   ├── obersvability/           # Observability: Faro, Amplitude (merk: typo i mappenavn)
-│   └── store/
-│       └── store.ts             # Global state (nanostores): isErrorAtom, setIsError()
-│
-├── utils/                       # Teknisk infrastruktur (ikke feature-logikk)
-│   ├── server/                  # SSR-only: fetch.ts, token.ts, logger.ts, environment.ts, error.ts, language.ts
-│   └── client/                  # Browser-only: api.ts, environment.ts, umami.ts
+│   ├── store/
+│   │   └── store.ts             # Global state (nanostores): isErrorAtom, setIsError()
+│   └── utils/                   # Teknisk infrastruktur (ikke feature-logikk)
+│       ├── server/              # SSR-only: fetch.ts, token.ts, logger.ts, environment.ts, error.ts, language.ts
+│       └── client/              # Browser-only: api.ts, environment.ts, umami.ts
 │
 ├── microfrontends/              # Microfrontend-loader
 ├── middleware/                  # Astro middleware
@@ -94,14 +93,12 @@ Shared inneholder UI-primitiver og infrastruktur som **brukes av flere features*
 - Global state (`store/store.ts`): `isErrorAtom` og `setIsError()` via nanostores.
 - Tekniske wrappers uten domeneinnhold (`Legacy`, `Observability`).
 
-### Utils (`src/utils/`)
+### Utils (`src/shared/utils/`)
 
-Utils-mappen inneholder **ren teknisk infrastruktur** uten forretningslogikk:
+Utils-mappen er en del av `shared/` og inneholder **ren teknisk infrastruktur** uten forretningslogikk:
 
 - `server/`: SSR-utilities som er gjenbrukbare av mange features (`fetch`, `token`, `logger`, `environment`, `error`, `language`).
 - `client/`: Browser-utilities som er gjenbrukbare av mange features (`api`, `environment`, `umami`).
-
-Feature-spesifikk logikk (f.eks. `utbetaling/utils/`) ligger i respektive feature-slice.
 
 ---
 
@@ -109,10 +106,7 @@ Feature-spesifikk logikk (f.eks. `utbetaling/utils/`) ligger i respektive featur
 
 | Alias | Path | Status |
 |-------|------|--------|
-| `@features/*` | `src/features/*` | ✅ Definert — brukes for feature-imports |
-| `@shared/*` | `src/shared/*` | ✅ Definert — brukes for delt infrastruktur |
-| `@utils/*` | `src/utils/*` | ✅ Definert — brukes for teknisk infrastruktur |
-| `@hooks/*` | `src/hooks/*` | ❌ Fjernet — `src/hooks/` eksisterer ikke |
+| `@src/*` | `src/*` | ✅ Definert — brukes for alle imports (f.eks. `@src/shared/utils/server/language`) |
 
 ---
 
