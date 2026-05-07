@@ -1,11 +1,11 @@
 ---
 import { UTKAST_API_URL, UTKAST_URL } from "astro:env/server";
-import ClientError from "@shared/client-error/ClientError";
-import { MultiStatusError } from "@utils/server/error";
-import { fetchData } from "@utils/server/fetch";
-import logger from "@utils/server/logger";
-import { getAudience, getOboToken } from "@utils/server/token";
-import type { Language } from "../../../utils/server/language";
+import ClientError from "@src/shared/client-error/ClientError";
+import { MultiStatusError } from "@src/shared/utils/server/error";
+import { fetchData } from "@src/shared/utils/server/fetch";
+import type { Language } from "@src/shared/utils/server/language";
+import logger from "@src/shared/utils/server/logger";
+import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import UtkastIkon from "./assets/UtkastIkon.tsx";
 import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
 import style from "./Utkast.module.css";

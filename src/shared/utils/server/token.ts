@@ -1,5 +1,5 @@
 import { requestOboToken } from "@navikt/oasis";
-import { isLocal } from "@utils/server/environment.ts";
+import { isLocal } from "./environment.ts";
 import logger from "./logger";
 
 export const getOboToken = async (token: string, audience: string): Promise<string> => {

@@ -2,12 +2,12 @@
 import { INNBOKS_URL, VARSEL_API_URL } from "astro:env/server";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import ClientError from "@shared/client-error/ClientError";
-import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
-import logger from "@utils/server/logger";
-import { fetchData } from "../../utils/server/fetch";
-import type { Language } from "../../utils/server/language";
-import { getAudience, getOboToken } from "../../utils/server/token";
+import ClientError from "@src/shared/client-error/ClientError";
+import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
+import { fetchData } from "@src/shared/utils/server/fetch";
+import type { Language } from "@src/shared/utils/server/language";
+import logger from "@src/shared/utils/server/logger";
+import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./Innboks.module.css";
 import InnboksTag from "./InnboksTag";
 import { text } from "./innboksText";
@@ -46,7 +46,7 @@ const language = Astro.currentLocale as Language;
 <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />
 
 <script>
-  import { logEvent } from "../../utils/client/umami";
+  import { logEvent } from "@src/shared/utils/client/umami";
 
   const innboks = document.querySelector("#innboks");
 

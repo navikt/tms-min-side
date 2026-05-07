@@ -1,7 +1,7 @@
 import "dayjs";
 import "dayjs/locale/nb";
+import type { DokumentType } from "@src/features/dokumenter/dokumenterTypes.ts";
 import dayjs from "dayjs";
-import type { DokumentType } from "../dokumenterTypes.ts";
 
 dayjs.locale("nb");
 

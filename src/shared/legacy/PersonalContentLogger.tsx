@@ -1,4 +1,4 @@
-import { logContentEvent } from "../../utils/client/umami";
+import { logContentEvent } from "@src/shared/utils/client/umami";
 
 interface Props {
   event: string;

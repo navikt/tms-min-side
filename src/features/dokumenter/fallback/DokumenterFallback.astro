@@ -1,7 +1,7 @@
 ---
 import { Heading, Skeleton } from "@navikt/ds-react";
-import type { Language } from "../../../utils/server/language";
-import { text } from "../dokumenterText";
+import { text } from "@src/features/dokumenter/dokumenterText";
+import type { Language } from "@src/shared/utils/server/language";
 
 const language = Astro.currentLocale as Language;
 ---

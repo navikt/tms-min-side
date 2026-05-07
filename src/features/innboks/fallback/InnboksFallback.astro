@@ -1,9 +1,9 @@
 ---
 import { INNBOKS_URL } from "astro:env/server";
 import { BodyLong, BodyShort, Skeleton } from "@navikt/ds-react";
-import type { Language } from "../../../utils/server/language";
-import styles from "../Innboks.module.css";
-import { text } from "../innboksText";
+import styles from "@src/features/innboks/Innboks.module.css";
+import { text } from "@src/features/innboks/innboksText";
+import type { Language } from "@src/shared/utils/server/language";
 
 const language = Astro.currentLocale as Language;
 ---

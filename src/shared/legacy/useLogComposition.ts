@@ -1,9 +1,9 @@
+import type { PersonalizedContent } from "@src/features/din-oversikt/DinOversiktTypes";
+import { fetcher, include } from "@src/shared/utils/client/api.ts";
+import { logGroupedEvent, logMfEvent } from "@src/shared/utils/client/umami.ts";
 import { useEffect } from "react";
-import { logGroupedEvent, logMfEvent } from "../../utils/client/umami.ts";
 import useSWRImmutable from "swr/immutable";
-import { fetcher, include } from "../../utils/client/api.ts";
 import { getProduktPropertiesLegacy, hasAktueltMicrofrontendsLegacy, hasMicrofrontendsLegacy } from "./legacyUtils";
-import type { PersonalizedContent } from "../../features/din-oversikt/DinOversiktTypes";
 
 export const useLogComposition = (url: string) => {
   const { data: personalizedContent, isLoading: isLoadingMicrofrontends } = useSWRImmutable<PersonalizedContent>(
@@ -16,7 +16,7 @@ export const useLogComposition = (url: string) => {
 
   useEffect(() => {
     if (personalizedContent && !isLoadingMicrofrontends) {
-      let liste = [];
+      const liste = [];
       const produktProperties = getProduktPropertiesLegacy("nb", personalizedContent);
 
       if (hasMicrofrontendsLegacy(personalizedContent?.microfrontends)) {

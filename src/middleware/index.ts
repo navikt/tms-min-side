@@ -1,9 +1,9 @@
-import { defineMiddleware } from "astro/middleware";
 import { getToken, validateToken } from "@navikt/oasis";
+import { isLocal } from "@src/shared/utils/server/environment.ts";
+import logger from "@src/shared/utils/server/logger";
+import { defineMiddleware } from "astro/middleware";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
-import { isLocal } from "@utils/server/environment.ts";
-import logger from "@utils/server/logger";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
