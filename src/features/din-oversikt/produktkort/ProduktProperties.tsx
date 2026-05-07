@@ -1,13 +1,13 @@
-import IkonDagpenger from "../assets/IkonDagpenger";
-import IkonForeldrepenger from "../assets/IkonForeldrepenger";
-import IkonHjelpemidler from "../assets/IkonHjelpemidler";
-import IkonPensjon from "../assets/IkonPensjon";
-import IkonSykefravær from "../assets/IkonSykefravær";
-import IkonUføretrygd from "../assets/IkonUføretrygd";
-import IkonØkonomiskSosialhjelp from "../assets/IkonØkonomiskSosialhjelp";
-import { produktlinker as produktUrls } from "./ProduktUrls";
+import IkonDagpenger from "@src/features/din-oversikt/assets/IkonDagpenger";
+import IkonForeldrepenger from "@src/features/din-oversikt/assets/IkonForeldrepenger";
+import IkonHjelpemidler from "@src/features/din-oversikt/assets/IkonHjelpemidler";
+import IkonPensjon from "@src/features/din-oversikt/assets/IkonPensjon";
+import IkonSykefravær from "@src/features/din-oversikt/assets/IkonSykefravær";
+import IkonUføretrygd from "@src/features/din-oversikt/assets/IkonUføretrygd";
+import IkonØkonomiskSosialhjelp from "@src/features/din-oversikt/assets/IkonØkonomiskSosialhjelp";
+import type { Language } from "@src/shared/utils/server/language.ts";
 import { produktText } from "./ProduktText";
-import type { Language } from "../../../utils/server/language.ts";
+import { produktlinker as produktUrls } from "./ProduktUrls";
 
 type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
 

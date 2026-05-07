@@ -1,9 +1,9 @@
 ---
 import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
-import Authentication from "@shared/authentication/Authentication";
-import { getDecoratorEnvironment } from "../../utils/server/environment";
-import type { Language } from "../../utils/server/language";
+import Authentication from "@src/shared/authentication/Authentication";
+import { getDecoratorEnvironment } from "@src/shared/utils/server/environment";
+import type { Language } from "@src/shared/utils/server/language";
 import "./Layout.css";
 
 export interface Props {

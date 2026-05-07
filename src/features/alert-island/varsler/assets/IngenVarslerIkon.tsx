@@ -1,4 +1,4 @@
-import style from "../Varsler.module.css";
+import style from "@src/features/alert-island/varsler/Varsler.module.css";
 
 const IngenVarlserIkon = () => (
   <svg className={style["varsler-ikon"]} width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">

@@ -1,12 +1,12 @@
 ---
-import { Language } from "../../../utils/server/language";
-import { UtbetalingData } from "../utbetalingTypes";
-import { BodyShort, Heading, Tag } from "@navikt/ds-react";
-import { formatToReadableDate } from "../utbetalingUtils";
 import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
-import styles from "./UtbetalingList.module.css";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
-import { text } from "../utbetalingText";
+import { BodyShort, Heading, Tag } from "@navikt/ds-react";
+import { text } from "@src/features/utbetaling/utbetalingText";
+import type { UtbetalingData } from "@src/features/utbetaling/utbetalingTypes";
+import { formatToReadableDate } from "@src/features/utbetaling/utbetalingUtils";
+import type { Language } from "@src/shared/utils/server/language";
+import styles from "./UtbetalingList.module.css";
 
 interface Props {
   kommende: UtbetalingData;
@@ -49,7 +49,7 @@ const { kommende, tidligere, language } = Astro.props;
     </BodyShort>
   </a>
   <script>
-    import { logEvent } from "../../../utils/client/umami";
+    import { logEvent } from "@src/shared/utils/client/umami";
 
     const kommende = document.querySelector("#kommende");
     const tidligere = document.querySelector("#tidligere");

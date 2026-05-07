@@ -1,12 +1,12 @@
 ---
 import { AKTUELT_URL } from "astro:env/server";
 import { BodyShort, Skeleton } from "@navikt/ds-react";
-import ClientError from "@shared/client-error/ClientError";
-import { fetchData } from "@utils/server/fetch";
-import logger from "@utils/server/logger.ts";
-import { getAudience, getOboToken } from "@utils/server/token";
-import MicrofrontendSSR from "../../microfrontends/Microfrontend.astro";
-import type { Language } from "../../utils/server/language.ts";
+import MicrofrontendSSR from "@src/microfrontends/Microfrontend.astro";
+import ClientError from "@src/shared/client-error/ClientError";
+import { fetchData } from "@src/shared/utils/server/fetch";
+import type { Language } from "@src/shared/utils/server/language.ts";
+import logger from "@src/shared/utils/server/logger.ts";
+import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import style from "./Aktuelt.module.css";
 import { text } from "./aktueltText";
 import type { Aktuelt } from "./aktueltTypes";

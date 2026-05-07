@@ -1,4 +1,4 @@
-import style from "../Varsler.module.css";
+import style from "@src/features/alert-island/varsler/Varsler.module.css";
 
 const VarselBjelleDotUtenFyll = () => (
   <svg

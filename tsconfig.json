@@ -7,9 +7,7 @@
     "skipLibCheck": true,
     "verbatimModuleSyntax": false,
     "paths": {
-      "@features/*": ["src/features/*"],
-      "@shared/*": ["src/shared/*"],
-      "@utils/*": ["src/utils/*"]
+      "@src/*": ["src/*"]
     }
   }
 }

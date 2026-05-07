@@ -1,4 +1,4 @@
-import { isProduction } from "../../../utils/server/environment";
+import { isProduction } from "@src/shared/utils/server/environment";
 
 const produktlinkerDev = {
   dagpenger: {

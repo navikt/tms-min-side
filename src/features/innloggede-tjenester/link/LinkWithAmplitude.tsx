@@ -1,7 +1,7 @@
+import style from "@src/features/innloggede-tjenester/section/InnloggedeTjensterSection.module.css";
+import { logEvent } from "@src/shared/utils/client/umami.ts";
+import type { Language } from "@src/shared/utils/server/language.ts";
 import React from "react";
-import { logEvent } from "../../../utils/client/umami.ts";
-import type { Language } from "../../../utils/server/language.ts";
-import style from "../section/InnloggedeTjensterSection.module.css";
 
 interface Link {
   nb: string;
