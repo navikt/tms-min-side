@@ -1,16 +1,16 @@
 ---
-import UtkastIkon from "./assets/UtkastIkon.tsx";
-import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
-import { getLanguage } from "../../../utils/server/language";
-import { fetchData } from "@utils/server/fetch";
-import { getAudience, getOboToken } from "@utils/server/token";
-import { UTKAST_URL, UTKAST_API_URL } from "astro:env/server";
+import { UTKAST_API_URL, UTKAST_URL } from "astro:env/server";
 import ClientError from "@shared/client-error/ClientError";
 import { MultiStatusError } from "@utils/server/error";
-import { Utkast } from "./utkastTypes";
-import { text } from "./utkastText";
-import style from "./Utkast.module.css";
+import { fetchData } from "@utils/server/fetch";
 import logger from "@utils/server/logger";
+import { getAudience, getOboToken } from "@utils/server/token";
+import type { Language } from "../../../utils/server/language";
+import UtkastIkon from "./assets/UtkastIkon.tsx";
+import UtkastIkonHover from "./assets/UtkastIkonHover.tsx";
+import style from "./Utkast.module.css";
+import { text } from "./utkastText";
+import type { Utkast } from "./utkastTypes";
 
 const audience = getAudience("tms-utkast");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -29,7 +29,7 @@ try {
   isError = true;
 }
 
-const language = getLanguage(Astro.url);
+const language = Astro.currentLocale as Language;
 const antall = data ? data.antall : 0;
 const hasUtkast = antall > 0;
 const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](antall);

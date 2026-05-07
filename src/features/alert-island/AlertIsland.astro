@@ -1,10 +1,7 @@
 ---
-import Varsler from "./varsler/Varsler.astro";
-import Utkast from "./utkast/Utkast.astro";
-import { getLanguage } from "../../utils/server/language";
 import style from "./AlertIsland.module.css";
-
-const language = getLanguage(Astro.url);
+import Utkast from "./utkast/Utkast.astro";
+import Varsler from "./varsler/Varsler.astro";
 ---
 
 <div class={style.container}>

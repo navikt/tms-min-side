@@ -1,22 +1,18 @@
 ---
-import Dokument from "./dokument/Dokument.astro";
-import ClientError from "@shared/client-error/ClientError";
-import { Language } from "../../utils/server/language";
-import { getAudience, getOboToken } from "../../utils/server/token";
-import { fetchData } from "../../utils/server/fetch";
 import { DOKUMENTARKIV_URL, DOKUMENTER_URL } from "astro:env/server";
-import { Heading, BodyLong, BodyShort } from "@navikt/ds-react";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
-import { text } from "./dokumenterText";
-import type { DokumentType } from "./dokumenterTypes";
-import styles from "./Dokumenter.module.css";
-import MinIDDokumenter from "./ingen/MinIDDokumenter.astro";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import ClientError from "@shared/client-error/ClientError";
 import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
 import logger from "@utils/server/logger";
-
-interface Props {
-  language: Language;
-}
+import { fetchData } from "../../utils/server/fetch";
+import type { Language } from "../../utils/server/language";
+import { getAudience, getOboToken } from "../../utils/server/token";
+import styles from "./Dokumenter.module.css";
+import Dokument from "./dokument/Dokument.astro";
+import { text } from "./dokumenterText";
+import type { DokumentType } from "./dokumenterTypes";
+import MinIDDokumenter from "./ingen/MinIDDokumenter.astro";
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -35,7 +31,7 @@ try {
 }
 
 const hasIngenDokumenter = data.length === 0;
-const { language } = Astro.props;
+const language = Astro.currentLocale as Language;
 ---
 
 {isError && <ClientError client:only="react" />}

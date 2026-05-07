@@ -1,17 +1,17 @@
 ---
-import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtils";
-import { text } from "./varslerText";
-import { getAudience, getOboToken } from "../../../utils/server/token";
-import { fetchData } from "../../../utils/server/fetch";
-import { VARSLER_URL, VARSEL_API_URL } from "astro:env/server";
-import IngenVarslerIkon from "./assets/IngenVarslerIkon";
-import VarselBjelleDotMedFyll from "./assets/VarselBjelleDotMedFyll";
-import VarselBjelleDotUtenFyll from "./assets/VarselBjelleDotUtenFyll";
-import { getLanguage } from "../../../utils/server/language";
+import { VARSEL_API_URL, VARSLER_URL } from "astro:env/server";
 import ClientError from "@shared/client-error/ClientError";
 import PersonalContentLogger from "@shared/legacy/PersonalContentLogger";
 import logger from "@utils/server/logger";
+import { fetchData } from "../../../utils/server/fetch";
+import type { Language } from "../../../utils/server/language";
+import { getAudience, getOboToken } from "../../../utils/server/token";
+import IngenVarslerIkon from "./assets/IngenVarslerIkon";
+import VarselBjelleDotMedFyll from "./assets/VarselBjelleDotMedFyll";
+import VarselBjelleDotUtenFyll from "./assets/VarselBjelleDotUtenFyll";
 import style from "./Varsler.module.css";
+import { text } from "./varslerText";
+import { beskjedSingular, buildText, hasVarsler, oppgaveSingular } from "./varslerUtils";
 
 const audience = getAudience("tms-varsel-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -30,7 +30,7 @@ const oppgaver = data.oppgaver || 0;
 const beskjeder = data.beskjeder + data.innbokser;
 const varsler = beskjeder + oppgaver;
 
-const language = getLanguage(Astro.url);
+const language = Astro.currentLocale as Language;
 const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[language] : text.oppgaver[language];
 const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
 ---

@@ -1,8 +1,9 @@
 ---
-import Authentication from "@shared/authentication/Authentication";
+import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
+import Authentication from "@shared/authentication/Authentication";
 import { getDecoratorEnvironment } from "../../utils/server/environment";
-import { getLanguage } from "../../utils/server/language";
+import type { Language } from "../../utils/server/language";
 import "./Layout.css";
 
 export interface Props {
@@ -15,7 +16,7 @@ export interface Props {
   ];
 }
 
-const language = getLanguage(Astro.url);
+const language = Astro.currentLocale as Language;
 const { title, breadcrumbs } = Astro.props;
 
 const Decorator = await fetchDecoratorHtml({
@@ -23,21 +24,22 @@ const Decorator = await fetchDecoratorHtml({
   params: {
     context: "privatperson",
     breadcrumbs: breadcrumbs,
+    language: language,
     availableLanguages: [
       {
         locale: "nb",
-        url: "https://www.nav.no/minside/nb",
-        handleInApp: true,
+        url: `${MIN_SIDE_URL}/nb`,
+        handleInApp: false,
       },
       {
         locale: "en",
-        url: "https://www.nav.no/minside/en",
-        handleInApp: true,
+        url: `${MIN_SIDE_URL}/en`,
+        handleInApp: false,
       },
       {
         locale: "nn",
-        url: "https://www.nav.no/minside/nn",
-        handleInApp: true,
+        url: `${MIN_SIDE_URL}/nn`,
+        handleInApp: false,
       },
     ],
   },

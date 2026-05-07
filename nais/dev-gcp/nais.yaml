@@ -92,6 +92,8 @@ spec:
       value: "http://tms-mikrofrontend-selector/din-oversikt"
     - name: MELDEKORT_URL
       value: "http://meldekort-mikrofrontend.meldekort"
+    - name: MIN_SIDE_URL
+      value: "https://www.ansatt.dev.nav.no/minside"
     - name: DOKUMENTARKIV_URL
       value: "https://www.ansatt.dev.nav.no/dokumentarkiv"
     - name: DOKUMENTER_URL
