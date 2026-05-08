@@ -6,7 +6,7 @@
 
 ## Bakgrunn
 
-Kodebasen er organisert som en **vertikal slice-arkitektur**. All kode for én feature finnes på ett sted — slik at det er lett å forstå, endre og slette en feature. Kodebasen er migrert fra en horisontal, lagdelt struktur (med bl.a. `src/language/`) til denne strukturen.
+Kodebasen er organisert som en **vertikal slice-arkitektur**. All kode for én feature finnes på ett sted — slik at det er lett å forstå, endre og slette en feature. Kodebasen er migrert fra en horisontal, lagdelt struktur (med bl.a. `src/components/`) til denne strukturen.
 
 ---
 
@@ -19,9 +19,9 @@ src/
 │   │   ├── <feature>Text.ts     # i18n-tekster for denne featuren (co-lokert, ikke i undermappe)
 │   │   ├── <feature>Urls.ts     # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
 │   │   ├── <feature>Types.ts    # TypeScript-typer (valgfritt)
-│   │   ├── *.astro              # Server-rendrede komponenter
-│   │   ├── *.tsx                # Klient-interaktive React-komponenter
-│   │   └── *.module.css         # CSS Modules
+│   │   ├── <feature>.astro      # Server-rendrede komponenter
+│   │   ├── <feature>.tsx        # Klient-interaktive React-komponenter
+│   │   └── <feature>.module.css # CSS Modules
 │   │
 │   ├── aktuelt/
 │   ├── alert-island/
