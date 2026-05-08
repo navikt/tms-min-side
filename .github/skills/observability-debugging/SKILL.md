@@ -270,7 +270,7 @@ kubectl logs -n $NAMESPACE -l app=$APP --since=5m | jq -s 'group_by(.level) | .[
 
 ## Common Diagnostic Queries
 
-See [references/query-library.md](./references/query-library.md) for a comprehensive library of diagnostic PromQL, LogQL, and TraceQL queries organized by symptom.
+See [references/query-library.md](references/query-library.md) for a comprehensive library of diagnostic PromQL, LogQL, and TraceQL queries organized by symptom.
 
 ## Grafana UI Shortcuts
 
