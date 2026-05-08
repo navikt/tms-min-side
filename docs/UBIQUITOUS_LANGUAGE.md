@@ -83,8 +83,8 @@ Kjente sakstemaer:
 | Term | Definisjon | Aliaser som bør unngås |
 |---|---|---|
 | **Utbetaling** | En konkret pengeoverføring fra Nav til innbyggerens konto | Betaling, transaksjon |
-| **Siste utbetaling** | Den seneste registrerte utbetalingen | Forrige utbetaling |
-| **Neste utbetaling** | En kommende planlagt utbetaling | Fremtidig utbetaling |
+| **Tidligere utbetaling** | Den seneste gjennomførte utbetalingen | Siste utbetaling, forrige utbetaling |
+| **Kommende utbetaling** | En planlagt utbetaling som ennå ikke er gjennomført | Neste utbetaling, fremtidig utbetaling |
 
 ## Dokumenter
 
@@ -142,3 +142,5 @@ Kjente sakstemaer:
 - **«Sakstema» vs «Temakode»**: Begge brukes i koden (`temakode` i `DokumentType`, `sakstema` i `getProduktkortList`). Kanonisk term: **sakstema**. Bruk `sakstema` konsekvent.
 
 - **`isSubstantial`**: Variabelnavnet i koden er misvisende — det betyr reelt sett «begrenset tilgang». Unngå å bruke dette som brukervendt tekst. Bruk **MinID-innlogging** for å kommunisere tilstanden til brukeren.
+
+- **«Kommende» vs «Neste» / «Tidligere» vs «Siste» utbetaling**: Koden bruker `utbetalingType: "kommende" | "tidligere"`, men dagligtale og eldre tekster sier «neste» og «siste». Kanonisk term: **Kommende utbetaling** og **Tidligere utbetaling** — konsekvent med kodebasen.
