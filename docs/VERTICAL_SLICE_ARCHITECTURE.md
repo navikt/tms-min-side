@@ -19,9 +19,9 @@ src/
 │   │   ├── <feature>Text.ts     # i18n-tekster for denne featuren (co-lokert, ikke i undermappe)
 │   │   ├── <feature>Urls.ts     # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
 │   │   ├── <feature>Types.ts    # TypeScript-typer (valgfritt)
-│   │   ├── <feature>.astro      # Server-rendrede komponenter
-│   │   ├── <feature>.tsx        # Klient-interaktive React-komponenter
-│   │   └── <feature>.module.css # CSS Modules
+│   │   ├── <Feature>.astro      # Server-rendrede komponenter
+│   │   ├── <Feature>.tsx        # Klient-interaktive React-komponenter
+│   │   └── <Feature>.module.css # CSS Modules
 │   │
 │   ├── aktuelt/
 │   ├── alert-island/
