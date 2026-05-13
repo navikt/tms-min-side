@@ -37,26 +37,32 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 
 {isError && <ClientError client:only="react" />}
 {
-  !hasVarsler(varsler) ? (
-    <a href={VARSLER_URL} class={style.varsler}>
-      <IngenVarslerIkon />
-      <div class={style.container}>
-        <h3 class={style.heading}>{text.varsler[language]}</h3>
-        <p class={style.tekst}>{text.ingenVarsler[language]}</p>
-      </div>
-    </a>
-  ) : (
-    <a href={VARSLER_URL} class={style.varsler}>
-      <div class={style.ikonRektangel}>
-        <VarselBjelleDotMedFyll />
-        <VarselBjelleDotUtenFyll />
-      </div>
-      <div class={style.container}>
-        <h3 class={style.heading}>{text.varsler[language]}</h3>
-        <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
-      </div>
-    </a>
-  )
+  () => {
+    if (!hasVarsler(varsler)) {
+      return (
+        <a href={VARSLER_URL} class={style.varsler}>
+          <IngenVarslerIkon />
+          <div class={style.container}>
+            <h3 class={style.heading}>{text.varsler[language]}</h3>
+              <p class={style.tekst}>{text.ingenVarsler[language]}</p>
+          </div>
+        </a>
+      )
+    } else {
+      return (
+        <a href={VARSLER_URL} class={style.varsler}>
+          <div class={style.ikonRektangel}>
+            <VarselBjelleDotMedFyll />
+            <VarselBjelleDotUtenFyll />
+          </div>
+          <div class={style.container}>
+            <h3 class={style.heading}>{text.varsler[language]}</h3>
+              <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
+          </div>
+        </a>
+        )
+      }
+    }
 }
 
 <PersonalContentLogger event={"varsler"} value={varsler > 0 ? true : false} client:only="react" />

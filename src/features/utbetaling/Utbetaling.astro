@@ -12,6 +12,7 @@ import UtbetalingList from "./list/UtbetalingList.astro";
 import SeAlle from "./se-alle/SeAlle.astro";
 import styles from "./Utbetaling.module.css";
 import type { Utbetaling } from "./utbetalingTypes";
+import { isIngenUtbetaling, isKommende, isTidligereUtbetaling, isUtbetalingList } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -27,30 +28,25 @@ try {
 }
 
 const language = Astro.currentLocale as Language;
-
-const isKommende = data.kommende && !data.sisteUtbetaling;
-const isIngenUtbetaling = !data.kommende && !data.sisteUtbetaling;
-const isTidligereUtbetaling = data.sisteUtbetaling && !data.kommende;
-const isUtbetalingList = data.sisteUtbetaling && data.kommende;
 ---
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   {
     () => {
-      if (isIngenUtbetaling) {
+      if (isIngenUtbetaling(data)) {
         return <IngenUtbetaling language={language} />;
       }
 
-      if (isKommende) {
+      if (isKommende(data)) {
         return <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />;
       }
 
-      if (isTidligereUtbetaling) {
+      if (isTidligereUtbetaling(data)) {
         return <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />;
       }
 
-      if (isUtbetalingList) {
+      if (isUtbetalingList(data)) {
         return <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />;
       }
     }

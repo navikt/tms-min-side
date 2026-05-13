@@ -28,18 +28,24 @@ try {
 
 {isError && <ClientError client:only="react" />}
 {
-  aktuelt.microfrontends.length === 0 ? null : (
-    <div class={style.container}>
-      <BodyShort as="h2" className={style.aktuelt} spacing>
-        {text.aktuelt[language]}
-      </BodyShort>
-      {aktuelt.microfrontends.map((mf) => {
-        return (
-          <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-            <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback" />
-          </MicrofrontendSSR>
-        );
-      })}
-    </div>
-  )
+  () => {
+    if (aktuelt.microfrontends.length === 0) {
+      return null;
+    } else {
+      return (
+        <div class={style.container}>
+          <BodyShort as="h2" className={style.aktuelt} spacing>
+            {text.aktuelt[language]}
+          </BodyShort>
+          {aktuelt.microfrontends.map((mf) => {
+            return (
+              <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
+                <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback"/>
+              </MicrofrontendSSR>
+            );
+          })}
+        </div>
+      )
+    }
+  }
 }
