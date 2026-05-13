@@ -4,14 +4,14 @@
   margin-top: var(--tms-space-between-sections);
 }
 
-.ingenHeadingContainer {
+.heading {
   background-color: var(--a-bg-subtle);
   padding: 1rem 1.25rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
   margin-bottom: 0.125rem;
 }
 
-.ingenIngressContainer {
+.ingress {
   background-color: var(--a-bg-subtle);
   padding: 1rem 1.25rem;
   border-radius: 0.125rem 0.125rem 0.5rem 0.5rem;
@@ -45,7 +45,7 @@
   text-decoration: none;
 }
 
-.ingenText {
+.text {
   color: var(--a-text-subtle);
 }
 
