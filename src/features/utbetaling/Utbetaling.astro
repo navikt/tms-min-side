@@ -51,7 +51,7 @@ const language = Astro.currentLocale as Language;
       }
     }
   }
-  <SeAlle language={language} isKommende={isKommende} />
+  <SeAlle language={language} isKommende={isKommende(data)} />
 
   <PersonalContentLogger
     event={"utbetaling"}
