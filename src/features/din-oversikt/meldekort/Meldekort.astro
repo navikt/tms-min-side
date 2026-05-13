@@ -1,7 +1,7 @@
 ---
 import { MELDEKORT_URL } from "astro:env/server";
 import ClientError from "@src/shared/client-error/ClientError";
-import { fetchHtml } from "@src/shared/utils/server/fetch";
+import { fetchMicrofrontend } from "@src/shared/utils/server/fetch";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 
@@ -14,14 +14,14 @@ const audience = getAudience("meldekort-mikrofrontend", "meldekort");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let isError = false;
-let html;
+let html = "";
 
 try {
-  html = await fetchHtml(oboToken, `${MELDEKORT_URL}/${language}`);
+  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${language}`);
 } catch (error) {
   logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
   isError = true;
-  html = await fetchHtml(oboToken, `${MELDEKORT_URL}/${language}/fallback`);
+  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${language}/fallback`);
 }
 ---
 

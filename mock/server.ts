@@ -1,17 +1,17 @@
-import { Hono } from "hono";
 import { serve } from "@hono/node-server";
+import { Hono } from "hono";
 import { cors } from "hono/cors";
-import navn from "./data/navn.json" with { type: "json" };
+// import { HTTPException } from "hono/http-exception";
 import aktuelt from "./data/aktuelt.json" with { type: "json" };
 import dinOversikt from "./data/din-oversikt.json" with { type: "json" };
 import journalposter from "./data/dokumenter.json" with { type: "json" };
-import varsler from "./data/varsler.json" with { type: "json" };
-import utkast from "./data/utkast.json" with { type: "json" };
-import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
 import innboks from "./data/innboks.json" with { type: "json" };
+import { mockMicrofrontend } from "./data/microfrontend/mockMicrofrontend.ts";
+import navn from "./data/navn.json" with { type: "json" };
 import status from "./data/status.json" with { type: "json" };
-import { mockMicrofrontendSSR } from "./data/microfrontend/mockMicrofrontendSSR.ts";
-import { HTTPException } from "hono/http-exception";
+import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
+import utkast from "./data/utkast.json" with { type: "json" };
+import varsler from "./data/varsler.json" with { type: "json" };
 
 const api = new Hono();
 
@@ -68,19 +68,19 @@ api.post("/collect", (c) => {
 });
 
 api.get("/meldekort/*", (c) => {
-  return c.html(mockMicrofrontendSSR("Meldekort"));
+  return c.html(mockMicrofrontend("Meldekort"));
 });
 
 api.get("/pensjonskalkulator/*", (c) => {
-  return c.html(mockMicrofrontendSSR("Pensjonskalkulator"));
+  return c.html(mockMicrofrontend("Pensjonskalkulator"));
 });
 
 api.get("/syfo-dialog/*", (c) => {
-  return c.html(mockMicrofrontendSSR("Syfo dialog"));
+  return c.html(mockMicrofrontend("Syfo dialog"));
 });
 
 api.get("/aap/*", (c) => {
-  return c.html(mockMicrofrontendSSR("AAP"));
+  return c.html(mockMicrofrontend("AAP"));
 });
 
 serve(api);

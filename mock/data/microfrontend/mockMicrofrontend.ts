@@ -1,7 +1,6 @@
-import { html } from 'hono/html';
+import { html } from "hono/html";
 
-export const mockMicrofrontendSSR = (name: string) => (
-    html`
+export const mockMicrofrontend = (name: string) => html`
         <div class="container">
             <h3>${name}</h3>
         </div>
@@ -14,5 +13,4 @@ export const mockMicrofrontendSSR = (name: string) => (
               padding: 1rem;
           }
         </style>
-      `
-);
+      `;

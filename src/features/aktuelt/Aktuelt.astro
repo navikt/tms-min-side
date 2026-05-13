@@ -1,7 +1,7 @@
 ---
 import { AKTUELT_URL } from "astro:env/server";
 import { BodyShort, Skeleton } from "@navikt/ds-react";
-import MicrofrontendSSR from "@src/microfrontends/Microfrontend.astro";
+import Microfrontend from "@src/microfrontends/Microfrontend.astro";
 import ClientError from "@src/shared/client-error/ClientError";
 import { fetchData } from "@src/shared/utils/server/fetch";
 import type { Language } from "@src/shared/utils/server/language.ts";
@@ -20,7 +20,7 @@ let isError = false;
 
 try {
   aktuelt = await fetchData(oboToken, AKTUELT_URL);
-} catch (error: any) {
+} catch (error) {
   logger.error(`Fetching aktuelt failed. ${error.message}`);
   isError = true;
 }
@@ -39,9 +39,9 @@ try {
           </BodyShort>
           {aktuelt.microfrontends.map((mf) => {
             return (
-              <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
+              <Microfrontend microfrontend={mf} language={language} server:defer>
                 <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback"/>
-              </MicrofrontendSSR>
+              </Microfrontend>
             );
           })}
         </div>
