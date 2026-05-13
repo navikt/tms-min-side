@@ -1,8 +1,8 @@
 ---
 import { BodyLong, Heading } from "@navikt/ds-react";
-import styles from "@src/features/dokumenter/Dokumenter.module.css";
 import { text } from "@src/features/dokumenter/dokumenterText";
 import type { Language } from "@src/shared/utils/server/language";
+import styles from "./MinIDDokumenter.module.css";
 
 interface Props {
   language: Language;
@@ -12,12 +12,12 @@ const { language } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <div class={styles.ingenHeadingContainer}>
+  <div class={styles.heading}>
     <Heading level="2" size="xsmall">
       {text.heading[language]}
     </Heading>
   </div>
-  <div class={styles.ingenIngressContainer}>
-    <BodyLong className={styles.ingenText}>{text.minidIngress[language]}</BodyLong>
+  <div class={styles.ingress}>
+    <BodyLong className={styles.text}>{text.minidIngress[language]}</BodyLong>
   </div>
 </div>

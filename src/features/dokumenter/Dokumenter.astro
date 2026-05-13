@@ -12,7 +12,7 @@ import styles from "./Dokumenter.module.css";
 import Dokument from "./dokument/Dokument.astro";
 import { text } from "./dokumenterText";
 import type { DokumentType } from "./dokumenterTypes";
-import MinIDDokumenter from "./ingen/MinIDDokumenter.astro";
+import MinIDDokumenter from "./minid/MinIDDokumenter.astro";
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -43,13 +43,15 @@ const language = Astro.currentLocale as Language;
     if (hasIngenDokumenter) {
       return (
         <div class={styles.container}>
-          <div class={styles.ingenHeadingContainer}>
+          <div class={styles.heading}>
             <Heading level="2" size="xsmall">
               {text.heading[language]}
             </Heading>
           </div>
-          <div class={styles.ingenIngressContainer}>
-            <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
+          <div class={styles.ingress}>
+            <BodyLong className={styles.text}>
+              {text.ingenText[language]}
+            </BodyLong>
           </div>
           <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${language}`} id="ingenDokumenterAlle">
             {text.tidligere[language]}
@@ -69,7 +71,9 @@ const language = Astro.currentLocale as Language;
           </ul>
           <div class={styles.alle}>
             <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${language}`} id="alle">
-              <BodyShort size="medium">{text.alle[language]}</BodyShort>
+              <BodyShort size="medium">
+                {text.alle[language]}
+              </BodyShort>
             </a>
             <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px" />
           </div>
