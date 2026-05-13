@@ -38,26 +38,26 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
 {isError && <ClientError client:only="react" />}
 {
   () => {
-    if (!hasVarsler(varsler)) {
+    if (hasVarsler(varsler)) {
       return (
         <a href={VARSLER_URL} class={style.varsler}>
-          <IngenVarslerIkon />
+          <div class={style.ikonRektangel}>
+              <VarselBjelleDotMedFyll />
+              <VarselBjelleDotUtenFyll />
+          </div>
           <div class={style.container}>
-            <h3 class={style.heading}>{text.varsler[language]}</h3>
-              <p class={style.tekst}>{text.ingenVarsler[language]}</p>
+              <h3 class={style.heading}>{text.varsler[language]}</h3>
+              <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
           </div>
         </a>
       )
     } else {
       return (
         <a href={VARSLER_URL} class={style.varsler}>
-          <div class={style.ikonRektangel}>
-            <VarselBjelleDotMedFyll />
-            <VarselBjelleDotUtenFyll />
-          </div>
+          <IngenVarslerIkon />
           <div class={style.container}>
-            <h3 class={style.heading}>{text.varsler[language]}</h3>
-              <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
+              <h3 class={style.heading}>{text.varsler[language]}</h3>
+              <p class={style.tekst}>{text.ingenVarsler[language]}</p>
           </div>
         </a>
         )
