@@ -64,14 +64,14 @@ const language = Astro.currentLocale as Language;
           </Heading>
           <ul class={styles.dokumenter}>
             {data.map((dokument) => (
-              <Dokument key={dokument.dokumentInfoId} dokument={dokument}/>
+              <Dokument key={dokument.dokumentInfoId} dokument={dokument} />
             ))}
           </ul>
           <div class={styles.alle}>
             <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${language}`} id="alle">
               <BodyShort size="medium">{text.alle[language]}</BodyShort>
             </a>
-            <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px"/>
+            <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px" />
           </div>
         </div>
       );
