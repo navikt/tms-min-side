@@ -35,46 +35,48 @@ const language = Astro.currentLocale as Language;
 ---
 
 {isError && <ClientError client:only="react" />}
-{
-  isSubstantial ? (
-    <MinIDDokumenter language={language} />
-  ) : (
-    <div class={styles.container}>
-      {hasIngenDokumenter ? (
-        <div class={styles.ingenContainer}>
-          <div class={styles.ingenHeadingContainer}>
-            <Heading level="2" size="xsmall">
-              {text.heading[language]}
-            </Heading>
+{() => {
+    if (isSubstantial) {
+      return <MinIDDokumenter language={language}/>;
+    }
+
+    if (hasIngenDokumenter) {
+        return (
+          <div class={styles.container}>
+            <div class={styles.ingenHeadingContainer}>
+              <Heading level="2" size="xsmall">
+                {text.heading[language]}
+              </Heading>
+            </div>
+            <div class={styles.ingenIngressContainer}>
+              <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
+            </div>
+            <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${language}`} id="ingenDokumenterAlle">
+              {text.tidligere[language]}
+            </a>
           </div>
-          <div class={styles.ingenIngressContainer}>
-            <BodyLong className={styles.ingenText}>{text.ingenText[language]}</BodyLong>
-          </div>
-          <div class={styles.ingenContentContainer} />
-          <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${language}`} id="ingenDokumenterAlle">
-            {text.tidligere[language]}
-          </a>
-        </div>
-      ) : (
-        <>
+        );
+    } else {
+      return (
+        <div class={styles.container}>
           <Heading size="xsmall" level="2" spacing>
             {text.heading[language]}
           </Heading>
           <ul class={styles.dokumenter}>
             {data.map((dokument) => (
-              <Dokument key={dokument.dokumentInfoId} dokument={dokument} />
+              <Dokument key={dokument.dokumentInfoId} dokument={dokument}/>
             ))}
           </ul>
           <div class={styles.alle}>
             <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${language}`} id="alle">
               <BodyShort size="medium">{text.alle[language]}</BodyShort>
             </a>
-            <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px" />
+            <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px"/>
           </div>
-        </>
-      )}
-    </div>
-  )
+        </div>
+      );
+    }
+  }
 }
 <PersonalContentLogger event={"dokumenter"} value={hasIngenDokumenter ? false : true} client:only="react" />
 
