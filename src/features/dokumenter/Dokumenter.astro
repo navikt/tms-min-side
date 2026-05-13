@@ -64,7 +64,7 @@ const language = Astro.currentLocale as Language;
           </Heading>
           <ul class={styles.dokumenter}>
             {data.map((dokument) => (
-                <Dokument key={dokument.dokumentInfoId} dokument={dokument}/>
+              <Dokument key={dokument.dokumentInfoId} dokument={dokument}/>
             ))}
           </ul>
           <div class={styles.alle}>
