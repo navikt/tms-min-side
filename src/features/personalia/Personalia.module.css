@@ -6,10 +6,6 @@
   letter-spacing: -0.004em;
 }
 
-.navn {
-  text-transform: capitalize;
-}
-
 @media (min-width: 0px) {
   .container {
     margin: 1rem 0;
