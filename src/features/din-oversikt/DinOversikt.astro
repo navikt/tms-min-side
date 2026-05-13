@@ -1,8 +1,8 @@
 ---
 import { DIN_OVERSIKT_URL } from "astro:env/server";
 import { BodyShort } from "@navikt/ds-react";
-import MicrofrontendSSR from "@src/microfrontends/Microfrontend.astro";
-import MicrofrontendSSRSkeleton from "@src/microfrontends/MicrofrontendSkeleton.astro";
+import Microfrontend from "@src/microfrontends/Microfrontend.astro";
+import MicrofrontendSkeleton from "@src/microfrontends/MicrofrontendSkeleton.astro";
 import ClientError from "@src/shared/client-error/ClientError";
 import { MultiStatusError } from "@src/shared/utils/server/error";
 import { fetchData } from "@src/shared/utils/server/fetch";
@@ -63,9 +63,9 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
       )}
       <div class={styles.masonry}>
         {personalizedContent?.microfrontends.map((mf) => (
-          <MicrofrontendSSR microfrontend={mf} language={language} server:defer>
-            <MicrofrontendSSRSkeleton slot="fallback" />
-          </MicrofrontendSSR>
+          <Microfrontend microfrontend={mf} language={language} server:defer>
+            <MicrofrontendSkeleton slot="fallback" />
+          </Microfrontend>
         ))}
         {produktkortList?.map((produktConfig) => (
           <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />

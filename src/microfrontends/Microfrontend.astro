@@ -1,6 +1,6 @@
 ---
 import ClientError from "@src/shared/client-error/ClientError";
-import { fetchHtml } from "@src/shared/utils/server/fetch";
+import { fetchMicrofrontend } from "@src/shared/utils/server/fetch";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./Microfrontend.module.css";
@@ -17,16 +17,16 @@ const audience = getAudience(microfrontend.appname, microfrontend.namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let isError = false;
-let html;
+let html = "";
 
 try {
-  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}`);
+  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${language}`);
 } catch (error) {
   logger.error(
     `Failed to fetch microfrontend: ${microfrontend.appname} with url: ${microfrontend.url}. Error: ${error}`,
   );
   isError = true;
-  html = await fetchHtml(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
+  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
 }
 ---
 

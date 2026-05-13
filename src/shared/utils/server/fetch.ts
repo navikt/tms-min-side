@@ -21,7 +21,7 @@ export const fetchData = async (oboToken: string, url: string) => {
   return await response.json();
 };
 
-export const fetchHtml = async (oboToken: string, url: string) => {
+export const fetchMicrofrontend = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
     method: "GET",
     headers: {
