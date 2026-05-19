@@ -20,7 +20,7 @@ let isError = false;
 
 try {
   data = await fetchData(oboToken, UTKAST_API_URL);
-} catch (error: any) {
+} catch (error) {
   if (error instanceof MultiStatusError) {
     data = error.partialData as Utkast;
   }

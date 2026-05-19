@@ -25,7 +25,7 @@ try {
   if (!isSubstantial) {
     data = await fetchData(oboToken, DOKUMENTER_URL);
   }
-} catch (error: any) {
+} catch (error) {
   logger.error(`Fetching dokumenter failed. ${error.message}`);
   isError = true;
 }
