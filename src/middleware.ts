@@ -1,7 +1,7 @@
 import { REDIRECT_URI } from "astro:env/server";
 import { getToken, validateToken } from "@navikt/oasis";
-import { isInternal, isLocal } from "@src/shared/utils/server/environment.ts";
 import { defineMiddleware } from "astro/middleware";
+import { isInternal, isLocal } from "./shared/utils/server/environment.ts";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
