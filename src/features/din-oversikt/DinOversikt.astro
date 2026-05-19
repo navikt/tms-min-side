@@ -34,7 +34,7 @@ let personalizedContent: PersonalizedContent = {
 
 try {
   personalizedContent = await fetchData(oboToken, DIN_OVERSIKT_URL);
-} catch (error: any) {
+} catch (error: unknown) {
   if (error instanceof MultiStatusError) {
     personalizedContent = error.partialData as PersonalizedContent;
   }

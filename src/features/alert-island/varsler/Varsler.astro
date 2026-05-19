@@ -21,7 +21,7 @@ let isError = false;
 
 try {
   data = await fetchData(oboToken, VARSEL_API_URL);
-} catch (error: any) {
+} catch (error: unknown) {
   logger.error(`Fetching varsler failed. ${error.message}`);
   isError = true;
 }

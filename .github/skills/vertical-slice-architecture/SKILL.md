@@ -185,7 +185,7 @@ let isError = false;
 
 try {
   data = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
-} catch (error: any) {
+} catch (error: unknown) {
   logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
 }
