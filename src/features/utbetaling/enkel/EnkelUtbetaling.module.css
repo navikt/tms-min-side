@@ -3,18 +3,18 @@
   flex-direction: column;
   padding: 1rem;
   align-items: baseline;
-  border-radius: var(--a-border-radius-large) var(--a-border-radius-large) var(--a-border-radius-small)
-    var(--a-border-radius-small);
-  color: var(--a-text-subtle);
+  border-radius: var(--ax-radius-8) var(--ax-radius-8) var(--ax-radius-2)
+    var(--ax-radius-2);
+  color: var(--ax-text-neutral-subtle);
   text-decoration: none;
 }
 
 .tidligere {
-  background-color: var(--a-surface-neutral-subtle);
+  background-color: var(--ax-bg-neutral-soft);
 }
 
 .kommende {
-  background-color: var(--a-surface-success-subtle);
+  background-color: var(--ax-bg-success-soft);
 }
 
 .headingContainer {
@@ -34,15 +34,15 @@
 }
 
 .seDetaljerKommende {
-  color: var(--a-text-subtle);
+  color: var(--ax-text-neutral-subtle);
 }
 
 .seDetaljerTidligere {
-  color: var(--a-text-action);
+  color: var(--ax-text-accent-subtle);
 }
 
 .container:hover .seDetaljerTidligere {
-  color: var(--a-text-action-hover);
+  color: var(--ax-text-accent-subtle);
   text-decoration: none;
 }
 
@@ -57,9 +57,9 @@
 }
 
 .kommende:hover {
-  background-color: var(--a-surface-success-subtle-hover);
+  background-color: var(--ax-bg-success-moderate-hover);
 }
 
 .tidligere:hover {
-  background-color: var(--a-surface-neutral-subtle-hover);
+  background-color: var(--ax-bg-neutral-moderate-hover);
 }

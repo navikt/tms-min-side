@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: space-between;
   width: 468px;
-  border-radius: var(--a-border-radius-large);
-  background-color: var(--a-bg-default);
+  border-radius: var(--ax-radius-8);
+  background-color: var(--ax-bg-default);
   box-shadow: var(--a-shadow-xsmall);
   width: 100%;
   color: #272727;

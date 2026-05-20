@@ -2,11 +2,11 @@
   margin-left: calc(((100vw - 100%) / 2) * -1);
   padding: 2.75rem calc((100vw - 100%) / 2);
   margin-right: calc(((100vw - 100%) / 2) * -1);
-  background-color: var(--a-deepblue-50);
+  background-color: var(--ax-brand-blue-100);
 }
 
 .tittel {
-  color: var(--a-deepblue-700);
+  color: var(--ax-brand-blue-800);
 }
 
 .sectionContainer {
@@ -22,7 +22,7 @@
 }
 
 .disclaimer {
-  color: var(--a-deepblue-700);
+  color: var(--ax-brand-blue-800);
   margin-top: 0.75rem !important;
 }
 

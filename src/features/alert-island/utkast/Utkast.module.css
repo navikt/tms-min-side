@@ -11,7 +11,7 @@
 .wrapper {
   padding: 0.5rem;
   border-radius: 1rem;
-  background-color: var(--a-blue-900);
+  background-color: var(--ax-accent-1000);
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.15),
     0 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -48,14 +48,14 @@
   width: 56px;
   height: 56px;
   border-radius: 8px;
-  background-color: var(--a-surface-action);
+  background-color: var(--ax-bg-accent-strong);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .utkast:hover .ikonRektangel {
-  background-color: var(--a-blue-400);
+  background-color: var(--ax-accent-500);
 }
 
 .ikon {
