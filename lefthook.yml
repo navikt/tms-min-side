@@ -11,7 +11,7 @@
   "pre-push": {
     "commands": {
       "typecheck": {
-        "run": "echo \"Remember to enable this\""
+        "run": "pnpm run typecheck"
       }
     }
   },
