@@ -12,16 +12,16 @@ import UtbetalingList from "./list/UtbetalingList.astro";
 import SeAlle from "./se-alle/SeAlle.astro";
 import styles from "./Utbetaling.module.css";
 import type { Utbetaling } from "./utbetalingTypes";
-import { isIngenUtbetaling, isKommende, isTidligereUtbetaling, isUtbetalingList } from "./utbetalingUtils";
+import { isIngen, isKommende, isList, isTidligere } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-let data: Utbetaling = { sisteUtbetaling: null, kommende: null };
+let utbetaling: Utbetaling = { sisteUtbetaling: null, kommende: null };
 let isError = false;
 
 try {
-  data = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
+  utbetaling = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
 } catch (error: any) {
   logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
@@ -34,28 +34,23 @@ const language = Astro.currentLocale as Language;
 <div class={styles.container}>
   {
     () => {
-      if (isIngenUtbetaling(data)) {
+      if (isIngen(utbetaling)) {
         return <IngenUtbetaling language={language} />;
       }
 
-      if (isKommende(data)) {
-        return <EnkelUtbetaling utbetaling={data.kommende} language={language} utbetalingType="kommende" />;
+      if (isKommende(utbetaling)) {
+        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} language={language} utbetalingType="kommende" />;
       }
 
-      if (isTidligereUtbetaling(data)) {
-        return <EnkelUtbetaling utbetaling={data.sisteUtbetaling} language={language} utbetalingType="tidligere" />;
+      if (isTidligere(utbetaling)) {
+        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} language={language} utbetalingType="tidligere" />;
       }
 
-      if (isUtbetalingList(data)) {
-        return <UtbetalingList kommende={data.kommende} language={language} tidligere={data.sisteUtbetaling} />;
+      if (isList(utbetaling)) {
+        return <UtbetalingList kommende={utbetaling.kommende!} language={language} tidligere={utbetaling.sisteUtbetaling!} />;
       }
     }
   }
-  <SeAlle language={language} isKommende={isKommende(data)} />
-
-  <PersonalContentLogger
-    event={"utbetaling"}
-    value={data.hasUtbetaling || data.hasKommende ? true : false}
-    client:only="react"
-  />
+  <SeAlle language={language} isKommende={isKommende(utbetaling)} />
+  <PersonalContentLogger event="utbetaling" value={Boolean(utbetaling.kommende || utbetaling.sisteUtbetaling)} client:only="react" />
 </div>
