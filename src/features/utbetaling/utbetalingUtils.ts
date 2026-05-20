@@ -4,24 +4,7 @@ import type { Utbetaling, UtbetalingData } from "./utbetalingTypes";
 
 export const formatToReadableDate = (date: string) => dayjs(date).locale("nb").format("D. MMMM ");
 
-export type UtbetalingState =
-  | { type: "ingen" }
-  | { type: "kommende"; kommende: UtbetalingData }
-  | { type: "tidligere"; tidligere: UtbetalingData }
-  | { type: "liste"; kommende: UtbetalingData; tidligere: UtbetalingData };
-
-export const getUtbetalingState = (data: Utbetaling): UtbetalingState => {
-  if (data.kommende && data.sisteUtbetaling) {
-    return { type: "liste", kommende: data.kommende, tidligere: data.sisteUtbetaling };
-  }
-
-  if (data.kommende) {
-    return { type: "kommende", kommende: data.kommende };
-  }
-
-  if (data.sisteUtbetaling) {
-    return { type: "tidligere", tidligere: data.sisteUtbetaling };
-  }
-
-  return { type: "ingen" };
-};
+export const isKommendeUtbetaling = (data: Utbetaling) => data.kommende && !data.sisteUtbetaling;
+export const isIngenUtbetaling = (data: Utbetaling) => !data.kommende && !data.sisteUtbetaling;
+export const isTidligereUtbetaling = (data: Utbetaling) => data.sisteUtbetaling && !data.kommende;
+export const isUtbetalingList = (data: Utbetaling) => data.sisteUtbetaling && data.kommende;

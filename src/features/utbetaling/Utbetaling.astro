@@ -12,7 +12,7 @@ import UtbetalingList from "./list/UtbetalingList.astro";
 import SeAlle from "./se-alle/SeAlle.astro";
 import styles from "./Utbetaling.module.css";
 import type { Utbetaling } from "./utbetalingTypes";
-import { getUtbetalingState } from "./utbetalingUtils";
+import { isIngenUtbetaling, isKommendeUtbetaling, isTidligereUtbetaling, isUtbetalingList } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -28,25 +28,29 @@ try {
 }
 
 const language = Astro.currentLocale as Language;
-const utbetalingState = getUtbetalingState(utbetaling);
 ---
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   {
     () => {
-      switch (utbetalingState.type) {
-        case "ingen":
-          return <IngenUtbetaling language={language} />;
-        case "kommende":
-          return <EnkelUtbetaling utbetaling={utbetaling.kommende!} language={language} utbetalingType="kommende" />;
-        case "tidligere":
-          return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} language={language} utbetalingType="tidligere" />;
-        case "liste":
-          return <UtbetalingList kommende={utbetaling.kommende!} language={language} tidligere={utbetaling.sisteUtbetaling!} />;
+      if (isIngenUtbetaling(utbetaling)) {
+        return <IngenUtbetaling language={language} />;
+      }
+
+      if (isKommendeUtbetaling(utbetaling)) {
+        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} language={language} utbetalingType="kommende" />;
+      }
+
+      if (isTidligereUtbetaling(utbetaling)) {
+        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} language={language} utbetalingType="tidligere" />;
+      }
+
+      if (isUtbetalingList(utbetaling)) {
+        return <UtbetalingList kommende={utbetaling.kommende!} language={language} tidligere={utbetaling.sisteUtbetaling!} />;
       }
     }
   }
-  <SeAlle language={language} isKommende={utbetalingState.type === "kommende" || utbetalingState.type === "liste"} />
+  <SeAlle language={language} isKommende={isKommendeUtbetaling(utbetaling)} />
   <PersonalContentLogger event="utbetaling" value={Boolean(utbetaling.kommende || utbetaling.sisteUtbetaling)} client:only="react" />
 </div>
