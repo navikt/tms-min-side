@@ -12,9 +12,9 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  color: var(--a-text-default);
+  color: var(--ax-text-neutral);
   text-decoration: none;
-  background: var(--a-surface-subtle);
+  background: var(--ax-bg-neutral-soft);
   margin-bottom: 0.2rem;
   padding: 12px;
   border-radius: 4px;
@@ -60,7 +60,7 @@
 }
 
 .details {
-  color: var(--a-text-default, #23262a);
+  color: var(--ax-text-neutral, #23262a);
   text-decoration: none;
 }
 
