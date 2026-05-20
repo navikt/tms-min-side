@@ -12,12 +12,7 @@ import UtbetalingList from "./list/UtbetalingList.astro";
 import SeAlle from "./se-alle/SeAlle.astro";
 import styles from "./Utbetaling.module.css";
 import type { Utbetaling } from "./utbetalingTypes";
-import {
-  isIngenUtbetaling,
-  isKommende,
-  isTidligereUtbetaling,
-  isUtbetalingList,
-} from "./utbetalingUtils";
+import { isIngenUtbetaling, isKommende, isTidligereUtbetaling, isUtbetalingList } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);

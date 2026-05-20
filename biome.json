@@ -5,7 +5,8 @@
   },
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "formatter": {
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineWidth": 120
   },
   "html": { "formatter": { "selfCloseVoidElements": "always" } },
   "overrides": [
