@@ -41,14 +41,14 @@
   width: 56px;
   height: 56px;
   border-radius: 8px;
-  background-color: var(--a-surface-warning);
+  background-color: #ff9100;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .varsler:hover .ikonRektangel {
-  background-color: var(--a-orange-400);
+  background-color: #ffaa33;
 }
 
 .bjelleIkonHover {
@@ -66,11 +66,11 @@
 }
 
 .varsler:hover .ingen-ikon-rect {
-  fill: var(--a-white);
+  fill: #ffffff;
 }
 
 .varsler:hover .ingen-ikon-path {
-  fill: var(--a-blue-900);
+  fill: var(--ax-accent-1000);
 }
 
 .varsler:hover h3 {
@@ -79,11 +79,11 @@
 }
 
 .varsler p {
-  color: var(--a-white);
+  color: #ffffff;
 }
 
 .varsler:hover p {
-  color: var(--a-white);
+  color: #ffffff;
 }
 
 @media (min-width: 480px) {

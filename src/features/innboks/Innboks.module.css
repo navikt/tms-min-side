@@ -9,7 +9,7 @@
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
   margin-bottom: 0.125rem;
   text-decoration: none;
-  color: var(--a-text-default);
+  color: var(--ax-text-neutral);
 }
 
 .headerContainer:hover h2 {
@@ -22,19 +22,19 @@
 }
 
 .headerContainerNyMelding {
-  background: var(--a-surface-alt-3-subtle);
+  background: #cce2f0;
 }
 
 .headerContainerNyMelding:hover {
-  background: var(--a-surface-alt-3-moderate);
+  background: #99c4dd;
 }
 
 .headerContainerIngenNyMelding {
-  background: var(--a-bg-subtle);
+  background: #cce2f0;
 }
 
 .headerContainerIngenNyMelding:hover {
-  background: var(--a-surface-neutral-subtle-hover);
+  background: #11294021;
 }
 
 .bodyContainer {
@@ -43,11 +43,11 @@
 }
 
 .bodyContainerNyMelding {
-  background: var(--a-surface-alt-3-subtle);
+  background: #cce2f0;
 }
 
 .bodyContainerIngenNyMelding {
-  background: var(--a-bg-subtle);
+  background: #eceef0;
 }
 
 .tagChevron {

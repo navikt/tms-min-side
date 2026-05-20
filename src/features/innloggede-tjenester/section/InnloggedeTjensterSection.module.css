@@ -27,11 +27,11 @@
 }
 
 .link:first-of-type {
-  border-top: 1px solid var(--a-deepblue-200);
+  border-top: 1px solid var(--ax-brand-blue-300);
 }
 
 .listeTittel {
-  color: var(--a-deepblue-600);
+  color: var(--ax-brand-blue-700);
 }
 
 .li {
@@ -41,11 +41,11 @@
 
 .link {
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--a-deepblue-200);
+  border-bottom: 1px solid var(--ax-brand-blue-300);
 }
 
 .color {
-  color: var(--a-deepblue-700) !important;
+  color: var(--ax-brand-blue-800) !important;
   text-decoration: none;
 }
 

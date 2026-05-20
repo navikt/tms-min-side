@@ -1,18 +1,18 @@
 .contentContainer {
-  color: var(--a-text-default);
-  background: var(--a-bg-subtle);
+  color: var(--ax-text-neutral);
+  background: var(--ax-bg-neutral-soft);
   padding: 1rem;
-  border-radius: var(--a-border-radius-large) var(--a-border-radius-large) var(--a-border-radius-small)
-    var(--a-border-radius-small);
+  border-radius: var(--ax-radius-8) var(--ax-radius-8) var(--ax-radius-2)
+    var(--ax-radius-2);
   margin-bottom: 0.125rem;
 }
 
 .linkContainer {
-  color: var(--a-text-subtle);
-  background: var(--a-bg-subtle);
+  color: var(--ax-text-neutral-subtle);
+  background: var(--ax-bg-neutral-soft);
   padding: 1.25rem 1rem 1.25rem 1.25rem;
-  border-radius: var(--a-border-radius-small) var(--a-border-radius-small) var(--a-border-radius-large)
-    var(--a-border-radius-large);
+  border-radius: var(--ax-radius-2) var(--ax-radius-2) var(--ax-radius-8)
+    var(--ax-radius-8);
 }
 
 .text {

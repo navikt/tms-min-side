@@ -5,19 +5,19 @@
 }
 
 .heading {
-  background-color: var(--a-bg-subtle);
+  background-color: var(--ax-bg-neutral-soft);
   padding: 1rem 1.25rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
   margin-bottom: 0.125rem;
 }
 
 .ingress {
-  background-color: var(--a-bg-subtle);
+  background-color: var(--ax-bg-neutral-soft);
   padding: 1rem 1.25rem;
   border-radius: 0.125rem 0.125rem 0.5rem 0.5rem;
   margin-bottom: 1rem;
 }
 
 .text {
-  color: var(--a-text-subtle);
+  color: var(--ax-text-neutral-subtle);
 }

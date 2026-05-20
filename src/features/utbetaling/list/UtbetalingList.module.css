@@ -5,9 +5,9 @@
 }
 
 .heading {
-  background: var(--a-bg-subtle);
-  border-radius: var(--a-border-radius-large) var(--a-border-radius-large) var(--a-border-radius-small)
-    var(--a-border-radius-small);
+  background: var(--ax-bg-neutral-soft);
+  border-radius: var(--ax-radius-8) var(--ax-radius-8) var(--ax-radius-2)
+    var(--ax-radius-2);
   padding: 1rem;
 }
 
@@ -16,11 +16,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: var(--a-surface-neutral-subtle);
-  border-radius: var(--a-border-radius-small);
+  background: var(--ax-bg-neutral-soft);
+  border-radius: var(--ax-radius-2);
   padding: 1rem;
   text-decoration: none;
-  color: var(--a-text-subtle);
+  color: var(--ax-text-neutral-subtle);
 }
 
 .datoOgYtelse {
@@ -38,15 +38,15 @@
 
 .ytelse {
   text-decoration: underline;
-  color: var(--a-text-action);
+  color: var(--ax-text-accent-subtle);
 }
 
 .tag {
-  background: var(--a-surface-success-subtle);
+  background: var(--ax-bg-success-soft);
 }
 
 .ytelse:hover {
-  color: var(--a-text-action-hover);
+  color: var(--ax-text-accent-subtle);
   text-decoration: none;
 }
 
@@ -63,5 +63,5 @@
 }
 
 .kommendeOgTidligere:hover {
-  background: var(--a-surface-neutral-subtle-hover);
+  background: var(--ax-bg-neutral-moderate-hover);
 }
