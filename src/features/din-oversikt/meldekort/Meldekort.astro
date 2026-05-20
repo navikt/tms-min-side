@@ -9,7 +9,7 @@ interface Props {
   language: string;
 }
 
-const { microfrontend, language } = Astro.props;
+const { language } = Astro.props;
 const audience = getAudience("meldekort-mikrofrontend", "meldekort");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
