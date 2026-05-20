@@ -2,7 +2,7 @@
   display: flex;
   gap: 1rem;
   width: 100%;
-  color: var(--a-white);
+  color: #FFFFFF;
   border-radius: 0.5rem;
   text-decoration-line: none;
   padding: 0.5rem;
@@ -82,11 +82,11 @@
 }
 
 .utkast p {
-  color: var(--a-white);
+  color: #FFFFFF;
 }
 
 .utkast:hover p {
-  color: var(--a-white);
+  color: #FFFFFF;
 }
 
 @media (min-width: 480px) {

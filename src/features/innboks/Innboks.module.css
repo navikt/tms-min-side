@@ -22,19 +22,19 @@
 }
 
 .headerContainerNyMelding {
-  background: var(--ax-bg-brand-blue-soft);
+  background: #cce2f0;
 }
 
 .headerContainerNyMelding:hover {
-  background: var(--ax-bg-brand-blue-moderate);
+  background: #99c4dd;
 }
 
 .headerContainerIngenNyMelding {
-  background: var(--ax-bg-neutral-soft);
+  background: #cce2f0;
 }
 
 .headerContainerIngenNyMelding:hover {
-  background: var(--ax-bg-neutral-moderate-hover);
+  background: #11294021;
 }
 
 .bodyContainer {
@@ -43,11 +43,11 @@
 }
 
 .bodyContainerNyMelding {
-  background: var(--ax-bg-brand-blue-soft);
+  background: #cce2f0;
 }
 
 .bodyContainerIngenNyMelding {
-  background: var(--ax-bg-neutral-soft);
+  background: #eceef0;
 }
 
 .tagChevron {

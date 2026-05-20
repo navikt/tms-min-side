@@ -41,14 +41,14 @@
   width: 56px;
   height: 56px;
   border-radius: 8px;
-  background-color: var(--ax-bg-warning-strong);
+  background-color: #ff9100;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .varsler:hover .ikonRektangel {
-  background-color: var(--ax-warning-500);
+  background-color: #FFAA33;
 }
 
 .bjelleIkonHover {
