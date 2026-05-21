@@ -1,5 +1,16 @@
 import { isProduction } from "@src/shared/utils/server/environment";
 
+export interface Lenke {
+  nb: string;
+  nn: string;
+  en: string;
+  url: {
+    nb: string;
+    nn: string;
+    en: string;
+  };
+}
+
 const jobbLenkerProd = [
   {
     nb: "Aktivitetsplan",

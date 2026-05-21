@@ -39,7 +39,6 @@ try {
     personalizedContent = error.partialData as PersonalizedContent;
   }
   logger.error(`Fetching din-oversikt failed. ${error.message}`);
-  logger.error(`Error: ${error}`);
   isError = true;
 }
 
@@ -67,9 +66,7 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
             <MicrofrontendSkeleton slot="fallback" />
           </Microfrontend>
         ))}
-        {produktkortList?.map((produktConfig) => (
-          <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
-        ))}
+        {produktkortList?.map((produktConfig) => <Produktkort produktConfig={produktConfig} />)}
       </div>
     </div>
   )

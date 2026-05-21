@@ -12,7 +12,7 @@
 }
 
 .detaljerContainer {
-  background: var(--a-bg-subtle);
+  background: var(--ax-bg-sunken);
   width: 100%;
   padding: 1rem 1rem 0.75rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
@@ -34,23 +34,23 @@
   padding: 1rem 1.25rem 1rem 1.25rem;
   text-decoration: none;
   color: inherit;
-  background: var(--a-bg-subtle);
+  background: var(--ax-bg-sunken);
 }
 
 .utbetalt {
-  background: var(--a-bg-subtle);
+  background: var(--ax-bg-sunken);
 }
 
 .utbetalt:hover {
-  background: var(--a-surface-neutral-subtle-hover);
+  background: var(--ax-bg-neutral-moderate-hover);
 }
 
 .kommende {
-  background: var(--a-surface-success-subtle);
+  background: var(--ax-bg-success-soft);
 }
 
 .kommende:hover {
-  background: var(--a-surface-success-subtle-hover);
+  background: var(--ax-bg-success-moderate-hover);
 }
 
 .ytelse {

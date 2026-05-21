@@ -8,22 +8,16 @@ import "./Layout.css";
 
 export interface Props {
   title: string;
-  breadcrumbs: [
-    {
-      title: string;
-      url: string;
-    },
-  ];
 }
 
 const language = Astro.currentLocale as Language;
-const { title, breadcrumbs } = Astro.props;
+const { title } = Astro.props;
 
 const Decorator = await fetchDecoratorHtml({
   env: getDecoratorEnvironment(),
   params: {
     context: "privatperson",
-    breadcrumbs: breadcrumbs,
+    breadcrumbs: [],
     language: language,
     availableLanguages: [
       {

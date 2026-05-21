@@ -2,10 +2,10 @@
 import styles from "./Content.module.css";
 
 export interface Props {
-  cls: string;
+  cls?: keyof typeof styles;
 }
 
-const { cls } = Astro.props;
+const { cls = "min-side" } = Astro.props;
 ---
 
 <div class={styles[cls]}>

@@ -12,7 +12,7 @@ import UtbetalingList from "./list/UtbetalingList.astro";
 import SeAlle from "./se-alle/SeAlle.astro";
 import styles from "./Utbetaling.module.css";
 import type { Utbetaling } from "./utbetalingTypes";
-import { isIngenUtbetaling, isKommende, isTidligereUtbetaling, isUtbetalingList } from "./utbetalingUtils";
+import { isIngen, isKommende, isList, isTidligere } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -22,7 +22,7 @@ let isError = false;
 
 try {
   utbetaling = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
-} catch (error) {
+} catch (error: any) {
   logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
 }
@@ -34,23 +34,23 @@ const language = Astro.currentLocale as Language;
 <div class={styles.container}>
   {
     () => {
-      if (isIngenUtbetaling(utbetaling)) {
+      if (isIngen(utbetaling)) {
         return <IngenUtbetaling language={language} />;
       }
 
       if (isKommende(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.kommende} language={language} utbetalingType="kommende" />;
+        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} language={language} utbetalingType="kommende" />;
       }
 
-      if (isTidligereUtbetaling(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling} language={language} utbetalingType="tidligere" />;
+      if (isTidligere(utbetaling)) {
+        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} language={language} utbetalingType="tidligere" />;
       }
 
-      if (isUtbetalingList(utbetaling)) {
-        return <UtbetalingList kommende={utbetaling.kommende} language={language} tidligere={utbetaling.sisteUtbetaling} />;
+      if (isList(utbetaling)) {
+        return <UtbetalingList kommende={utbetaling.kommende!} language={language} tidligere={utbetaling.sisteUtbetaling!} />;
       }
     }
   }
   <SeAlle language={language} isKommende={isKommende(utbetaling)} />
-  <PersonalContentLogger event={"utbetaling"} value={isTidligereUtbetaling(utbetaling) || isKommende(utbetaling)} client:only="react" />
+  <PersonalContentLogger event="utbetaling" value={!!utbetaling.kommende || !!utbetaling.sisteUtbetaling} client:only="react" />
 </div>

@@ -6,10 +6,11 @@ import IkonSykefravær from "@src/features/din-oversikt/assets/IkonSykefravær";
 import IkonUføretrygd from "@src/features/din-oversikt/assets/IkonUføretrygd";
 import IkonØkonomiskSosialhjelp from "@src/features/din-oversikt/assets/IkonØkonomiskSosialhjelp";
 import type { Language } from "@src/shared/utils/server/language.ts";
+import type { ReactElement } from "react";
 import { produktText } from "./ProduktText";
 import { produktlinker as produktUrls } from "./ProduktUrls";
 
-type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
+type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: ReactElement };
 
 export function getProduktPropertiesMap(language: Language): Record<string, ProduktProperties> {
   const sykefraværConfig: ProduktProperties = {

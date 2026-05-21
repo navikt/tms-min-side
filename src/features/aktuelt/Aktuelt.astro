@@ -20,8 +20,9 @@ let isError = false;
 
 try {
   aktuelt = await fetchData(oboToken, AKTUELT_URL);
-} catch (error: unknown) {
-  logger.error(`Fetching aktuelt failed. ${error.message}`);
+} catch (error) {
+  const message = error instanceof Error && error.message;
+  logger.error(`Fetching aktuelt failed. ${message}`);
   isError = true;
 }
 ---
