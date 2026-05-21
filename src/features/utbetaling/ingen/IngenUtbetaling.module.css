@@ -1,6 +1,6 @@
 .contentContainer {
   color: var(--ax-text-neutral);
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   padding: 1rem;
   border-radius: var(--ax-radius-8) var(--ax-radius-8) var(--ax-radius-2)
     var(--ax-radius-2);
@@ -9,7 +9,7 @@
 
 .linkContainer {
   color: var(--ax-text-neutral-subtle);
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   padding: 1.25rem 1rem 1.25rem 1.25rem;
   border-radius: var(--ax-radius-2) var(--ax-radius-2) var(--ax-radius-8)
     var(--ax-radius-8);

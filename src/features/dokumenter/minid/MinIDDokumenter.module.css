@@ -5,14 +5,14 @@
 }
 
 .heading {
-  background-color: var(--ax-bg-neutral-soft);
+  background-color: var(--ax-bg-sunken);
   padding: 1rem 1.25rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
   margin-bottom: 0.125rem;
 }
 
 .ingress {
-  background-color: var(--ax-bg-neutral-soft);
+  background-color: var(--ax-bg-sunken);
   padding: 1rem 1.25rem;
   border-radius: 0.125rem 0.125rem 0.5rem 0.5rem;
   margin-bottom: 1rem;
