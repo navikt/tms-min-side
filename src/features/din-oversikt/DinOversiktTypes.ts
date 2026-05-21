@@ -1,4 +1,4 @@
-import type { Microfrontend } from "../../shared/microfrontends/microfrontendTypes";
+import type { Microfrontend } from "@src/shared/microfrontends/microfrontendTypes";
 
 export interface PersonalizedContent {
   microfrontends: Microfrontend[];

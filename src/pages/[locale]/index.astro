@@ -12,13 +12,13 @@ import Personalia from "@src/features/personalia/Personalia.astro";
 import SubstantialInfo from "@src/features/substantial-info/SubstantialInfo.astro";
 import UtbetalingFallback from "@src/features/utbetaling/fallback/UtbetalingFallback.astro";
 import Utbetaling from "@src/features/utbetaling/Utbetaling.astro";
+import Layout from "@src/layouts/Layout.astro";
 import Container from "@src/shared/container/Container.astro";
+import Content from "@src/shared/content/Content.astro";
 import Feilmelding from "@src/shared/feilmelding/Feilmelding";
 import Legacy from "@src/shared/legacy/Legacy";
 import Observability from "@src/shared/obersvability/Observability";
 import type { Language } from "@src/shared/utils/server/language";
-import Layout from "../../layouts/Layout.astro";
-import Content from "../../shared/content/Content.astro";
 
 const language = Astro.currentLocale as Language;
 ---
