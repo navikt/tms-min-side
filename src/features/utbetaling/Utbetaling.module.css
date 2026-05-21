@@ -13,7 +13,7 @@
 }
 
 .utbetalt {
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
 }
 
 .utbetalt:hover {
@@ -49,7 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--ax-bg-neutral-soft);
+  background-color: var(--ax-bg-sunken);
   padding: 1.25rem;
   border-radius: 0.5rem;
   color: var(--ax-text-neutral);
@@ -78,7 +78,7 @@
 }
 
 .detaljerContainer {
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   width: 100%;
   padding: 1rem 1rem 0.75rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
@@ -114,7 +114,7 @@
 
 .ingenHeader {
   color: var(--ax-text-neutral);
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   padding: 1rem 1rem 0.75rem 1rem;
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
   margin-bottom: 0.125rem;
@@ -122,7 +122,7 @@
 
 .ingenContent {
   color: var(--ax-text-neutral-subtle);
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   padding: 1.25rem 1rem 1.25rem 1.25rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }

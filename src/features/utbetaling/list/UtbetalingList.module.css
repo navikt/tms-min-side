@@ -5,7 +5,7 @@
 }
 
 .heading {
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   border-radius: var(--ax-radius-8) var(--ax-radius-8) var(--ax-radius-2)
     var(--ax-radius-2);
   padding: 1rem;
@@ -16,7 +16,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: var(--ax-bg-neutral-soft);
+  background: var(--ax-bg-sunken);
   border-radius: var(--ax-radius-2);
   padding: 1rem;
   text-decoration: none;
