@@ -52,5 +52,5 @@ const language = Astro.currentLocale as Language;
     }
   }
   <SeAlle language={language} isKommende={isKommende(utbetaling)} />
-  <PersonalContentLogger event="utbetaling" value={Boolean(utbetaling.kommende || utbetaling.sisteUtbetaling)} client:only="react" />
+  <PersonalContentLogger event="utbetaling" value={!!utbetaling.kommende || !!utbetaling.sisteUtbetaling} client:only="react" />
 </div>
