@@ -1,120 +1,81 @@
 # Copilot Instructions — tms-min-side
 
-Min side er en **Astro SSR-applikasjon** som er en container for mikrofrontends. Den henter personalisert innhold fra backend-tjenester via OBO-token exchange og setter det sammen til én side for innloggede brukere på nav.no.
+Min side er en Astro SSR-container som setter sammen personalisert innhold fra mange backend-/mikrofrontend-tjenester for innloggede brukere på `nav.no/minside`.
 
-## Kommandoer
+## Build, test og lint
 
 ```bash
-# Lokal utvikling — begge må kjøre samtidig
-pnpm run dev        # Astro dev-server på http://localhost:4321/minside (alias: pnpm start)
-pnpm run mock       # Hono mock-server på port 3000 (erstatter backend-APIer lokalt)
+# Lokal utvikling
+pnpm run dev        # starter både mock-server (port 3000) og Astro dev-server
+pnpm run start      # kun Astro dev-server
+pnpm run mock       # kun Hono mock-server
 
-# Bygg og forhåndsvis
+# Bygg, kjør og typecheck
 pnpm run build
-pnpm run preview    # Kjør prod-build lokalt (node ./dist/server/entry.mjs)
+pnpm run preview
+pnpm run typecheck
 
-# Formatering (kjøres automatisk av husky pre-commit)
-pnpm run prettier
+# Formatering/lint
+pnpm run format
+pnpm exec biome check .         # tilsvarer lint/check i CI/pre-commit
 ```
 
-Det finnes ingen `test`-script i `package.json`.
+Teststatus nå:
 
-## Arkitektur
+- Det finnes ingen `test`-script i `package.json`.
+- Det finnes ingen `*.test.*`/`*.spec.*`-filer i repo per nå.
+- Enkelt-testkjøring er derfor ikke tilgjengelig før testoppsett er lagt til.
 
-### Vertikal slice-struktur
+## Høy-nivå arkitektur
 
-Kodebasen er organisert som vertikale slices. Hver feature er selvforsynt:
+### 1. Sidekomponering og render-strategi
 
-```
-src/
-├── features/                  # Én slice per seksjon på siden
-│   ├── aktuelt/
-│   ├── alert-island/
-│   ├── din-oversikt/
-│   ├── dokumenter/
-│   ├── innboks/
-│   ├── innloggede-tjenester/
-│   ├── personalia/
-│   ├── substantial-info/
-│   ├── utbetaling/
-│   └── ux-signal/
-│       ├── <Feature>Text.ts   # i18n-tekster co-lokert med featuren
-│       ├── <Feature>Urls.ts   # URL-definisjoner og audience (inkl. local: "http://localhost:3000/...")
-│       ├── <Feature>Types.ts  # TypeScript-typer
-│       ├── *.astro            # Server-rendrede komponenter
-│       └── *.tsx              # Klient-interaktive React-komponenter
-├── shared/                    # Delt infrastruktur brukt av flere features
-│   ├── authentication/        # Auth-primitiver
-│   ├── client-error/          # ClientError-komponent
-│   ├── container/             # Layout-container
-│   ├── feilmelding/           # Global feilmelding-komponent
-│   ├── legacy/                # Legacy-wrappers
-│   ├── obersvability/         # Observability (Faro, Amplitude)
-│   └── store/
-│       └── store.ts           # Nanostores global state
-├── utils/
-│   ├── server/                # Delt SSR-infrastruktur: token.ts, fetch.ts, logger.ts, environment.ts, error.ts, language.ts
-│   └── client/                # Delt browser-infrastruktur: api.ts, environment.ts, umami.ts
-├── microfrontends/            # Microfrontend-loader
-├── middleware/                # Token-validering
-├── layouts/                   # Astro layouts
-└── pages/[lang]/              # Routing: nb (default), nn, en
-```
+`src/pages/[locale]/index.astro` orkestrerer hele siden ved å compose features under `src/features/*`.
 
-### Mikrofrontend-container
+- Tunge seksjoner rendres med `server:defer` og fallback-slots (f.eks. Utbetaling/Innboks/Dokumenter).
+- Interaktive islands rendres med `client:only="react"` (f.eks. Feilmelding, Legacy, Observability).
+- For MinID/`isSubstantial` vises `substantial-info`-banner, mens sensitiv oversiktsdata begrenses.
 
-`tms-min-side` henter HTML fra mikrofrontends server-side og setter den inn direkte i siden. Hvert mikrofrontend-kall bruker OBO-token (TokenX) for autentisering.
+### 2. Mikrofrontend-flyt (kjerneflyt)
 
-```
-Browser → Astro SSR → getOboToken(token, audience)
-                    → fetchHtml(oboToken, url)
-                    → <Fragment set:html={html} />
-```
+Mikrofrontend-innhold hentes server-side som HTML og injiseres direkte:
 
-Mikrofrontend-metadata (url, appname, namespace, fallback) kommer fra `tms-mikrofrontend-selector`.
+1. `getAudience(app, namespace?)` bygger audience (`cluster:namespace:app`).
+2. `getOboToken(Astro.locals.token, audience)` gjør TokenX OBO exchange.
+3. `fetchMicrofrontend(oboToken, url)` henter HTML.
+4. `<Fragment set:html={html} />` renderer responsen.
 
-### Auth-flyt
+Dette ligger i `src/microfrontends/Microfrontend.astro`, med fallback-kall hvis første fetch feiler.
 
-- **ID-porten + Wonderwall** håndterer innlogging (sidecar i Nais)
-- Middleware (`src/middleware/index.ts`) validerer token via `@navikt/oasis`
-- Validert token lagres i `Astro.locals.token`
-- `isLocal` (`NODE_ENV === "development"`) hopper over validering og returnerer fake token
-- `Astro.locals.isSubstantial` settes til `true` for MinID-innlogging (begrenset tilgang)
+### 3. Auth/middleware
 
-### Komponentstruktur
+- Middleware ligger i `src/middleware.ts` (ikke i en mappe).
+- Token valideres med `@navikt/oasis`; ved manglende/ugyldig token redirectes til `/minside/oauth2/login`.
+- Ved lokal kjøring (`NODE_ENV=development`) hoppes tokenvalidering over.
+- Validert token settes i `Astro.locals.token`; MinID-status settes i `Astro.locals.isSubstantial`.
 
-| Type | Når | Eksempel |
-|------|-----|---------|
-| `.astro` | Server-rendered, data-fetching i frontmatter | `DinOversikt.astro`, `Microfrontend.astro` |
-| `.tsx` | Client-interaktive React-komponenter | `Produktkort.tsx`, `ClientError.tsx` |
-| `client:only="react"` | Komponenter som ikke skal SSR | `Feilmelding`, `Observability`, `Legacy` |
-| `server:defer` | Utsatt SSR med fallback-slot | `<DinOversikt server:defer>` |
+### 4. Layout/dekoratør og i18n
 
-### Nanostores (global state)
+- `src/layouts/base/Layout.astro` henter NAV-dekoratør server-side og injiserer head/header/footer/scripts.
+- React/ReactDOM leveres via import map fra CDN (`tms-shared-dependencies`), ikke bundlede kopier.
+- Astro i18n er konfigurert i `astro.config.mjs` med `nb` som default og locales `nb/nn/en`.
 
-`src/shared/store/store.ts` eksporterer `isErrorAtom`. Bruk `setIsError()` ved API-feil — `ClientError`-komponenten reagerer på denne.
+## Nøkkelkonvensjoner i denne kodebasen
 
-## Viktige konvensjoner
+### Vertikal slice + shared-grenser
 
-### Path-aliaser (tsconfig)
+- Feature-domene ligger under `src/features/<feature>/` med co-lokerte tekster/typer/URLs/komponenter.
+- Delte primitive/infrastruktur ligger under `src/shared/*`.
+- Følg skillet i `docs/VERTICAL_SLICE_ARCHITECTURE.md`: features skal ikke krysse-importere hverandre.
 
-```typescript
-@features/*  → src/features/*
-@shared/*    → src/shared/*
-@utils/*     → src/utils/*
-```
+### Importer og aliases
 
-`Language`-typen og `getLanguage()` importeres fra `@utils/server/language`.
+- Bruk `@src/*` alias (fra `tsconfig.json`) for interne imports.
+- Ikke introduser nye aliaser uten å oppdatere tsconfig og eksisterende mønster.
 
-### OBO-token-mønster
+### Datahenting i Astro-komponenter
 
-```typescript
-const audience = getAudience("appname", "namespace"); // default namespace: "min-side"
-const oboToken = await getOboToken(Astro.locals.token, audience);
-const data = await fetchData(oboToken, url);
-```
-
-### Feilhåndtering i `.astro`-komponenter
+Følg etablert mønster i SSR-komponenter:
 
 ```astro
 let isError = false;
@@ -128,50 +89,23 @@ try {
 {isError && <ClientError client:only="react" />}
 ```
 
-### i18n-mønster
+`fetchData` kaster `MultiStatusError` for 207; features som støtter partial data håndterer dette eksplisitt (se `DinOversikt.astro`).
 
-Language-tekster co-lokeres med featuren i `<Feature>Text.ts` (navnekonvensjon varierer per feature):
+### Miljøspesifikke URL-er
 
-```typescript
-// src/features/<feature>/<Feature>Text.ts
-export const text = {
-  heading: { nb: "...", nn: "...", en: "..." },
-};
-```
+- Endepunkter settes via `astro:env/server` (defaults peker til mock lokalt).
+- Flere features har egne URL-/lenkefiler med `prod`/`dev`/`local`-varianter.
+- Ved nye backend-kall: oppdater både env-schema (`astro.config.mjs`) og `mock/server.ts`.
 
-Globale app-tekster (sidetitler o.l.) er delt og importeres fra relative stier til `src/shared/`.
+### Terminologi (domeneord)
 
-### CSS
+Bruk begreper fra `docs/UBIQUITOUS_LANGUAGE.md` konsekvent i navn/tekster:
 
-Bruk CSS Modules (`.module.css`) for komponent-spesifikke stiler. Globale stiler i `src/layouts/`.
+- `Innbygger`, `Din oversikt`, `Alert island`, `Varsel` (ikke bland med `Melding` fra Innboks-kontekst), `Utkast`, `Ytelse`.
 
-### Mock-server
+### Instruksjonsfiler som gjelder ved endringer
 
-`mock/server.ts` er en Hono-server som etterligner alle backend-APIer lokalt. Legg til nye endepunkter her med tilhørende JSON-data i `mock/data/`. Serveren kjører på port 3000 (standardport for `@hono/node-server`).
-
-Hver feature definerer sin lokale URL direkte i sin `*Urls.ts`:
-
-```typescript
-// src/features/<feature>/<Feature>Urls.ts
-export const url = {
-  local: "http://localhost:3000/<path>",
-  prod: "https://<tjeneste>.intern.nav.no/<path>",
-};
-```
-
-## Nais-konfigurasjon
-
-- **Namespace**: `min-side`, **Team**: `min-side`
-- **Auth**: `idporten.enabled: true` + `tokenx.enabled: true`
-- **Base path**: `/minside`
-- **Health**: `/minside/api/internal/isAlive` og `/minside/api/internal/isReady`
-- **Metrics**: `/minside/api/internal/metrics` (Prometheus)
-- **CDN**: Static assets deployes til `https://cdn.nav.no/min-side/tms-min-side`
-- Legg til nye mikrofrontend-tjenester i `accessPolicy.outbound.rules` i `nais/*/nais.yaml`
-
-## Deploy
-
-- **main** → automatisk deploy til prod-gcp (`deploy-main.yaml`)
-- **manuell** → dev-gcp via `workflow_dispatch` (`deploy-dev.yaml`)
-- Build krever `ASTRO_KEY`-secret og `NAIS_WORKLOAD_IDENTITY_PROVIDER`
-
+- React/TSX: følg `.github/instructions/accessibility.instructions.md` (Aksel-komponenter + semantikk).
+- Testfiler: følg `.github/instructions/testing*.instructions.md`.
+- Workflows: følg `.github/instructions/github-actions.instructions.md`.
+- Dockerfile: følg `.github/instructions/docker.instructions.md`.
