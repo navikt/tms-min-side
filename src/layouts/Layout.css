@@ -1,4 +1,4 @@
-@import "@navikt/ds-css";
+@import "../../node_modules/@navikt/ds-css";
 
 html,
 body {
