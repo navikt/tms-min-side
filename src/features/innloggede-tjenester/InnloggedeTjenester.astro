@@ -4,7 +4,7 @@ import type { Language } from "@src/shared/utils/server/language";
 import styles from "./InnloggedeTjenester.module.css";
 import { text } from "./innloggedeTjenesterText";
 import { annetLenker, hjelpemidlerLenker, jobbLenker, personopplysningLenker } from "./innloggedeTjenesterUrls";
-import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
+import TjensterSection from "./section/TjenesterSection.astro";
 
 const language = Astro.currentLocale as Language;
 const isEnglish = language === "en";
@@ -12,21 +12,15 @@ const isEnglish = language === "en";
 
 <div class={styles.container}>
   <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenester[language]}</Heading>
-  {
-    isEnglish ? (
-      <BodyShort size="medium" className={styles.disclaimer}>
-        {text.disclaimer[language]}
-      </BodyShort>
-    ) : null
-  }
+  {isEnglish && (<BodyShort size="medium" className={styles.disclaimer}>{text.disclaimer[language]}</BodyShort>)}
   <nav class={styles.sectionContainer}>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} lenker={jobbLenker} />
-      <InnloggedeTjensterSection tittel={text.dinOversikt[language]} lenker={hjelpemidlerLenker} />
+      <TjensterSection tittel={text.jobbOgOppfolging[language]} lenker={jobbLenker} />
+      <TjensterSection tittel={text.dinOversikt[language]} lenker={hjelpemidlerLenker} />
     </div>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.personopplysning[language]} lenker={personopplysningLenker} />
-      <InnloggedeTjensterSection tittel={text.annet[language]} lenker={annetLenker} />
+      <TjensterSection tittel={text.personopplysning[language]} lenker={personopplysningLenker} />
+      <TjensterSection tittel={text.annet[language]} lenker={annetLenker} />
     </div>
   </nav>
 </div>
