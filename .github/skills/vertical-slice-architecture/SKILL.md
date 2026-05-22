@@ -47,23 +47,19 @@ src/
 │   │   ├── utbetalingUrls.ts       # URL-definisjoner (local + prod)
 │   │   ├── utbetalingUtils.ts      # Feature-spesifikk logikk
 │   │   ├── Utbetaling.module.css   # Scoped CSS
-│   │   ├── enkel/                  # Sub-variant
-│   │   │   └── EnkelUtbetaling.astro
-│   │   ├── list/
-│   │   │   └── UtbetalingList.astro
-│   │   ├── ingen/
+│   │   ├── ingen/                  # Sub-variant
 │   │   │   └── IngenUtbetaling.astro
 │   │   └── fallback/
 │   │       └── UtbetalingFallback.astro
 │   └── dokumenter/
 │       └── ...
-├── shared/                         # Kun delt infrastruktur
-│   ├── authentication/
-│   ├── client-error/
-│   └── store/
-└── utils/
-    ├── server/                     # fetch.ts, token.ts, logger.ts
-    └── client/                     # api.ts, environment.ts
+└── shared/                         # Kun delt infrastruktur
+    ├── authentication/
+    ├── client-error/
+    ├── store/
+    └── utils/
+        ├── server/                 # fetch.ts, token.ts, logger.ts
+        └── client/                 # api.ts, environment.ts
 ```
 
 ## Workflow
@@ -72,7 +68,7 @@ src/
 2. **Kartlegg avhengigheter** — hva er feature-spesifikt vs. ekte delt kode?
 3. **Lag slice-mappe** — én mappe per feature under `src/features/`
 4. **Flytt og tilpass** — følg navnekonvensjonene under
-5. **Oppdater imports** — bruk path-aliaser (`@features/*`, `@shared/*`, `@utils/*`)
+5. **Oppdater imports** — bruk path-aliaser (`@src/*`)
 6. **Verifiser** — kjør bygg og sjekk at siden fungerer
 
 ## Steg 1: Identifiser features
@@ -227,31 +223,10 @@ Konfigurer path-aliaser i `tsconfig.json`:
 {
   "compilerOptions": {
     "paths": {
-      "@features/*": ["src/features/*"],
-      "@shared/*":   ["src/shared/*"],
-      "@utils/*":    ["src/utils/*"]
+      "@src/*": ["src/features/*"]
     }
   }
 }
-```
-
-Og i `astro.config.mjs`:
-
-```typescript
-import { defineConfig } from "astro/config";
-import path from "path";
-
-export default defineConfig({
-  vite: {
-    resolve: {
-      alias: {
-        "@features": path.resolve("./src/features"),
-        "@shared":   path.resolve("./src/shared"),
-        "@utils":    path.resolve("./src/utils"),
-      },
-    },
-  },
-});
 ```
 
 Erstatt relative imports med aliaser:
@@ -265,7 +240,7 @@ import { fetchData } from "../../../../utils/fetch";
 // ✅ Etter
 import { text } from "./utbetalingText";           // Co-lokert — relativ import er OK
 import type { Utbetaling } from "./utbetalingTypes"; // Co-lokert — relativ import er OK
-import { fetchData } from "@utils/server/fetch";   // Delt infrastruktur — alias
+import { fetchData } from "@src/shared/utils/server/fetch";   // Delt infrastruktur — alias
 ```
 
 > **Regel:** Innen en slice brukes relative imports. Til `shared/` og `utils/` brukes aliaser.
