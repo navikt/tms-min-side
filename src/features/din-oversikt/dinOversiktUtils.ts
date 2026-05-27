@@ -1,12 +1,12 @@
 import type { Microfrontend } from "@src/shared/microfrontends/microfrontendTypes.ts";
-import type { Language } from "@src/shared/utils/server/language.ts";
+import type { Locale } from "@src/shared/utils/server/locale.ts";
 import type { PersonalizedContent } from "./DinOversiktTypes";
 import { getProduktPropertiesMap } from "./produktkort/ProduktProperties.tsx";
 
-export const getProduktkortList = (language: Language, personalizedContent?: PersonalizedContent) => {
+export const getProduktkortList = (locale: Locale, personalizedContent?: PersonalizedContent) => {
   if (personalizedContent === undefined) return undefined;
 
-  const produktPropertiesMap = getProduktPropertiesMap(language);
+  const produktPropertiesMap = getProduktPropertiesMap(locale);
   const byKode = (a: string, b: string) => a.localeCompare(b);
   const toProduktProperties = (sakstema: string) => produktPropertiesMap[sakstema];
 

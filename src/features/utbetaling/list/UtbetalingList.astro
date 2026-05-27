@@ -5,25 +5,25 @@ import { BodyShort, Heading, Tag } from "@navikt/ds-react";
 import { text } from "@src/features/utbetaling/utbetalingText";
 import type { UtbetalingData } from "@src/features/utbetaling/utbetalingTypes";
 import { formatToReadableDate } from "@src/features/utbetaling/utbetalingUtils";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./UtbetalingList.module.css";
 
 interface Props {
   kommende: UtbetalingData;
   tidligere: UtbetalingData;
-  language: Language;
+  locale: Locale;
 }
 
-const { kommende, tidligere, language } = Astro.props;
+const { kommende, tidligere, locale } = Astro.props;
 ---
 
 <div class={styles.wrapper}>
-  <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[language]}</Heading>
+  <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[locale]}</Heading>
   <a href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${kommende.id}`} class={styles.kommendeOgTidligere} id="kommende">
     <BodyShort className={styles.datoOgYtelse}>
       <span class={styles.datoOgTag}>
         {formatToReadableDate(kommende.dato)}
-        <Tag variant="success-moderate" size="small" className={styles.tag}>{text.tittelKommende[language]}</Tag>
+        <Tag variant="success-moderate" size="small" className={styles.tag}>{text.tittelKommende[locale]}</Tag>
       </span>
       <span class={styles.ytelse}>
         {kommende.ytelse}

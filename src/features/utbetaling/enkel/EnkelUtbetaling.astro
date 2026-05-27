@@ -5,16 +5,16 @@ import { BodyShort, Heading } from "@navikt/ds-react";
 import { text } from "@src/features/utbetaling/utbetalingText";
 import type { UtbetalingData } from "@src/features/utbetaling/utbetalingTypes";
 import { formatToReadableDate } from "@src/features/utbetaling/utbetalingUtils";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./EnkelUtbetaling.module.css";
 
 interface Props {
   utbetaling: UtbetalingData;
-  language: Language;
+  locale: Locale;
   utbetalingType: "kommende" | "tidligere";
 }
 
-const { utbetaling, language, utbetalingType } = Astro.props;
+const { utbetaling, locale, utbetalingType } = Astro.props;
 
 const containerStyling = {
   kommende: `${styles.container} ${styles.kommende}`,
@@ -30,10 +30,10 @@ const seDetaljerStyling = {
 <a class={containerStyling} href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${utbetaling.id}`}>
   <span class={styles.headingContainer} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
     <Heading level="2" size="xsmall">
-      {utbetalingType === "kommende" ? text.tittelKommende[language] : text.tittelTidligere[language]}
+      {utbetalingType === "kommende" ? text.tittelKommende[locale] : text.tittelTidligere[locale]}
     </Heading>
     <BodyShort className={seDetaljerStyling} id={utbetalingType === "kommende" ? "kommende" : "tidligere"}>
-      {text.seDetaljer[language]}
+      {text.seDetaljer[locale]}
       <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
     </BodyShort>
   </span>
@@ -42,7 +42,7 @@ const seDetaljerStyling = {
   </Heading>
   <BodyShort
     >{
-      `${utbetaling.ytelse} — ${utbetalingType === "kommende" ? text.utbetales[language] : text.utbetalt[language]} ${formatToReadableDate(utbetaling.dato)}`
+      `${utbetaling.ytelse} — ${utbetalingType === "kommende" ? text.utbetales[locale] : text.utbetalt[locale]} ${formatToReadableDate(utbetaling.dato)}`
     }</BodyShort
   >
 </a>

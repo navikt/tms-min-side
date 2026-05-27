@@ -8,10 +8,10 @@ import type { Microfrontend } from "./microfrontendTypes";
 
 interface Props {
   microfrontend: Microfrontend;
-  language: string;
+  locale: string;
 }
 
-const { microfrontend, language } = Astro.props;
+const { microfrontend, locale } = Astro.props;
 
 const audience = getAudience(microfrontend.appname, microfrontend.namespace);
 const oboToken = await getOboToken(Astro.locals.token, audience);
@@ -20,13 +20,13 @@ let isError = false;
 let html = "";
 
 try {
-  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${language}`);
+  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${locale}`);
 } catch (error) {
   logger.error(
     `Failed to fetch microfrontend: ${microfrontend.appname} with url: ${microfrontend.url}. Error: ${error}`,
   );
   isError = true;
-  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${language}/${microfrontend.fallback}`);
+  html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${locale}/${microfrontend.fallback}`);
 }
 ---
 

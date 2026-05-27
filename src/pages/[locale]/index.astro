@@ -18,15 +18,15 @@ import Content from "@src/shared/content/Content.astro";
 import Feilmelding from "@src/shared/feilmelding/Feilmelding";
 import Legacy from "@src/shared/legacy/Legacy";
 import Observability from "@src/shared/obersvability/Observability";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 <Layout title="Min side">
   <Content cls="min-side">
     <SubstantialInfo />
-    <Feilmelding language={language} client:only="react" />
+    <Feilmelding locale={locale} client:only="react" />
     <Personalia />
     <AlertIsland />
     <DinOversikt server:defer />

@@ -5,65 +5,65 @@ import IkonPensjon from "@src/features/din-oversikt/assets/IkonPensjon";
 import IkonSykefravær from "@src/features/din-oversikt/assets/IkonSykefravær";
 import IkonUføretrygd from "@src/features/din-oversikt/assets/IkonUføretrygd";
 import IkonØkonomiskSosialhjelp from "@src/features/din-oversikt/assets/IkonØkonomiskSosialhjelp";
-import type { Language } from "@src/shared/utils/server/language.ts";
+import type { Locale } from "@src/shared/utils/server/locale.ts";
 import type { ReactElement } from "react";
 import { produktText } from "./ProduktText";
 import { produktlinker as produktUrls } from "./ProduktUrls";
 
 type ProduktProperties = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: ReactElement };
 
-export function getProduktPropertiesMap(language: Language): Record<string, ProduktProperties> {
+export function getProduktPropertiesMap(locale: Locale): Record<string, ProduktProperties> {
   const sykefraværConfig: ProduktProperties = {
     produktnavn: "sykefravær",
-    url: produktUrls.sykefravær[language],
-    tittel: produktText.sykefravær[language],
-    ingress: produktText.sykefraværIngress[language],
+    url: produktUrls.sykefravær[locale],
+    tittel: produktText.sykefravær[locale],
+    ingress: produktText.sykefraværIngress[locale],
     ikon: <IkonSykefravær />,
   };
 
   return {
     DAG: {
       produktnavn: "dagpenger",
-      url: produktUrls.dagpenger[language],
-      tittel: produktText.dagpenger[language],
-      ingress: produktText.generellIngress[language],
+      url: produktUrls.dagpenger[locale],
+      tittel: produktText.dagpenger[locale],
+      ingress: produktText.generellIngress[locale],
       ikon: <IkonDagpenger />,
     },
     FOR: {
       produktnavn: "foreldrepenger",
-      url: produktUrls.foreldrepenger[language],
-      tittel: produktText.foreldrepenger[language],
-      ingress: produktText.generellIngress[language],
+      url: produktUrls.foreldrepenger[locale],
+      tittel: produktText.foreldrepenger[locale],
+      ingress: produktText.generellIngress[locale],
       ikon: <IkonForeldrepenger />,
     },
     HJE: {
       produktnavn: "hjelpemidler",
-      url: produktUrls.hjelpemidler[language],
-      tittel: produktText.hjelpemidler[language],
-      ingress: produktText.generellIngress[language],
+      url: produktUrls.hjelpemidler[locale],
+      tittel: produktText.hjelpemidler[locale],
+      ingress: produktText.generellIngress[locale],
       ikon: <IkonHjelpemidler />,
     },
     KOM: {
       produktnavn: "sosialhjelp",
-      url: produktUrls.sosialhjelp[language],
-      tittel: produktText.sosialhjelp[language],
-      ingress: produktText.sosialhjelpIngress[language],
+      url: produktUrls.sosialhjelp[locale],
+      tittel: produktText.sosialhjelp[locale],
+      ingress: produktText.sosialhjelpIngress[locale],
       ikon: <IkonØkonomiskSosialhjelp />,
     },
     PEN: {
       produktnavn: "pensjon",
-      url: produktUrls.pensjon[language],
-      tittel: produktText.pensjon[language],
-      ingress: produktText.pensjonIngress[language],
+      url: produktUrls.pensjon[locale],
+      tittel: produktText.pensjon[locale],
+      ingress: produktText.pensjonIngress[locale],
       ikon: <IkonPensjon />,
     },
     SYK: sykefraværConfig,
     SYM: sykefraværConfig,
     UFO: {
       produktnavn: "uføretrygd",
-      url: produktUrls.uføretrygd[language],
-      tittel: produktText.uføretrygd[language],
-      ingress: produktText.uføretrygdIngress[language],
+      url: produktUrls.uføretrygd[locale],
+      tittel: produktText.uføretrygd[locale],
+      ingress: produktText.uføretrygdIngress[locale],
       ikon: <IkonUføretrygd />,
     },
   };

@@ -6,7 +6,7 @@ import Microfrontend from "@src/shared/microfrontends/Microfrontend.astro";
 import MicrofrontendSkeleton from "@src/shared/microfrontends/MicrofrontendSkeleton.astro";
 import { MultiStatusError } from "@src/shared/utils/server/error";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./DinOversikt.module.css";
@@ -20,7 +20,7 @@ import { getShowDinOversikt } from "./useOversikt.ts";
 
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 
 let isError = false;
 let personalizedContent: PersonalizedContent = {
@@ -42,7 +42,7 @@ try {
   isError = true;
 }
 
-const produktkortList = getProduktkortList(language, personalizedContent);
+const produktkortList = getProduktkortList(locale, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
 ---
 
@@ -51,18 +51,18 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
   showDinOversikt && (
     <div class={styles.oversiktContainer}>
       <BodyShort as="h2" spacing>
-        {produktText.oversiktTittel[language]}
+        {produktText.oversiktTittel[locale]}
       </BodyShort>
       {personalizedContent?.meldekort && (
         <div class={styles.meldekort}>
-          <Meldekort language={language} server:defer>
+          <Meldekort locale={locale} server:defer>
             <MeldekortSkeleton slot="fallback" />
           </Meldekort>
         </div>
       )}
       <div class={styles.masonry}>
         {personalizedContent?.microfrontends.map((mf) => (
-          <Microfrontend microfrontend={mf} language={language} server:defer>
+          <Microfrontend microfrontend={mf} locale={locale} server:defer>
             <MicrofrontendSkeleton slot="fallback" />
           </Microfrontend>
         ))}

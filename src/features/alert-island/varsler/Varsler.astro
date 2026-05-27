@@ -3,7 +3,7 @@ import { VARSEL_API_URL, VARSLER_URL } from "astro:env/server";
 import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import IngenVarslerIkon from "./assets/IngenVarslerIkon";
@@ -30,9 +30,9 @@ const oppgaver = data.oppgaver || 0;
 const beskjeder = data.beskjeder + data.innbokser;
 const varsler = beskjeder + oppgaver;
 
-const language = Astro.currentLocale as Language;
-const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[language] : text.oppgaver[language];
-const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.beskjeder[language];
+const locale = Astro.currentLocale as Locale;
+const oppgaveText = oppgaveSingular(oppgaver) ? text.oppgave[locale] : text.oppgaver[locale];
+const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[locale] : text.beskjeder[locale];
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -46,8 +46,8 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
             <VarselBjelleDotUtenFyll />
           </div>
           <div class={style.container}>
-            <h3 class={style.heading}>{text.varsler[language]}</h3>
-            <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[language])}</p>
+            <h3 class={style.heading}>{text.varsler[locale]}</h3>
+            <p class={style.tekst}>{buildText(beskjeder, oppgaver, beskjedText, oppgaveText, text.og[locale])}</p>
           </div>
         </a>
       )
@@ -56,8 +56,8 @@ const beskjedText = beskjedSingular(beskjeder) ? text.beskjed[language] : text.b
         <a href={VARSLER_URL} class={style.varsler}>
           <IngenVarslerIkon />
           <div class={style.container}>
-            <h3 class={style.heading}>{text.varsler[language]}</h3>
-            <p class={style.tekst}>{text.ingenVarsler[language]}</p>
+            <h3 class={style.heading}>{text.varsler[locale]}</h3>
+            <p class={style.tekst}>{text.ingenVarsler[locale]}</p>
           </div>
         </a>
         )

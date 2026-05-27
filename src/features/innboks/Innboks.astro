@@ -5,7 +5,7 @@ import { BodyLong, Heading } from "@navikt/ds-react";
 import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./Innboks.module.css";
@@ -27,20 +27,20 @@ try {
 
 const innbokser = data.innbokser;
 const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 {isError && <ClientError client:only="react" />}
 <div class={styles.container}>
   <a class={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={INNBOKS_URL} id="innboks">
-    <Heading level="2" size="xsmall">{text.kommunikasjonsFlisLenketekstInnboks[language]}</Heading>
+    <Heading level="2" size="xsmall">{text.kommunikasjonsFlisLenketekstInnboks[locale]}</Heading>
     <div class={styles.tagChevron}>
-      <InnboksTag innbokser={innbokser} language={language} />
+      <InnboksTag innbokser={innbokser} locale={locale} />
       <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
     </div>
   </a>
   <div class={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
-    <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
+    <BodyLong>{text.kommunikasjonsFlisIngressInnboks[locale]}</BodyLong>
   </div>
 </div>
 <PersonalContentLogger event={"innboks"} value={type === "NyMelding" ? true : false} client:only="react" />

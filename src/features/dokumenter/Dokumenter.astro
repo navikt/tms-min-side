@@ -5,7 +5,7 @@ import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./Dokumenter.module.css";
@@ -31,13 +31,13 @@ try {
 }
 
 const hasIngenDokumenter = data.length === 0;
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 {isError && <ClientError client:only="react" />}
 {() => {
     if (isSubstantial) {
-      return <MinIDDokumenter language={language}/>;
+      return <MinIDDokumenter locale={locale}/>;
     }
 
     if (hasIngenDokumenter) {
@@ -45,16 +45,16 @@ const language = Astro.currentLocale as Language;
         <div class={styles.container}>
           <div class={styles.heading}>
             <Heading level="2" size="xsmall">
-              {text.heading[language]}
+              {text.heading[locale]}
             </Heading>
           </div>
           <div class={styles.ingress}>
             <BodyLong className={styles.text}>
-              {text.ingenText[language]}
+              {text.ingenText[locale]}
             </BodyLong>
           </div>
-          <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${language}`} id="ingenDokumenterAlle">
-            {text.tidligere[language]}
+          <a class={styles.ingenLink} href={`${DOKUMENTARKIV_URL}/${locale}`} id="ingenDokumenterAlle">
+            {text.tidligere[locale]}
           </a>
         </div>
       );
@@ -62,7 +62,7 @@ const language = Astro.currentLocale as Language;
       return (
         <div class={styles.container}>
           <Heading size="xsmall" level="2" spacing>
-            {text.heading[language]}
+            {text.heading[locale]}
           </Heading>
           <ul class={styles.dokumenter}>
             {data.map((dokument) => (
@@ -70,9 +70,9 @@ const language = Astro.currentLocale as Language;
             ))}
           </ul>
           <div class={styles.alle}>
-            <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${language}`} id="alle">
+            <a class={styles.link} href={`${DOKUMENTARKIV_URL}/${locale}`} id="alle">
               <BodyShort size="medium">
-                {text.alle[language]}
+                {text.alle[locale]}
               </BodyShort>
             </a>
             <Chevron className={styles.chevron} aria-hidden={true} fontSize="20px" />
