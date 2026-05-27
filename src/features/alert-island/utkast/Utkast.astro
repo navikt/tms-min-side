@@ -39,7 +39,7 @@ const ingress = antall === 1 ? text.soknad[language] : text.soknader[language](a
 {
   hasUtkast && (
     <div class={style.wrapper} id="utkast">
-      <a href={UTKAST_URL} class={style.utkast}>
+      <a href={`${UTKAST_URL}/${language}`} class={style.utkast}>
         <div class={style.ikonRektangel}>
           <UtkastIkon />
           <UtkastIkonHover />
