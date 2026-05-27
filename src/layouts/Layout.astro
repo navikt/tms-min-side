@@ -3,14 +3,14 @@ import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
 import Authentication from "@src/shared/authentication/Authentication";
 import { getDecoratorEnvironment } from "@src/shared/utils/server/environment";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import "./Layout.css";
 
 export interface Props {
   title: string;
 }
 
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 const { title } = Astro.props;
 
 const Decorator = await fetchDecoratorHtml({
@@ -18,7 +18,7 @@ const Decorator = await fetchDecoratorHtml({
   params: {
     context: "privatperson",
     breadcrumbs: [],
-    language: language,
+    language: locale,
     availableLanguages: [
       {
         locale: "nb",
@@ -43,7 +43,7 @@ const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCR
 ---
 
 <!doctype html>
-<html lang={language}>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

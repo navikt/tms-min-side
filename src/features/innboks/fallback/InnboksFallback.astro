@@ -3,21 +3,21 @@ import { INNBOKS_URL } from "astro:env/server";
 import { BodyLong, BodyShort, Skeleton } from "@navikt/ds-react";
 import styles from "@src/features/innboks/Innboks.module.css";
 import { text } from "@src/features/innboks/innboksText";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 <div class={styles.container}>
   <div class={styles.content}>
     <a class={`${styles.headerContainer} ${styles.headerContainerIngenNyMelding}`} href={INNBOKS_URL}>
-      <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
+      <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[locale]}</BodyShort>
       <div class={styles.tagChevron}>
         <Skeleton width={120} height={24} />
       </div>
     </a>
     <div class={`${styles.bodyContainer} ${styles.bodyContainerIngenNyMelding}`}>
-      <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
+      <BodyLong>{text.kommunikasjonsFlisIngressInnboks[locale]}</BodyLong>
     </div>
   </div>
 </div>

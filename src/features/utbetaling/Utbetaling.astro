@@ -3,7 +3,7 @@ import { UTBETALINGSOVERSIKT_API_URL } from "astro:env/server";
 import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import EnkelUtbetaling from "./enkel/EnkelUtbetaling.astro";
@@ -27,7 +27,7 @@ try {
   isError = true;
 }
 
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -35,22 +35,22 @@ const language = Astro.currentLocale as Language;
   {
     () => {
       if (isIngen(utbetaling)) {
-        return <IngenUtbetaling language={language} />;
+        return <IngenUtbetaling locale={locale} />;
       }
 
       if (isKommende(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} language={language} utbetalingType="kommende" />;
+        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} locale={locale} utbetalingType="kommende" />;
       }
 
       if (isTidligere(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} language={language} utbetalingType="tidligere" />;
+        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} locale={locale} utbetalingType="tidligere" />;
       }
 
       if (isList(utbetaling)) {
-        return <UtbetalingList kommende={utbetaling.kommende!} language={language} tidligere={utbetaling.sisteUtbetaling!} />;
+        return <UtbetalingList kommende={utbetaling.kommende!} locale={locale} tidligere={utbetaling.sisteUtbetaling!} />;
       }
     }
   }
-  <SeAlle language={language} isKommende={isKommende(utbetaling)} />
+  <SeAlle locale={locale} isKommende={isKommende(utbetaling)} />
   <PersonalContentLogger event="utbetaling" value={!!utbetaling.kommende || !!utbetaling.sisteUtbetaling} client:only="react" />
 </div>

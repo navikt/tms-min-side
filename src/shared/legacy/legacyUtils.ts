@@ -1,12 +1,12 @@
 import type { PersonalizedContent } from "@src/features/din-oversikt/DinOversiktTypes";
 import { produktText } from "@src/features/din-oversikt/produktkort/ProduktText";
 import type { Microfrontend } from "@src/shared/microfrontends/microfrontendTypes";
-import type { Language } from "@src/shared/utils/server/language.ts";
+import type { Locale } from "@src/shared/utils/server/locale.ts";
 
-export const getProduktPropertiesLegacy = (language: Language, personalizedContent?: PersonalizedContent) => {
+export const getProduktPropertiesLegacy = (locale: Locale, personalizedContent?: PersonalizedContent) => {
   if (personalizedContent === undefined) return undefined;
 
-  const produktPropertiesMap = getProduktPropertiesMapLegacy(language);
+  const produktPropertiesMap = getProduktPropertiesMapLegacy(locale);
   const byKode = (a: string, b: string) => a.localeCompare(b);
   const toProduktProperties = (sakstema: string) => produktPropertiesMap[sakstema];
 
@@ -21,38 +21,38 @@ export const hasAktueltMicrofrontendsLegacy = (microfrontends: Microfrontend[]) 
 
 type ProduktProperties = { produktnavn: string; tittel: string };
 
-export function getProduktPropertiesMapLegacy(language: Language): Record<string, ProduktProperties> {
+export function getProduktPropertiesMapLegacy(locale: Locale): Record<string, ProduktProperties> {
   const sykefraværConfig: ProduktProperties = {
     produktnavn: "sykefravær",
-    tittel: produktText.sykefravær[language],
+    tittel: produktText.sykefravær[locale],
   };
 
   return {
     DAG: {
       produktnavn: "dagpenger",
-      tittel: produktText.dagpenger[language],
+      tittel: produktText.dagpenger[locale],
     },
     FOR: {
       produktnavn: "foreldrepenger",
-      tittel: produktText.foreldrepenger[language],
+      tittel: produktText.foreldrepenger[locale],
     },
     HJE: {
       produktnavn: "hjelpemidler",
-      tittel: produktText.hjelpemidler[language],
+      tittel: produktText.hjelpemidler[locale],
     },
     KOM: {
       produktnavn: "sosialhjelp",
-      tittel: produktText.sosialhjelp[language],
+      tittel: produktText.sosialhjelp[locale],
     },
     PEN: {
       produktnavn: "pensjon",
-      tittel: produktText.pensjon[language],
+      tittel: produktText.pensjon[locale],
     },
     SYK: sykefraværConfig,
     SYM: sykefraværConfig,
     UFO: {
       produktnavn: "uføretrygd",
-      tittel: produktText.uføretrygd[language],
+      tittel: produktText.uføretrygd[locale],
     },
   };
 }

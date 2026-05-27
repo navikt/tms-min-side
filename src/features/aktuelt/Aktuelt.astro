@@ -4,7 +4,7 @@ import { BodyShort, Skeleton } from "@navikt/ds-react";
 import ClientError from "@src/shared/client-error/ClientError";
 import Microfrontend from "@src/shared/microfrontends/Microfrontend.astro";
 import { fetchData } from "@src/shared/utils/server/fetch";
-import type { Language } from "@src/shared/utils/server/language.ts";
+import type { Locale } from "@src/shared/utils/server/locale.ts";
 import logger from "@src/shared/utils/server/logger.ts";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import style from "./Aktuelt.module.css";
@@ -13,7 +13,7 @@ import type { Aktuelt } from "./aktueltTypes";
 
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 
 let aktuelt: Aktuelt = { offerStepup: false, microfrontends: [] };
 let isError = false;
@@ -36,11 +36,11 @@ try {
       return (
         <div class={style.container}>
           <BodyShort as="h2" className={style.aktuelt} spacing>
-            {text.aktuelt[language]}
+            {text.aktuelt[locale]}
           </BodyShort>
           {aktuelt.microfrontends.map((mf) => {
             return (
-              <Microfrontend microfrontend={mf} language={language} server:defer>
+              <Microfrontend microfrontend={mf} locale={locale} server:defer>
                 <Skeleton variant="rounded" width={"100%"} height={100} slot="fallback"/>
               </Microfrontend>
             );

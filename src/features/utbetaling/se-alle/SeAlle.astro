@@ -2,15 +2,15 @@
 import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
 import { text } from "@src/features/utbetaling/utbetalingText";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./SeAlle.module.css";
 
 interface Props {
-  language: Language;
+  locale: Locale;
   isKommende: boolean;
 }
 
-const { language, isKommende } = Astro.props;
+const { locale, isKommende } = Astro.props;
 ---
 
 <>
@@ -19,7 +19,7 @@ const { language, isKommende } = Astro.props;
     id="seAlle"
     class={isKommende ? `${styles.container} ${styles.kommende}` : `${styles.container} ${styles.tidligere}`}
   >
-    {text.alle[language]}
+    {text.alle[locale]}
     <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
   </a>
   <script>

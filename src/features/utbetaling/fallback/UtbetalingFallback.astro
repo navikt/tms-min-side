@@ -2,17 +2,17 @@
 import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { Heading, Skeleton } from "@navikt/ds-react";
 import { text } from "@src/features/utbetaling/utbetalingText";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import style from "./UtbetalingFallback.module.css";
 
-const language = Astro.currentLocale as Language;
+const locale = Astro.currentLocale as Locale;
 ---
 
 <div class={style.detaljer}>
   <div class={`${style.detaljerContainer}`}>
     <div class={style.heading}>
       <Heading level="2" size="xsmall">
-        {text.tittelUtbetalinger[language]}
+        {text.tittelUtbetalinger[locale]}
       </Heading>
     </div>
     <Skeleton width={116} height={28} />

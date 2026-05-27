@@ -1,32 +1,32 @@
 ---
 import { BodyShort, Heading } from "@navikt/ds-react";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./InnloggedeTjenester.module.css";
 import { text } from "./innloggedeTjenesterText";
 import { annetLenker, hjelpemidlerLenker, jobbLenker, personopplysningLenker } from "./innloggedeTjenesterUrls";
 import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 
-const language = Astro.currentLocale as Language;
-const isEnglish = language === "en";
+const locale = Astro.currentLocale as Locale;
+const isEnglish = locale === "en";
 ---
 
 <div class={styles.container}>
-  <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenester[language]}</Heading>
+  <Heading level="2" size="small" className={styles.tittel}>{text.innloggedeTjenester[locale]}</Heading>
   {
     isEnglish ? (
       <BodyShort size="medium" className={styles.disclaimer}>
-        {text.disclaimer[language]}
+        {text.disclaimer[locale]}
       </BodyShort>
     ) : null
   }
   <nav class={styles.sectionContainer}>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[language]} lenker={jobbLenker} />
-      <InnloggedeTjensterSection tittel={text.dinOversikt[language]} lenker={hjelpemidlerLenker} />
+      <InnloggedeTjensterSection tittel={text.jobbOgOppfolging[locale]} lenker={jobbLenker} />
+      <InnloggedeTjensterSection tittel={text.dinOversikt[locale]} lenker={hjelpemidlerLenker} />
     </div>
     <div class={styles.column}>
-      <InnloggedeTjensterSection tittel={text.personopplysning[language]} lenker={personopplysningLenker} />
-      <InnloggedeTjensterSection tittel={text.annet[language]} lenker={annetLenker} />
+      <InnloggedeTjensterSection tittel={text.personopplysning[locale]} lenker={personopplysningLenker} />
+      <InnloggedeTjensterSection tittel={text.annet[locale]} lenker={annetLenker} />
     </div>
   </nav>
 </div>

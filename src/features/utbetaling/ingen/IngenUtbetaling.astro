@@ -1,21 +1,21 @@
 ---
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { text } from "@src/features/utbetaling/utbetalingText";
-import type { Language } from "@src/shared/utils/server/language";
+import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./IngenUtbetaling.module.css";
 
 interface Props {
-  language: Language;
+  locale: Locale;
 }
 
-const { language } = Astro.props;
+const { locale } = Astro.props;
 ---
 
 <div>
   <div class={styles.contentContainer}>
-    <Heading level="2" size="xsmall">{text.tittelUtbetalinger[language]}</Heading>
+    <Heading level="2" size="xsmall">{text.tittelUtbetalinger[locale]}</Heading>
     <BodyShort className={styles.text}>
-      {text.ingen[language]}
+      {text.ingen[locale]}
     </BodyShort>
   </div>
 </div>

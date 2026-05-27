@@ -6,10 +6,10 @@ import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 
 interface Props {
-  language: string;
+  locale: string;
 }
 
-const { language } = Astro.props;
+const { locale } = Astro.props;
 const audience = getAudience("meldekort-mikrofrontend", "meldekort");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
@@ -17,11 +17,11 @@ let isError = false;
 let html = "";
 
 try {
-  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${language}`);
+  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${locale}`);
 } catch (error) {
   logger.error(`Failed to fetch meldekort microfrontend. Error: ${error}`);
   isError = true;
-  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${language}/fallback`);
+  html = await fetchMicrofrontend(oboToken, `${MELDEKORT_URL}/${locale}/fallback`);
 }
 ---
 
