@@ -5,7 +5,7 @@ on:
 
 engine:
   id: copilot
-  model: GPT-5.2-Codex
+  model: claude-opus-4.6
 
 network:
   allowed:
