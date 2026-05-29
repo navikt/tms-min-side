@@ -1,10 +1,34 @@
 {
-  "sisteUtbetaling": {
-    "utbetaling": 1234,
-    "dato": "2023-11-14",
-    "ytelse": "Arbeidsavklaringspenger",
-    "kontonummer": 1234,
-    "id": 1233
-  },
-  "kommende": null
+  "kommendeUtbetalinger": [
+    {
+      "utbetaling": 1234,
+      "dato": "2024-01-15",
+      "ytelse": "Arbeidsavklaringspenger",
+      "kontonummer": 1234,
+      "id": 2001
+    },
+    {
+      "utbetaling": 5678,
+      "dato": "2024-01-20",
+      "ytelse": "Dagpenger",
+      "kontonummer": 1234,
+      "id": 2002
+    }
+  ],
+  "sisteUtbetalinger": [
+    {
+      "utbetaling": 1234,
+      "dato": "2023-11-14",
+      "ytelse": "Arbeidsavklaringspenger",
+      "kontonummer": 1234,
+      "id": 1233
+    },
+    {
+      "utbetaling": 4321,
+      "dato": "2023-11-10",
+      "ytelse": "Dagpenger",
+      "kontonummer": 1234,
+      "id": 1234
+    }
+  ]
 }

@@ -17,7 +17,7 @@ import { isIngen, isKommende, isList, isTidligere } from "./utbetalingUtils";
 const audience = getAudience("tms-utbetalingsoversikt-api");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 
-let utbetaling: Utbetaling = { sisteUtbetaling: null, kommende: null };
+let utbetaling: Utbetaling = { sisteUtbetalinger: [], kommendeUtbetalinger: [] };
 let isError = false;
 
 try {
@@ -39,18 +39,22 @@ const locale = Astro.currentLocale as Locale;
       }
 
       if (isKommende(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.kommende!} locale={locale} utbetalingType="kommende" />;
+        return <EnkelUtbetaling utbetaling={utbetaling.kommendeUtbetalinger[0]} locale={locale} utbetalingType="kommende" />;
       }
 
       if (isTidligere(utbetaling)) {
-        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetaling!} locale={locale} utbetalingType="tidligere" />;
+        return <EnkelUtbetaling utbetaling={utbetaling.sisteUtbetalinger[0]} locale={locale} utbetalingType="tidligere" />;
       }
 
       if (isList(utbetaling)) {
-        return <UtbetalingList kommende={utbetaling.kommende!} locale={locale} tidligere={utbetaling.sisteUtbetaling!} />;
+        return <UtbetalingList kommende={utbetaling.kommendeUtbetalinger} locale={locale} tidligere={utbetaling.sisteUtbetalinger} />;
       }
     }
   }
   <SeAlle locale={locale} isKommende={isKommende(utbetaling)} />
-  <PersonalContentLogger event="utbetaling" value={!!utbetaling.kommende || !!utbetaling.sisteUtbetaling} client:only="react" />
+  <PersonalContentLogger
+    event="utbetaling"
+    value={utbetaling.kommendeUtbetalinger.length > 0 || utbetaling.sisteUtbetalinger.length > 0}
+    client:only="react"
+  />
 </div>

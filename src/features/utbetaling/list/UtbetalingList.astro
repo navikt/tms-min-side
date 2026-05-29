@@ -9,8 +9,8 @@ import type { Locale } from "@src/shared/utils/server/locale";
 import styles from "./UtbetalingList.module.css";
 
 interface Props {
-  kommende: UtbetalingData;
-  tidligere: UtbetalingData;
+  kommende: UtbetalingData[];
+  tidligere: UtbetalingData[];
   locale: Locale;
 }
 
@@ -19,46 +19,64 @@ const { kommende, tidligere, locale } = Astro.props;
 
 <div class={styles.wrapper}>
   <Heading level="2" size="xsmall" className={styles.heading}>{text.tittelUtbetalinger[locale]}</Heading>
-  <a href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${kommende.id}`} class={styles.kommendeOgTidligere} id="kommende">
-    <BodyShort className={styles.datoOgYtelse}>
-      <span class={styles.datoOgTag}>
-        {formatToReadableDate(kommende.dato)}
-        <Tag variant="success-moderate" size="small" className={styles.tag}>{text.tittelKommende[locale]}</Tag>
-      </span>
-      <span class={styles.ytelse}>
-        {kommende.ytelse}
-      </span>
-    </BodyShort>
-    <BodyShort weight="semibold" className={styles.utbetaling}>
-      {kommende.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
-    </BodyShort>
-  </a>
-  <a href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${tidligere.id}`} class={styles.kommendeOgTidligere} id="tidligere">
-    <BodyShort className={styles.datoOgYtelse}>
-      <span>
-        {formatToReadableDate(tidligere.dato)}
-      </span>
-      <span class={styles.ytelse}>
-        {tidligere.ytelse}
-      </span>
-    </BodyShort>
-    <BodyShort weight="semibold" className={styles.utbetaling}>
-      {tidligere.utbetaling?.toLocaleString("no-nb") + " kr"}
-      <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
-    </BodyShort>
-  </a>
+  {
+    kommende.map((utbetaling) => (
+      <a
+        href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${utbetaling.id}`}
+        class={styles.kommendeOgTidligere}
+        data-utbetaling-type="kommende"
+      >
+        <BodyShort className={styles.datoOgYtelse}>
+          <span class={styles.datoOgTag}>
+            {formatToReadableDate(utbetaling.dato)}
+            <Tag variant="success-moderate" size="small" className={styles.tag}>{text.tittelKommende[locale]}</Tag>
+          </span>
+          <span class={styles.ytelse}>
+            {utbetaling.ytelse}
+          </span>
+        </BodyShort>
+        <BodyShort weight="semibold" className={styles.utbetaling}>
+          {utbetaling.utbetaling?.toLocaleString("no-nb") + " kr"}
+          <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
+        </BodyShort>
+      </a>
+    ))
+  }
+  {
+    tidligere.map((utbetaling) => (
+      <a
+        href={`${UTBETALINGSOVERSIKT_URL}/utbetaling/${utbetaling.id}`}
+        class={styles.kommendeOgTidligere}
+        data-utbetaling-type="tidligere"
+      >
+        <BodyShort className={styles.datoOgYtelse}>
+          <span>
+            {formatToReadableDate(utbetaling.dato)}
+          </span>
+          <span class={styles.ytelse}>
+            {utbetaling.ytelse}
+          </span>
+        </BodyShort>
+        <BodyShort weight="semibold" className={styles.utbetaling}>
+          {utbetaling.utbetaling?.toLocaleString("no-nb") + " kr"}
+          <Chevron className={styles.chevron} fontSize="24px" aria-hidden={true} />
+        </BodyShort>
+      </a>
+    ))
+  }
   <script>
     import { logEvent } from "@src/shared/utils/client/umami";
 
-    const kommende = document.querySelector("#kommende");
-    const tidligere = document.querySelector("#tidligere");
-
-    kommende?.addEventListener("click", () => {
-      logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
+    document.querySelectorAll('[data-utbetaling-type="kommende"]').forEach((kommende) => {
+      kommende.addEventListener("click", () => {
+        logEvent("utbetaling-widget", "generell", "kommende-utbetaling");
+      });
     });
-    tidligere?.addEventListener("click", () => {
-      logEvent("utbetaling-widget", "generell", "tidligere-utbetaling");
+
+    document.querySelectorAll('[data-utbetaling-type="tidligere"]').forEach((tidligere) => {
+      tidligere.addEventListener("click", () => {
+        logEvent("utbetaling-widget", "generell", "tidligere-utbetaling");
+      });
     });
   </script>
 </div>
