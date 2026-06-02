@@ -29,7 +29,7 @@ try {
   isError = true;
 }
 
-const locale = Astro.currentLocale as Locale;
+const locale = (Astro.currentLocale ?? "nb") as Locale;
 const antall = data ? data.antall : 0;
 const hasUtkast = antall > 0;
 const ingress = antall === 1 ? text.soknad[locale] : text.soknader[locale](antall);
