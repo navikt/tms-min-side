@@ -18,6 +18,7 @@ const oboToken = await getOboToken(Astro.locals.token, audience);
 
 let isError = false;
 let html = "";
+console.log("Locale in Microfrontend.astro: ", locale);
 
 try {
   html = await fetchMicrofrontend(oboToken, `${microfrontend.url}/${locale}`);
