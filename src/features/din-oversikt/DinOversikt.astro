@@ -22,8 +22,6 @@ const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
 const locale = (Astro.currentLocale ?? "nb") as Locale;
 
-console.log("locale: ", locale);
-
 let isError = false;
 let personalizedContent: PersonalizedContent = {
   microfrontends: [],
