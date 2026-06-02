@@ -42,6 +42,7 @@ try {
   isError = true;
 }
 
+console.log("Locale in DinOversikt.astro: ", locale);
 const produktkortList = getProduktkortList(locale, personalizedContent);
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
 ---
