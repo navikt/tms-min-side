@@ -13,7 +13,7 @@ import type { Aktuelt } from "./aktueltTypes";
 
 const audience = getAudience("tms-mikrofrontend-selector");
 const oboToken = await getOboToken(Astro.locals.token, audience);
-const locale = Astro.currentLocale as Locale;
+const locale = (Astro.currentLocale ?? "nb") as Locale;
 
 let aktuelt: Aktuelt = { offerStepup: false, microfrontends: [] };
 let isError = false;
