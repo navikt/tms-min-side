@@ -43,7 +43,7 @@ api.get("/utkast", (c) => {
   return c.json(utkast);
 });
 
-api.get("/utbetalinger/siste", (c) => {
+api.get("/utbetalinger/minside-widget", (c) => {
   return c.json(utbetalinger);
 });
 

@@ -101,7 +101,7 @@ export default defineConfig({
       UTBETALINGSOVERSIKT_API_URL: envField.string({
         context: "server",
         access: "secret",
-        default: "http://localhost:3000/utbetalinger/siste",
+        default: "http://localhost:3000/utbetalinger/minside-widget",
       }),
       UTBETALINGSOVERSIKT_URL: envField.string({
         context: "server",

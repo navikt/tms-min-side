@@ -106,7 +106,7 @@ spec:
     - name: NAVN_URL
       value: "http://tms-min-side-proxy/tms-min-side-proxy/personalia"
     - name: UTBETALINGSOVERSIKT_API_URL
-      value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/ssr/siste"
+      value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/minside-widget"
     - name: UTBETALINGSOVERSIKT_URL
       value: "https://www.nav.no/utbetalingsoversikt"
     - name: REDIRECT_URI

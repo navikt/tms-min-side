@@ -20,9 +20,9 @@ export const text = {
     en: "See all payments",
   },
   ingen: {
-    nb: "Du har ingen nye utbetalinger de siste tre månedene",
-    nn: "Du har ingen nye utbetalingar dei siste tre månadene",
-    en: "You have no new payments in the last three months",
+    nb: "Du har ingen nye utbetalinger den siste måneden",
+    nn: "Du har ingen nye utbetalingar den siste månaden",
+    en: "You have no new payments in the last month",
   },
   seDetaljer: {
     nb: "Se detaljer",

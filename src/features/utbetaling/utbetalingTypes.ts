@@ -7,6 +7,6 @@ export type UtbetalingData = {
 };
 
 export type Utbetaling = {
-  sisteUtbetaling: UtbetalingData | null;
-  kommende: UtbetalingData | null;
+  sisteUtbetalinger: UtbetalingData[];
+  kommendeUtbetalinger: UtbetalingData[];
 };
