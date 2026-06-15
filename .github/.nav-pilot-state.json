@@ -1,13 +1,13 @@
 {
   "collection": "frontend",
-  "version": "2026.06.05-082958-add16ce",
+  "version": "2026.06.12-113744-10c4a25",
   "scope": "repo",
-  "source_sha": "3f86f8f",
+  "source_sha": "1cc0f58",
   "installed_at": "2026-04-24T09:58:45Z",
   "files": [
     {
       "path": ".github/agents/accessibility.agent.md",
-      "hash": "243143499e16befb"
+      "hash": "c35b6db4d15e6f9f"
     },
     {
       "path": ".github/agents/accessibility.metadata.json",
@@ -15,7 +15,7 @@
     },
     {
       "path": ".github/agents/aksel.agent.md",
-      "hash": "7103fb8df66fb0b1"
+      "hash": "5619d05aa37ec8f9"
     },
     {
       "path": ".github/agents/aksel.metadata.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "1a77f9c4ecf37af8"
+      "hash": "f490eb3f9ca1e9a3"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -39,11 +39,11 @@
     },
     {
       "path": ".github/skills/aksel-spacing/",
-      "hash": "690f23009e204e36"
+      "hash": "177594fc5ae8d7e3"
     },
     {
       "path": ".github/skills/playwright-testing/",
-      "hash": "d8991a8ed8a5e0b5"
+      "hash": "5c618cd99c79df64"
     },
     {
       "path": ".github/skills/web-design-reviewer/",
