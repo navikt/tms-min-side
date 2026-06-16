@@ -2,10 +2,10 @@
 import { UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { Heading, Skeleton } from "@navikt/ds-react";
 import { text } from "@src/features/utbetaling/utbetalingText";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 import style from "./UtbetalingFallback.module.css";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <div class={style.detaljer}>

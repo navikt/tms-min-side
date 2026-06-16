@@ -18,9 +18,9 @@ import Content from "@src/shared/content/Content.astro";
 import Feilmelding from "@src/shared/feilmelding/Feilmelding";
 import Legacy from "@src/shared/legacy/Legacy";
 import Observability from "@src/shared/obersvability/Observability";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <Layout title="Min side">

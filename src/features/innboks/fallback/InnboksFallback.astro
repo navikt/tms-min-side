@@ -3,9 +3,9 @@ import { INNBOKS_URL } from "astro:env/server";
 import { BodyLong, BodyShort, Skeleton } from "@navikt/ds-react";
 import styles from "@src/features/innboks/Innboks.module.css";
 import { text } from "@src/features/innboks/innboksText";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <div class={styles.container}>

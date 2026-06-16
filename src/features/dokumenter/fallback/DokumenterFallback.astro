@@ -1,9 +1,9 @@
 ---
 import { Heading, Skeleton } from "@navikt/ds-react";
 import { text } from "@src/features/dokumenter/dokumenterText";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <div>
