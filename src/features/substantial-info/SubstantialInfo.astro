@@ -1,9 +1,9 @@
 ---
 import { Alert, BodyShort, Heading, Link } from "@navikt/ds-react";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 import { text } from "./substantialInfoText";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 const isSubstantial: boolean = Astro.locals.isSubstantial;
 ---
 

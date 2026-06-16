@@ -1,12 +1,12 @@
 ---
 import { BodyShort, Heading } from "@navikt/ds-react";
-import type { Locale } from "@src/shared/utils/server/locale";
+import { getLocale } from "@src/shared/utils/server/locale";
 import styles from "./InnloggedeTjenester.module.css";
 import { text } from "./innloggedeTjenesterText";
 import { annetLenker, hjelpemidlerLenker, jobbLenker, personopplysningLenker } from "./innloggedeTjenesterUrls";
 import InnloggedeTjensterSection from "./section/InnloggedeTjenesterSection.astro";
 
-const locale = Astro.currentLocale as Locale;
+const locale = getLocale(Astro.currentLocale);
 const isEnglish = locale === "en";
 ---
 
