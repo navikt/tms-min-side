@@ -2,8 +2,10 @@
 
 [![Deploy main](https://github.com/navikt/tms-min-side/actions/workflows/deploy-main.yaml/badge.svg)](https://github.com/navikt/tms-min-side/actions/workflows/deploy-main.yaml)
 ![Astro](https://img.shields.io/badge/Astro-6-orange?logo=astro&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white)
 ![Biome](https://img.shields.io/badge/Biome-2-60a5fa?logo=biome&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-4-6e9f18?logo=vitest&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-1-2ead33?logo=playwright&logoColor=white)
 
 Astro SSR-app som setter sammen personalisert innhold fra mikrofrontends for innloggede brukere på nav.no/minside. Appen er en container: den henter HTML fra andre teams mikrofrontends server-side og setter dem inn i siden.
 
@@ -24,7 +26,7 @@ Siden tilpasses innloggingsnivå: brukere med MinID (substantial-innlogging) få
 | Miljø | URL |
 |-------|-----|
 | Produksjon | [www.nav.no/minside](https://www.nav.no/minside) |
-| Intern (dev) | [www.intern.nav.no/minside](https://www.intern.nav.no/minside) |
+| Intern (dev) | [www.intern.dev.nav.no/minside](https://www.intern.dev.nav.no/minside) |
 | Lokalt | http://localhost:4321/minside |
 
 ## Arkitektur
@@ -40,7 +42,7 @@ flowchart LR
     App -->|TokenX OBO| Utkast["tms-utkast"]
     App -->|TokenX OBO| Dokumenter["mine-saker-api"]
     App -->|TokenX OBO| Utbetaling["tms-utbetalingsoversikt-api"]
-    App -->|TokenX OBO| Mikrofronter["20+ mikrofrontends\nfra andre team"]
+    App -->|TokenX OBO| Mikrofronter["mikrofrontends\nfra andre team"]
     App --> Bruker
 ```
 
