@@ -10,7 +10,11 @@
     "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
     "format": "biome format --write",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
@@ -35,18 +39,24 @@
     "typescript": "6.0.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.11.3",
     "@biomejs/biome": "2.4.15",
     "@hono/node-server": "2.0.2",
+    "@playwright/test": "1.60.0",
+    "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
     "@types/node": "24.3.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.8",
     "hono": "4.12.18",
+    "jsdom": "29.1.1",
     "lefthook": "2.1.6",
     "prop-types": "15.8.1",
-    "tsx": "4.21.0"
+    "tsx": "4.21.0",
+    "vitest": "4.1.8"
   },
   "engines": {
     "node": ">=24.0.0",
