@@ -51,7 +51,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "4.1.8",
-    "hono": "4.12.18",
+    "hono": "4.12.25",
     "jsdom": "29.1.1",
     "lefthook": "2.1.6",
     "prop-types": "15.8.1",
