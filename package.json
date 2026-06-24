@@ -25,7 +25,7 @@
     "@navikt/aksel-icons": "8.13.0",
     "@navikt/ds-css": "8.13.0",
     "@navikt/ds-react": "8.13.0",
-    "@navikt/nav-dekoratoren-moduler": "3.7.1",
+    "@navikt/nav-dekoratoren-moduler": "4.2.2",
     "@navikt/oasis": "3.8.0",
     "@opentelemetry/sdk-node": "0.219.0",
     "astro": "6.4.6",
