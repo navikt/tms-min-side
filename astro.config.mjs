@@ -4,6 +4,10 @@ import { defineConfig, envField } from "astro/config";
 
 export default defineConfig({
   base: "/minside",
+  // Astro 7 changed the default to 'jsx', which strips spaces between inline
+  // elements. Pin to HTML-aware compression to keep rendered output identical
+  // to Astro 6 (no whitespace regressions in user-facing Norwegian copy).
+  compressHTML: true,
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
   },
@@ -12,14 +16,30 @@ export default defineConfig({
     {
       name: "importmap-externals",
       hooks: {
-        "astro:build:setup": ({ vite }) => {
-          vite.environments.client.build.rollupOptions.external = [
-            "react",
-            "react/jsx-runtime",
-            "react-dom",
-            "react-dom/client",
-            "scheduler",
-          ];
+        // Astro 7 runs astro:build:setup once over a unified Vite config and
+        // builds every environment through Vite's Environment API, so the
+        // pre-Astro-7 `vite.environments.client.build` object no longer exists
+        // on the passed config. Use updateConfig to deep-merge the client
+        // externals; react/react-dom/scheduler are provided at runtime via the
+        // import map in Layout.astro (tms-shared-dependencies CDN).
+        "astro:build:setup": ({ updateConfig }) => {
+          updateConfig({
+            environments: {
+              client: {
+                build: {
+                  rollupOptions: {
+                    external: [
+                      "react",
+                      "react/jsx-runtime",
+                      "react-dom",
+                      "react-dom/client",
+                      "scheduler",
+                    ],
+                  },
+                },
+              },
+            },
+          });
         },
       },
     },
