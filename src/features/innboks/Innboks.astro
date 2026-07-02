@@ -6,14 +6,13 @@ import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
 import { getLocale } from "@src/shared/utils/server/locale";
-import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import styles from "./Innboks.module.css";
 import InnboksTag from "./InnboksTag";
 import { text } from "./innboksText";
 
 const audience = getAudience("tms-varsel-api");
-const oboToken = await getOboToken(Astro.locals.token, audience);
+const oboToken = await getOboToken(Astro.locals.token, audience, Astro.logger);
 
 let data = { innbokser: 0 };
 let isError = false;
@@ -21,7 +20,7 @@ let isError = false;
 try {
   data = await fetchData(oboToken, VARSEL_API_URL);
 } catch (error: any) {
-  logger.error(`Fetching innboks failed. ${error.message}`);
+  Astro.logger.error(`Fetching innboks failed. ${error.message}`);
   isError = true;
 }
 

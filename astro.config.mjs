@@ -25,6 +25,9 @@ export default defineConfig({
       },
     },
   ],
+  logger: {
+    entrypoint: "@navikt/astro-logger",
+  },
   i18n: {
     defaultLocale: "nb",
     locales: ["nb", "nn", "en"],
