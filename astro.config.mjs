@@ -4,9 +4,6 @@ import { defineConfig, envField } from "astro/config";
 
 export default defineConfig({
   base: "/minside",
-  // Astro 7 changed the default to 'jsx', which strips spaces between inline
-  // elements. Pin to HTML-aware compression to keep rendered output identical
-  // to Astro 6 (no whitespace regressions in user-facing Norwegian copy).
   compressHTML: true,
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
@@ -16,17 +13,6 @@ export default defineConfig({
     {
       name: "importmap-externals",
       hooks: {
-        // Keep react/react-dom/scheduler external so the browser loads them from
-        // the tms-shared-dependencies import map (see Layout.astro) instead of
-        // bundling a second copy into the client output.
-        //
-        // navikt/aia-min-side-ssr uses `vite.build.rolldownOptions.external`
-        // guarded by `target === "client"`, but under astro@7.0.3 the
-        // astro:build:setup hook only ever runs once with target "server" over
-        // the unified build config — so that guard never fires (aia has no
-        // import map, so it doesn't notice react getting bundled). Setting the
-        // externals on this single invocation applies them to the client
-        // environment build, which min-side does rely on.
         "astro:build:setup": ({ vite }) => {
           vite.build.rolldownOptions.external = [
             "react",
