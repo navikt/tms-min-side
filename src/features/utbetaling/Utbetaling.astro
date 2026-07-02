@@ -4,7 +4,6 @@ import ClientError from "@src/shared/client-error/ClientError";
 import PersonalContentLogger from "@src/shared/legacy/PersonalContentLogger";
 import { fetchData } from "@src/shared/utils/server/fetch";
 import { getLocale } from "@src/shared/utils/server/locale";
-import logger from "@src/shared/utils/server/logger";
 import { getAudience, getOboToken } from "@src/shared/utils/server/token";
 import EnkelUtbetaling from "./enkel/EnkelUtbetaling.astro";
 import IngenUtbetaling from "./ingen/IngenUtbetaling.astro";
@@ -15,7 +14,7 @@ import type { Utbetaling } from "./utbetalingTypes";
 import { isIngen, isKommende, isList, isTidligere } from "./utbetalingUtils";
 
 const audience = getAudience("tms-utbetalingsoversikt-api");
-const oboToken = await getOboToken(Astro.locals.token, audience);
+const oboToken = await getOboToken(Astro.locals.token, audience, Astro.logger);
 
 let utbetaling: Utbetaling = { sisteUtbetalinger: [], kommendeUtbetalinger: [] };
 let isError = false;
@@ -23,7 +22,7 @@ let isError = false;
 try {
   utbetaling = await fetchData(oboToken, UTBETALINGSOVERSIKT_API_URL);
 } catch (error: any) {
-  logger.error(`Fetching utbetaling failed. ${error.message}`);
+  Astro.logger.error(`Fetching utbetaling failed. ${error.message}`);
   isError = true;
 }
 
