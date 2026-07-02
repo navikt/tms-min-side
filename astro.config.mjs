@@ -4,6 +4,7 @@ import { defineConfig, envField } from "astro/config";
 
 export default defineConfig({
   base: "/minside",
+  compressHTML: true,
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
   },
@@ -13,7 +14,7 @@ export default defineConfig({
       name: "importmap-externals",
       hooks: {
         "astro:build:setup": ({ vite }) => {
-          vite.environments.client.build.rollupOptions.external = [
+          vite.build.rolldownOptions.external = [
             "react",
             "react/jsx-runtime",
             "react-dom",
