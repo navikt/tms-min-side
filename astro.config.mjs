@@ -8,6 +8,11 @@ export default defineConfig({
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-min-side",
   },
+  vite: {
+    build: {
+      sourcemap: true,
+    },
+  },
   integrations: [
     react(),
     {
