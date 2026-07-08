@@ -1,11 +1,12 @@
 # Min side
 
 [![Deploy main](https://github.com/navikt/tms-min-side/actions/workflows/deploy-main.yaml/badge.svg)](https://github.com/navikt/tms-min-side/actions/workflows/deploy-main.yaml)
-![Astro](https://img.shields.io/badge/Astro-6-orange?logo=astro&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white)
-![Biome](https://img.shields.io/badge/Biome-2-60a5fa?logo=biome&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-4-6e9f18?logo=vitest&logoColor=white)
-![Playwright](https://img.shields.io/badge/Playwright-1-2ead33?logo=playwright&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=white)
+![React](https://img.shields.io/badge/React-149ECA?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Biome](https://img.shields.io/badge/Biome-60A5FA?logo=biome&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)
 
 Astro SSR-app som setter sammen personalisert innhold fra mikrofrontends for innloggede brukere på nav.no/minside. Appen er en container: den henter HTML fra andre teams mikrofrontends server-side og setter dem inn i siden.
 
