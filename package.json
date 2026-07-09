@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/node": "11.0.0",
+    "@astrojs/node": "11.0.1",
     "@astrojs/react": "6.0.0",
     "@grafana/faro-web-sdk": "2.8.1",
     "@nanostores/react": "1.1.0",
@@ -28,7 +28,7 @@
     "@navikt/ds-react": "8.13.0",
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "3.8.0",
-    "astro": "7.0.3",
+    "astro": "7.0.5",
     "dayjs": "1.11.21",
     "nanostores": "1.4.0",
     "pino": "9.9.5",
