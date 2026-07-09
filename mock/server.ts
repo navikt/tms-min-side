@@ -9,6 +9,7 @@ import innboks from "./data/innboks.json" with { type: "json" };
 import { mockMicrofrontend } from "./data/microfrontend/mockMicrofrontend.ts";
 import navn from "./data/navn.json" with { type: "json" };
 import status from "./data/status.json" with { type: "json" };
+import statuskort from "./data/statuskort.json" with { type: "json" };
 import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
 import utkast from "./data/utkast.json" with { type: "json" };
 import varsler from "./data/varsler.json" with { type: "json" };
@@ -57,6 +58,23 @@ api.get("/journalposter", (c) => {
 
 api.get("/login/status", (c) => {
   return c.json(status);
+});
+
+api.get("/statuskort", (c) => {
+  const locale = c.req.query("locale") ?? "nb";
+  const isSupportedLocale = (value: string): value is "nb" | "nn" | "en" =>
+    value === "nb" || value === "nn" || value === "en";
+  const resolvedLocale = isSupportedLocale(locale) ? locale : "nb";
+
+  return c.json({
+    statuskort: statuskort.statuskort.map((kort) => ({
+      id: kort.id,
+      tjeneste: kort.tjeneste,
+      tittel: kort.tekster[resolvedLocale].tittel,
+      beskrivelse: kort.tekster[resolvedLocale].beskrivelse,
+      link: kort.link,
+    })),
+  });
 });
 
 api.post("/statistikk", (c) => {

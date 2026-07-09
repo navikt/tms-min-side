@@ -1,5 +1,5 @@
 ---
-import { DIN_OVERSIKT_URL } from "astro:env/server";
+import { DIN_OVERSIKT_URL, STATUSKORT_URL } from "astro:env/server";
 import { BodyShort } from "@navikt/ds-react";
 import ClientError from "@src/shared/client-error/ClientError";
 import Microfrontend from "@src/shared/microfrontends/Microfrontend.astro";
@@ -15,6 +15,8 @@ import Meldekort from "./meldekort/Meldekort.astro";
 import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
 import Produktkort from "./produktkort/Produktkort";
 import { produktText } from "./produktkort/ProduktText";
+import Statuskort from "./statuskort/Statuskort.astro";
+import type { StatuskortType } from "./statuskort/StatuskortTypes";
 import { getShowDinOversikt } from "./useOversikt.ts";
 
 const audience = getAudience("tms-mikrofrontend-selector");
@@ -42,7 +44,21 @@ try {
 }
 
 const produktkortList = getProduktkortList(locale, personalizedContent);
-const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList);
+
+let statuskortList: StatuskortType[] = [];
+try {
+  const statuskortAudience = getAudience("tms-statuskort");
+  const statuskortOboToken = await getOboToken(Astro.locals.token, statuskortAudience, Astro.logger);
+  const statuskortResponse: { statuskort: StatuskortType[] } = await fetchData(
+    statuskortOboToken,
+    `${STATUSKORT_URL}?locale=${locale}`,
+  );
+  statuskortList = statuskortResponse?.statuskort ?? [];
+} catch (error: any) {
+  Astro.logger.error(`Fetching statuskort failed. ${error.message}`);
+}
+
+const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList, statuskortList);
 ---
 
 {isError && <ClientError client:only="react" />}
@@ -66,6 +82,7 @@ const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList)
           </Microfrontend>
         ))}
         {produktkortList?.map((produktConfig) => <Produktkort produktConfig={produktConfig} />)}
+        {statuskortList?.map((statuskort) => <Statuskort statuskort={statuskort} />)}
       </div>
     </div>
   )

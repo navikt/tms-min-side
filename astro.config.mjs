@@ -77,6 +77,11 @@ export default defineConfig({
         access: "secret",
         default: "http://localhost:3000/selector/din-oversikt",
       }),
+      STATUSKORT_URL: envField.string({
+        context: "server",
+        access: "secret",
+        default: "http://localhost:3000/statuskort",
+      }),
       MELDEKORT_URL: envField.string({
         context: "server",
         access: "secret",
