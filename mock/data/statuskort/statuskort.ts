@@ -1,5 +1,5 @@
+import type { Locale } from "@src/shared/utils/server/locale";
 import { beskrivelse, tittel } from "./content";
-import type { Locale } from "./utils.ts";
 
 export const Statuskort = (locale: Locale) => {
   return {

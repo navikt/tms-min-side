@@ -1,4 +1,4 @@
-import type { Locale } from "./utils";
+import type { Locale } from "@src/shared/utils/server/locale";
 
 export const tittel: Record<Locale, string> = {
   nb: "Arbeidsavklaringspenger",
