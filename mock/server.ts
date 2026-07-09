@@ -9,11 +9,11 @@ import innboks from "./data/innboks.json" with { type: "json" };
 import { mockMicrofrontend } from "./data/microfrontend/mockMicrofrontend.ts";
 import navn from "./data/navn.json" with { type: "json" };
 import status from "./data/status.json" with { type: "json" };
-import { Statuskort } from "./data/statuskort.ts";
+import { Statuskort } from "./data/statuskort/statuskort.ts";
+import { resolveLocale } from "./data/statuskort/utils.ts";
 import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
 import utkast from "./data/utkast.json" with { type: "json" };
 import varsler from "./data/varsler.json" with { type: "json" };
-import { resolveLocale } from "./utils.ts";
 
 const api = new Hono();
 
