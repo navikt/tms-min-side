@@ -4,7 +4,8 @@ import { getLocale } from "@src/shared/utils/server/locale";
 import { text } from "./substantialInfoText";
 
 const locale = getLocale(Astro.currentLocale);
-const isSubstantial: boolean = Astro.locals.isSubstantial;
+const isSubstantial: boolean =
+  Astro.locals.validation?.ok && Astro.locals.validation.payload.acr === "idporten-loa-substantial";
 ---
 
 {
