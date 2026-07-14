@@ -15,7 +15,7 @@ import MinIDDokumenter from "./minid/MinIDDokumenter.astro";
 
 const audience = getAudience("mine-saker-api");
 const oboToken = await getOboToken(Astro.locals.token, audience, Astro.logger);
-const isSubstantial = Astro.locals.validation?.ok && Astro.locals.validation.payload.acr === "idporten-loa-substantial";
+const isSubstantial = Astro.locals.isSubstantial;
 
 let data: DokumentType[] = [];
 let isError = false;
