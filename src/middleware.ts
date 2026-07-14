@@ -1,8 +1,8 @@
 import { authenticate } from "@navikt/astro-auth";
 import { validateToken } from "@navikt/oasis";
-import { defineMiddleware, sequence } from "astro/middleware";
+import { sequence } from "astro/middleware";
 
-const setSubstantialLevel = defineMiddleware(async (context, next) => {
+export const onRequest = sequence(authenticate(), async (context, next) => {
   const { token } = context.locals;
 
   if (token) {
@@ -12,5 +12,3 @@ const setSubstantialLevel = defineMiddleware(async (context, next) => {
 
   return next();
 });
-
-export const onRequest = sequence(authenticate(), setSubstantialLevel);
