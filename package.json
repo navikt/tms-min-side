@@ -27,6 +27,7 @@
     "@navikt/ds-css": "8.14.0",
     "@navikt/ds-react": "8.14.0",
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
+    "@navikt/astro-auth": "1.0.7",
     "@navikt/oasis": "3.8.0",
     "astro": "7.0.5",
     "dayjs": "1.11.21",

@@ -109,8 +109,6 @@ spec:
       value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/minside-widget"
     - name: UTBETALINGSOVERSIKT_URL
       value: "https://www.nav.no/utbetalingsoversikt"
-    - name: REDIRECT_URI
-      value: "https://www.nav.no/minside"
     - name: PUBLIC_TELEMETRY_URL
       value: "https://telemetry.nav.no/collect"
     - name: PUBLIC_LEGACY_SELECTOR_URL
