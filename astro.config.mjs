@@ -117,11 +117,6 @@ export default defineConfig({
         access: "secret",
         default: "http://localhost:3000/utbetalingsoversikt",
       }),
-      REDIRECT_URI: envField.string({
-        context: "server",
-        access: "secret",
-        default: "http://localhost:4321/minside",
-      }),
       PUBLIC_TELEMETRY_URL: envField.string({
         context: "server",
         access: "secret",
