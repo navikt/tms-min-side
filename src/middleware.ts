@@ -3,7 +3,10 @@ import { sequence } from "astro/middleware";
 
 export const onRequest = sequence(authenticate(), async (context, next) => {
   const { validation } = context.locals;
-  context.locals.isSubstantial = validation?.ok && validation.payload.acr === "idporten-loa-substantial";
+
+  if (validation?.ok) {
+    context.locals.isSubstantial = validation.payload.acr === "idporten-loa-substantial";
+  }
 
   return next();
 });
