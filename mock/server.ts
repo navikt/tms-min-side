@@ -1,4 +1,5 @@
 import { serve } from "@hono/node-server";
+import type { Locale } from "@src/shared/utils/server/locale";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 // import { HTTPException } from "hono/http-exception";
@@ -9,6 +10,7 @@ import innboks from "./data/innboks.json" with { type: "json" };
 import { mockMicrofrontend } from "./data/microfrontend/mockMicrofrontend.ts";
 import navn from "./data/navn.json" with { type: "json" };
 import status from "./data/status.json" with { type: "json" };
+import { Statuskort } from "./data/statuskort/statuskort.ts";
 import utbetalinger from "./data/utbetalinger.json" with { type: "json" };
 import utkast from "./data/utkast.json" with { type: "json" };
 import varsler from "./data/varsler.json" with { type: "json" };
@@ -57,6 +59,12 @@ api.get("/journalposter", (c) => {
 
 api.get("/login/status", (c) => {
   return c.json(status);
+});
+
+api.get("/statuskort", (c) => {
+  const locale = c.req.query("locale") as Locale;
+
+  return c.json(Statuskort(locale));
 });
 
 api.post("/statistikk", (c) => {
