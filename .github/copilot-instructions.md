@@ -103,6 +103,11 @@ Bruk begreper fra `docs/UBIQUITOUS_LANGUAGE.md` konsekvent i navn/tekster:
 
 - `Innbygger`, `Din oversikt`, `Alert island`, `Varsel` (ikke bland med `Melding` fra Innboks-kontekst), `Utkast`, `Ytelse`.
 
+### Skills som alltid skal brukes
+
+- **Commits**: Bruk alltid `/conventional-commit`-skillen ved commits og commit-meldinger.
+- **Pull requests**: Bruk alltid `/pull-request`-skillen ved oppretting eller oppdatering av pull requests.
+
 ### Instruksjonsfiler som gjelder ved endringer
 
 - React/TSX: følg `.github/instructions/accessibility.instructions.md` (Aksel-komponenter + semantikk).
