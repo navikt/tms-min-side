@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/login/status",
+    "response": {
+      "authenticated": true,
+      "level": 4,
+      "levelOfAssurance": "High"
+    }
+  },
+  {
+    "path": "/statistikk",
+    "method": "POST",
+    "response": "Done"
+  },
+  {
+    "path": "/collect",
+    "method": "POST",
+    "response": "Done"
+  }
+]

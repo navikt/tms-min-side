@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/aktuelt",
+    "response": {
+      "offerStepup": false,
+      "microfrontends": [
+        {
+          "microfrontend_id": "pensjonskalkulator-microfrontend",
+          "url": "http://localhost:4321/pensjonskalkulator",
+          "appname": "pensjonskalkulator-microfrontend-ssr",
+          "namespace": "pensjonskalkulator",
+          "fallback": "http://localhost:4321/pensjonskalkulator",
+          "ssr": true
+        }
+      ]
+    }
+  }
+]
