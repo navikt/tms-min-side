@@ -51,7 +51,7 @@ Kodebasen bruker vertikal slice-arkitektur: all kode for én feature samles unde
 
 ## Utvikling
 
-Kjør `pnpm run` for å se alle tilgjengelige kommandoer. Lokalt kjøres appen på `http://localhost:4321/minside`. Mock-serveren erstatter alle backend-APIer og kjøres på port 3000.
+Kjør `pnpm run` for å se alle tilgjengelige kommandoer. Lokalt kjøres appen på `http://localhost:4321/minside`. Mock-endepunkter serveres av `@navikt/astro-mocks` direkte fra Astro dev-serveren — ingen separat prosess kreves.
 
 ## Les mer
 

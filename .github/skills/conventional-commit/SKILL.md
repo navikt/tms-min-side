@@ -63,9 +63,9 @@ Kallende features må oppdatere sin bruk.
 ## Regler
 
 - Første linje: maks 72 tegn
-- Bruk imperativ: "add", ikke "added" eller "adds"
+- Skriv alltid beskrivelse og body på **norsk**
+- Bruk imperativ: "legg til", ikke "la til" eller "legger til"
 - Ikke avslutt med punktum
-- Bruk norsk eller engelsk konsekvent i prosjektet
 - Referer til GitHub-issue i footer: `Closes #123`
 - Ta alltid med `Co-authored-by`-trailer for Copilot
 

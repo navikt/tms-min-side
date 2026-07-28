@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/navn",
+    "response": {
+      "navn": "Navn Navnesen",
+      "ident": "1234"
+    }
+  }
+]

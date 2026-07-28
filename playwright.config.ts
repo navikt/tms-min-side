@@ -22,21 +22,13 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-  webServer: [
-    {
-      command: "pnpm mock",
-      url: "http://localhost:3000/navn",
-      reuseExistingServer: !process.env.CI,
-      timeout: 60_000,
+  webServer: {
+    command: `pnpm dev --port ${PORT}`,
+    url: baseURL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+    env: {
+      NODE_ENV: "development",
     },
-    {
-      command: `pnpm start --port ${PORT}`,
-      url: baseURL,
-      reuseExistingServer: !process.env.CI,
-      timeout: 120_000,
-      env: {
-        NODE_ENV: "development",
-      },
-    },
-  ],
+  },
 });
