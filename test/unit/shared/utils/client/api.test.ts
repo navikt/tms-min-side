@@ -1,5 +1,5 @@
+import { fetcher } from "@src/shared/utils/client/api";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { fetcher } from "./api";
 
 describe("fetcher", () => {
   beforeEach(() => {

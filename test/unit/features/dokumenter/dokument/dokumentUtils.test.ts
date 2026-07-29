@@ -1,6 +1,6 @@
+import { formatDateMonth, setAvsenderMottaker } from "@src/features/dokumenter/dokument/dokumentUtils";
 import type { DokumentType } from "@src/features/dokumenter/dokumenterTypes";
 import { describe, expect, it } from "vitest";
-import { formatDateMonth, setAvsenderMottaker } from "./dokumentUtils";
 
 const dokument = (overrides: Partial<DokumentType> = {}): DokumentType => ({
   tittel: "Vedtak om dagpenger",

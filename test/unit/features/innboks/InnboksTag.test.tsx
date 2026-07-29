@@ -1,6 +1,6 @@
+import InnboksTag from "@src/features/innboks/InnboksTag";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import InnboksTag from "./InnboksTag";
 
 describe("InnboksTag", () => {
   it("should render the singular text for exactly one new message", () => {

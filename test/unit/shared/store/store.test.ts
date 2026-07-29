@@ -1,5 +1,5 @@
+import { isErrorAtom, setIsError } from "@src/shared/store/store";
 import { beforeEach, describe, expect, it } from "vitest";
-import { isErrorAtom, setIsError } from "./store";
 
 describe("isErrorAtom", () => {
   beforeEach(() => {

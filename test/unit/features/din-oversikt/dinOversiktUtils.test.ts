@@ -1,7 +1,11 @@
+import type { PersonalizedContent } from "@src/features/din-oversikt/DinOversiktTypes";
+import {
+  getProduktkortList,
+  hasAktueltMicrofrontends,
+  hasMicrofrontends,
+} from "@src/features/din-oversikt/dinOversiktUtils";
 import type { Microfrontend } from "@src/shared/microfrontends/microfrontendTypes";
 import { describe, expect, it } from "vitest";
-import type { PersonalizedContent } from "./DinOversiktTypes";
-import { getProduktkortList, hasAktueltMicrofrontends, hasMicrofrontends } from "./dinOversiktUtils";
 
 const microfrontend = (id: string): Microfrontend => ({
   microfrontend_id: id,

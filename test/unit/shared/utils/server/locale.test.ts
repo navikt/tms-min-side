@@ -1,5 +1,5 @@
+import { getLocale } from "@src/shared/utils/server/locale";
 import { describe, expect, it } from "vitest";
-import { getLocale } from "./locale";
 
 describe("getLocale", () => {
   it("should return the provided locale when it is set", () => {

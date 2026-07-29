@@ -1,8 +1,8 @@
+import Feilmelding from "@src/shared/feilmelding/Feilmelding";
+import { feilmeldingText } from "@src/shared/feilmelding/feilmeldingText";
 import { isErrorAtom } from "@src/shared/store/store";
 import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
-import Feilmelding from "./Feilmelding";
-import { feilmeldingText } from "./feilmeldingText";
 
 beforeEach(() => {
   isErrorAtom.set(false);

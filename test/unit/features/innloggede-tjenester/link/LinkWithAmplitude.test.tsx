@@ -1,7 +1,7 @@
 import type { Lenke } from "@src/features/innloggede-tjenester/innloggedeTjenesterUrls";
+import LinkWithAmplitude from "@src/features/innloggede-tjenester/link/LinkWithAmplitude";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import LinkWithAmplitude from "./LinkWithAmplitude";
 
 const logEvent = vi.fn();
 vi.mock("@src/shared/utils/client/umami.ts", () => ({

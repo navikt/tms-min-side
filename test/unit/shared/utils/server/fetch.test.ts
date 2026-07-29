@@ -1,6 +1,6 @@
+import { MultiStatusError } from "@src/shared/utils/server/error";
+import { fetchData, fetchMicrofrontend } from "@src/shared/utils/server/fetch";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { MultiStatusError } from "./error";
-import { fetchData, fetchMicrofrontend } from "./fetch";
 
 const url = "http://localhost:3000/navn";
 const token = "obo-token";
