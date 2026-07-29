@@ -1,6 +1,12 @@
+import type { Utbetaling, UtbetalingData } from "@src/features/utbetaling/utbetalingTypes";
+import {
+  formatToReadableDate,
+  isIngen,
+  isKommende,
+  isList,
+  isTidligere,
+} from "@src/features/utbetaling/utbetalingUtils";
 import { describe, expect, it } from "vitest";
-import type { Utbetaling, UtbetalingData } from "./utbetalingTypes";
-import { formatToReadableDate, isIngen, isKommende, isList, isTidligere } from "./utbetalingUtils";
 
 const utbetalingData = (id: string): UtbetalingData => ({
   utbetaling: 1000,

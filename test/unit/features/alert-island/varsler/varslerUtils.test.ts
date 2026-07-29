@@ -1,4 +1,3 @@
-import { describe, expect, it } from "vitest";
 import {
   beskjedSingular,
   buildText,
@@ -7,7 +6,8 @@ import {
   hasOppgaverAndBeskjeder,
   hasVarsler,
   oppgaveSingular,
-} from "./varslerUtils";
+} from "@src/features/alert-island/varsler/varslerUtils";
+import { describe, expect, it } from "vitest";
 
 describe("count predicates", () => {
   it("hasOppgaver should be true only for a positive count", () => {

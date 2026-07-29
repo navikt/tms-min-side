@@ -1,5 +1,5 @@
+import { MultiStatusError } from "@src/shared/utils/server/error";
 import { describe, expect, it } from "vitest";
-import { MultiStatusError } from "./error";
 
 describe("MultiStatusError", () => {
   it("should be an Error with the given message", () => {
