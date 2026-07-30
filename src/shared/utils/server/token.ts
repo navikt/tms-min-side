@@ -1,8 +1,8 @@
 import { requestOboToken } from "@navikt/oasis";
-import type { APIContext } from "astro";
+import type { AstroRuntimeLogger } from "astro";
 import { isLocal } from "./environment.ts";
 
-export const getOboToken = async (token: string, audience: string, logger: APIContext["logger"]): Promise<string> => {
+export const getOboToken = async (token: string, audience: string, logger: AstroRuntimeLogger): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
 
   if (isLocal) {
