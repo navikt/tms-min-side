@@ -18,11 +18,11 @@ export const aap: Tekster = {
   },
 };
 
-export const dagpenger: Tekster = {
+export const tilleggsstonader: Tekster = {
   tittel: {
-    nb: "Dagpenger",
-    nn: "Dagpengar",
-    en: "Unemployment benefits",
+    nb: "Tilleggsstønader",
+    nn: "Tilleggsstønader",
+    en: "Supplementary benefits",
   },
   beskrivelse: {
     nb: "Du har en aktiv sak",

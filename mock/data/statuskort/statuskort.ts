@@ -1,6 +1,6 @@
 import type { StatuskortResponse } from "@src/features/din-oversikt/statuskort/StatuskortTypes";
 import type { Locale } from "@src/shared/utils/server/locale";
-import { aap, dagpenger } from "./content";
+import { aap, tilleggsstonader } from "./content";
 
 const locales: Locale[] = ["nb", "nn", "en"];
 
@@ -22,11 +22,11 @@ export const Statuskort = (locale?: string): StatuskortResponse => {
       },
       {
         id: "b4e2d3c5-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
-        tjeneste: "dagpenger",
+        tjeneste: "tilleggsstonader",
         innhold: {
-          tittel: dagpenger.tittel[valgtLocale],
-          beskrivelse: dagpenger.beskrivelse[valgtLocale],
-          link: "https://www.nav.no/dagpenger",
+          tittel: tilleggsstonader.tittel[valgtLocale],
+          beskrivelse: tilleggsstonader.beskrivelse[valgtLocale],
+          link: "https://www.nav.no/tilleggsstonader",
         },
       },
     ],
