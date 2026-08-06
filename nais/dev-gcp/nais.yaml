@@ -40,6 +40,7 @@ spec:
           namespace: personbruker
         - application: tms-min-side-proxy
         - application: tms-mikrofrontend-selector
+        - application: tms-statuskort
         - application: tms-varsel-api
         - application: tms-utbetalingsoversikt-api
         - application: tms-utkast
@@ -90,6 +91,8 @@ spec:
       value: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive"
     - name: DIN_OVERSIKT_URL
       value: "http://tms-mikrofrontend-selector/din-oversikt"
+    - name: STATUSKORT_URL
+      value: "http://tms-statuskort/statuskort"
     - name: MELDEKORT_URL
       value: "http://meldekort-mikrofrontend.meldekort"
     - name: MIN_SIDE_URL

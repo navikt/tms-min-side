@@ -11,7 +11,7 @@ interface Props {
 const { statuskort } = Astro.props;
 ---
 
-<a class={styles.container} href={statuskort.link}>
+<a class={styles.container} href={statuskort.innhold.link}>
   <svg
     width="56"
     height="56"
@@ -23,8 +23,8 @@ const { statuskort } = Astro.props;
     <circle cx="28" cy="28" r="24" fill="#CCE2F0"></circle>
   </svg>
   <div>
-    <Heading size="small" level="3">{statuskort.tittel}</Heading>
-    <BodyLong size="medium">{statuskort.beskrivelse}</BodyLong>
+    <Heading size="small" level="3">{statuskort.innhold.tittel}</Heading>
+    <BodyLong size="medium">{statuskort.innhold.beskrivelse}</BodyLong>
   </div>
   <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
 </a>

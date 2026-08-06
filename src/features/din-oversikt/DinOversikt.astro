@@ -16,7 +16,8 @@ import MeldekortSkeleton from "./meldekort/MeldekortSkeleton.astro";
 import Produktkort from "./produktkort/Produktkort";
 import { produktText } from "./produktkort/ProduktText";
 import Statuskort from "./statuskort/Statuskort.astro";
-import type { StatuskortType } from "./statuskort/StatuskortTypes";
+import type { StatuskortResponse, StatuskortType } from "./statuskort/StatuskortTypes";
+import { getStatuskortList, getStatuskortUrl, isStatuskortEnabled } from "./statuskort/statuskortUtils.ts";
 import { getShowDinOversikt } from "./useOversikt.ts";
 
 const audience = getAudience("tms-mikrofrontend-selector");
@@ -46,16 +47,17 @@ try {
 const produktkortList = getProduktkortList(locale, personalizedContent);
 
 let statuskortList: StatuskortType[] = [];
-try {
-  const statuskortAudience = getAudience("tms-statuskort");
-  const statuskortOboToken = await getOboToken(Astro.locals.token, statuskortAudience, Astro.logger);
-  const statuskortResponse: { statuskort: StatuskortType[] } = await fetchData(
-    statuskortOboToken,
-    `${STATUSKORT_URL}?locale=${locale}`,
-  );
-  statuskortList = statuskortResponse?.statuskort ?? [];
-} catch (error: any) {
-  Astro.logger.error(`Fetching statuskort failed. ${error.message}`);
+if (isStatuskortEnabled(STATUSKORT_URL)) {
+  try {
+    const statuskortOboToken = await getOboToken(Astro.locals.token, getAudience("tms-statuskort"), Astro.logger);
+    const statuskortResponse: StatuskortResponse = await fetchData(
+      statuskortOboToken,
+      getStatuskortUrl(STATUSKORT_URL, locale),
+    );
+    statuskortList = getStatuskortList(statuskortResponse);
+  } catch (error: any) {
+    Astro.logger.error(`Fetching statuskort failed. ${error.message}`);
+  }
 }
 
 const showDinOversikt = getShowDinOversikt(personalizedContent, produktkortList, statuskortList);

@@ -1,5 +1,4 @@
 import { serve } from "@hono/node-server";
-import type { Locale } from "@src/shared/utils/server/locale";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 // import { HTTPException } from "hono/http-exception";
@@ -62,9 +61,7 @@ api.get("/login/status", (c) => {
 });
 
 api.get("/statuskort", (c) => {
-  const locale = c.req.query("locale") as Locale;
-
-  return c.json(Statuskort(locale));
+  return c.json(Statuskort(c.req.query("locale")));
 });
 
 api.post("/statistikk", (c) => {

@@ -1,13 +1,32 @@
 import type { Locale } from "@src/shared/utils/server/locale";
 
-export const tittel: Record<Locale, string> = {
-  nb: "Arbeidsavklaringspenger",
-  nn: "Arbeidsavklaringspenger",
-  en: "Arbeidsavklaringspenger",
+interface Tekster {
+  tittel: Record<Locale, string>;
+  beskrivelse: Record<Locale, string>;
+}
+
+export const aap: Tekster = {
+  tittel: {
+    nb: "Arbeidsavklaringspenger",
+    nn: "Arbeidsavklaringspengar",
+    en: "Work assessment allowance",
+  },
+  beskrivelse: {
+    nb: "Vi behandler søknaden din",
+    nn: "Vi behandlar søknaden din",
+    en: "We are processing your application",
+  },
 };
 
-export const beskrivelse: Record<Locale, string> = {
-  nb: "Vi behandler søknaden din",
-  nn: "Vi behandler søknaden din",
-  en: "Vi behandler søknaden din",
+export const dagpenger: Tekster = {
+  tittel: {
+    nb: "Dagpenger",
+    nn: "Dagpengar",
+    en: "Unemployment benefits",
+  },
+  beskrivelse: {
+    nb: "Du har en aktiv sak",
+    nn: "Du har ei aktiv sak",
+    en: "You have an active case",
+  },
 };
