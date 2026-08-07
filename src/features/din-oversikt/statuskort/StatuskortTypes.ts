@@ -1,13 +1,9 @@
-export interface Tekstinnhold {
-  tittel: string;
-  beskrivelse: string;
-  link: string;
-}
-
 export interface StatuskortType {
   id: string;
   tjeneste: string;
-  innhold: Tekstinnhold;
+  tittel: string;
+  beskrivelse: string;
+  link: string;
 }
 
 export interface StatuskortResponse {

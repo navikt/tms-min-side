@@ -9,11 +9,9 @@ import { describe, expect, it } from "vitest";
 const statuskort = (id: string): StatuskortType => ({
   id,
   tjeneste: "dagpenger",
-  innhold: {
-    tittel: "Dagpenger",
-    beskrivelse: "Vi behandler søknaden din",
-    link: "https://www.nav.no/dagpenger",
-  },
+  tittel: "Dagpenger",
+  beskrivelse: "Vi behandler søknaden din",
+  link: "https://www.nav.no/dagpenger",
 });
 
 describe("isStatuskortEnabled", () => {
@@ -47,7 +45,7 @@ describe("getStatuskortList", () => {
     expect(getStatuskortList(undefined)).toEqual([]);
   });
 
-  it("should skip statuskort without innhold", () => {
+  it("should skip statuskort without content", () => {
     const utenInnhold = { id: "b", tjeneste: "aap" } as StatuskortType;
 
     expect(getStatuskortList({ statuskort: [utenInnhold], harSkjulteKort: true })).toEqual([]);

@@ -6,4 +6,4 @@ export const isStatuskortEnabled = (baseUrl?: string) => baseUrl !== undefined &
 export const getStatuskortUrl = (baseUrl: string, locale: Locale) => `${baseUrl}?locale=${locale}`;
 
 export const getStatuskortList = (response?: StatuskortResponse): StatuskortType[] =>
-  response?.statuskort?.filter((statuskort) => statuskort?.innhold !== undefined) ?? [];
+  response?.statuskort?.filter((statuskort) => statuskort?.tittel !== undefined) ?? [];
