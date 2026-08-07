@@ -1,6 +1,10 @@
+import type { StatuskortType } from "@src/features/din-oversikt/statuskort/StatuskortTypes";
+import {
+  getStatuskortList,
+  getStatuskortUrl,
+  isStatuskortEnabled,
+} from "@src/features/din-oversikt/statuskort/statuskortUtils";
 import { describe, expect, it } from "vitest";
-import type { StatuskortType } from "./StatuskortTypes";
-import { getStatuskortList, getStatuskortUrl, isStatuskortEnabled } from "./statuskortUtils";
 
 const statuskort = (id: string): StatuskortType => ({
   id,
