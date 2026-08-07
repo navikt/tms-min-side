@@ -5,7 +5,8 @@ const origin = `http://localhost:${PORT}`;
 const baseURL = `${origin}/minside/nb/`;
 
 export default defineConfig({
-  testDir: "./e2e",
+  testDir: "./test/integration",
+  testMatch: "**/*.spec.ts",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -22,21 +23,13 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-  webServer: [
-    {
-      command: "pnpm mock",
-      url: "http://localhost:3000/navn",
-      reuseExistingServer: !process.env.CI,
-      timeout: 60_000,
+  webServer: {
+    command: `pnpm dev --port ${PORT}`,
+    url: baseURL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+    env: {
+      NODE_ENV: "development",
     },
-    {
-      command: `pnpm start --port ${PORT}`,
-      url: baseURL,
-      reuseExistingServer: !process.env.CI,
-      timeout: 120_000,
-      env: {
-        NODE_ENV: "development",
-      },
-    },
-  ],
+  },
 });
