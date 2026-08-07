@@ -107,7 +107,7 @@ export default defineConfig({
       STATUSKORT_URL: envField.string({
         context: "server",
         access: "secret",
-        default: "http://localhost:3000/statuskort",
+        default: "http://localhost:4321/statuskort",
       }),
       MELDEKORT_URL: envField.string({
         context: "server",
