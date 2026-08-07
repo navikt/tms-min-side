@@ -30,6 +30,14 @@ test.describe("Din oversikt", () => {
     const minSide = new MinSidePage(page);
     await minSide.goto();
 
-    await expect(page.getByRole("heading", { name: "Dagpenger", level: 3, exact: true })).toBeVisible({ timeout });
+    await expect(minSide.kort("Dagpenger", "Oversikt over saken din")).toBeVisible({ timeout });
+  });
+
+  test("viser statuskort fra tms-statuskort", async ({ page }) => {
+    const minSide = new MinSidePage(page);
+    await minSide.goto();
+
+    await expect(minSide.kort("Arbeidsavklaringspenger", "Vi behandler søknaden din")).toBeVisible({ timeout });
+    await expect(minSide.kort("Tilleggsstønader", "Du har en aktiv sak")).toBeVisible({ timeout });
   });
 });
