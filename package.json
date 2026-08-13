@@ -16,9 +16,9 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.9",
-    "@astrojs/node": "11.0.2",
-    "@astrojs/react": "6.0.1",
+    "@astrojs/check": "0.9.10",
+    "@astrojs/node": "11.0.3",
+    "@astrojs/react": "6.0.2",
     "@grafana/faro-web-sdk": "2.9.0",
     "@nanostores/react": "1.1.0",
     "@navikt/aksel-icons": "8.15.0",
