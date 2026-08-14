@@ -54,6 +54,8 @@ spec:
           namespace: paw
         - application: pam-min-side-microfrontend
           namespace: teampam
+        - application: jobbmuligheter-mikrofrontend
+          namespace: teampam
         - application: ungdomsprogramytelse-innsyn-mikrofrontend-ssr
           namespace: dusseldorf
         - application: k9-innsyn-dine-pleiepenger-mikrofrontend-ssr
