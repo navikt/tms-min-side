@@ -18,13 +18,20 @@ pnpm run typecheck
 # Formatering/lint
 pnpm run format
 pnpm exec biome check .         # tilsvarer lint/check i CI/pre-commit
+
+# Test
+pnpm run test          # Vitest unit-tester (én kjøring)
+pnpm run test:watch    # Vitest i watch-modus
+pnpm run test:coverage # Vitest med v8-coverage
+pnpm run test:e2e      # Playwright end-to-end-tester
 ```
 
 Teststatus nå:
 
-- Det finnes ingen `test`-script i `package.json`.
-- Det finnes ingen `*.test.*`/`*.spec.*`-filer i repo per nå.
-- Enkelt-testkjøring er derfor ikke tilgjengelig før testoppsett er lagt til.
+- Unit-tester kjøres med Vitest (`pnpm run test`); jsdom-miljø, globals og oppsett i `vitest.config.ts`/`vitest.setup.ts`.
+- Vitest plukker kun opp filer under `test/unit/**/*.test.{ts,tsx}` (se `include` i `vitest.config.ts`). Legg unit-tester her, ikke ved siden av kildekoden under `src/`, ellers kjøres de ikke.
+- Unit-tester speiler kildestrukturen under `test/unit/` og importerer kildekode via `@src/*`-aliaset.
+- End-to-end-tester ligger under `test/integration/**/*.spec.ts` og kjøres med Playwright (`pnpm run test:e2e`).
 
 ## Høy-nivå arkitektur
 

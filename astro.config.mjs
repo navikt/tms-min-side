@@ -9,6 +9,7 @@ import innboks from "./src/mocks/innboks.json" with { type: "json" };
 import { microfrontendMocks } from "./src/mocks/microfrontends.ts";
 import misc from "./src/mocks/misc.json" with { type: "json" };
 import navn from "./src/mocks/navn.json" with { type: "json" };
+import { statuskortMocks } from "./src/mocks/statuskort.ts";
 import utbetalinger from "./src/mocks/utbetalinger.json" with { type: "json" };
 import utkast from "./src/mocks/utkast.json" with { type: "json" };
 import varsler from "./src/mocks/varsler.json" with { type: "json" };
@@ -37,6 +38,7 @@ export default defineConfig({
         ...utbetalinger,
         ...utkast,
         ...varsler,
+        ...statuskortMocks,
         ...microfrontendMocks,
       ],
     }),
@@ -101,6 +103,11 @@ export default defineConfig({
         context: "server",
         access: "secret",
         default: "http://localhost:4321/selector/din-oversikt",
+      }),
+      STATUSKORT_URL: envField.string({
+        context: "server",
+        access: "secret",
+        default: "http://localhost:4321/statuskort",
       }),
       MELDEKORT_URL: envField.string({
         context: "server",

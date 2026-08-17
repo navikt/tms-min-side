@@ -95,6 +95,11 @@ spec:
       value: "http://tms-varsel-api/tms-varsel-api/ssr/antall/aktive"
     - name: DIN_OVERSIKT_URL
       value: "http://tms-mikrofrontend-selector/din-oversikt"
+    # Statuskort er skrudd av i prod inntil tms-statuskort er deployet der.
+    # Aktiveres ved å sette verdien til "http://tms-statuskort/statuskort"
+    # og legge til tms-statuskort i accessPolicy.outbound.
+    - name: STATUSKORT_URL
+      value: ""
     - name: MIN_SIDE_URL
       value: "https://www.nav.no/minside"
     - name: MELDEKORT_URL
