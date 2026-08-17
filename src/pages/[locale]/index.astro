@@ -1,5 +1,5 @@
 ---
-import { PUBLIC_LEGACY_SELECTOR_URL, PUBLIC_TELEMETRY_URL } from "astro:env/server";
+import { PUBLIC_LEGACY_SELECTOR_URL } from "astro:env/server";
 import Aktuelt from "@src/features/aktuelt/Aktuelt.astro";
 import AlertIsland from "@src/features/alert-island/AlertIsland.astro";
 import DinOversikt from "@src/features/din-oversikt/DinOversikt.astro";
@@ -45,5 +45,5 @@ const locale = getLocale(Astro.currentLocale);
     <InnloggedeTjenester />
   </Content>
    <Legacy url={PUBLIC_LEGACY_SELECTOR_URL} client:only="react" />
-  <Observability url={PUBLIC_TELEMETRY_URL} client:only="react" />
+  <Observability client:only="react" />
 </Layout>
