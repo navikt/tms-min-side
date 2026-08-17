@@ -53,20 +53,6 @@ Kodebasen bruker vertikal slice-arkitektur: all kode for én feature samles unde
 
 Kjør `pnpm run` for å se alle tilgjengelige kommandoer. Lokalt kjøres appen på `http://localhost:4321/minside`. Mock-endepunkter serveres av `@navikt/astro-mocks` direkte fra Astro dev-serveren — ingen separat prosess kreves.
 
-### Nais APM
-
-Nettlesertelemetri bruker `@nais/apm`. Installer avhengigheter med en GitHub PAT som har
-`read:packages`-tilgang til `nais`-organisasjonen:
-
-```sh
-export GITHUB_PACKAGES_TOKEN=...
-pnpm install
-```
-
-Lokalt sender SDK-et ikke data over nettverket; det ekkoer telemetri i nettleserkonsollen.
-Session replay, skjermbilder og tilbakemeldinger er bevisst ikke aktivert uten godkjenning fra
-personvernombudet.
-
 ## Les mer
 
 - [Vertikal slice-arkitektur](docs/VERTICAL_SLICE_ARCHITECTURE.md)
