@@ -1,11 +1,12 @@
+import { init } from "@nais/apm";
 import { useEffect } from "react";
-import { initializeFaro } from "@grafana/faro-web-sdk";
 
-const Observability = ({ url }: { url: string }) => {
+const Observability = () => {
   useEffect(() => {
-    initializeFaro({
-      url: url,
-      app: { name: "tms-min-side" },
+    init({
+      app: "tms-min-side",
+      namespace: "min-side",
+      tracing: true,
     });
   }, []);
 

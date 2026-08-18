@@ -9,6 +9,9 @@ metadata:
     config.linkerd.io/proxy-memory-limit: "512Mi"
     config.linkerd.io/proxy-memory-request: "128Mi"
 spec:
+  frontend:
+    generatedConfig:
+      mountPath: /usr/src/app/nais.js
   observability:
     autoInstrumentation:
       enabled: true
@@ -111,8 +114,6 @@ spec:
       value: "http://tms-utbetalingsoversikt-api/tms-utbetalingsoversikt-api/utbetalinger/minside-widget"
     - name: UTBETALINGSOVERSIKT_URL
       value: "https://www.nav.no/utbetalingsoversikt"
-    - name: PUBLIC_TELEMETRY_URL
-      value: "https://telemetry.nav.no/collect"
     - name: PUBLIC_LEGACY_SELECTOR_URL
       value: "https://www.nav.no/tms-min-side-proxy/selector/din-oversikt"
   resources:

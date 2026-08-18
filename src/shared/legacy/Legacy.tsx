@@ -1,3 +1,4 @@
+import { withApmErrorBoundary } from "@nais/apm/react";
 import { useLogComposition } from "./useLogComposition";
 
 interface Props {
@@ -10,4 +11,6 @@ const Legacy = ({ url }: Props) => {
   return null;
 };
 
-export default Legacy;
+export default withApmErrorBoundary(Legacy, {
+  fingerprint: "legacy-composition-render",
+});

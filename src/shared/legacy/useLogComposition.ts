@@ -1,3 +1,4 @@
+import { captureException } from "@nais/apm";
 import type { PersonalizedContent } from "@src/features/din-oversikt/DinOversiktTypes";
 import { fetcher, include } from "@src/shared/utils/client/api.ts";
 import { logGroupedEvent, logMfEvent } from "@src/shared/utils/client/umami.ts";
@@ -11,6 +12,7 @@ export const useLogComposition = (url: string) => {
     fetcher,
     {
       onSuccess: (data) => data.microfrontends.map((mf) => logMfEvent(`minside.${mf.microfrontend_id}`, true)),
+      onError: (error) => captureException(error, { fingerprint: "legacy-composition-fetch" }),
     },
   );
 
@@ -20,14 +22,20 @@ export const useLogComposition = (url: string) => {
       const produktProperties = getProduktPropertiesLegacy("nb", personalizedContent);
 
       if (hasMicrofrontendsLegacy(personalizedContent?.microfrontends)) {
-        personalizedContent?.microfrontends?.map((mf) => liste.push(mf.microfrontend_id));
+        personalizedContent.microfrontends.forEach((mf) => {
+          liste.push(mf.microfrontend_id);
+        });
       }
 
       if (hasAktueltMicrofrontendsLegacy(personalizedContent?.aktuelt)) {
-        personalizedContent?.aktuelt?.map((mf) => liste.push("Aktuelt - " + mf.microfrontend_id));
+        personalizedContent.aktuelt.forEach((mf) => {
+          liste.push(`Aktuelt - ${mf.microfrontend_id}`);
+        });
       }
 
-      produktProperties?.map((produktkort) => liste.push("Produktkort - " + produktkort.tittel));
+      produktProperties?.forEach((produktkort) => {
+        liste.push(`Produktkort - ${produktkort.tittel}`);
+      });
 
       if (personalizedContent?.meldekort) {
         liste.push("meldekort");
@@ -36,5 +44,5 @@ export const useLogComposition = (url: string) => {
       liste.sort();
       logGroupedEvent(liste.toString());
     }
-  }, [!isLoadingMicrofrontends]);
+  }, [isLoadingMicrofrontends, personalizedContent]);
 };

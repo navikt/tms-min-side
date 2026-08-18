@@ -142,11 +142,6 @@ export default defineConfig({
         access: "secret",
         default: "http://localhost:4321/utbetalingsoversikt",
       }),
-      PUBLIC_TELEMETRY_URL: envField.string({
-        context: "server",
-        access: "secret",
-        default: "http://localhost:4321/collect",
-      }),
       PUBLIC_LEGACY_SELECTOR_URL: envField.string({
         context: "server",
         access: "secret",

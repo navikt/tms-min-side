@@ -63,4 +63,3 @@ Kjør `pnpm run` for å se alle tilgjengelige kommandoer. Lokalt kjøres appen p
 Spørsmål til koden eller prosjektet kan stilles som issues her på GitHub.
 
 For Nav-ansatte: send interne henvendelser på Slack i kanalen #team-minside.
-
