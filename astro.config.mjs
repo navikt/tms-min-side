@@ -50,6 +50,7 @@ export default defineConfig({
             "react-dom",
             "react-dom/client",
             "scheduler",
+            "use-sync-external-store/shim",
           ];
         },
       },
