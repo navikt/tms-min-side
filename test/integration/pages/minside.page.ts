@@ -61,4 +61,8 @@ export class MinSidePage {
   microfrontend(name: string): Locator {
     return this.page.getByRole("heading", { name, level: 3, exact: true });
   }
+
+  kort(tittel: string, ingress: string): Locator {
+    return this.page.getByRole("link", { name: `${tittel} ${ingress}`, exact: true });
+  }
 }
