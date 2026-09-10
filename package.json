@@ -53,7 +53,7 @@
     "jsdom": "30.0.1",
     "lefthook": "2.1.10",
     "prop-types": "15.8.1",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=24.0.0",
