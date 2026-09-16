@@ -20,7 +20,7 @@
     "@astrojs/node": "11.1.5",
     "@astrojs/react": "6.0.5",
     "@nais/apm": "0.6.0",
-    "@nanostores/react": "1.1.0",
+    "@nanostores/react": "2.0.1",
     "@navikt/aksel-icons": "8.16.1",
     "@navikt/astro-auth": "1.0.8",
     "@navikt/astro-logger": "1.0.0",
