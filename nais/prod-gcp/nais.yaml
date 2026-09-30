@@ -66,6 +66,8 @@ spec:
           namespace: dusseldorf
         - application: k9-innsyn-dine-pleiepenger-mikrofrontend-ssr
           namespace: dusseldorf
+        - application: aktivitetspenger-innsyn-mikrofrontend-ssr
+          namespace: dusseldorf
         - application: familie-ba-minside-mikrofrontend
           namespace: teamfamilie
         - application: familie-ef-mikrofrontend-minside
