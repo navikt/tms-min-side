@@ -3,7 +3,7 @@ name: Digestabot Auto-merge
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 9 * * 1"
+    - cron: "0 8 * * 1"
 
 env:
   TZ: Europe/Oslo

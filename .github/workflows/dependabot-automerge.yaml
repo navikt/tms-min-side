@@ -3,7 +3,7 @@ name: Dependabot Auto-merge
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * MON-FRI"
+    - cron: "0 9 * * MON-FRI"
 
 env:
   TZ: Europe/Oslo
