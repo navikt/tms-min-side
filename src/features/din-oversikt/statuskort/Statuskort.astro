@@ -1,0 +1,30 @@
+---
+import { ChevronRightIcon as Chevron } from "@navikt/aksel-icons";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import styles from "./Statuskort.module.css";
+import type { StatuskortType } from "./StatuskortTypes";
+
+interface Props {
+  statuskort: StatuskortType;
+}
+
+const { statuskort } = Astro.props;
+---
+
+<a class={styles.container} href={statuskort.link}>
+  <svg
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <circle cx="28" cy="28" r="24" fill="#CCE2F0"></circle>
+  </svg>
+  <div>
+    <Heading size="small" level="3">{statuskort.tittel}</Heading>
+    <BodyLong size="medium">{statuskort.beskrivelse}</BodyLong>
+  </div>
+  <Chevron className={styles.chevron} aria-hidden={true} fontSize="24px" />
+</a>
