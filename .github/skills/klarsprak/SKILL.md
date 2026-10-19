@@ -1,6 +1,6 @@
 ---
 name: klarsprak
-description: "Redigér og kvalitetssikre norsk tekst: klarspråk, fjerning av KI-markører, anglisismer, fagtermer og nynorsk/svensk-innblanding. Bruk denne skillen hver gang du skriver, redigerer eller språkvasker norsk tekst — README-er, ADR-er, UI-tekst, blogginnlegg, dokumentasjon, e-poster, commit-meldinger og PR-beskrivelser — også når brukeren ikke sier «klarspråk» eksplisitt, men bare ber om hjelp med norsk tekst."
+description: "Redigér og kvalitetssikre norsk tekst som havner i en fil eller blir publisert: README-er, dokumentasjon, ADR-er, UI-tekst, nettsider, nyhetssaker, e-poster, commit-meldinger og PR- og issue-beskrivelser. Bruk den også når brukeren limer inn norsk tekst og ber om språkvask eller korrektur. Dekker klarspråk, KI-markører, anglisismer, fagtermer og nynorsk/svensk-innblanding. Ikke bruk den for vanlige chatsvar, heller ikke når svaret er på norsk eller forklarer hvordan kode virker."
 license: "MIT"
 ---
 
@@ -182,7 +182,7 @@ Ikke oversett engelske tekniske termer som er etablert i norsk fagspråk:
 - edge case (ikke «grensetilfelle»), bug (ikke «feil» alene), bugfix, hotfix, patch
 - roadmap (ikke «veikart»), governance, community (i open source-kontekst)
 - pipeline, workflow, runtime, framework, middleware
-- pull request, merge, commit, branch, rebase
+- pull request, merge (ikke «slått sammen», «sammenslått» eller «flettet»; bøyes merget, mergede), commit, branch (ikke «gren»), rebase
 - endpoint, payload, token, scope, host (ikke «vert» eller «vertsnavn»)
 - skill (ikke «ferdighet»), hook (ikke «krok»), prompt (ikke «ledetekst»)
 
