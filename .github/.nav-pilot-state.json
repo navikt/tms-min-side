@@ -1,8 +1,8 @@
 {
   "collection": "nav-pilot",
-  "version": "2026.10.19-052427-b9e6850",
+  "version": "2026.10.25-034335-3e799c9",
   "scope": "repo",
-  "source_sha": "8d7657659d06cb693b86e03ba136d28abfde5295",
+  "source_sha": "ca96b9428d1580bdef8d75e0c56249193f8c45e0",
   "installed_at": "2026-04-24T09:58:45Z",
   "files": [
     {
@@ -16,16 +16,18 @@
     },
     {
       "path": ".github/agents/aksel.agent.md",
-      "hash": "700721ce34d631f5",
-      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
+      "hash": "c14ba829b924f33c",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/agents/aksel.metadata.json",
-      "hash": "f81b02c28e251a4f"
+      "hash": "edd519d170faf775",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/agents/code-review.agent.md",
-      "hash": "811b2a6765ff86de"
+      "hash": "fa76255226b84d06",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/agents/forfatter.agent.md",
@@ -47,8 +49,8 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "71e46ac2868cbf2e",
-      "revision": "8d7657659d06cb693b86e03ba136d28abfde5295"
+      "hash": "763a798b28967762",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -120,7 +122,8 @@
     },
     {
       "path": ".github/instructions/nextjs-aksel.instructions.md",
-      "hash": "342cce96431f6ca5"
+      "hash": "0b83049114a7b86a",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/instructions/norwegian-text.instructions.md",
@@ -156,8 +159,8 @@
     },
     {
       "path": ".github/prompts/aksel-component.prompt.md",
-      "hash": "fa646ea49f00e34e",
-      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
+      "hash": "a86d83671cddc887",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/prompts/nais-manifest.prompt.md",
@@ -170,11 +173,8 @@
     },
     {
       "path": ".github/skills/aksel-builder/",
-      "hash": "3075f3a92c2eb6fc"
-    },
-    {
-      "path": ".github/skills/aksel-spacing/",
-      "hash": "177594fc5ae8d7e3"
+      "hash": "8bb00941b6cd738a",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/skills/api-design/",
@@ -241,7 +241,8 @@
     },
     {
       "path": ".github/skills/nav-deep-interview/",
-      "hash": "eeb3399ecd4e352c"
+      "hash": "c830bf6956bda64f",
+      "revision": "ca96b9428d1580bdef8d75e0c56249193f8c45e0"
     },
     {
       "path": ".github/skills/nav-dekoratoren/",
