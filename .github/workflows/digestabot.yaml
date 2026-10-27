@@ -22,3 +22,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team: min-side
+          working-dir: Dockerfile
