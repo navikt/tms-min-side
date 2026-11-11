@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/check": "0.9.12",
     "@astrojs/node": "11.1.9",
-    "@astrojs/react": "7.1.1",
+    "@astrojs/react": "7.1.2",
     "@nais/apm": "0.7.3",
     "@nanostores/react": "1.1.0",
     "@navikt/aksel-icons": "8.20.1",
@@ -28,7 +28,7 @@
     "@navikt/ds-react": "8.20.1",
     "@navikt/nav-dekoratoren-moduler": "4.5.3",
     "@navikt/oasis": "4.2.2",
-    "astro": "7.4.2",
+    "astro": "7.4.5",
     "dayjs": "1.11.23",
     "nanostores": "1.5.5",
     "prom-client": "15.1.3",
