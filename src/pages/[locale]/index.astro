@@ -9,7 +9,7 @@ import InnboksFallback from "@src/features/innboks/fallback/InnboksFallback.astr
 import Innboks from "@src/features/innboks/Innboks.astro";
 import InnloggedeTjenester from "@src/features/innloggede-tjenester/InnloggedeTjenester.astro";
 import Personalia from "@src/features/personalia/Personalia.astro";
-import SubstantialInfo from "@src/features/substantial-info/SubstantialInfo.astro";
+import SubstantialInfo from "@src/features/substantial-info/SubstantialInfo";
 import UtbetalingFallback from "@src/features/utbetaling/fallback/UtbetalingFallback.astro";
 import Utbetaling from "@src/features/utbetaling/Utbetaling.astro";
 import Layout from "@src/layouts/Layout.astro";
@@ -21,11 +21,12 @@ import Observability from "@src/shared/obersvability/Observability";
 import { getLocale } from "@src/shared/utils/server/locale";
 
 const locale = getLocale(Astro.currentLocale);
+const isSubstantial = Astro.locals.isSubstantial;
 ---
 
 <Layout title="Min side">
   <Content cls="min-side">
-    <SubstantialInfo />
+    {isSubstantial && <SubstantialInfo locale={locale} />}
     <Feilmelding locale={locale} client:only="react" />
     <Personalia />
     <AlertIsland />
