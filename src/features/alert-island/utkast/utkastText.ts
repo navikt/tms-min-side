@@ -10,8 +10,8 @@ export const text = {
     en: "One started application",
   },
   soknader: {
-    nb: (antall: number) => `Du har ${antall} påbegynte søknader`,
-    nn: (antall: number) => `Du har starta på ${antall} søknadar`,
-    en: (antall: number) => `you have started on ${antall} applications`,
+    nb: (antall: number) => `Du har ${antall} påbegynte utkast`,
+    nn: (antall: number) => `Du har starta på ${antall} utkast`,
+    en: (antall: number) => `you have started on ${antall} drafts`,
   },
 };
