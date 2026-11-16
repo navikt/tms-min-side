@@ -19,7 +19,7 @@ test.describe("Varsler og utkast", () => {
     await minSide.goto();
 
     await expect(minSide.utkast).toBeVisible({ timeout });
-    await expect(page.getByText("Du har 2 påbegynte søknader")).toBeVisible({
+    await expect(page.getByText("Du har 2 påbegynte utkast")).toBeVisible({
       timeout,
     });
   });
