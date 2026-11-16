@@ -11,7 +11,21 @@ test.describe("Universell utforming", () => {
     await minSide.expectNameLoaded();
 
     const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
+    const violationDetails = results.violations.map(
+      ({ id, impact, help, helpUrl, nodes }) => ({
+        id,
+        impact,
+        help,
+        helpUrl,
+        nodes: nodes.map(({ target, failureSummary }) => ({
+          target,
+          failureSummary,
+        })),
+      }),
+    );
 
-    expect(results.violations).toEqual([]);
+    expect(results.violations, JSON.stringify(violationDetails, null, 2)).toEqual(
+      [],
+    );
   });
 });
