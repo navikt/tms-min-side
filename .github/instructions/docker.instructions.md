@@ -33,7 +33,7 @@ For Go and nginx, good free alternatives exist in Chainguard's public registry.
 
 - Use major version (e.g. `openjdk-21`, `22-slim`) — **Chainguard does not backport** to minor/patch
 - Recommendation: don't pin SHA. Set up a workflow to rebuild regularly instead
-- Use [digestabot](https://github.com/navikt/digestabot) if you want to pin SHA and get automatic PRs
+- This repo does not pin SHA: it uses the moving major tag and redeploys every Monday (`deploy-main.yaml`)
 
 ```dockerfile
 # ✅ Chainguard fra Navs registry
