@@ -1,5 +1,11 @@
 name: "Deploy dev"
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - "main"
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: "read"

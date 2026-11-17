@@ -17,6 +17,7 @@ jobs:
     uses: navikt/tms-deploy/.github/workflows/dependabot-automerge.yaml@main
     with:
       ignored-dependencies: "react,react-dom"
+      merge-queue: "auto"
     secrets:
       APP_ID: ${{ vars.APP_CLIENT_ID }}
       PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
