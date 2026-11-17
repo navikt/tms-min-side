@@ -17,3 +17,4 @@ Astro 7 SSR app that composes Min side (`nav.no/minside`) from features and serv
 - Features live in `src/features/<feature>/` and do not import from each other. Shared code goes in `src/shared/`. See `docs/VERTICAL_SLICE_ARCHITECTURE.md`.
 - Import with the `@src/*` alias.
 - Use the domain terms in `docs/UBIQUITOUS_LANGUAGE.md` (Innbygger, Varsel, Utkast, Ytelse) in names and text.
+- The Dockerfile uses a moving major tag on purpose; do not pin a SHA. `deploy-main.yaml` redeploys every Monday.
